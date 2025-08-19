@@ -1,22 +1,41 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+package frc.robot;
 
-package edu.wpi.first.wpilibj.templates.educational;
+import frc.lesson.LessonBase;
 
-/**
- * The run() function is called automatically when the robot is enabled. If you change the name of
- * this class or the package after creating this project, you must also update the Main.java file in
- * the project.
- */
 public class Robot extends EducationalRobot {
-  /**
-   * This function is run when the robot is first started up and should be used for any
-   * initialization code.
-   */
-  public Robot() {}
 
-  /** This function is run when the robot is enabled. */
-  @Override
-  public void run() {}
+    private LessonBase currentLesson;
+
+    public Robot() {
+        // Change this ONE value when switching lessons
+        int lessonNumber = 1;
+        String lessonNumberFormatted = String.format("%02d", lessonNumber);
+        String lessonClassName = "frc.lesson.lesson" + lessonNumberFormatted + ".Lesson" + lessonNumberFormatted;
+
+        try {
+            Class<?> clazz = Class.forName(lessonClassName);
+            currentLesson = (LessonBase) clazz.getDeclaredConstructor().newInstance();
+            currentLesson.setup();
+            System.out.println("Loaded lesson: " + lessonClassName);
+        } catch (ClassNotFoundException e) {
+            System.out.println("No lesson found for: " + lessonClassName + " — doing nothing.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error while loading lesson — doing nothing.");
+        }
+    }
+
+    @Override
+    public void run() {
+        if (currentLesson != null) {
+            try {
+                currentLesson.execute();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Lesson threw an error — stopping execution.");
+                currentLesson.cleanup();
+                currentLesson = null;
+            }
+        }
+    }
 }
