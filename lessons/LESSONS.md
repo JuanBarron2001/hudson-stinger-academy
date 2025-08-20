@@ -8,9 +8,11 @@ Learn it. Test it. Break it. Fix it. Own it. 🐝
 
 ## 📚 Table of Contents
 
-| #   | Lesson Title                  | Summary                                                        | Link |
-|-----|--------------------------------|----------------------------------------------------------------|------|
-| 01  | 🖥️ Java Setup & Printouts     | Get your dev environment ready and print your first message.   | [Open Lesson](./LESSON01.md) |
+| #   | Lesson Title                  | Summary                                                                 | Link |
+|-----|--------------------------------|-------------------------------------------------------------------------|------|
+| 01  | 🖥️ Java Setup & Printouts     | Get your dev environment ready and print your first message.            | [Open Lesson](./LESSON01.md) |
+| 02  | 🖥️ Variables in Java          | Learn primitive & reference types, choose correct datatypes, and output to console & SmartDashboard. | [Open Lesson](./LESSON02.md) |
+
 
 
 ---
