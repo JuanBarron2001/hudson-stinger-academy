@@ -30,6 +30,7 @@ public class Robot extends EducationalRobot {
         if (currentLesson != null) {
             try {
                 currentLesson.execute();
+                currentLesson.logSmartDashboardChanges();
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Lesson threw an error — stopping execution.");

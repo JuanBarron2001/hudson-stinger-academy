@@ -7,6 +7,7 @@ public class Lesson01 extends LessonBase{
     @Override
     public void execute()
     {
-        //SmartDashboard.putString("Testing SmartDashboard", "Hello From SmartDashboard");
+        double rand = Math.random();
+        SmartDashboard.putString("Testing SmartDashboard", "Hello From SmartDashboard" + rand);
     }
 }
