@@ -87,3 +87,12 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 > 🐝 *"The sting is in the details — master them, and you master the bot."*
+
+```LOG
+Note to self: Delete this before lessons are done
+Lesson02 - alongside variables introduce motor
+show that output is both the SmartDashboard and robot components
+this should also segway to lesson03 input
+basic give them one motor
+challenge have them code the intake
+```
