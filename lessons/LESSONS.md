@@ -12,6 +12,8 @@ Learn it. Test it. Break it. Fix it. Own it. 🐝
 |-----|--------------------------------|-------------------------------------------------------------------------|------|
 | 01  | 🖥️ Java Setup & Printouts     | Get your dev environment ready and print your first message.            | [Open Lesson](./LESSON01.md) |
 | 02  | 🖥️ Variables in Java          | Learn primitive & reference types, choose correct datatypes, and output to console & SmartDashboard. | [Open Lesson](./LESSON02.md) |
+| 03  | 🖥️ Accepting User Input in Java | Use the Scanner class to read Strings, numbers, and booleans, handle input issues, and send data to SmartDashboard. | [Open Lesson](./LESSON03.md) |
+
 
 
 
