@@ -11,6 +11,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.lesson.LessonBase;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -21,14 +22,20 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private LessonBase currentLesson;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  private final CommandXboxController m_driverController = new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
+    configureBindings();
+  }
+
+  public RobotContainer(int lessonNumber)
+  {
+    loadLesson(lessonNumber);
     configureBindings();
   }
 
@@ -51,6 +58,24 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
 
+  private void loadLesson(int lessonNumber) {
+    try {
+      String lessonNumberFormatted = String.format("%02d", lessonNumber);
+      String lessonClassName =
+          "frc.lesson.lesson" + lessonNumberFormatted + ".Lesson" + lessonNumberFormatted;
+
+      Class<?> clazz = Class.forName(lessonClassName);
+      currentLesson = (LessonBase) clazz.getDeclaredConstructor().newInstance();
+      currentLesson.setup(); // Let lesson create subsystems & commands
+      System.out.println("Loaded lesson: " + lessonClassName);
+    } catch (ClassNotFoundException e) {
+      System.out.println("No lesson found for: " + lessonNumber + " — skipping.");
+    } catch (Exception e) {
+      e.printStackTrace();
+      System.out.println("Error while loading lesson.");
+    }
+  }
+
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
@@ -59,5 +84,11 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     return Autos.exampleAuto(m_exampleSubsystem);
+  }
+
+  public void teleopPeriodic()
+  {
+    this.currentLesson.execute();
+    this.currentLesson.logSmartDashboardChanges();
   }
 }
