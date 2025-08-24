@@ -28,6 +28,19 @@ public class LessonRunner {
                 scanner.close();
                 return;
             }
+            scanner.close();
+
+            if(lessonNum.equals("03"))
+            {
+                LessonInput lessonInput = new LessonInput();
+                lessonInput.addScriptedLine("First Last");          // int
+                lessonInput.addScriptedLine("Math");     // double
+                lessonInput.addScriptedLine("92.3");           // char
+                lessonInput.addScriptedLine("95.7"); // string
+                lessonInput.addScriptedLine("90.1"); // string
+                lessonInput.addScriptedLine("91.2"); // string
+                System.setIn(lessonInput);
+            }
 
             runProgram(lessonNum, className);
 
@@ -39,8 +52,6 @@ public class LessonRunner {
             System.out.println("❌ Something happened — it might be this program or your program.\n"
                              + "   Reach out to your Programming Mentor or Head Programmer Student.");
         }
-
-        scanner.close();
     }
 
     private static void printOutBanner()
