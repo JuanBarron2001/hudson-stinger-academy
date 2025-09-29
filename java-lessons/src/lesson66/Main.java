@@ -1,4 +1,4 @@
-package lesson03;
+package lesson66;
 import lessonRunner.BaseLesson;
 
 
