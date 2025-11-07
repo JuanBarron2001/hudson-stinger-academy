@@ -1,0 +1,11 @@
+package frc.lesson.lesson64.extra;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.lesson.LessonBase;
+
+public class Lesson64 extends LessonBase {
+    @Override
+    public void execute() {
+        //SmartDashboard.putString("Testing SmartDashboard", "Hello From SmartDashboard: ");
+    }
+}
