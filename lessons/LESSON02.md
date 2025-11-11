@@ -53,14 +53,16 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ## 🤖 Part 2 – Robot Code (2 pts)
 
 **Basic (1 pt)**  
-- Output your **team number** to the **SmartDashboard** as a variable.
+- Output your **team number** to the **SmartDashboard** as a variable.  
+- Move one wheel on the drivetrain at **0.25 speed** and output that speed to the **SmartDashboard**.
 
 **Extra (1 pt)**  
-- Output **multiple variables** to the SmartDashboard:  
-  - Team number  
-  - Team name  
-  - At least **two more values** of different types (e.g., robot speed as a double, match-ready status as a boolean, driver name as a string).  
-  - The goal is to experiment with **different data types** in SmartDashboard.
+- Output your **team number** and **team name** to the **SmartDashboard**.  
+- Create **4 drivetrain motors** with their **IDs** stored as variables.  
+- Set all motors to a chosen **speed** (under **0.5**) using a **speed variable**.  
+- Output the **speed of all 4 motors** to the **SmartDashboard**.
+
+
 
 ---
 
@@ -87,12 +89,3 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 > 🐝 *"The sting is in the details — master them, and you master the bot."*
-
-```LOG
-Note to self: Delete this before lessons are done
-Lesson02 - alongside variables introduce motor
-show that output is both the SmartDashboard and robot components
-this should also segway to lesson03 input
-basic give them one motor
-challenge have them code the intake
-```
