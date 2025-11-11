@@ -67,10 +67,15 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
   - Set a motor’s speed to match that axis value
 
 **Extra (1 pt)**  
-- Program an **intake system** with two motors that can:
-  - **Intake** when a certain button is pressed
-  - **Outtake** when another button is pressed
-  - Optionally: scale the motor speed based on joystick axis math (e.g., half‑speed mode)
+- Program your **drivetrain motors** (from Lesson 02).  
+- Add **controller input** so you can drive in different styles:  
+  - Use **buttons** for simple forward, backward, steer left, and steer right.  
+  - Use **axes** to experiment with driving modes:  
+    - **Tank drive** (each stick controls one side).  
+    - **Arcade drive** (one stick for forward/back, one stick for turning).  
+    - **Cheesy drive** (mix of throttle + quick‑turn).  
+- Output the chosen **axis/button values** and **motor speeds** to the **SmartDashboard** so you can see what’s happening.
+
 
 ---
 
