@@ -20,15 +20,15 @@ Learn to:
 
 ### 📊 For the Marathon Watchers  
 If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
-- **Start Time in 12‑Hour Video:** [HH:MM:SS](full‑course‑link)  
-- **Full Course (12h video):** [Watch Compilation](full‑course‑link)
+- **Start Time in 12‑Hour Video:** [00:31:30](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=1890s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
 If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
-- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](playlist‑link)  
-- **This Lesson Only:** [Watch Lesson 03](lesson‑link)
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc) 
+- **This Lesson Only:** [Watch Lesson 03](https://www.youtube.com/watch?v=RAthlOQUMkc&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=3)
 
 ---
 
@@ -46,7 +46,7 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 **Extra (1 pt)**  
 - Write a program that:
-  - Asks for **four doubles**: the scores of the last 4 assignments
+  - Asks for **Name**, **Class**, **four doubles**: the scores of the last 4 assignments
   - Calculates the **average score**
   - Prints a **“report card”** style output, for example:  
     ```
@@ -55,7 +55,6 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
     Assignment Scores: <score1>, <score2>, <score3>, <score4>
     Average Score: <average>
     ```
-  - You can hard‑code the name/class for now if you want to avoid extra `Scanner` calls
 
 ---
 
@@ -68,10 +67,15 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
   - Set a motor’s speed to match that axis value
 
 **Extra (1 pt)**  
-- Program an **intake system** with two motors that can:
-  - **Intake** when a certain button is pressed
-  - **Outtake** when another button is pressed
-  - Optionally: scale the motor speed based on joystick axis math (e.g., half‑speed mode)
+- Program your **drivetrain motors** (from Lesson 02).  
+- Add **controller input** so you can drive in different styles:  
+  - Use **buttons** for simple forward, backward, steer left, and steer right.  
+  - Use **axes** to experiment with driving modes:  
+    - **Tank drive** (each stick controls one side).  
+    - **Arcade drive** (one stick for forward/back, one stick for turning).  
+    - **Cheesy drive** (mix of throttle + quick‑turn).  
+- Output the chosen **axis/button values** and **motor speeds** to the **SmartDashboard** so you can see what’s happening.
+
 
 ---
 
@@ -84,11 +88,10 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
   - What each controller controlled
 
 **Extra (1 pt)**  
-- **[Leave Blank for Now]** – Possible ideas:
-  - Map out **all button bindings** and describe their purpose
-  - Find unused controller inputs and suggest how they could be repurposed
-  - Identify any **hard‑coded axis/button numbers** and suggest replacing them with named constants
-  - Trace one controller input through the code to see exactly how it affects a subsystem
+- Map out **all button bindings** from last year’s code and describe their purpose.  
+- Identify any **hard‑coded axis/button numbers** and suggest replacing them with named constants.  
+- Bonus: Trace one controller input through the code to show how it affects a subsystem.
+
 
 ---
 
@@ -101,10 +104,3 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 > 🐝 *"The sting is in the details — master them, and you master the bot."*
-
-```LOG
-Note to self: Delete this before lessons are done
-Lesson03 - need to pick what to for extra part 3
-need to add the links to the video
-not md related but will just try catch to see if they do basic or extra and handle it accordingly
-```

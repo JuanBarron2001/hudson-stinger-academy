@@ -20,7 +20,7 @@ Learn to:
 
 ### 📊 For the Marathon Watchers  
 If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
-- **Start Time in 12‑Hour Video:** TBD  
+- **Start Time in 12‑Hour Video:** [00:54:08](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=3248s)  
 - **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
@@ -28,7 +28,7 @@ If you’re following the **full 12‑hour compilation** and want to see how far
 ### 🎯 For the Quick‑Hit Learners  
 If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
 - **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
-- **This Lesson Only:** Watch Lesson 04 (TBD)
+- **This Lesson Only:** [Watch Lesson 03](https://www.youtube.com/watch?v=QAD5unRlCyo&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=5)
 
 ---
 
@@ -94,13 +94,3 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 > 🐝 *"Math isn’t just numbers — it’s the language your robot speaks."*
-
-```LOG
-Note to self: Delete this before lessons are done
-Lesson04 – two variables → do all math → print
-Extra – ask for input → compute → print
-FRC basic – motorSpeed / 2 → SmartDashboard
-FRC extra – theoretical RPM & linear speed from joystick; research required
-Archaeology – find math; explain; propose improvements or geometry pseudo-code
-Segue – leads into Lesson03 (input) by reading joystick & console inputs
-```
