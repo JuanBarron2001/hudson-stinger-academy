@@ -88,11 +88,10 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
   - What each controller controlled
 
 **Extra (1 pt)**  
-- **[Leave Blank for Now]** – Possible ideas:
-  - Map out **all button bindings** and describe their purpose
-  - Find unused controller inputs and suggest how they could be repurposed
-  - Identify any **hard‑coded axis/button numbers** and suggest replacing them with named constants
-  - Trace one controller input through the code to see exactly how it affects a subsystem
+- Map out **all button bindings** from last year’s code and describe their purpose.  
+- Identify any **hard‑coded axis/button numbers** and suggest replacing them with named constants.  
+- Bonus: Trace one controller input through the code to show how it affects a subsystem.
+
 
 ---
 
@@ -105,10 +104,3 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 > 🐝 *"The sting is in the details — master them, and you master the bot."*
-
-```LOG
-Note to self: Delete this before lessons are done
-Lesson03 - need to pick what to for extra part 3
-need to add the links to the video
-not md related but will just try catch to see if they do basic or extra and handle it accordingly
-```
