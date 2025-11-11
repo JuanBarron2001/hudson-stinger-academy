@@ -70,10 +70,3 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 > 🐝 *"The sting is in the details — master them, and you master the bot."*
-
-```LOG
-Note to self: Delete this before lessons are done
-Lesson01 - have the smartdashboard be the base
-reasoning not dealing with a variables yet
-resembles System.out.println
-```
