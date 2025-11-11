@@ -26,7 +26,8 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     int lessonNumber = 1;
-    m_robotContainer = new RobotContainer(lessonNumber);
+    boolean isExtra = false;
+    m_robotContainer = new RobotContainer(lessonNumber, isExtra);
   }
 
   /**
