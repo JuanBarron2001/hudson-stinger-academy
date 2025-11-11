@@ -20,15 +20,15 @@ Learn to:
 
 ### 📊 For the Marathon Watchers  
 If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
-- **Start Time in 12‑Hour Video:** [HH:MM:SS](full‑course‑link)  
-- **Full Course (12h video):** [Watch Compilation](full‑course‑link)
+- **Start Time in 12‑Hour Video:** [00:31:30](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=1890s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
 If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
-- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](playlist‑link)  
-- **This Lesson Only:** [Watch Lesson 03](lesson‑link)
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc) 
+- **This Lesson Only:** [Watch Lesson 03](https://www.youtube.com/watch?v=RAthlOQUMkc&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=3)
 
 ---
 
