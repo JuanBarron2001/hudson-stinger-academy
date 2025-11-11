@@ -50,6 +50,11 @@ public class LessonRunner {
                 lessonInput.addScriptedLine("90.1");
                 lessonInput.addScriptedLine("91.2");
                 System.setIn(lessonInput);
+            } else if(lessonNum.equals("04"))
+            {
+                LessonInput lessonInput = new LessonInput();
+                lessonInput.addScriptedLine("6");
+                lessonInput.addScriptedLine("7");
             }
             runProgram(lessonNum+".extra", className);
 
