@@ -94,13 +94,3 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 > 🐝 *"Math isn’t just numbers — it’s the language your robot speaks."*
-
-```LOG
-Note to self: Delete this before lessons are done
-Lesson04 – two variables → do all math → print
-Extra – ask for input → compute → print
-FRC basic – motorSpeed / 2 → SmartDashboard
-FRC extra – theoretical RPM & linear speed from joystick; research required
-Archaeology – find math; explain; propose improvements or geometry pseudo-code
-Segue – leads into Lesson03 (input) by reading joystick & console inputs
-```
