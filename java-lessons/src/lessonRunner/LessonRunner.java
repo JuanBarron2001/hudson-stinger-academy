@@ -34,17 +34,23 @@ public class LessonRunner {
             if(lessonNum.equals("03"))
             {
                 LessonInput lessonInput = new LessonInput();
-                lessonInput.addScriptedLine("First Last");          // int
-                lessonInput.addScriptedLine("Math");     // double
-                lessonInput.addScriptedLine("92.3");           // char
-                lessonInput.addScriptedLine("95.7"); // string
-                lessonInput.addScriptedLine("90.1"); // string
-                lessonInput.addScriptedLine("91.2"); // string
+                lessonInput.addScriptedLine("6.7");
+                lessonInput.addScriptedLine("2.1");
                 System.setIn(lessonInput);
             }
-
             runProgram(lessonNum+".basic", className);
             System.out.println("-----------------------------------------------");
+            if(lessonNum.equals("03"))
+            {
+                LessonInput lessonInput = new LessonInput();
+                lessonInput.addScriptedLine("First Last");
+                lessonInput.addScriptedLine("Math");
+                lessonInput.addScriptedLine("92.3");
+                lessonInput.addScriptedLine("95.7");
+                lessonInput.addScriptedLine("90.1");
+                lessonInput.addScriptedLine("91.2");
+                System.setIn(lessonInput);
+            }
             runProgram(lessonNum+".extra", className);
 
         } catch (ClassNotFoundException e) {

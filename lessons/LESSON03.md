@@ -46,7 +46,7 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 **Extra (1 pt)**  
 - Write a program that:
-  - Asks for **four doubles**: the scores of the last 4 assignments
+  - Asks for **Name**, **Class**, **four doubles**: the scores of the last 4 assignments
   - Calculates the **average score**
   - Prints a **“report card”** style output, for example:  
     ```
@@ -55,7 +55,6 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
     Assignment Scores: <score1>, <score2>, <score3>, <score4>
     Average Score: <average>
     ```
-  - You can hard‑code the name/class for now if you want to avoid extra `Scanner` calls
 
 ---
 
