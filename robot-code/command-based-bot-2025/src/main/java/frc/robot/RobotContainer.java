@@ -33,9 +33,9 @@ public class RobotContainer {
     configureBindings();
   }
 
-  public RobotContainer(int lessonNumber)
+  public RobotContainer(int lessonNumber, boolean isExtra)
   {
-    loadLesson(lessonNumber);
+    loadLesson(lessonNumber, isExtra);
     configureBindings();
   }
 
@@ -58,11 +58,11 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
 
-  private void loadLesson(int lessonNumber) {
+  private void loadLesson(int lessonNumber, boolean isExtra) {
     try {
       String lessonNumberFormatted = String.format("%02d", lessonNumber);
       String lessonClassName =
-          "frc.lesson.lesson" + lessonNumberFormatted + ".Lesson" + lessonNumberFormatted;
+          "frc.lesson.lesson" + lessonNumberFormatted + (isExtra ? ".extra" : ".basic") + ".Lesson" + lessonNumberFormatted;
 
       Class<?> clazz = Class.forName(lessonClassName);
       currentLesson = (LessonBase) clazz.getDeclaredConstructor().newInstance();

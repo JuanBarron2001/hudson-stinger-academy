@@ -21,14 +21,15 @@ public class LessonRunner {
                 return;
             }
 
-            System.out.print("Enter program/class to run (e.g. Main): ");
-            String className = scanner.nextLine().trim();
-            if (className.isBlank()) {
-                System.err.println("❌ No class name entered.");
-                scanner.close();
-                return;
-            }
+            // System.out.print("Enter program/class to run (e.g. Main): ");
+            // String className = scanner.nextLine().trim();
+            // if (className.isBlank()) {
+            //     System.err.println("❌ No class name entered.");
+            //     scanner.close();
+            //     return;
+            // }
             scanner.close();
+            String className = "Main"; // assuming Main for now for everything
 
             if(lessonNum.equals("03"))
             {
@@ -42,7 +43,9 @@ public class LessonRunner {
                 System.setIn(lessonInput);
             }
 
-            runProgram(lessonNum, className);
+            runProgram(lessonNum+".basic", className);
+            System.out.println("-----------------------------------------------");
+            runProgram(lessonNum+".extra", className);
 
         } catch (ClassNotFoundException e) {
             System.err.println("❌ No such class found. Check the lesson number or program name.");
