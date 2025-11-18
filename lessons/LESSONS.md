@@ -20,7 +20,7 @@ Learn it. Test it. Break it. Fix it. Own it. 🐝
 | [ ] | 08  | 🖥️ The `printf` Statement in Java      | Format console output with placeholders, precision, and alignment.      | [Open Lesson](./LESSON08.md) | [WORK IN PROGRESS] |
 | [ ] | 09  | 🖥️ Nested If Statements in Java        | Combine multiple conditions with nested decision structures.            | [Open Lesson](./LESSON09.md) | [WORK IN PROGRESS] |
 | [ ] | 10  | 🖥️ Useful String Methods in Java       | Explore methods like `length`, `charAt`, `indexOf`, and `equals`.       | [Open Lesson](./LESSON10.md) | [WORK IN PROGRESS] |
-| [ ] | 11  | 🖥️ The `substring` Method in Java      | Extract parts of strings using `substring(begin, end)`.                 | [Open Lesson](./LESSON11.md) | [AI_SLOB] |
+| [ ] | 11  | 🖥️ The `substring` Method in Java      | Extract parts of strings using `substring(begin, end)`.                 | [Open Lesson](./LESSON11.md) | [WORK IN PROGRESS] |
 | [ ] | 12  | 🖥️ The Ternary Operator in Java        | Write compact conditional expressions with `?:`.                        | [Open Lesson](./LESSON12.md) | [AI_SLOB] |
 | [ ] | 13  | 🖥️ Enhanced Switches in Java           | Use modern switch expressions with arrows and `yield`.                  | [Open Lesson](./LESSON13.md) | [AI_SLOB] |
 | [ ] | 14  | 🖥️ Logical Operators in Java           | Combine conditions with `&&`, `||`, and `!`.                            | [Open Lesson](./LESSON14.md) | [AI_SLOB] |
