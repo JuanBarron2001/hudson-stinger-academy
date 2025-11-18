@@ -34,57 +34,84 @@ Learn to:
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Create variables of different types:  
-  - `String name = "SpongeBob";`  
-  - `char firstLetter = 'S';`  
-  - `int age = 30;`  
-  - `double height = 60.5;`  
-  - `boolean isEmployed = true;`  
-- Use `printf` with the correct specifiers:  
-  - `%s` for strings  
-  - `%c` for characters  
-  - `%d` for integers  
-  - `%f` for doubles  
-  - `%b` for booleans  
+- Build a **player profile card** with formatted output:
+  - Create variables: `name` (String), `rank` (int), `wins` (int), `score` (double), `level` (int)
+  - Use `printf` to print a nicely aligned profile with a header and footer
+  - Use `printf` with:
+    - Width specifiers (`%20s`, `%5d`) for alignment
+    - Precision for doubles (`%.2f`)
+    - Flags like `,` for comma-separated numbers or `+` for signs
+    - `%n` for newlines
+  - Example output:
+    ```
+    ================================
+     Player Profile
+    ================================
+     Name:        SpongeBob
+     Rank:        #001
+     Level:       45
+     Wins:        234
+     Score:       12,345.50
+    ================================
+    ```
 
 **Extra (1 pt)**  
-- Demonstrate multiple variables in one line:  
-  [CODE BLOCK]java
-  System.out.printf("%s is %d years old%n", name, age);
-  [CODE BLOCK]  
-- Show precision with doubles (`%.2f`)  
-- Experiment with flags (`+`, `,`, `(`, space)  
-- Use width and justification (`%04d`, `%4d`, `%-4d`)  
+- Build an **interactive "Team Member Profile" card** with Scanner input:
+  - Prompt for: name, team number, role (driver/operator/engineer), years on team, match wins, total hours
+  - Format and print a nicely aligned profile card with all fields
+  - Use consistent width and precision throughout
+  - Example: "John Doe | #1690 | Driver | 2 years | 47 wins | 120.5 hrs"  
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
 **Basic (1 pt)**  
-- Use `printf` to format sensor readings with consistent decimal places.  
-- Example: print motor speed with one decimal place.  
+- Format **joystick input** with consistent decimal places and alignment:
+  - Read all 4 axes from an XboxController: left X, left Y, right X, right Y
+  - Use `printf` to print them in an aligned, easy-to-read format:
+    ```
+    Left X:  -0.25  |  Right X:  +0.50
+    Left Y:  +0.75  |  Right Y:  -0.12
+    ```
+  - Use:
+    - `%.2f` for 2 decimal places
+    - `%+` flag to show +/- signs
+    - Width specifiers for alignment
+    - `%n` for newlines
+  - Print this to console every 50-100ms so you can see real-time input
 
 **Extra (1 pt)**  
-- Format telemetry output for SmartDashboard logs:  
-  - Align columns of sensor values using width specifiers.  
-  - Zero‑pad IDs or timestamps for clean alignment.  
+- Build a **match data logger** that captures critical telemetry:
+  - Log the following **every 100ms** (or on a periodic timer):
+    - Timestamp (milliseconds since robot enable)
+    - Joystick inputs (4 axes: left X/Y, right X/Y, each `%+.2f`)
+    - Motor speeds (left wheel, right wheel, each `%+.2f`)
+    - Distance to AprilTag (from Limelight `ta`, in units, `%.1f`)
+  - Format as an aligned table so it's readable when scrolling through logs:
+    ```
+    Time(ms) | LX     LY     RX     RY     | LeftW  RightW | TagDist
+    1250     | -0.25  +0.75  +0.50  -0.12  | +0.60  +0.65  | 24.5
+    1350     | -0.23  +0.76  +0.48  -0.10  | +0.58  +0.63  | 23.8
+    ```
+  - Use consistent width and precision throughout so logs are machine-readable and human-readable
+  - This data is useful for post-match debugging!  
 
 ---
 
 ## 📜 Part 3 – Code Archaeology (2 pts)
 
 **Basic (1 pt)**  
-- Find a place in last year’s robot code where `System.out.println` was used for debugging.  
-- Suggest replacing it with `printf` for cleaner, aligned output.  
+- Find debug output in last year's robot code (console or SmartDashboard prints).  
+- Identify messy or hard-to-read output (inconsistent spacing, no decimal places, values running together).  
+- Suggest how `printf` with proper width and precision would improve readability.  
 
 **Extra (1 pt)**  
-- Propose improvements:  
-  - Use precision for floating‑point sensor data.  
-  - Align multiple values in a table‑like format.  
-- Or write pseudo‑code for formatted telemetry:  
-  [CODE BLOCK]java
-  System.out.printf("ID: %04d | Voltage: %.2f V | Temp: %.1f C%n", id, voltage, temperature);
-  [CODE BLOCK]  
+- Propose a formatted telemetry system for match data:
+  - What data matters most during a match? (sensor values, motor speeds, timing)
+  - Design a table format that's easy to read at a glance
+  - Write pseudo-code for logging that data with `printf`
+  - Consider: What precision do different values need? How should columns be aligned?
 
 ---
 
