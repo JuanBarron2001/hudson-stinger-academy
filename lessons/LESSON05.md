@@ -51,15 +51,23 @@ Learn to:
 ## 🤖 Part 2 – Robot Code (2 pts)
 
 **Basic (1 pt)**  
-- Use an `if` statement to check if joystick input is above a threshold (e.g., `> 0.1`).  
-- If true, set motor speed to joystick value.  
-- Else, set motor speed to zero.  
+- Read joystick input from an XboxController.  
+- Use `if` statements to implement **deadband logic** (ignore small stick movements).  
+  - If joystick input is very small (e.g., `< 0.1`), set motor speed to `0`.  
+  - Else, set motor speed to the joystick value.  
+- Print joystick value and motor command to **SmartDashboard** for debugging.  
+- **Real-world reason:** Joysticks have drift and noise; deadband keeps the robot from creeping unintentionally.
 
 **Extra (1 pt)**  
-- Add multiple conditions:  
-  - If joystick input is very small, treat it as “deadband” (ignore noise).  
-  - If joystick input is high, cap motor speed at a safe maximum.  
-- Print results to **SmartDashboard** for debugging.  
+- Expand deadband logic with multiple thresholds:  
+  - If input is very small (e.g., `< 0.1`) → motor speed = `0` (deadband).  
+  - Else if input is high (e.g., `> 0.8`) → cap motor speed at safe maximum (e.g., `0.8`).  
+  - Else → set motor speed to joystick value.  
+- **Challenge:** Use Limelight data (`tx` offset) instead of joystick to demonstrate `if` logic in auto-targeting:  
+  - If `tx < -5` → turn left (negative motor speed).  
+  - Else if `tx > 5` → turn right (positive motor speed).  
+  - Else → stop turning (motor speed = `0`).  
+- Print target offset and motor command to **SmartDashboard**.
 
 ---
 
