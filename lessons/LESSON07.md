@@ -39,23 +39,37 @@ Learn to:
 - Compare two numbers with `Math.max` and `Math.min`.  
 
 **Extra (1 pt)**  
-- Write a program that asks the user for two numbers.  
-- Compute and print:  
-  - Power (first number raised to the second)  
-  - Absolute difference  
-  - Rounded results (nearest, up, down)  
+- Build a shape area & perimeter calculator:
+  - Prompt the user to pick a shape: **triangle**, **circle**, or **square**.
+  - Ask for the necessary inputs (side length, radius, etc.).
+  - Calculate and print the **area** and **perimeter** (or circumference for circle):
+    - **Triangle:** area = `(base × height) / 2`, perimeter = `side1 + side2 + side3`
+    - **Circle:** area = `Math.PI × radius²`, circumference = `2 × Math.PI × radius`
+    - **Square:** area = `side²`, perimeter = `4 × side`
+  - Use `Math.pow()` and `Math.PI` appropriately.
+  - Format output nicely (e.g., round to 2 decimal places).  
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
 **Basic (1 pt)**  
-- Use `Math.abs()` to ensure motor speed is always positive before sending to the motor controller.  
+- Read joystick input from an XboxController.  
+- Use `Math.max()` and `Math.min()` to **clamp** the joystick value between safe limits (e.g., -1.0 to 1.0).  
+  - Example: `clampedSpeed = Math.max(-1.0, Math.min(1.0, joystickValue))`  
+- Send the clamped value to a motor.  
+- Print both raw and clamped values to **SmartDashboard** to see the difference.  
+- **Real-world reason:** Protects motor controllers from out-of-range values.  
 
 **Extra (1 pt)**  
-- Use `Math.sqrt()` and `Math.pow()` to calculate distance from joystick X/Y input (Pythagorean theorem).  
-- Example: `distance = sqrt(x^2 + y^2)` to determine joystick magnitude.  
-- Display results on **SmartDashboard**.  
+- Calculate **distance to AprilTag** using Limelight data and Pythagorean theorem:
+  - Get Limelight `tx` (horizontal offset) and `ty` (vertical offset).
+  - Use the formula: `distance = sqrt(tx² + ty²)` with `Math.sqrt()` and `Math.pow()`.
+  - Calculate the **angle** to the tag using `Math.atan2(ty, tx)` (in radians).
+  - Convert angle to degrees if desired: `degrees = radians × 180 / Math.PI`.
+  - Use distance to drive toward the tag (closer = faster, far = slower).
+  - Use angle to steer the robot to face the tag.
+  - Print distance, angle (degrees), and motor commands to **SmartDashboard** for debugging.  
 
 ---
 

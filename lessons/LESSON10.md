@@ -37,33 +37,65 @@ Learn to:
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Create a `String name` with your full name (including a space).  
-- Demonstrate:  
-  - `.length()` → number of characters  
-  - `.charAt(index)` → character at a given index  
-  - `.indexOf(char)` and `.lastIndexOf(char)` → first/last occurrence  
+- Build a **magic spell parser** (fun and quirky!):
+  - Take a spell command string like `"cast fireball now"` or `"HEAL"` or `"  teleport   "`
+  - Use string methods to validate and parse:
+    - `.trim()` to remove extra whitespace
+    - `.toUpperCase()` to normalize case
+    - `.contains()` to check for magic keywords: "fireball", "heal", "teleport", "shield"
+    - `.length()` to ensure it's not empty
+  - If valid spell → print `"🔥 Casting Fireball!"` or `"✨ Healing!"`
+  - If invalid → print `"❌ Unknown spell!"`
+  - Test with messy inputs like `"   FIREBALL   "` and `"banana"` to show `.trim()` and `.contains()` working
 
 **Extra (1 pt)**  
-- Show:  
-  - `.toUpperCase()` and `.toLowerCase()`  
-  - `.trim()` to remove whitespace  
-  - `.replace(oldChar, newChar)`  
-  - `.isEmpty()` inside an `if` statement  
-  - `.contains(" ")` to check for spaces  
-  - `.equals()` and `.equalsIgnoreCase()` for string comparison  
+- Build an advanced **recipe ingredient parser**:
+  - Take a recipe command like `"Add 2 cups sugar and vanilla extract"` or `"MIX butter and eggs"` 
+  - Parse using string methods:
+    - `.trim()` to clean input
+    - `.toUpperCase()` to normalize
+    - `.indexOf()` to find key positions (e.g., where "and" appears)
+    - `.contains()` to check for ingredients: "sugar", "butter", "eggs", "vanilla"
+    - `.replace()` to swap ingredient aliases (e.g., "butter" → "unsalted butter")
+  - Extract and list what ingredients were found
+  - Print a clean recipe step: `"Step 1: Mix butter, eggs, and sugar"`
+  - Show how multiple string methods work together to parse complex input  
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
 **Basic (1 pt)**  
-- Use `.equals()` to check robot mode strings (e.g., `"AUTO"`, `"TELEOP"`).  
-- Print which mode the robot is in.  
+- Build a **Shuffleboard command parser** for driver input:
+  - Read a string command from Shuffleboard (e.g., a text field where operator types)
+  - Parse using string methods:
+    - `.trim()` to clean whitespace
+    - `.toLowerCase()` to normalize case
+    - `.contains()` to check for keywords: `"forward"`, `"backward"`, `"spin"`
+  - Based on the command, execute robot actions:
+    - If contains `"forward"` → drive forward
+    - If contains `"backward"` → drive backward
+    - If contains `"spin"` → rotate in place
+    - Else → stop
+  - Print to SmartDashboard what command was understood: `"Operator: 'forward' → DRIVING FORWARD"`
+  - Handle messy input like `"  FORWARD  "` or `"FoRwArD"` by using `.trim()` and `.toLowerCase()`
 
 **Extra (1 pt)**  
-- Use `.contains()` to check if a command string includes `"drive"` or `"shoot"`.  
-- Use `.trim()` to clean up operator input before processing.  
-- Display results on **SmartDashboard**.  
+- Build a **command logger with validation**:
+  - Read operator input from Shuffleboard (text field)
+  - Clean and validate:
+    - `.trim()` whitespace
+    - `.toLowerCase()` for case-insensitivity
+    - `.isEmpty()` check for empty commands
+  - Parse with `.contains()` and `.indexOf()` to extract keywords:
+    - Valid commands: `"forward"`, `"backward"`, `"spin"`, `"stop"`
+  - Log to SmartDashboard:
+    - Raw input: `"  FORWARD please  "`
+    - Cleaned input: `"forward please"`
+    - Recognized keyword: `"forward"`
+    - Action taken: `"DRIVING FORWARD"`
+    - Unknown commands logged as: `"Invalid command: 'banana'"`
+  - Use `.equals()` or `.equalsIgnoreCase()` for exact command matching if desired  
 
 ---
 

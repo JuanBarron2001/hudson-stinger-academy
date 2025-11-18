@@ -33,37 +33,70 @@ Learn to:
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Create two Boolean variables:  
-  - `isStudent`  
-  - `isSenior`  
-- Create a `double price = 9.99;`  
-- Write an `if` statement:  
-  - If student → apply 10% discount (`price *= 0.9`)  
-  - Else → full price  
-- Print result with `printf` to two decimal places.  
+- Build a **movie ticket discount calculator** with nested logic:
+  - Create a `double basePrice = 15.00;`
+  - Create a Boolean variable `isStudent`
+  - Write a nested `if` statement:
+    - If `isStudent` → check nested condition:
+      - If also `isSenior` → apply 30% discount (`price *= 0.7`)
+      - Else → apply 15% discount (`price *= 0.85`)
+    - Else → full price (no discount)
+  - Print the ticket type and final price with `printf` to 2 decimal places
+  - Example output: `"Student+Senior Ticket: $10.50"` or `"Student Ticket: $12.75"` or `"Regular Ticket: $15.00"`
 
 **Extra (1 pt)**  
-- Add nested conditions:  
-  - If student **and** senior → 30% discount (`price *= 0.7`)  
-  - If only senior → 20% discount (`price *= 0.8`)  
-  - If neither → full price  
-- Print messages for each case (student discount, senior discount, both, or none).  
+- Expand with user input and more complex nesting:
+  - Use `Scanner` to prompt for: student status (yes/no), senior status (yes/no), membership tier (BRONZE/SILVER/GOLD/NONE)
+  - Build nested logic:
+    - If student:
+      - If also senior:
+        - If GOLD member → 40% discount
+        - Else if SILVER member → 35% discount
+        - Else → 30% discount
+      - Else (student, not senior):
+        - If GOLD member → 25% discount
+        - Else if SILVER member → 20% discount
+        - Else → 15% discount
+    - Else (not student):
+      - If senior:
+        - If any member tier → 25% discount
+        - Else → 20% discount
+      - Else → full price
+  - Print a clear receipt showing discount reason and final price  
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
 **Basic (1 pt)**  
-- Use nested `if` statements to check robot conditions.  
-- Example:  
-  - If `batteryLow` → reduce motor speed.  
-  - Inside that, if also `isClimbing` → reduce even further.  
+- Use nested `if` statements to implement a **button-triggered targeting system**:
+  - Get alliance color from DriverStation (RED or BLUE)
+  - Get button press state from XboxController (e.g., A button)
+  - Nested logic:
+    - If alliance is RED:
+      - If button is pressed → drive toward AprilTag
+      - Else → stop driving
+    - Else (alliance is BLUE):
+      - If button is pressed → drive away from AprilTag
+      - Else → stop driving
+  - Print the alliance color, button state, and action to **SmartDashboard**
 
 **Extra (1 pt)**  
-- Combine multiple conditions for safety:  
-  - If `isArmExtended` and `isMovingFast` → trigger a warning.  
-  - Else if `isArmExtended` but not moving fast → allow normal operation.  
-- Print results to **SmartDashboard**.  
+- Expand with **multi-level nesting** for smarter strategy:
+  - Get alliance color, button press, and battery voltage (or distance to tag)
+  - Nested logic:
+    - If alliance is RED:
+      - If button is pressed:
+        - If battery is good (> 11.5V) → drive toward tag at full speed
+        - Else → drive toward tag at reduced speed (50%)
+      - Else → stop
+    - Else (alliance is BLUE):
+      - If button is pressed:
+        - If distance to tag is close (< 2 meters) → stop (don't go closer)
+        - Else → drive toward tag
+      - Else → stop
+  - Print decision logic to **SmartDashboard** so you can debug what the robot decided (useful during matches!)
+  - Example: `"RED + Button + LowBattery → Slow Track"` or `"BLUE + Button + CloseToTag → Stop"`  
 
 ---
 
