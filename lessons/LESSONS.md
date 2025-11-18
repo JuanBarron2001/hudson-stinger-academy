@@ -16,7 +16,7 @@ Learn it. Test it. Break it. Fix it. Own it. 🐝
 | [ ] | 04  | 🖥️ Arithmetic Operators in Java | Perform addition, subtraction, multiplication, division, and modulus with variables, handle integer vs. floating‑point division, and apply math in FRC robot code. | [Open Lesson](./LESSON04.md) | [COMPLETE] |
 | [ ] | 05  | 🖥️ If Statements in Java               | Learn how to control program flow with conditional statements.          | [Open Lesson](./LESSON05.md) | [WORK IN PROGRESS] |
 | [ ] | 06  | 🖥️ Random Numbers in Java              | Generate random values using `Random` and `Math.random()` for games and simulations. | [Open Lesson](./LESSON06.md) | [WORK IN PROGRESS] |
-| [ ] | 07  | 🖥️ Math Constants & Methods in Java    | Use built‑in math constants like `PI` and methods like `sqrt`, `pow`, and `abs`. | [Open Lesson](./LESSON07.md) | [AI_SLOB] |
+| [ ] | 07  | 🖥️ Math Constants & Methods in Java    | Use built‑in math constants like `PI` and methods like `sqrt`, `pow`, and `abs`. | [Open Lesson](./LESSON07.md) | [WORK IN PROGRESS] |
 | [ ] | 08  | 🖥️ The `printf` Statement in Java      | Format console output with placeholders, precision, and alignment.      | [Open Lesson](./LESSON08.md) | [AI_SLOB] |
 | [ ] | 09  | 🖥️ Nested If Statements in Java        | Combine multiple conditions with nested decision structures.            | [Open Lesson](./LESSON09.md) | [AI_SLOB] |
 | [ ] | 10  | 🖥️ Useful String Methods in Java       | Explore methods like `length`, `charAt`, `indexOf`, and `equals`.       | [Open Lesson](./LESSON10.md) | [AI_SLOB] |
