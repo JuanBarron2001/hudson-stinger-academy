@@ -3,6 +3,8 @@
 
 # Log file
 *.log
+# ...except lesson logs, which are what students turn in.
+!*-output.log
 
 # BlueJ files
 *.ctxt
