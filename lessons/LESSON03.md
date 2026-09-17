@@ -13,6 +13,7 @@ Learn to:
 - Handle common input issues (like the newline buffer problem)
 - Use input in calculations and conditional logic
 - Close resources properly to avoid unexpected behavior
+- Read the driver's controller and drive the 2026 robot with it
 
 ---
 
@@ -58,40 +59,36 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson03/basic/Lesson03.java` (and `extra/Lesson03.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 **Basic (1 pt)**  
-- Use a controller (joystick/gamepad) input to:
-  - Read the value of one axis
-  - Print that value to **SmartDashboard**
-  - Set a motor’s speed to match that axis value
+- Create the **driver controller** (`new XboxController(0)`) and both **left side** drive motors.
+- Read the left stick's up/down with `driver.getLeftY()`, put it on SmartDashboard, and set both left motors to it.
+- Run it and hold **W**, which pushes the stick forward. Answer in comments:
+  - Is the number **positive or negative**?
+  - Which way does the robot move on **Sim Field**, and why does it turn instead of driving?
 
-**Extra (1 pt)**  
-- Program your **drivetrain motors** (from Lesson 02).  
-- Add **controller input** so you can drive in different styles:  
-  - Use **buttons** for simple forward, backward, steer left, and steer right.  
-  - Use **axes** to experiment with driving modes:  
-    - **Tank drive** (each stick controls one side).  
-    - **Arcade drive** (one stick for forward/back, one stick for turning).  
-    - **Cheesy drive** (mix of throttle + quick‑turn).  
-- Output the chosen **axis/button values** and **motor speeds** to the **SmartDashboard** so you can see what’s happening.
-
+**Extra (1 pt)**: tank drive  
+- Create the driver controller and **all four** drive motors.
+- Left stick drives the left side, right stick drives the right side. Flip each stick's sign with a minus so pushing forward gives a positive number: `double left = -driver.getLeftY();`
+- Hold **W** and **I** together (both sticks forward) and write down what the robot does.
+- **Fix it:** the right side motors are mounted facing the other way, so send them the *opposite* sign. Lesson 28 shows how the competition code does this with a motor setting instead.
+- Put both stick values and both side speeds on SmartDashboard, then **drive a square** on Sim Field.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Search last year’s robot code for **controller definitions** (joysticks/gamepads)
-- Identify:
-  - Which controllers were used
-  - What each controller controlled
+- Open `RobotContainer.java` and find the **three controllers**. For each one: which **port** is it on, who holds it, and what does it control?
 
 **Extra (1 pt)**  
-- Map out **all button bindings** from last year’s code and describe their purpose.  
-- Identify any **hard‑coded axis/button numbers** and suggest replacing them with named constants.  
-- Bonus: Trace one controller input through the code to show how it affects a subsystem.
-
+- `Drive.java` flips the sign of **both** `getLeftY()` and `getRightX()`. You already worked out why Y is flipped. Why is **X** flipped too? *Hint: in WPILib, a positive turn is counterclockwise.*
 
 ---
 
@@ -99,7 +96,7 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 
