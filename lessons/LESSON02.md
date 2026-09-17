@@ -50,33 +50,35 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson02/basic/Lesson02.java` (and `extra/Lesson02.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 **Basic (1 pt)**  
-- Output your **team number** to the **SmartDashboard** as a variable.  
-- Move one wheel on the drivetrain at **0.25 speed** and output that speed to the **SmartDashboard**.
+- Store the **team number** (4295) in a variable and put it on SmartDashboard.
+- Store the **left leader** drive motor's CAN ID in a variable, and use it to create the motor: `new TalonFX(leftLeaderId)`.
+- Store a speed of **0.25** in a variable, set the motor to it, and put the speed on SmartDashboard.
+- Run it and open **Sim Field**. Only one of the robot's four drive motors is pushing. **What does the robot do?** Write your answer as a comment in your code.
 
 **Extra (1 pt)**  
-- Output your **team number** and **team name** to the **SmartDashboard**.  
-- Create **4 drivetrain motors** with their **IDs** stored as variables.  
-- Set all motors to a chosen **speed** (under **0.5**) using a **speed variable**.  
-- Output the **speed of all 4 motors** to the **SmartDashboard**.
-
-
+- Store the **team number** and **team name** in variables and put both on SmartDashboard.
+- Store **all four** drivetrain CAN IDs in variables with clear names (`leftLeaderId`, not `id1`), and create all four motors from them.
+- Pick **one speed under 0.5**, store it in a variable, and set all four motors to it. Put the speed on SmartDashboard.
+- Run it and watch **Sim Field**. The robot does *not* drive forward. **What does it do, and why do you think that happens?** Write your guess as a comment. Lesson 03 has the answer.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Find **one variable** in last year’s robot code and answer:  
-  - Where is it being used?  
-  - Why is it being used?  
-  - What can you infer from its name?
+- Open `Constants.java`. Pick **one CAN ID variable**, find where it's used, and explain what its name tells you.
 
-**Extra (1 pt)**  
-- Option 1: Find a **magic number** in the code (see [Magic number – Wikipedia](https://en.wikipedia.org/wiki/Magic_number_%28programming%29)) that should be replaced with a named variable or constant. Leave a comment explaining why.  
-- Option 2: Find a **poorly named variable**. Leave a comment suggesting a better name and why it improves clarity.
+**Extra (1 pt)**, pick one:  
+- **Magic number:** find a bare number with no name, like `365` in `ClimbUp.java` or `6380.0` in `CANDriveSubsystem.java` (see [Magic number – Wikipedia](https://en.wikipedia.org/wiki/Magic_number_%28programming%29)). Explain what it means and what a named constant would fix.
+- **Bad name:** find the class named `ClimbConstatns`. What's wrong with the name, why didn't Java care, and why should *we*?
 
 ---
 
@@ -84,7 +86,7 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 
