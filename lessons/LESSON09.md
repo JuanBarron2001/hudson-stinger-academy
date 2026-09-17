@@ -13,6 +13,7 @@ Learn to:
 - Apply multiple conditions to calculate different outcomes  
 - Format output with `printf` for cleaner results  
 - Understand when nested logic is more effective than flat `if/else` chains  
+- Build the 2026 robot's shoot-when-ready decision tree  
 
 ---
 
@@ -66,62 +67,38 @@ Learn to:
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Use nested `if` statements to implement a **button-triggered targeting system**:
-  - Get alliance color from DriverStation (RED or BLUE)
-  - Get button press state from XboxController (e.g., A button)
-  - Nested logic:
-    - If alliance is RED:
-      - If button is pressed → drive toward AprilTag
-      - Else → stop driving
-    - Else (alliance is BLUE):
-      - If button is pressed → drive away from AprilTag
-      - Else → stop driving
-  - Print the alliance color, button state, and action to **SmartDashboard**
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson09/basic/Lesson09.java` (and `extra/Lesson09.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Extra (1 pt)**  
-- Expand with **multi-level nesting** for smarter strategy:
-  - Get alliance color, button press, and battery voltage (or distance to tag)
-  - Nested logic:
-    - If alliance is RED:
-      - If button is pressed:
-        - If battery is good (> 11.5V) → drive toward tag at full speed
-        - Else → drive toward tag at reduced speed (50%)
-      - Else → stop
-    - Else (alliance is BLUE):
-      - If button is pressed:
-        - If distance to tag is close (< 2 meters) → stop (don't go closer)
-        - Else → drive toward tag
-      - Else → stop
-  - Print decision logic to **SmartDashboard** so you can debug what the robot decided (useful during matches!)
-  - Example: `"RED + Button + LowBattery → Slow Track"` or `"BLUE + Button + CloseToTag → Stop"`  
+**Basic (1 pt)**: a shot that waits until it's ready  
+- Create the **operator controller**, both **rollers** and the **conveyor**.
+- Build this with an `if` **inside** an `if`:
+  - If **A** is held: run the rollers at your lesson 07 power, then
+    - if the rollers are at speed → conveyor `-0.7`, status `"FEEDING"`
+    - else → conveyor `-0.05` to hold the ball back, status `"SPINNING UP"`
+  - Else → stop everything, status `"STOPPED"`
+- Put the status and the roller speed on SmartDashboard.
+- Tap **A** and let go quickly. Does the conveyor ever feed? Why or why not?
+
+**Extra (1 pt)**: don't shoot blind  
+- Inside "A is held", nest two more checks, in this order: **target seen?** → **aimed?** → **at speed?** Only `"FEEDING"` runs the conveyor. The other statuses, `"NO TARGET"`, `"AIMING"` and `"SPINNING UP"`, hold it back.
+- **At home** there's no camera, so pretend: operator **X** held (**7** key) means "the Limelight sees the hub", and **Y** held (**8** key) means "we're aimed".
+- **At a meeting**, swap in the real camera: `LimelightHelpers.getTV("limelight")` for target seen, and `Math.abs(LimelightHelpers.getTX("limelight")) < 1.5` for aimed.
+- Should the rollers already spin up while the status is `"NO TARGET"`? Decide, and explain in a comment.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Find a nested `if` in last year’s robot code.  
-- Explain what it checks and why nesting was necessary.  
+- Draw the decision tree in `AlignAndShoot.java`'s `execute()`. Boxes and arrows on paper are fine, or indented text in a comment.
 
 **Extra (1 pt)**  
-- Suggest improvements:  
-  - Could the nested logic be simplified with `&&` or `||` operators?  
-  - Could readability improve by restructuring?  
-- Or write pseudo‑code for a nested safety check:  
-  [CODE BLOCK]java
-  if (isShooterActive) {
-      if (ballDetected) {
-          fire();
-      } else {
-          stopShooter();
-      }
-  } else {
-      idle();
-  }
-  [CODE BLOCK]  
+- `AlignAndShoot` handles "no target" with an early `return` instead of nesting everything inside an `if`. Rewrite its logic as nested `if`s in pseudo-code. Which version is easier to read, and why?
 
 ---
 
@@ -129,7 +106,7 @@ Learn to:
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 
