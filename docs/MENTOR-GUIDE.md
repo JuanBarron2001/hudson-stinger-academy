@@ -39,7 +39,7 @@ Every lesson carries a status in `lessons/LESSONS.md`. The ladder is the actual 
 
 Where things actually stand today: lessons **01–11** have real content, **12–55** are `[AI_SLOB]` over empty stubs, and **56–70** have stubs with no guide at all. Lesson 04 is the only `[COMPLETE]` one, so **treat `LESSON04.md` as the reference implementation** — when you're unsure what "finished" looks like, open that file.
 
-For the 2026 offseason, lessons **00–05, 07, 09 and 12–16** have robot halves rewritten for the 2026 robot. Every other lesson's robot stub is still the generic 2025 exercise, carried over so the project compiles. The **2026 Robot** column in `lessons/LESSONS.md` tracks which is which.
+For the 2026 offseason, lessons **00–05, 07, 09, 12–16, 19, 21, 22 and 26** (every core lesson in the first 26) have robot halves rewritten for the 2026 robot. Every other lesson's robot stub is still the generic 2025 exercise, carried over so the project compiles. The **2026 Robot** column in `lessons/LESSONS.md` tracks which is which.
 
 ---
 

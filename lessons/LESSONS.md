@@ -42,14 +42,14 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 16  | 🖥️ For Loops in Java                   | Use `for` loops for counting and iteration.                             | [Open Lesson](./LESSON16.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 17  | 🖥️ Break & Continue in Java            | Control loop execution with `break` and `continue`.                     | [Open Lesson](./LESSON17.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 18  | 🖥️ Nested Loops in Java                | Place loops inside loops for grids and patterns.                        | [Open Lesson](./LESSON18.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 19  | 🖥️ Methods in Java                     | Define reusable blocks of code with parameters and return values.       | [Open Lesson](./LESSON19.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 19  | 🖥️ Methods in Java                     | Define reusable blocks of code with parameters and return values.       | [Open Lesson](./LESSON19.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 20  | 🖥️ Overloaded Methods in Java          | Create multiple methods with the same name but different parameters.    | [Open Lesson](./LESSON20.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 21  | 🖥️ Variable Scope in Java              | Understand local, instance, and class variable lifetimes.               | [Open Lesson](./LESSON21.md) | [AI_SLOB] | Core | ⏳ Not yet |
-| [ ] | 22  | 🖥️ Arrays in Java                      | Store multiple values in a single variable using arrays.                | [Open Lesson](./LESSON22.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 21  | 🖥️ Variable Scope in Java              | Understand local, instance, and class variable lifetimes.               | [Open Lesson](./LESSON21.md) | [AI_SLOB] | Core | ✅ Rebuilt |
+| [ ] | 22  | 🖥️ Arrays in Java                      | Store multiple values in a single variable using arrays.                | [Open Lesson](./LESSON22.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 23  | 🖥️ User Input into Arrays in Java      | Populate arrays with values from the user.                              | [Open Lesson](./LESSON23.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 24  | 🖥️ User Input into Arrays in Java      | (Duplicate entry — consider merging with Lesson 23).                    | [Open Lesson](./LESSON24.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 25  | 🖥️ Variable Arguments (Varargs) in Java | Pass a flexible number of arguments into methods.                       | [Open Lesson](./LESSON25.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 26  | 🖥️ 2D Arrays in Java                   | Work with tables and grids using two‑dimensional arrays.                | [Open Lesson](./LESSON26.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 26  | 🖥️ 2D Arrays in Java                   | Work with tables and grids using two‑dimensional arrays.                | [Open Lesson](./LESSON26.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 27  | 🖥️ Objects & Classes in Java (Intro to OOP) | Learn the basics of object‑oriented programming.                        | [Open Lesson](./LESSON27.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 28  | 🖥️ Constructors in Java                | Initialize objects with constructors.                                   | [Open Lesson](./LESSON28.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 29  | 🖥️ Overloaded Constructors in Java     | Provide multiple ways to construct an object.                           | [Open Lesson](./LESSON29.md) | [AI_SLOB] | Core | ⏳ Not yet |
