@@ -111,6 +111,10 @@ class RobotSimTest {
     TalonFX[] right = {motor(2, InvertedValue.Clockwise_Positive), motor(4, InvertedValue.Clockwise_Positive)};
     Pigeon2 pigeon = new Pigeon2(11);
     settle(left[0], left[1], right[0], right[1]);
+    runLoops(5, () -> {});
+    // Compare changes, not absolute angles: the Pigeon's yaw keeps counting past 360 degrees, so a
+    // test that ran earlier and spun the robot can leave it at any starting value.
+    double gyroBefore = pigeon.getYaw().getValueAsDouble();
 
     // Left side backward, right side forward: turns counterclockwise (left).
     runLoops(30, () -> {
@@ -119,11 +123,11 @@ class RobotSimTest {
     });
     runLoops(5, () -> {});
 
-    double trueHeading = sim.getTruePose().getRotation().getDegrees();
-    double gyro = pigeon.getYaw().getValueAsDouble();
-    System.out.printf("turn left: true heading=%.1f deg, pigeon yaw=%.1f deg%n", trueHeading, gyro);
-    assertTrue(trueHeading > 10, "turning left should be a positive heading");
-    assertEquals(trueHeading, gyro, 5.0, "the Pigeon should read the robot's heading");
+    double trueTurn = sim.getTruePose().getRotation().getDegrees();
+    double gyroTurn = pigeon.getYaw().getValueAsDouble() - gyroBefore;
+    System.out.printf("turn left: true turn=%.1f deg, pigeon turn=%.1f deg%n", trueTurn, gyroTurn);
+    assertTrue(trueTurn > 10, "turning left should be a positive heading");
+    assertEquals(trueTurn, gyroTurn, 5.0, "the Pigeon should read how far the robot turned");
   }
 
   @Test

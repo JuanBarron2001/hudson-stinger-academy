@@ -56,7 +56,7 @@ public final class RobotSim {
 
   private static final double LAUNCHER_MOI_KG_M2 = 0.002; // estimate
   private static final double CONVEYOR_MOI_KG_M2 = 0.001; // estimate
-  private static final double CLIMBER_MOI_KG_M2 = 0.01; // estimate
+  private static final double CLIMBER_MOI_KG_M2 = 0.002; // estimate, low enough that it stops near a soft limit
 
   private static final double DT_SECONDS = 0.02;
 
