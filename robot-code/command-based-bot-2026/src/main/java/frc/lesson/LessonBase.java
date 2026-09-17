@@ -32,6 +32,9 @@ public abstract class LessonBase {
 
   private static final int HYPHEN_SEPARATOR_LENGTH = 80;
 
+  /** SmartDashboard keys published by the simulator itself start with this. */
+  private static final String SIM_KEY_PREFIX = "Sim ";
+
   private final Map<String, Object> previousValues = new HashMap<>();
   private LessonLogger lessonLogger;
   private FileOutputStream fileOutStream;
@@ -99,6 +102,9 @@ public abstract class LessonBase {
     if (loopCounter != 0) return;
 
     for (String key : SmartDashboard.getKeys()) {
+      // The simulator's own values aren't your work, so they stay out of your log.
+      if (key.startsWith(SIM_KEY_PREFIX)) continue;
+
       Object current = getSmartDashboardValue(key);
       if (current == null) continue;
 

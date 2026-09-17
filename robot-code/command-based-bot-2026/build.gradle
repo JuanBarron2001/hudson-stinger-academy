@@ -78,6 +78,10 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
+    testLogging { events "passed", "failed"; showStandardStreams = true }
+    // The simulator tests run in real time, so a slow laptop could fail them. Only run them when
+    // asked for by name (./gradlew test), never as part of build or deploy at a meeting.
+    onlyIf { gradle.startParameter.taskNames.any { it.endsWith('test') } }
 }
 
 // Simulation configuration (e.g. environment variables).

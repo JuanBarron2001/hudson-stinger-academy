@@ -185,3 +185,8 @@ compile_commands.json
 
 # Eclipse generated file for annotation processors
 .factorypath
+
+# Simulation leftovers: Phoenix's simulated device storage and per-laptop simulator settings.
+ctre_sim/
+networktables.json
+simgui*.json

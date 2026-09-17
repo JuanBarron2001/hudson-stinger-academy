@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.lesson.LessonBase;
 import frc.lesson.LessonLoader;
+import frc.sim.RobotSim;
 
 /**
  * The lesson host. It loads the lesson picked in {@link PickYourLesson} and runs it.
@@ -17,9 +18,15 @@ import frc.lesson.LessonLoader;
  */
 public class Robot extends TimedRobot {
   private final LessonBase lesson;
+  private RobotSim sim;
 
   public Robot() {
-    lesson = LessonLoader.load(PickYourLesson.LESSON, PickYourLesson.EXTRA);
+    this(PickYourLesson.LESSON, PickYourLesson.EXTRA);
+  }
+
+  /** Loads a specific lesson. Tests use this; students use {@link PickYourLesson}. */
+  Robot(int lessonNumber, boolean isExtra) {
+    lesson = LessonLoader.load(lessonNumber, isExtra);
   }
 
   @Override
@@ -36,8 +43,30 @@ public class Robot extends TimedRobot {
     }
   }
 
+  // Empty on purpose. Without these, WPILib prints "Override me!" every few seconds, which looks
+  // like something a student did wrong.
+  @Override
+  public void disabledPeriodic() {}
+
+  @Override
+  public void autonomousPeriodic() {}
+
+  @Override
+  public void testPeriodic() {}
+
   @Override
   public void testInit() {
     CommandScheduler.getInstance().cancelAll();
+  }
+
+  /** Only runs in simulation: starts the physics that make the motors move at home. */
+  @Override
+  public void simulationInit() {
+    sim = RobotSim.start();
+  }
+
+  @Override
+  public void simulationPeriodic() {
+    sim.update();
   }
 }
