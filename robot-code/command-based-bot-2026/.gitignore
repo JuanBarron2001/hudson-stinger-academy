@@ -188,7 +188,9 @@ compile_commands.json
 # Eclipse generated file for annotation processors
 .factorypath
 
-# Simulation leftovers: Phoenix's simulated device storage and per-laptop simulator settings.
+# Simulation leftovers: Phoenix's simulated device storage and per-laptop simulator window layout.
+# simgui-ds.json is NOT ignored: it maps the keyboard to an Xbox controller for every student.
 ctre_sim/
 networktables.json
-simgui*.json
+simgui.json
+simgui-window.json

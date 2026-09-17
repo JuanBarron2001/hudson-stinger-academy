@@ -115,10 +115,21 @@ The first run takes a while, because it downloads libraries. A window called the
 > Terminal instead? From the project folder: `./gradlew simulateJava` (on Windows: `gradlew simulateJava`).
 
 ### 4. Use your keyboard as a controller
-1. Find the **System Joysticks** window and the **Joysticks** window.
-2. Drag **Keyboard 0** from System Joysticks onto slot **0** in Joysticks.
+The project comes set up so **Keyboard 0** acts like an Xbox controller plugged into slot **0**:
 
-On Keyboard 0, **W/S** is the left stick's up and down, and **Z** is button 1, which is the **A** button. If those don't respond, open the **Keyboard 0 Settings** window to see which keys are mapped.
+| Xbox controller | Keyboard |
+|---|---|
+| Left stick | **W A S D** (W is stick forward) |
+| Right stick | **I J K L** |
+| Left / right trigger | **Q** / **E** |
+| A / B / X / Y | **Z** / **X** / **C** / **V** |
+| Left / right bumper | **1** / **2** |
+| Back / Start | **9** / **0** |
+| D-pad | **Arrow keys** |
+
+The simulator window has to be selected (clicked on) for your key presses to count.
+
+> 🔧 **Keys doing nothing?** Look at the **Joysticks** window. If slot 0 is empty, drag **Keyboard 0** from the **System Joysticks** window onto it. The key mapping lives in the **Keyboard 0 Settings** window if you ever need to check it.
 
 ### 5. Run it
 1. In the **Robot State** window, click **Teleoperated**. Your lesson only runs in Teleoperated.
