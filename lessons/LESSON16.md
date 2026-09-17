@@ -13,6 +13,7 @@ Learn to:
 - Increment, decrement, or step by custom values  
 - Accept user input to control loop length  
 - Build a countdown mini‑project with `Thread.sleep()` for timing  
+- Use `for` loops for a CAN pit check and a dashboard speed bar (and learn why `Thread.sleep()` has no place in robot code)  
 
 ---
 
@@ -45,39 +46,33 @@ Learn to:
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Use a `for` loop to repeat a robot action a fixed number of times.  
-- Example: blink an LED 5 times.  
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson16/basic/Lesson16.java` (and `extra/Lesson16.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Extra (1 pt)**  
-- Create a countdown timer for robot startup:  
-  - Start at a given number of seconds.  
-  - Decrement each second using `Thread.sleep(1000)`.  
-  - Print `"System Ready!"` at the end.  
-- Display countdown progress on **SmartDashboard**.  
+**Basic (1 pt)**: pit check  
+- On the **first** loop only (use the `checked` field), a `for` loop goes through CAN IDs **1 to 8**, creates `new TalonFX(id)`, and puts `"CAN " + id + " Connected"` = `motor.isConnected()` on SmartDashboard.
+- Look up every ID in ROBOT.md. Which one comes back `false`, and why?
+- The conveyor is CAN **29**. How would you check it without looping all the way to 29? Lesson 22's arrays make this clean.
+
+**Extra (1 pt)**: a speed bar  
+- Create the **operator controller** and both **rollers**, and run them while **A** is held.
+- `blocks = (int) (Math.abs(velocity) / 10)`. Start with `bar = ""`, and use a `for` loop to add `"#"` to it `blocks` times.
+- Put the bar on SmartDashboard, then press and release **A** and watch it grow and shrink.
+- This `for` loop runs inside `execute()` and doesn't freeze the robot like lesson 15's `while`. What's the difference? Answer in a comment.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Find a repeated action in last year’s robot code (e.g., running a motor test multiple times).  
-- Explain how a `for` loop could simplify it.  
+- `VisionSubsystem.getVisibleTags()` and `getAvgTagDistance()` both loop over `RawFiducial`s. Explain what one of those loops goes through and what it builds.
 
 **Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace copy‑pasted code with a `for` loop.  
-  - Use a loop to iterate through an array of motors or sensors.  
-- Or write pseudo‑code for a countdown:  
-  [CODE BLOCK]java
-  for (int i = start; i > 0; i--) {
-      System.out.println(i);
-      Thread.sleep(1000);
-  }
-  System.out.println("Happy New Year!");
-  [CODE BLOCK]  
+- `VisionSubsystem.periodic()` publishes `Vision/Tag 0`, `Vision/Tag 1`, … with a `for` loop, but never removes old keys. If the camera sees three tags and then only one, what does the dashboard show? Why is that misleading, and how would you fix it?
 
 ---
 
@@ -85,7 +80,7 @@ Learn to:
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 
