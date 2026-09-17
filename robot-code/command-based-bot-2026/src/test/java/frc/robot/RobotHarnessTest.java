@@ -76,6 +76,34 @@ class RobotHarnessTest {
     Files.deleteIfExists(log);
   }
 
+  @Test
+  void lessonZeroPassesOnceTheStickMovesAndAIsPressed() throws Exception {
+    Path log = Paths.get("frc.lesson.lesson00.basic-output.log");
+    Files.deleteIfExists(log);
+
+    HAL.initialize(500, 0);
+    DriverStationSim.setDsAttached(true);
+    DriverStationSim.setAutonomous(false);
+    DriverStationSim.setEnabled(true);
+    // What a keyboard mapped as controller 0 sends: left stick Y is axis 1, A is button 1.
+    DriverStationSim.setJoystickAxisCount(0, 6);
+    DriverStationSim.setJoystickButtonCount(0, 10);
+
+    Robot robot = new Robot(0, false);
+    for (int i = 0; i < 20; i++) {
+      DriverStationSim.setJoystickAxis(0, 1, i < 10 ? -1.0 : 0.0);
+      DriverStationSim.setJoystickButton(0, 1, i >= 10);
+      DriverStationSim.notifyNewData();
+      DriverStation.refreshData();
+      robot.teleopPeriodic();
+    }
+
+    List<String> lines = Files.readAllLines(log, StandardCharsets.UTF_8);
+    assertTrue(lines.stream().anyMatch(l -> l.contains("|Setup Check|String|PASSED")),
+        "lesson 00 should report PASSED in the log");
+    Files.deleteIfExists(log);
+  }
+
   private static String md5(String text) throws Exception {
     byte[] digest = MessageDigest.getInstance("MD5").digest(text.getBytes(StandardCharsets.UTF_8));
     return HexFormat.of().formatHex(digest);
