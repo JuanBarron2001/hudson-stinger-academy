@@ -127,6 +127,14 @@ The project comes set up so **Keyboard 0** acts like an Xbox controller plugged 
 | Back / Start | **9** / **0** |
 | D-pad | **Arrow keys** |
 
+Some lessons also use the **operator** controller, which is **Keyboard 1** in slot **1**:
+
+| Operator controller | Keyboard |
+|---|---|
+| A / B / X / Y | **5** / **6** / **7** / **8** |
+| Left / right bumper | **3** / **4** |
+| Left / right trigger | **O** / **P** |
+
 The simulator window has to be selected (clicked on) for your key presses to count.
 
 > 🔧 **Keys doing nothing?** Look at the **Joysticks** window. If slot 0 is empty, drag **Keyboard 0** from the **System Joysticks** window onto it. The key mapping lives in the **Keyboard 0 Settings** window if you ever need to check it.

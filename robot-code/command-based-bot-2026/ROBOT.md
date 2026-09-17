@@ -137,6 +137,11 @@ The competition code reads the Limelight through `LimelightHelpers.java`, a file
 
 ## In the simulator
 
-Your keyboard is controller 0 (the driver). **WASD** is the left stick, **IJKL** the right stick, **Q/E** the triggers, **Z/X/C/V** the A/B/X/Y buttons, **1/2** the bumpers, and the arrow keys the D-pad. The full table is in [lesson 00](../../lessons/LESSON00.md).
+Your keyboard is two controllers at once:
+
+- **Driver (port 0):** **WASD** is the left stick, **IJKL** the right stick, **Q/E** the triggers, **Z/X/C/V** the A/B/X/Y buttons, **1/2** the bumpers, and the arrow keys the D-pad.
+- **Operator (port 1):** **5/6/7/8** are A/B/X/Y, **3/4** the bumpers, and **O/P** the triggers.
+
+The full tables are in [lesson 00](../../lessons/LESSON00.md).
 
 `frc.sim.RobotSim` makes all of the motors above, and the gyro, move when you run the simulator at home. It models each motor as a Kraken X60, which is the only motor CTRE's simulator supports. It uses the numbers on this page, plus some estimates (robot weight, roller weight) that are good enough to see the right behavior but won't match the real robot exactly. A mentor maintains it, so you never need to edit it.
