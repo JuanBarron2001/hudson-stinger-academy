@@ -13,6 +13,7 @@ Learn to:
 - Pass multiple arguments into methods  
 - Return values from methods (`void` vs. typed returns)  
 - Use methods for code reuse and cleaner design  
+- Turn the 2026 robot's drive and shooter code into named methods  
 
 ---
 
@@ -46,43 +47,34 @@ Learn to:
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Create a method `printMotorStatus()` that prints `"Motor running"` or `"Motor stopped"`.  
-- Call it multiple times to simulate robot actions.  
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson19/basic/Lesson19.java` (and `extra/Lesson19.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Extra (1 pt)**  
-- Create a method `isBatterySafe(double voltage)` that returns a `boolean`.  
-  - If voltage ≥ 12.0 → return `true`.  
-  - Else → return `false`.  
-- Use this method in an `if` statement to decide whether to enable motors.  
-- Print results to **SmartDashboard**.  
+**Basic (1 pt)**: methods clean up the drive code  
+- Create the driver controller and all four drive motors.
+- Write `double deadband(double value)`, which **returns** the value with lesson 05's deadband applied.
+- Write `void setDrive(double left, double right)`, which sets all four motors and handles the right side's opposite sign.
+- Rewrite your lesson 04 arcade drive using only those two methods. Aim for **five lines or fewer** in `execute()`.
+- Methods inside a lesson don't need the word `static`.
+
+**Extra (1 pt)**: methods for the shooter  
+- Create the operator controller, both rollers and the conveyor.
+- Write `double rollerSpeed()`, `boolean atSpeed(double target)` (within 3, like lesson 07) and `void setFuel(double rollerPower, double conveyorPower)`.
+- Rebuild lesson 14's shoot logic using only those methods. It should read almost like English: `if (shooting && atSpeed(-70)) setFuel(...)`.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Find a repeated block of code in last year’s robot project.  
-- Suggest how it could have been turned into a method for reuse.  
+- `CANFuelSubsystem.java` has `setIntakeLauncherRoller`, `setFeederRoller` and `stop`. For each one: what parameters does it take, what does it return, and which commands call it?
 
 **Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace repeated safety checks with a method like `isSafeToRun()`.  
-  - Replace repeated string concatenations with a method like `getFullName(first, last)`.  
-- Or write pseudo‑code for an age check method:  
-  [CODE BLOCK]java
-  static boolean ageCheck(int age) {
-      return age >= 18;
-  }
-
-  if (ageCheck(userAge)) {
-      System.out.println("You may sign up");
-  } else {
-      System.out.println("You must be 18+ to sign up");
-  }
-  [CODE BLOCK]  
+- Four commands are never created anywhere in the code (`AimAtTarget`, `IntakeUp`, `IntakeDown`, `LaunchAtSpeed`), and nothing reads `LauncherConstants`. Should unused code be deleted or kept? Argue one side, with a reason from *this* codebase.
 
 ---
 
@@ -90,7 +82,7 @@ Learn to:
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 
