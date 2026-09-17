@@ -35,11 +35,11 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 09  | 🖥️ Nested If Statements in Java        | Combine multiple conditions with nested decision structures.            | [Open Lesson](./LESSON09.md) | [WORK IN PROGRESS] | Core | ✅ Rebuilt |
 | [ ] | 10  | 🖥️ Useful String Methods in Java       | Explore methods like `length`, `charAt`, `indexOf`, and `equals`.       | [Open Lesson](./LESSON10.md) | [WORK IN PROGRESS] | Optional | — skip for now |
 | [ ] | 11  | 🖥️ The `substring` Method in Java      | Extract parts of strings using `substring(begin, end)`.                 | [Open Lesson](./LESSON11.md) | [WORK IN PROGRESS] | Optional | — skip for now |
-| [ ] | 12  | 🖥️ The Ternary Operator in Java        | Write compact conditional expressions with `?:`.                        | [Open Lesson](./LESSON12.md) | [AI_SLOB] | Core | ⏳ Not yet |
-| [ ] | 13  | 🖥️ Enhanced Switches in Java           | Use modern switch expressions with arrows and `yield`.                  | [Open Lesson](./LESSON13.md) | [AI_SLOB] | Core | ⏳ Not yet |
-| [ ] | 14  | 🖥️ Logical Operators in Java           | Combine conditions with `&&`, `\|\|`, and `!`.                            | [Open Lesson](./LESSON14.md) | [AI_SLOB] | Core | ⏳ Not yet |
-| [ ] | 15  | 🖥️ While Loops in Java                 | Repeat code while a condition is true.                                  | [Open Lesson](./LESSON15.md) | [AI_SLOB] | Core | ⏳ Not yet |
-| [ ] | 16  | 🖥️ For Loops in Java                   | Use `for` loops for counting and iteration.                             | [Open Lesson](./LESSON16.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 12  | 🖥️ The Ternary Operator in Java        | Write compact conditional expressions with `?:`.                        | [Open Lesson](./LESSON12.md) | [AI_SLOB] | Core | ✅ Rebuilt |
+| [ ] | 13  | 🖥️ Enhanced Switches in Java           | Use modern switch expressions with arrows and `yield`.                  | [Open Lesson](./LESSON13.md) | [AI_SLOB] | Core | ✅ Rebuilt |
+| [ ] | 14  | 🖥️ Logical Operators in Java           | Combine conditions with `&&`, `\|\|`, and `!`.                            | [Open Lesson](./LESSON14.md) | [AI_SLOB] | Core | ✅ Rebuilt |
+| [ ] | 15  | 🖥️ While Loops in Java                 | Repeat code while a condition is true.                                  | [Open Lesson](./LESSON15.md) | [AI_SLOB] | Core | ✅ Rebuilt |
+| [ ] | 16  | 🖥️ For Loops in Java                   | Use `for` loops for counting and iteration.                             | [Open Lesson](./LESSON16.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 17  | 🖥️ Break & Continue in Java            | Control loop execution with `break` and `continue`.                     | [Open Lesson](./LESSON17.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 18  | 🖥️ Nested Loops in Java                | Place loops inside loops for grids and patterns.                        | [Open Lesson](./LESSON18.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 19  | 🖥️ Methods in Java                     | Define reusable blocks of code with parameters and return values.       | [Open Lesson](./LESSON19.md) | [AI_SLOB] | Core | ⏳ Not yet |
