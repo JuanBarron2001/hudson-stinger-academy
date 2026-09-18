@@ -19,21 +19,24 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [05:12:35](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=18755s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 23](https://www.youtube.com/watch?v=ah5bAnGpmKY&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=32) (Enter USER INPUT into an ARRAY! ➡️, 8:04)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Create a `String[] foods = new String[3];`  
+- First, the video's warning: create `String[] foods = {};`, print `foods.length`, then try `foods[0] = "pizza";`. Why does it fail? An array needs its size **before** you store anything.  
+- Now create it properly: `String[] foods = new String[3];`  
 - Use a `for` loop to prompt the user three times:  
   - `"Enter a food:"`  
   - Store each input into the array.  
@@ -54,9 +57,9 @@ Learn to:
 - Use a loop to print each sensor name.  
 
 **Extra (1 pt)**  
-- Ask the user how many motors they want to configure.  
+- Pick how many motors to configure. (Robot code has no keyboard to type into.)  
 - Create an array of motor speeds with that size.  
-- Fill the array with user input values.  
+- Fill the array with speeds of your choice.  
 - Print results to **SmartDashboard**.  
 
 ---
@@ -72,7 +75,7 @@ Learn to:
   - Replace repeated `println` statements with a loop over an array.  
   - Use arrays to store joystick button states or autonomous paths.  
 - Or write pseudo‑code for dynamic array input:  
-  [CODE BLOCK]java
+  ```java
   System.out.print("How many motors? ");
   int size = scanner.nextInt();
   scanner.nextLine(); // clear buffer
@@ -82,7 +85,7 @@ Learn to:
       System.out.print("Enter speed for motor " + i + ": ");
       speeds[i] = scanner.nextDouble();
   }
-  [CODE BLOCK]  
+  ```
 
 ---
 
@@ -94,10 +97,10 @@ Learn to:
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show difference between fixed-size arrays and dynamic size from user input.  
 - Robot code: arrays for motor speeds or sensor names.  
 - Archaeology: replace multiple variables with arrays for cleaner code.  
 - Segue: Next lesson could cover **2D arrays** (grids/matrices) since user input arrays lead naturally into them.  
-[CODE BLOCK]
+-->

@@ -48,7 +48,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 21  | 🖥️ Variable Scope in Java              | Understand local, instance, and class variable lifetimes.               | [Open Lesson](./LESSON21.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 22  | 🖥️ Arrays in Java                      | Store multiple values in a single variable using arrays.                | [Open Lesson](./LESSON22.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 23  | 🖥️ User Input into Arrays in Java      | Populate arrays with values from the user.                              | [Open Lesson](./LESSON23.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 24  | 🖥️ User Input into Arrays in Java      | (Duplicate entry — consider merging with Lesson 23).                    | [Open Lesson](./LESSON24.md) | [AI_SLOB] | Optional | — skip for now |
+| [ ] | 24  | 🖥️ Searching an Array in Java          | Find an element with a linear search: a loop, `break`, a found flag, and `.equals()` for Strings. | [Open Lesson](./LESSON24.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 25  | 🖥️ Variable Arguments (Varargs) in Java | Pass a flexible number of arguments into methods.                       | [Open Lesson](./LESSON25.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 26  | 🖥️ 2D Arrays in Java                   | Work with tables and grids using two‑dimensional arrays.                | [Open Lesson](./LESSON26.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 27  | 🖥️ Objects & Classes in Java (Intro to OOP) | Learn the basics of object‑oriented programming.                        | [Open Lesson](./LESSON27.md) | [AI_SLOB] | Core | ⏳ Not yet |

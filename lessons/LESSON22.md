@@ -21,14 +21,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [05:03:26](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=18206s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 22](https://www.youtube.com/watch?v=9dr2mHYYoug&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=31) (Learn Java arrays in 9 minutes! 🍎, 9:09)
 
 ---
 
@@ -37,12 +39,16 @@ Learn to:
 **Basic (1 pt)**  
 - Create a `String[] fruits = {"Apple", "Orange", "Banana", "Coconut"};`  
 - Print each element by accessing its index (`fruits[0]`, `fruits[1]`, etc.).  
-- Demonstrate what happens if you try to access an invalid index.  
+- Print `fruits` itself, with no index. Why do you get a strange code instead of fruit names? *(Hint: lesson 02's reference types.)*  
+- Demonstrate what happens if you try to access an invalid index, like `fruits[4]`. Read the exception's name.  
 
 **Extra (1 pt)**  
 - Use a `for` loop with `fruits.length` to print all elements.  
 - Use an **enhanced for loop** (`for (String fruit : fruits)`) to simplify iteration.  
 - Modify an element (e.g., change `"Apple"` to `"Pineapple"`) and print the updated array.  
+- Add `import java.util.Arrays;` at the top, then:  
+  - `Arrays.sort(fruits);` and print the array again. What order is it in now?  
+  - `Arrays.fill(fruits, "Pineapple");` and print it once more.  
 
 ---
 
@@ -85,10 +91,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show `.length` property for dynamic iteration.  
 - Robot code: arrays for motor speeds or sensor values.  
 - Archaeology: replace multiple joystick variables with an array.  
 - Segue: Next lesson could cover **2D arrays** (matrices) since nested loops pair well with them.  
-[CODE BLOCK]
+-->

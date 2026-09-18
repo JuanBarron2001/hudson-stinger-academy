@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [05:34:36](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=20076s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 26](https://www.youtube.com/watch?v=Qf3Nczxm2AY&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=35) (Learn Java 2D arrays in 9 minutes! ⬜, 9:38)
 
 ---
 
@@ -61,6 +63,9 @@ groceries[1][0] = "Celery";    // replaces Potato
 groceries[2][1] = "Eggs";      // replaces Pork
 ```
 
+- Print the grid again to check each change. The first index is the **row**, the second is the **column**.  
+- **Telephone keypad**, the video's mini‑project. Build a `char[][] telephone` with four rows: `'1' '2' '3'`, `'4' '5' '6'`, `'7' '8' '9'` and `'*' '0' '#'` (single quotes, because they're `char`s). Print it as a grid with nested enhanced `for` loops: the outer loop's type is `char[]` (one row), the inner loop's is `char`.
+
 ---
 
 ## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
@@ -71,7 +76,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 **Basic (1 pt)**: a shot table  
 - A `double[][]` field where each row is `{distance in inches, roller speed in RPS}`: `{30, -60}`, `{75, -75}`, `{120, -90}`.
 - Read the distance from SmartDashboard: `putNumber("Distance (in)", 60)` in `setup()`, and `getNumber` in `execute()`. You can change it in the simulator's NetworkTables window.
-- Loop over the rows, find the one whose distance is **closest** to yours, and put its speed on SmartDashboard.
+- Loop over the rows, find the one whose distance is **closest** to yours, and put its speed and its row number on SmartDashboard.
 - Try 0, 50, 53, 100 and 500 inches. Which answers look wrong for a real shot?
 
 **Extra (1 pt)**: blend between rows  
@@ -102,10 +107,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show difference between 1D arrays and 2D arrays.  
 - Robot code: 2D arrays for grid maps or path planning.  
 - Archaeology: replace multiple arrays with one 2D structure.  
 - Segue: Next lesson could cover **ArrayLists** or **multi‑dimensional data structures**.  
-[CODE BLOCK]
+-->

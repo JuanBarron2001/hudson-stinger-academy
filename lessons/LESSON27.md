@@ -20,18 +20,22 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [06:41:47](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=24107s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 27](https://www.youtube.com/watch?v=DYbi93vuSaU&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=39) (Learn Java Object Oriented Programming in 10 minutes! 🧱, 9:51)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
+
+> **Where a new class goes.** Make a new file next to your `Main.java`: `java-lessons/src/lesson27/basic/Car.java`. Its first line must be `package lesson27.basic;`, the same as `Main.java`, or `Main` can't find it. The extra half lives in a different folder, so it needs its own `Car.java` that starts with `package lesson27.extra;`. Copy your basic one over and change that line.
 
 **Basic (1 pt)**  
 - Create a `Car` class with attributes:  
@@ -41,7 +45,7 @@ Learn to:
   - `double price`  
   - `boolean isRunning`  
 
-[CODE BLOCK]java
+```java
 public class Car {
     String make = "Ford";
     String model = "Mustang";
@@ -49,14 +53,14 @@ public class Car {
     double price = 58000.99;
     boolean isRunning = false;
 }
-[CODE BLOCK]
+```
 
 - In `main()`, create a `Car` object and print its attributes using the dot operator.  
 
 **Extra (1 pt)**  
 - Add methods to the `Car` class:  
 
-[CODE BLOCK]java
+```java
 void start() {
     isRunning = true;
     System.out.println("You start the engine");
@@ -74,9 +78,11 @@ void drive() {
 void brake() {
     System.out.println("You brake the " + model);
 }
-[CODE BLOCK]
+```
 
 - Call these methods from `main()` and print `isRunning` before and after.  
+- Change an attribute straight from `main` with the dot operator: `car.isRunning = true;`  
+- Create a **second** `Car` and print its make and model. Why is it exactly the same as the first one? Lesson 28's constructors fix that.  
 
 ---
 
@@ -107,7 +113,7 @@ void brake() {
   - Replace procedural code with object-oriented design.  
   - Example: instead of separate functions for each motor, create a `Motor` class with `start()`, `stop()`, and `setSpeed()`.  
 
-[CODE BLOCK]java
+```java
 public class Motor {
     double speed;
     boolean isRunning;
@@ -116,7 +122,7 @@ public class Motor {
     void stop() { isRunning = false; }
     void setSpeed(double s) { speed = s; }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -128,10 +134,10 @@ public class Motor {
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Objects = entities with attributes + methods.  
 - Robot code: encapsulate robot parts as objects.  
 - Archaeology: replace repeated code with classes.  
 - Segue: Next lesson → **Constructors** (to create unique objects with custom attributes).  
-[CODE BLOCK]
+-->

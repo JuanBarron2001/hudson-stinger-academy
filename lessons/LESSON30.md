@@ -20,23 +20,27 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [07:08:22](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=25702s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 30](https://www.youtube.com/watch?v=cMJeCs0n6BY&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=42) (Learn Java ARRAY OF OBJECTS in 5 minutes! 🗃️, 5:46)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Car.java` starts with `package lesson30.basic;` in the basic folder, and the extra folder gets its own copy with `package lesson30.extra;`.
+
 **Basic (1 pt)**  
 - Create a `Car` class with attributes and a constructor:  
 
-[CODE BLOCK]java
+```java
 public class Car {
     String model;
     String color;
@@ -50,7 +54,7 @@ public class Car {
         System.out.println("You drive the " + this.color + " " + this.model);
     }
 }
-[CODE BLOCK]
+```
 
 - Instantiate three cars and store them in an array.  
 - Use a **for loop** to call `drive()` on each.  
@@ -59,7 +63,7 @@ public class Car {
 - Use an **enhanced for loop** to simplify iteration.  
 - Create an array with **anonymous objects** directly:  
 
-[CODE BLOCK]java
+```java
 Car[] cars = {
     new Car("Mustang", "Red"),
     new Car("Corvette", "Blue"),
@@ -69,7 +73,9 @@ Car[] cars = {
 for (Car car : cars) {
     car.drive();
 }
-[CODE BLOCK]
+```
+
+- Paint every car: in another enhanced `for` loop, set `car.color = "Black";`, then drive them all again. Changing an object you got from the array changes the object itself.
 
 ---
 
@@ -86,7 +92,7 @@ for (Car car : cars) {
 - Use an enhanced for loop to update all motor speeds (e.g., set all to `0.5`).  
 - Print results to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 Motor[] motors = {
     new Motor("Left", 0.3),
     new Motor("Right", 0.3),
@@ -97,7 +103,7 @@ for (Motor m : motors) {
     m.setSpeed(0.5);
     SmartDashboard.putNumber("Motor " + m.id, m.speed);
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -112,7 +118,7 @@ for (Motor m : motors) {
   - Replace repeated method calls with a loop over an array.  
   - Use anonymous objects in arrays for quick initialization.  
 
-[CODE BLOCK]java
+```java
 Motor[] motors = {
     new Motor("Left", 0.5),
     new Motor("Right", 0.5),
@@ -122,7 +128,7 @@ Motor[] motors = {
 for (Motor m : motors) {
     m.run();
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -134,10 +140,10 @@ for (Motor m : motors) {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Show difference between arrays of primitives vs. arrays of objects.  
 - Robot code: arrays of motors or sensors.  
 - Archaeology: replace multiple object variables with arrays.  
 - Segue: Next lesson → **Object Arrays + Loops with User Input** (dynamic object creation).  
-[CODE BLOCK]
+-->

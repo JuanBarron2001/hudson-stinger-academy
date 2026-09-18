@@ -20,18 +20,22 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [06:51:38](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=24698s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 28](https://www.youtube.com/watch?v=ZD7CB6wKg8A&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=40) (Learn CONSTRUCTORS in 10 minutes! 🔨, 10:08)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
+
+> New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `java-lessons/src/lesson28/basic/Student.java` starts with `package lesson28.basic;`, and the extra folder gets its own copy with `package lesson28.extra;`.
 
 **Basic (1 pt)**  
 - Create a `Student` class with attributes:  
@@ -43,8 +47,9 @@ Learn to:
 - Add a **Constructor** that accepts `name`, `age`, and `gpa`.  
 - Use the `this` keyword to assign parameters to attributes.  
 - Automatically set `isEnrolled = true`.  
+- In `main()`, create one student with `new Student("SpongeBob", 30, 3.2)` and print its four attributes.  
 
-[CODE BLOCK]java
+```java
 public class Student {
     String name;
     int age;
@@ -63,13 +68,14 @@ public class Student {
         System.out.println(this.name + " is studying");
     }
 }
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
 - In `main()`, create three students with unique values.  
 - Print their attributes and call the `study()` method.  
+- Try `new Student()` with no arguments. Read the error: once a class has a constructor with parameters, every new object has to pass them.  
 
-[CODE BLOCK]java
+```java
 public static void main(String[] args) {
     Student s1 = new Student("SpongeBob", 30, 3.2);
     Student s2 = new Student("Patrick", 34, 1.5);
@@ -83,7 +89,7 @@ public static void main(String[] args) {
     s2.study();
     s3.study();
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -103,7 +109,7 @@ public static void main(String[] args) {
 - Instantiate multiple motors with different IDs and speeds.  
 - Print their states to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 public class Motor {
     String id;
     double speed;
@@ -119,7 +125,7 @@ public class Motor {
     void stop() { isRunning = false; }
     void setSpeed(double s) { speed = s; }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -134,10 +140,10 @@ public class Motor {
   - Replace repeated setup code with a Constructor.  
   - Example: instead of setting motor IDs and speeds line by line, pass them into a Constructor.  
 
-[CODE BLOCK]java
+```java
 Motor leftMotor = new Motor("Left", 0.5);
 Motor rightMotor = new Motor("Right", 0.5);
-[CODE BLOCK]
+```
 
 ---
 
@@ -149,10 +155,10 @@ Motor rightMotor = new Motor("Right", 0.5);
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show how Constructors solve the problem of duplicate default values.  
 - Robot code: use Constructors for motors, sensors, or subsystems.  
 - Archaeology: replace manual initialization with Constructor calls.  
 - Segue: Next lesson → **Overloading Constructors** (multiple ways to initialize objects).  
-[CODE BLOCK]
+-->

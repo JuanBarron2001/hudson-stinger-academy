@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [04:25:59](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=15959s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 21](https://www.youtube.com/watch?v=eVCK1jlopmY&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=28) (Learn VARIABLE SCOPE in 4 minutes! 🏠, 4:59)
 
 ---
 
@@ -57,12 +59,13 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 - In `execute()`, declare a **local** counter (`int localCount = 0; localCount++;`) and put it on SmartDashboard.
 - Declare a **field** counter (`private int fieldCount = 0;`) outside any method, add 1 to it in `execute()`, and put it on SmartDashboard.
 - Run for five seconds. What does each counter show? Explain **why** in a comment.
-- This stub has no fields, so declare your **own** for the operator controller and both rollers. Create them in `setup()` and run the rollers while **A** is held.
+- This stub has no fields, so declare your **own** for the operator controller and both rollers. Create them in `setup()` and run the rollers at `0.3` while **A** is held.
 - What would go wrong if you created the rollers inside `execute()`? Answer in a comment.
 
 **Extra (1 pt)**: toggles and memory  
 - Make **B** a toggle: one press turns intake on, the next turns it off. You'll need a field that remembers whether B was pressed **last loop**: `if (bPressed && !bWasPressed)`.
-- Keep a field with the **fastest roller speed ever seen** (`Math.max`), and put it on SmartDashboard.
+- When intake is on: rollers `-0.7`, conveyor `0.8` (ROBOT.md). Otherwise stop them.
+- Keep a field with the **fastest roller speed ever seen** (`Math.max`). Put it and whether intake is on on SmartDashboard.
 - **Shadowing:** add a field `double rollerPower = 0.7;` and a local `double rollerPower = 0.2;` inside `execute()`. Which one does your code use, and how do you reach the field? *(Hint: `this.`)*
 
 ---
@@ -87,10 +90,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Use analogy of houses (local variables inside, class variable outside on the street).  
 - Robot code: class variable for constants like wheel diameter.  
 - Archaeology: reduce overuse of class variables, prefer local scope.  
 - Segue: Next lesson could cover **final variables and constants** or **object scope** in OOP.  
-[CODE BLOCK]
+-->
