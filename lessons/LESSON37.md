@@ -19,23 +19,27 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [08:01:30](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=28890s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 37](https://www.youtube.com/watch?v=c2sTQk9opO8&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=49) (Learn INTERFACES in 6 minutes! 📋, 6:16)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> Every interface and class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Prey.java`, `Predator.java`, `Rabbit.java` and so on all start with `package lesson37.basic;` (and `package lesson37.extra;` for the extra's copies).
+
 **Basic (1 pt)**  
 - Create two interfaces:  
 
-[CODE BLOCK]java
+```java
 public interface Prey {
     void flee();
 }
@@ -43,34 +47,37 @@ public interface Prey {
 public interface Predator {
     void hunt();
 }
-[CODE BLOCK]
+```
 
 - Create a `Rabbit` class that implements `Prey`:  
 
-[CODE BLOCK]java
+```java
 public class Rabbit implements Prey {
     @Override
     public void flee() {
         System.out.println("The rabbit is running away!");
     }
 }
-[CODE BLOCK]
+```
 
 - Create a `Hawk` class that implements `Predator`:  
 
-[CODE BLOCK]java
+```java
 public class Hawk implements Predator {
     @Override
     public void hunt() {
         System.out.println("The hawk is hunting!");
     }
 }
-[CODE BLOCK]
+```
+
+- In `main()`, create a `Rabbit` and a `Hawk`, and call `rabbit.flee()` and `hawk.hunt()`. A rabbit has no `hunt()` and a hawk has no `flee()`.  
+- Delete the word `public` from the rabbit's `flee()` and read the error. An interface's methods are always public, so the class that fills them in has to keep them public. Put it back.  
 
 **Extra (1 pt)**  
 - Create a `Fish` class that implements **both** `Prey` and `Predator`:  
 
-[CODE BLOCK]java
+```java
 public class Fish implements Prey, Predator {
     @Override
     public void flee() {
@@ -82,11 +89,11 @@ public class Fish implements Prey, Predator {
         System.out.println("The fish is hunting smaller fish!");
     }
 }
-[CODE BLOCK]
+```
 
 - Demonstrate usage:  
 
-[CODE BLOCK]java
+```java
 Rabbit rabbit = new Rabbit();
 Hawk hawk = new Hawk();
 Fish fish = new Fish();
@@ -95,7 +102,7 @@ rabbit.flee(); // The rabbit is running away!
 hawk.hunt();   // The hawk is hunting!
 fish.flee();   // The fish is swimming away!
 fish.hunt();   // The fish is hunting smaller fish!
-[CODE BLOCK]
+```
 
 ---
 
@@ -112,7 +119,7 @@ fish.hunt();   // The fish is hunting smaller fish!
   - `Sensor` implements `Monitorable`  
   - `SmartSubsystem` implements **both** `Controllable` and `Monitorable`  
 
-[CODE BLOCK]java
+```java
 public interface Controllable {
     void start();
 }
@@ -146,7 +153,7 @@ public class SmartSubsystem implements Controllable, Monitorable {
         System.out.println("Subsystem status: OK");
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -162,7 +169,7 @@ public class SmartSubsystem implements Controllable, Monitorable {
   - Define a `Controllable` interface for all subsystems that can be started/stopped.  
   - This ensures every subsystem implements the same method signatures.  
 
-[CODE BLOCK]java
+```java
 public interface Monitorable {
     void status();
 }
@@ -180,7 +187,7 @@ public class Arm implements Monitorable {
         System.out.println("Arm status: OK");
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -192,10 +199,10 @@ public class Arm implements Monitorable {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize that interfaces = contracts (classes must implement methods).  
 - Robot code: use interfaces for subsystems to enforce consistent behavior.  
 - Archaeology: replace repeated method signatures with interfaces.  
 - Segue: Next lesson → **Polymorphism with Interfaces** (treating different objects through a common interface type).  
-[CODE BLOCK]
+-->

@@ -20,18 +20,22 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [07:22:04](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=26524s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 32](https://www.youtube.com/watch?v=GTP5lVEKXaU&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=44) (Learn Java inheritance in 9 minutes! 👨‍👧‍👦, 9:07)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
+
+> Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Animal.java`, `Dog.java` and `Cat.java` all start with `package lesson32.basic;`. The extra folder gets its own copies with `package lesson32.extra;`.
 
 **Basic (1 pt)**  
 - Create a parent class `Animal` with:  
@@ -39,7 +43,7 @@ Learn to:
   - Constructor: sets `isAlive = true`  
   - Method: `void eat()`  
 
-[CODE BLOCK]java
+```java
 public class Animal {
     boolean isAlive;
 
@@ -51,7 +55,7 @@ public class Animal {
         System.out.println("The animal is eating");
     }
 }
-[CODE BLOCK]
+```
 
 - Create child classes `Dog` and `Cat` that **extend** `Animal`.  
 - Instantiate them and show they inherit `isAlive` and `eat()`.  
@@ -61,7 +65,7 @@ public class Animal {
   - `Dog`: `int lives = 1; void speak() { System.out.println("The dog goes woof"); }`  
   - `Cat`: `int lives = 9; void speak() { System.out.println("The cat goes meow"); }`  
 
-[CODE BLOCK]java
+```java
 Dog dog = new Dog();
 Cat cat = new Cat();
 
@@ -71,7 +75,10 @@ dog.speak();                     // unique
 
 System.out.println(cat.lives);   // 9
 cat.speak();                     // unique
-[CODE BLOCK]
+```
+
+- **Multi‑level inheritance**, the end of the video. Add a grandparent class `Organism` and move `isAlive` and its constructor into it, so `Animal extends Organism`. `Dog` and `Cat` still have `isAlive`: they get it through `Animal`.  
+- Add `Plant extends Organism` with `void photosynthesize()` that prints `"The plant absorbs sunlight"`. A plant is alive, but it can't `eat()`, and a dog can't `photosynthesize()`. Try calling `dog.photosynthesize()` and read the error. They're siblings under `Organism`, not parent and child.  
 
 ---
 
@@ -91,7 +98,7 @@ cat.speak();                     // unique
 - Demonstrate that both inherit `activate()` but have their own unique actions.  
 - Print results to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 public class Subsystem {
     boolean isActive = false;
 
@@ -112,7 +119,7 @@ public class Arm extends Subsystem {
         System.out.println("Arm lifting");
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -128,7 +135,7 @@ public class Arm extends Subsystem {
   - Example: `Subsystem` parent class with `activate()` and `deactivate()`.  
   - Children (`Shooter`, `Climber`, `DriveTrain`) inherit and add unique methods.  
 
-[CODE BLOCK]java
+```java
 public class Shooter extends Subsystem {
     void shoot() {
         System.out.println("Shooter firing");
@@ -140,7 +147,7 @@ public class Climber extends Subsystem {
         System.out.println("Climber ascending");
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -152,10 +159,10 @@ public class Climber extends Subsystem {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Show how inheritance reduces duplication (DRY principle).  
 - Robot code: subsystems inherit from a common parent.  
 - Archaeology: replace repeated attributes with a parent class.  
 - Segue: Next lesson → **Method Overriding** (child classes redefine parent methods).  
-[CODE BLOCK]
+-->

@@ -19,25 +19,29 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [07:51:58](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=28318s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 36](https://www.youtube.com/watch?v=4B8XKEORJss&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=48) (Learn Java abstraction in 9 minutes! 🌫️, 9:34)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
+
+> Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson36.basic;`, and `package lesson36.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
 - Create an abstract parent class `Shape` with:  
   - Abstract method: `double area()`  
   - Concrete method: `void display()`  
 
-[CODE BLOCK]java
+```java
 public abstract class Shape {
     // Abstract method (must be implemented by children)
     abstract double area();
@@ -47,14 +51,17 @@ public abstract class Shape {
         System.out.println("This is a shape");
     }
 }
-[CODE BLOCK]
+```
 
 - Create child classes `Circle`, `Triangle`, and `Rectangle` that extend `Shape`.  
+- Each child **must** have an `area()` method, or Java won't compile it: that's what `abstract` enforces. For now, give each one `@Override double area() { return 0; }`. The extra fills them in.  
+- In `main()`, try `new Shape()` and read the error, then delete it. `Shape` is too general to build.  
+- Create one `Circle`, one `Triangle` and one `Rectangle`, and call `display()` on each. They inherited it from `Shape` without writing it.  
 
 **Extra (1 pt)**  
 - Implement the `area()` method in each child:  
 
-[CODE BLOCK]java
+```java
 public class Circle extends Shape {
     double radius;
 
@@ -95,11 +102,11 @@ public class Rectangle extends Shape {
         return length * width;
     }
 }
-[CODE BLOCK]
+```
 
 - Demonstrate usage:  
 
-[CODE BLOCK]java
+```java
 Shape circle = new Circle(3);
 Shape triangle = new Triangle(4, 5);
 Shape rectangle = new Rectangle(6, 7);
@@ -107,7 +114,7 @@ Shape rectangle = new Rectangle(6, 7);
 System.out.println(circle.area());    // 28.27...
 System.out.println(triangle.area());  // 10.0
 System.out.println(rectangle.area()); // 42.0
-[CODE BLOCK]
+```
 
 ---
 
@@ -123,7 +130,7 @@ System.out.println(rectangle.area()); // 42.0
 - Implement `run()` differently in each.  
 - Print results to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 public abstract class Subsystem {
     abstract void run();
 
@@ -152,7 +159,7 @@ public class Shooter extends Subsystem {
         SmartDashboard.putString("Shooter", "Shooting ball");
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -168,14 +175,14 @@ public class Shooter extends Subsystem {
   - Each subsystem implements its own version.  
   - Shared setup logic (like `activate()`) lives in the parent.  
 
-[CODE BLOCK]java
+```java
 Subsystem[] subsystems = { new DriveTrain(), new Arm(), new Shooter() };
 
 for (Subsystem s : subsystems) {
     s.activate();
     s.run();
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -187,10 +194,10 @@ for (Subsystem s : subsystems) {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize that abstraction = hiding details, showing essentials.  
 - Robot code: abstract parent class for subsystems.  
 - Archaeology: replace repeated subsystem code with abstract parent.  
 - Segue: Next lesson → **Interfaces** (pure abstraction, multiple inheritance of type).  
-[CODE BLOCK]
+-->

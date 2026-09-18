@@ -19,48 +19,53 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [07:41:37](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=27697s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 34](https://www.youtube.com/watch?v=hx_DRanBRRM&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=46) (Learn Java METHOD OVERRIDING in 4 minutes! ♻️, 4:33)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson34.basic;`, and `package lesson34.extra;` for the extra's copies).
+
 **Basic (1 pt)**  
 - Create a parent class `Animal` with a `move()` method.  
 
-[CODE BLOCK]java
+```java
 public class Animal {
     void move() {
         System.out.println("This animal is running");
     }
 }
-[CODE BLOCK]
+```
 
 - Create child classes `Dog`, `Cat`, and `Fish` that extend `Animal`.  
 - By default, they inherit the `move()` method.  
+- In `main()`, create a `Dog`, a `Cat` and a `Fish`, and call `move()` on each. All three are "running", which is wrong for a fish.  
 
 **Extra (1 pt)**  
 - Override the `move()` method in the `Fish` class to provide a unique implementation.  
 
-[CODE BLOCK]java
+```java
 public class Fish extends Animal {
     @Override
     void move() {
         System.out.println("This animal is swimming");
     }
 }
-[CODE BLOCK]
+```
 
 - Demonstrate:  
 
-[CODE BLOCK]java
+```java
 Dog dog = new Dog();
 Cat cat = new Cat();
 Fish fish = new Fish();
@@ -68,7 +73,9 @@ Fish fish = new Fish();
 dog.move();  // "This animal is running"
 cat.move();  // "This animal is running"
 fish.move(); // "This animal is swimming"
-[CODE BLOCK]
+```
+
+- Now misspell the override as `void moves()`, keeping `@Override` above it, and read the error. Without `@Override`, Java would quietly add a new method, and the fish would go back to running with no warning. Fix the spelling.  
 
 ---
 
@@ -77,13 +84,13 @@ fish.move(); // "This animal is swimming"
 **Basic (1 pt)**  
 - Create a parent class `Subsystem` with a method `activate()`.  
 
-[CODE BLOCK]java
+```java
 public class Subsystem {
     void activate() {
         System.out.println("Subsystem activated");
     }
 }
-[CODE BLOCK]
+```
 
 - Create child classes `DriveTrain`, `Arm`, and `Shooter` that extend `Subsystem`.  
 
@@ -91,7 +98,7 @@ public class Subsystem {
 - Override `activate()` in each child to provide unique behavior.  
 - Print results to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 public class DriveTrain extends Subsystem {
     @Override
     void activate() {
@@ -112,7 +119,7 @@ public class Shooter extends Subsystem {
         SmartDashboard.putString("Shooter", "Shooter firing");
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -128,13 +135,13 @@ public class Shooter extends Subsystem {
   - Centralize shared logic in the parent class.  
   - Let each child provide its own unique implementation.  
 
-[CODE BLOCK]java
+```java
 Subsystem[] subsystems = { new DriveTrain(), new Arm(), new Shooter() };
 
 for (Subsystem s : subsystems) {
     s.activate(); // polymorphic behavior
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -146,10 +153,10 @@ for (Subsystem s : subsystems) {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize that overriding = same method name, different behavior.  
 - Robot code: subsystems override `activate()` for unique actions.  
 - Archaeology: replace duplicated method names with overridden versions.  
 - Segue: Next lesson → **toString() method overriding** (custom string representation of objects).  
-[CODE BLOCK]
+-->

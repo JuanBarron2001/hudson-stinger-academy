@@ -19,90 +19,50 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [08:19:35](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=29975s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 40](https://www.youtube.com/watch?v=OjrR_C_UPjc&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=52) (Learn Java getters and setters in 10 minutes! 🔐, 10:06)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-**Basic (1 pt)**  
-- Create a `Car` class with private attributes:  
+> New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson40.basic;`, and `package lesson40.extra;` for the extra's copy).
 
-[CODE BLOCK]java
+**Basic (1 pt)**: lock the data, then open it on purpose  
+- Create a `Car` class whose attributes are **private**:  
+
+```java
 public class Car {
     private String model;
     private String color;
+    private int price;
 
-    // Constructor
-    Car(String model, String color) {
+    Car(String model, String color, int price) {
         this.model = model;
         this.color = color;
-    }
-
-    // Getter for model
-    public String getModel() {
-        return model;
-    }
-
-    // Setter for model
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    // Getter for color
-    public String getColor() {
-        return color;
-    }
-
-    // Setter for color
-    public void setColor(String color) {
-        this.color = color;
+        this.price = price;
     }
 }
-[CODE BLOCK]
+```
 
-- Demonstrate usage:  
+- In `main()`, create `new Car("Charger", "Yellow", 10000)` and try to print `car.color`. Read the error: `private` means only code inside `Car` can touch it.  
+- Add a **getter** for each attribute, so they can be read: `public String getModel()`, `public String getColor()` and `public int getPrice()`, each returning its attribute. Print all three with the getters.  
+- Add **setters** for `color` and `price` only: `public void setColor(String color)` and `public void setPrice(int price)`. You can repaint a car or sell it for a new price, but a Charger can't turn into a Corvette, so there is **no** `setModel`.  
+- Repaint the car blue, change its price, and print it again with the getters. Then try `car.setModel("Corvette")` and read the error.  
 
-[CODE BLOCK]java
-Car car = new Car("Mustang", "Red");
-
-// Access values through getters
-System.out.println(car.getModel()); // Mustang
-System.out.println(car.getColor()); // Red
-
-// Update values through setters
-car.setModel("Corvette");
-car.setColor("Blue");
-
-System.out.println(car.getModel()); // Corvette
-System.out.println(car.getColor()); // Blue
-[CODE BLOCK]
-
-**Extra (1 pt)**  
-- Add validation inside a setter (e.g., prevent negative values for `year`).  
-
-[CODE BLOCK]java
-private int year;
-
-public void setYear(int year) {
-    if (year > 1885) { // first car invented ~1886
-        this.year = year;
-    } else {
-        System.out.println("Invalid year for a car!");
-    }
-}
-
-public int getYear() {
-    return year;
-}
-[CODE BLOCK]
+**Extra (1 pt)**: rules inside getters and setters  
+- Make the model `private final String model;`. `final` means it can be set once, in the constructor, and never again, even from inside `Car`.  
+- Add logic to the getter: have `getPrice()` return `"$" + price` (a `String` now).  
+- Add a rule to the setter: if the new price is less than 0, print `"Price can't be less than zero"` and leave the old price alone.  
+- Try `car.setPrice(-100)`. The message prints, and the price stays what it was.  
 
 ---
 
@@ -116,7 +76,7 @@ public int getYear() {
 - Add validation in the setter for `speed` (e.g., must be between `0.0` and `1.0`).  
 - Print results to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 public class Motor {
     private String id;
     private double speed;
@@ -147,7 +107,7 @@ public class Motor {
 Motor motor = new Motor("LeftMotor");
 motor.setSpeed(0.75);
 SmartDashboard.putNumber(motor.getId(), motor.getSpeed());
-[CODE BLOCK]
+```
 
 ---
 
@@ -162,7 +122,7 @@ SmartDashboard.putNumber(motor.getId(), motor.getSpeed());
   - Add validation logic in setters (e.g., prevent invalid sensor values).  
   - Use getters to standardize how data is accessed across subsystems.  
 
-[CODE BLOCK]java
+```java
 // Before
 public double motorSpeed;
 
@@ -178,7 +138,7 @@ public void setMotorSpeed(double motorSpeed) {
         this.motorSpeed = motorSpeed;
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -190,10 +150,10 @@ public void setMotorSpeed(double motorSpeed) {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize encapsulation: hide fields, expose controlled access.  
 - Robot code: validate motor speeds or sensor values with setters.  
 - Archaeology: replace `public` fields with private + getters/setters.  
 - Segue: Next lesson → **Access Modifiers (public, private, protected)** for deeper encapsulation.  
-[CODE BLOCK]
+-->

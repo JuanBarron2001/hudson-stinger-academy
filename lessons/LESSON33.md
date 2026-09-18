@@ -19,23 +19,27 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [07:31:09](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=27069s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 33](https://www.youtube.com/watch?v=LN45TyPWAAg&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=45) (Learn the Java super keyword in 10 minutes! 🔝, 10:30)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson33.basic;`, and `package lesson33.extra;` for the extra's copies).
+
 **Basic (1 pt)**  
 - Create a `Person` class with attributes and constructor:  
 
-[CODE BLOCK]java
+```java
 public class Person {
     String first;
     String last;
@@ -49,13 +53,13 @@ public class Person {
         System.out.println(this.first + " " + this.last);
     }
 }
-[CODE BLOCK]
+```
 
 - Create a `Student` class that extends `Person`.  
 - Add a `double gpa` attribute.  
 - Use `super(first, last)` in the constructor.  
 
-[CODE BLOCK]java
+```java
 public class Student extends Person {
     double gpa;
 
@@ -68,14 +72,17 @@ public class Student extends Person {
         System.out.println(this.first + "'s GPA is " + this.gpa);
     }
 }
-[CODE BLOCK]
+```
+
+- Before you add the `super(first, last);` line, try setting `this.first = first;` in `Student`'s constructor instead, and read the error. `Person`'s only constructor needs a first and last name, so a `Student` can't be built until it hands them up to the parent with `super`.  
+- In `main()`, create `new Student("Harry", "Potter", 3.25)`, then call `showName()` and `showGpa()`. `showName()` came from `Person`.  
 
 **Extra (1 pt)**  
 - Create an `Employee` class that extends `Person`.  
 - Add an `int salary` attribute.  
 - Use `super(first, last)` in the constructor.  
 
-[CODE BLOCK]java
+```java
 public class Employee extends Person {
     int salary;
 
@@ -88,7 +95,9 @@ public class Employee extends Person {
         System.out.println(this.first + "'s salary is $" + this.salary);
     }
 }
-[CODE BLOCK]
+```
+
+- In `main()`, create `new Employee("Rubeus", "Hagrid", 50000)` and call `showName()` and `showSalary()`.  
 
 ---
 
@@ -105,7 +114,7 @@ public class Employee extends Person {
 - Add unique attributes (`speed`, `strength`) and methods.  
 - Print results to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 public class Subsystem {
     String name;
 
@@ -135,7 +144,7 @@ public class Arm extends Subsystem {
         this.strength = strength;
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -151,7 +160,7 @@ public class Arm extends Subsystem {
   - Example: all subsystems require a `name` → handled in parent constructor.  
   - Children only add their unique attributes.  
 
-[CODE BLOCK]java
+```java
 public class Shooter extends Subsystem {
     int rpm;
 
@@ -160,7 +169,7 @@ public class Shooter extends Subsystem {
         this.rpm = rpm;
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -172,10 +181,10 @@ public class Shooter extends Subsystem {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize that `super` = parent.  
 - Robot code: subsystems inherit from a base class, use `super` for shared setup.  
 - Archaeology: replace repeated initialization with `super(...)`.  
 - Segue: Next lesson → **Method Overriding with super** (child redefines parent method but can still call parent’s version).  
-[CODE BLOCK]
+-->
