@@ -20,49 +20,51 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [10:52:09](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=39129s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 52](https://www.youtube.com/watch?v=NMHk1CGb28o&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=67) (Java hashmaps are easy! 🗺️, 10:31)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> In the code below, the `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
+
 **Basic (1 pt)**  
 - Create a HashMap with `String` keys and `Double` values:  
 
-[CODE BLOCK]java
+```java
+// at the top of the file:
 import java.util.HashMap;
 
-public class Main {
-    public static void main(String[] args) {
-        HashMap<String, Double> map = new HashMap<>();
+// inside main:
+HashMap<String, Double> map = new HashMap<>();
 
-        // Add items
-        map.put("Apple", 0.50);
-        map.put("Orange", 0.75);
-        map.put("Banana", 0.25);
+// Add items
+map.put("Apple", 0.50);
+map.put("Orange", 0.75);
+map.put("Banana", 0.25);
 
-        System.out.println(map);
-    }
-}
-[CODE BLOCK]
+System.out.println(map);
+```
 
 - Keys must be unique. Adding another `"Orange"` overwrites the old value:  
 
-[CODE BLOCK]java
+```java
 map.put("Orange", 1000000.0); // overwrites previous price
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
 - Add, remove, and retrieve values:  
 
-[CODE BLOCK]java
+```java
 map.put("Coconut", 1.00);
 System.out.println(map); // includes Coconut
 
@@ -70,31 +72,41 @@ map.remove("Apple");
 System.out.println(map); // Apple removed
 
 System.out.println("Coconut price: " + map.get("Coconut")); // 1.0
-[CODE BLOCK]
+```
 
 - Check for keys and values:  
 
-[CODE BLOCK]java
+```java
 System.out.println(map.containsKey("Banana")); // true
 System.out.println(map.containsKey("Pineapple")); // false
 
 System.out.println(map.containsValue(1.0)); // true
 System.out.println(map.containsValue(1));   // false (wrong type)
-[CODE BLOCK]
+```
+
+- Use `containsKey` the way the video does, before you `get`:  
+
+```java
+if (map.containsKey("Pineapple")) {
+    System.out.println(map.get("Pineapple"));
+} else {
+    System.out.println("Key not found");
+}
+```
 
 - Get the size of the map:  
 
-[CODE BLOCK]java
+```java
 System.out.println("Map size: " + map.size());
-[CODE BLOCK]
+```
 
 - Iterate with a for-each loop:  
 
-[CODE BLOCK]java
+```java
 for (String key : map.keySet()) {
     System.out.println(key + ": $" + map.get(key));
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -103,7 +115,7 @@ for (String key : map.keySet()) {
 **Basic (1 pt)**  
 - Use a HashMap to store subsystem names and their status:  
 
-[CODE BLOCK]java
+```java
 HashMap<String, String> subsystems = new HashMap<>();
 subsystems.put("DriveTrain", "OK");
 subsystems.put("Arm", "OK");
@@ -112,12 +124,12 @@ subsystems.put("Shooter", "Needs Calibration");
 for (String key : subsystems.keySet()) {
     SmartDashboard.putString(key, subsystems.get(key));
 }
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
 - Store motor IDs and their power levels:  
 
-[CODE BLOCK]java
+```java
 HashMap<String, Double> motorPowers = new HashMap<>();
 motorPowers.put("LeftMotor", 0.75);
 motorPowers.put("RightMotor", 0.80);
@@ -125,7 +137,7 @@ motorPowers.put("RightMotor", 0.80);
 for (String motor : motorPowers.keySet()) {
     SmartDashboard.putNumber(motor, motorPowers.get(motor));
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -141,7 +153,7 @@ for (String motor : motorPowers.keySet()) {
   - Use `HashMap<String, Boolean>` for toggles (enabled/disabled).  
   - Iterate through maps to display all values dynamically.  
 
-[CODE BLOCK]java
+```java
 // Before
 double leftMotor = 0.75;
 double rightMotor = 0.80;
@@ -154,7 +166,7 @@ motors.put("RightMotor", 0.80);
 for (String motor : motors.keySet()) {
     System.out.println(motor + ": " + motors.get(motor));
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -166,10 +178,10 @@ for (String motor : motors.keySet()) {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize HashMap = key-value pairs, unique keys, duplicate values allowed.  
 - Robot code: store subsystem states or motor powers.  
 - Archaeology: replace scattered variables with HashMaps.  
 - Segue: Next lesson → **LinkedHashMap & TreeMap** (ordered maps).  
-[CODE BLOCK]
+-->

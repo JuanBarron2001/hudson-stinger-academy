@@ -6,7 +6,11 @@ import edu.wpi.first.wpilibj.Timer;
 import com.ctre.phoenix6.hardware.TalonFX;
 import frc.lesson.LessonBase;
 
-// CHALLENGE: Build a match data logger with formatted telemetry output
+// LESSON 08 EXTRA - Build a match data logger with formatted telemetry output
+// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
+// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
+//
+// TASK:
 // 1. Create an XboxController and motor controller variables
 // 2. Create a Timer to track match time
 // 3. Every 100ms (or on a periodic method), log the following data:

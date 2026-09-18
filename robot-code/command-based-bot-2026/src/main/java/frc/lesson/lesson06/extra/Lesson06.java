@@ -4,7 +4,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.lesson.LessonBase;
 import java.util.Random;
 
-// CHALLENGE: Randomly determine if robot is "attracted" or "scared" of AprilTag at startup
+// LESSON 06 EXTRA - Randomly determine if robot is "attracted" or "scared" of AprilTag at startup
+// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
+// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
+//
+// TASK:
 // 1. Create a Random object
 // 2. At initialization, use nextBoolean() to randomly pick behavior:
 //    - If true → ATTRACTED: robot chases/follows the target tag

@@ -4,7 +4,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.lesson.LessonBase;
 
-// TASK: Format joystick input axes cleanly with printf
+// LESSON 08 BASIC - Format joystick input axes cleanly with printf
+// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
+// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
+//
+// TASK:
 // 1. Create an XboxController variable
 // 2. Read all 4 axes: getLeftX(), getLeftY(), getRightX(), getRightY()
 // 3. Use printf to print them in an aligned format:

@@ -4,7 +4,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix6.hardware.TalonFX;
 import frc.lesson.LessonBase;
 
-// CHALLENGE: Build a command logger with validation and parsing
+// LESSON 10 EXTRA - Build a command logger with validation and parsing
+// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
+// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
+//
+// TASK:
 // 1. Read operator input from Shuffleboard (text field for commands)
 // 2. Clean and validate the input:
 //    - .trim() to remove whitespace

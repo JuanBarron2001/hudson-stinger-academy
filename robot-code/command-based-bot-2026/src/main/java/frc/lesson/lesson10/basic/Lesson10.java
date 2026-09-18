@@ -5,7 +5,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import com.ctre.phoenix6.hardware.TalonFX;
 import frc.lesson.LessonBase;
 
-// TASK: Build a Shuffleboard command parser for drive control
+// LESSON 10 BASIC - Build a Shuffleboard command parser for drive control
+// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
+// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
+//
+// TASK:
 // 1. Create a SendableChooser or read a String from Shuffleboard (text field)
 //    Note: You may need to set up a SendableChooser in your robot initialization
 // 2. Read operator command string: "forward", "backward", "spin", "stop", etc.

@@ -20,58 +20,60 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [11:12:45](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=40365s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 54](https://www.youtube.com/watch?v=SztE5W41on4&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=69) (Learn Java threading in 10 minutes! 🧵, 10:21)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-**Basic (1 pt)**  
-- Without threads, long tasks block the main program:  
+> In the code below, the `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it. New classes like `MyRunnable` get their own file next to `Main.java`, starting with the same `package` line, like lesson 27.
 
-[CODE BLOCK]java
+**Basic (1 pt)**  
+- Without threads, a long task blocks the main program:  
+
+```java
+// at the top of the file:
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+// inside main:
+Scanner scanner = new Scanner(System.in);
 
-        System.out.println("You have 5 seconds to enter your name:");
-        for (int i = 1; i <= 5; i++) {
-            try {
-                Thread.sleep(1000); // blocks main thread
-            } catch (InterruptedException e) {
-                System.out.println("Thread was interrupted");
-            }
-            if (i == 5) {
-                System.out.println("Time's up!");
-            }
-        }
-
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
-        System.out.println("Hello " + name);
-        scanner.close();
+System.out.println("You have 5 seconds to enter your name:");
+for (int i = 1; i <= 5; i++) {
+    try {
+        Thread.sleep(1000); // blocks the main thread
+    } catch (InterruptedException e) {
+        System.out.println("Thread was interrupted");
+    }
+    if (i == 5) {
+        System.out.println("Time's up!");
     }
 }
-[CODE BLOCK]
 
-- Problem: user input is blocked until the loop finishes.  
+System.out.print("Enter your name: ");
+String name = scanner.nextLine();
+System.out.println("Hello " + name);
+scanner.close();
+```
+
+- Problem: you can't even see the name prompt until the countdown is over. Everything runs on **one** thread, the main thread, one line at a time.  
 
 ---
 
 **Extra (1 pt)**  
-- Solve with **Runnable** and a separate thread:  
+- Move the countdown to its own thread, with the **Runnable** interface. In a new file, `MyRunnable.java`:  
 
-[CODE BLOCK]java
-class MyRunnable implements Runnable {
+```java
+public class MyRunnable implements Runnable {
     @Override
     public void run() {
         for (int i = 1; i <= 10; i++) {
@@ -82,30 +84,31 @@ class MyRunnable implements Runnable {
             }
             if (i == 10) {
                 System.out.println("Time's up!");
-                System.exit(0); // exit program when time is up
             }
         }
     }
 }
+```
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+- And inside `main`:  
 
-        System.out.println("You have 10 seconds to enter your name:");
-        Thread timerThread = new Thread(new MyRunnable());
-        timerThread.setDaemon(true); // ends when main thread ends
-        timerThread.start();
+```java
+Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
-        System.out.println("Hello " + name);
-        scanner.close();
-    }
-}
-[CODE BLOCK]
+System.out.println("You have 10 seconds to enter your name:");
+Thread timerThread = new Thread(new MyRunnable());
+timerThread.setDaemon(true); // ends when the main program ends
+timerThread.start();
 
-- Now the countdown runs **in the background** while the main thread waits for input.  
+System.out.print("Enter your name: ");
+String name = scanner.nextLine();
+System.out.println("Hello " + name);
+scanner.close();
+```
+
+- Now the countdown runs **in the background** while the main thread waits for your name.  
+- Take out `setDaemon(true)` and answer quickly. The program keeps running until the countdown finishes, because Java waits for every ordinary thread. A **daemon** thread doesn't hold the program open.  
+- The video also calls `System.exit(0)` when time is up, to end the whole program. Leave that out here: it would shut down the lesson runner too, before it finishes your log.  
 
 ---
 
@@ -114,7 +117,7 @@ public class Main {
 **Basic (1 pt)**  
 - Use a thread to monitor battery voltage in the background:  
 
-[CODE BLOCK]java
+```java
 class BatteryMonitor implements Runnable {
     @Override
     public void run() {
@@ -132,12 +135,12 @@ class BatteryMonitor implements Runnable {
 Thread monitorThread = new Thread(new BatteryMonitor());
 monitorThread.setDaemon(true);
 monitorThread.start();
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
 - Use a thread for timed autonomous actions:  
 
-[CODE BLOCK]java
+```java
 class AutoTask implements Runnable {
     @Override
     public void run() {
@@ -153,7 +156,7 @@ class AutoTask implements Runnable {
 
 Thread autoThread = new Thread(new AutoTask());
 autoThread.start();
-[CODE BLOCK]
+```
 
 ---
 
@@ -169,7 +172,7 @@ autoThread.start();
   - Use threads for timed sequences without blocking teleop.  
   - Replace `Thread.sleep()` in main code with background tasks.  
 
-[CODE BLOCK]java
+```java
 // Before: blocking call
 Thread.sleep(5000);
 arm.moveUp();
@@ -183,7 +186,7 @@ new Thread(() -> {
         e.printStackTrace();
     }
 }).start();
-[CODE BLOCK]
+```
 
 ---
 
@@ -195,10 +198,10 @@ new Thread(() -> {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize threads = run multiple tasks simultaneously.  
 - Robot code: background monitoring, timed actions.  
 - Archaeology: replace blocking code with threaded tasks.  
 - Segue: Next lesson → **Synchronization** (managing shared resources between threads).  
-[CODE BLOCK]
+-->
