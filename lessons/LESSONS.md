@@ -73,6 +73,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 46  | 🖥️ Writing Files in Java (FileWriter)  | Save data to files using `FileWriter`.                                  | [Open Lesson](./LESSON46.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 47  | 🖥️ Reading Files in Java (BufferedReader + FileReader) | Read text files efficiently.                                            | [Open Lesson](./LESSON47.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 48  | 🖥️ Dates and Times in Java             | Work with `LocalDate`, `LocalTime`, and `LocalDateTime`.                | [Open Lesson](./LESSON48.md) | [AI_SLOB] | Optional | — skip for now |
+| [ ] | 49  | 🖥️ Anonymous Classes in Java           | Give one object its own behavior with a class that has no name, the pattern `TimerTask` and `Runnable` use. | [Open Lesson](./LESSON49.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 50  | 🖥️ Timer and TimerTask in Java         | Schedule tasks with `Timer` and `TimerTask`.                            | [Open Lesson](./LESSON50.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 51  | 🖥️ Generics in Java                    | Write flexible, type‑safe classes and methods.                          | [Open Lesson](./LESSON51.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 52  | 🖥️ HashMaps in Java                    | Store key‑value pairs with `HashMap`.                                   | [Open Lesson](./LESSON52.md) | [AI_SLOB] | Core | ⏳ Not yet |

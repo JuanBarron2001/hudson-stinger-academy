@@ -19,23 +19,27 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [08:29:39](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=30579s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 41](https://www.youtube.com/watch?v=pqQAHA1XjJk&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=53) (Learn Java AGGREGATION in 9 minutes! 🏫, 9:26)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson41.basic;`, and `package lesson41.extra;` for the extra's copies).
+
 **Basic (1 pt)**  
 - Create a `Book` class with attributes and a method to display info:  
 
-[CODE BLOCK]java
+```java
 public class Book {
     String title;
     int pages;
@@ -49,14 +53,15 @@ public class Book {
         return this.title + " (" + this.pages + " pages)";
     }
 }
-[CODE BLOCK]
+```
 
 - Create a few `Book` objects and store them in an array.  
+- Print every book's `displayInfo()` with an enhanced `for` loop.  
 
 **Extra (1 pt)**  
 - Create a `Library` class that **aggregates** `Book` objects:  
 
-[CODE BLOCK]java
+```java
 public class Library {
     String name;
     int year;
@@ -76,11 +81,11 @@ public class Library {
         }
     }
 }
-[CODE BLOCK]
+```
 
 - Demonstrate usage:  
 
-[CODE BLOCK]java
+```java
 Book b1 = new Book("The Fellowship of the Ring", 423);
 Book b2 = new Book("The Two Towers", 352);
 Book b3 = new Book("The Return of the King", 416);
@@ -89,7 +94,9 @@ Book[] books = { b1, b2, b3 };
 
 Library library = new Library("New York City Public Library", 1897, books);
 library.displayInfo();
-[CODE BLOCK]
+```
+
+- After the library, print `b1.displayInfo()` on its own. The book was built **before** the library and doesn't need it: that independence is what makes this aggregation. Lesson 42's composition is the opposite.  
 
 ---
 
@@ -102,7 +109,7 @@ library.displayInfo();
 **Extra (1 pt)**  
 - Add a `displayInfo()` method in `Robot` to print all motors’ info to **SmartDashboard**.  
 
-[CODE BLOCK]java
+```java
 public class Motor {
     String id;
     double speed;
@@ -133,7 +140,7 @@ public class Robot {
         }
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -148,7 +155,7 @@ public class Robot {
   - Replace repeated variables with arrays of objects.  
   - Use aggregation to group related objects logically.  
 
-[CODE BLOCK]java
+```java
 public class DriveTrain {
     Motor[] motors;
 
@@ -162,7 +169,7 @@ public class DriveTrain {
         }
     }
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -174,10 +181,10 @@ public class DriveTrain {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize that aggregation = “has‑a” relationship, but objects can live independently.  
 - Robot code: robot has motors, but motors can exist outside robot.  
 - Archaeology: replace scattered variables with aggregated collections.  
 - Segue: Next lesson → **Composition** (stronger relationship, objects cannot exist independently).  
-[CODE BLOCK]
+-->

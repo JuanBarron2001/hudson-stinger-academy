@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [08:55:51](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=32151s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 44](https://www.youtube.com/watch?v=wsTSREgCE5E&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=56) (Learn Java arraylists in 9 minutes! 📃, 9:40)
 
 ---
 
@@ -39,18 +41,18 @@ Learn to:
 
 - Create an ArrayList of integers:  
 
-[CODE BLOCK]java
+```java
 ArrayList<Integer> numbers = new ArrayList<>();
 numbers.add(3);
 numbers.add(1);
 numbers.add(2);
 
 System.out.println(numbers); // [3, 1, 2]
-[CODE BLOCK]
+```
 
 - Create an ArrayList of strings:  
 
-[CODE BLOCK]java
+```java
 ArrayList<String> fruits = new ArrayList<>();
 fruits.add("Apple");
 fruits.add("Orange");
@@ -58,34 +60,40 @@ fruits.add("Banana");
 fruits.add("Coconut");
 
 System.out.println(fruits); // [Apple, Orange, Banana, Coconut]
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
 - Demonstrate ArrayList methods:  
 
-[CODE BLOCK]java
+```java
 fruits.remove(0); // removes Apple
 fruits.set(0, "Pineapple"); // replaces Orange with Pineapple
 System.out.println(fruits.get(1)); // Banana
 System.out.println(fruits.size()); // 3
-[CODE BLOCK]
+```
 
 - Sort with Collections:  
 
-[CODE BLOCK]java
-import java.util.Collections;
+```java
+import java.util.Collections; // this line goes at the TOP of the file, with the other imports
 
-Collections.sort(fruits);
+Collections.sort(fruits);       // this one goes in main
 System.out.println(fruits); // [Banana, Coconut, Pineapple]
-[CODE BLOCK]
+```
 
 - Iterate with enhanced for loop:  
 
-[CODE BLOCK]java
+```java
 for (String fruit : fruits) {
     System.out.println(fruit);
 }
-[CODE BLOCK]
+```
+
+- **The video's exercise, a food list from user input:**  
+  - Create an empty `ArrayList<String> foods` and a `Scanner`.  
+  - Ask `"Enter the number of food you would like: "` and read it with `nextInt()`, then call `scanner.nextLine()` once to clear the leftover new line (lesson 03).  
+  - Loop that many times, asking `"Enter food #" + i + ": "`, and `foods.add(...)` each answer.  
+  - Print the whole list. Unlike lesson 23's array, you never had to pick its size up front.  
 
 ---
 
@@ -94,7 +102,7 @@ for (String fruit : fruits) {
 **Basic (1 pt)**  
 - Use ArrayLists to store motor speeds:  
 
-[CODE BLOCK]java
+```java
 ArrayList<Double> motorSpeeds = new ArrayList<>();
 motorSpeeds.add(0.5);
 motorSpeeds.add(0.75);
@@ -103,12 +111,12 @@ motorSpeeds.add(1.0);
 for (Double speed : motorSpeeds) {
     SmartDashboard.putNumber("Motor Speed", speed);
 }
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
 - Accept sensor readings as strings, parse them, and add to an ArrayList:  
 
-[CODE BLOCK]java
+```java
 ArrayList<Integer> voltages = new ArrayList<>();
 voltages.add(Integer.parseInt("12"));
 voltages.add(Integer.parseInt("11"));
@@ -117,7 +125,7 @@ voltages.add(Integer.parseInt("13"));
 for (Integer v : voltages) {
     SmartDashboard.putNumber("Voltage", v);
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -133,7 +141,7 @@ for (Integer v : voltages) {
   - Use `ArrayList<String>` for logging subsystem states.  
   - Use `Collections.sort()` to order values when needed.  
 
-[CODE BLOCK]java
+```java
 // Before
 double[] speeds = {0.5, 0.75, 1.0};
 
@@ -142,7 +150,7 @@ ArrayList<Double> speeds = new ArrayList<>();
 speeds.add(0.5);
 speeds.add(0.75);
 speeds.add(1.0);
-[CODE BLOCK]
+```
 
 ---
 
@@ -154,10 +162,10 @@ speeds.add(1.0);
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize ArrayLists = resizable arrays.  
 - Robot code: store motor speeds or sensor readings dynamically.  
 - Archaeology: replace fixed arrays with ArrayLists for flexibility.  
 - Segue: Next lesson → **For‑Each Loops with ArrayLists** (iterating collections more efficiently).  
-[CODE BLOCK]
+-->

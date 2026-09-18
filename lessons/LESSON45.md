@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [09:05:29](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=32729s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 45](https://www.youtube.com/watch?v=u1PROb-aRUI&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=57) (Learn EXCEPTION HANDLING in 8 minutes! ⚠️, 8:02)
 
 ---
 
@@ -36,20 +38,22 @@ Learn to:
 **Basic (1 pt)**  
 - Example of dividing by zero:  
 
-[CODE BLOCK]java
+```java
 try {
     int result = 1 / 0; // dangerous code
 } catch (ArithmeticException e) {
     System.out.println("You can't divide by zero!");
 }
-[CODE BLOCK]
+```
 
 - Example of input mismatch:  
 
-[CODE BLOCK]java
+```java
+// These two lines go at the TOP of the file, with the other imports:
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+// The rest goes in main:
 Scanner scanner = new Scanner(System.in);
 
 try {
@@ -59,12 +63,14 @@ try {
 } catch (InputMismatchException e) {
     System.out.println("That wasn't a number!");
 }
-[CODE BLOCK]
+```
+
+- Run it twice: once typing a number, once typing a word like `pizza`. Without the `try`, the word would crash the program with an `InputMismatchException`.  
 
 **Extra (1 pt)**  
 - Using multiple catch blocks and a catch-all:  
 
-[CODE BLOCK]java
+```java
 try {
     int result = 1 / 0;
 } catch (ArithmeticException e) {
@@ -74,11 +80,11 @@ try {
 } finally {
     System.out.println("This always executes.");
 }
-[CODE BLOCK]
+```
 
 - Using **try-with-resources**:  
 
-[CODE BLOCK]java
+```java
 try (Scanner scanner2 = new Scanner(System.in)) {
     System.out.print("Enter a number: ");
     int num = scanner2.nextInt();
@@ -86,7 +92,9 @@ try (Scanner scanner2 = new Scanner(System.in)) {
 } catch (InputMismatchException e) {
     System.out.println("Invalid input!");
 }
-[CODE BLOCK]
+```
+
+- With try‑with‑resources, Java closes the `Scanner` for you when the `try` ends, even if an exception was thrown. The video's advice: catch **specific** exceptions first, so the user learns what went wrong, and keep `Exception e` last, as a safety net.  
 
 ---
 
@@ -95,7 +103,7 @@ try (Scanner scanner2 = new Scanner(System.in)) {
 **Basic (1 pt)**  
 - Handle exceptions when reading sensor values:  
 
-[CODE BLOCK]java
+```java
 try {
     String sensorValue = "abc"; // invalid numeric input
     int voltage = Integer.parseInt(sensorValue);
@@ -103,23 +111,22 @@ try {
 } catch (NumberFormatException e) {
     SmartDashboard.putString("Error", "Invalid sensor value");
 }
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
-- Use finally to ensure cleanup:  
+- Use `finally` for code that must run either way. Parse a `String` like the basic half, not a `Scanner`: robot code has no keyboard, and waiting for one would freeze the robot loop like lesson 15's `while`.  
 
-[CODE BLOCK]java
-Scanner scanner = new Scanner(System.in);
+```java
+String speedText = "0.75"; // then try "fast"
 try {
-    System.out.print("Enter motor speed: ");
-    double speed = scanner.nextDouble();
+    double speed = Double.parseDouble(speedText);
     SmartDashboard.putNumber("Motor Speed", speed);
-} catch (InputMismatchException e) {
+} catch (NumberFormatException e) {
     SmartDashboard.putString("Error", "Invalid speed input");
 } finally {
-    scanner.close(); // cleanup
+    SmartDashboard.putString("Status", "Speed input checked"); // runs either way
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -134,7 +141,7 @@ try {
   - Catch **specific exceptions** (e.g., `NumberFormatException` for parsing).  
   - Use **finally** or **try-with-resources** to ensure cleanup.  
 
-[CODE BLOCK]java
+```java
 try {
     int rpm = Integer.parseInt(sensorString);
     shooter.setRPM(rpm);
@@ -142,7 +149,7 @@ try {
     System.out.println("Invalid RPM input, using default.");
     shooter.setRPM(3000);
 }
-[CODE BLOCK]
+```
 
 ---
 
@@ -154,10 +161,10 @@ try {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize exceptions = interruptions in program flow.  
 - Robot code: handle invalid sensor data gracefully.  
 - Archaeology: replace crash-prone parsing with try-catch.  
 - Segue: Next lesson → **File Handling** (working with files, streams, and exceptions).  
-[CODE BLOCK]
+-->

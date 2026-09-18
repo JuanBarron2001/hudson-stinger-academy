@@ -19,47 +19,60 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [10:25:23](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=37523s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 50](https://www.youtube.com/watch?v=HjzcZkzRDYs&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=64) (Learn Java timertasks in 6 minutes! ⏲️, 6:24)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-**Basic (1 pt)**  
-- Create a `Timer` and a `TimerTask` using an **anonymous class**:  
+> In the code below, the `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
-[CODE BLOCK]java
+> ⚠️ **Make `main` wait for the timer.** A `Timer` runs its task on its own thread, in the background. If `main` finishes first, the lesson runner stops logging, so the task's output never reaches your log. And a timer that's never cancelled keeps the program running forever. So after scheduling, call `Thread.sleep(...)` long enough for the task to finish, and add `throws InterruptedException` to `main`, like lesson 16's countdown.
+
+**Basic (1 pt)**  
+- Create a `Timer` and a `TimerTask`, using an **anonymous class** (lesson 49):  
+
+```java
+// at the top of the file:
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Main {
-    public static void main(String[] args) {
-        Timer timer = new Timer();
+// main's first line becomes:
+// public static void main(String[] args) throws InterruptedException {
 
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println("Hello");
-            }
-        };
+// inside main:
+Timer timer = new Timer();
 
-        // Schedule task after 3 seconds (3000 ms)
-        timer.schedule(task, 3000);
+TimerTask task = new TimerTask() {
+    @Override
+    public void run() {
+        System.out.println("Hello");
     }
-}
-[CODE BLOCK]
+};
+
+// Run the task once, after 3 seconds (3000 ms)
+timer.schedule(task, 3000);
+
+// Wait for it, then stop the timer so the program can end
+Thread.sleep(4000);
+timer.cancel();
+```
+
+- Try it without the last two lines once, and look at your log: `Hello` isn't in it, and the program doesn't end on its own (stop it with **Ctrl+C**). Then put them back.  
 
 **Extra (1 pt)**  
-- Schedule a task to repeat at a fixed rate:  
+- Schedule a task to repeat at a fixed rate, and let the task stop itself:  
 
-[CODE BLOCK]java
+```java
 Timer timer = new Timer();
 
 TimerTask task = new TimerTask() {
@@ -78,7 +91,12 @@ TimerTask task = new TimerTask() {
 
 // Start immediately (0 ms delay), repeat every 1000 ms
 timer.scheduleAtFixedRate(task, 0, 1000);
-[CODE BLOCK]
+
+// The task cancels the timer itself, but main still has to wait for it
+Thread.sleep(4000);
+```
+
+- Change the first number, the delay, to `3000`. Now it waits 3 seconds before the first `Hello`. How long does `main` have to sleep now?  
 
 ---
 
@@ -87,7 +105,7 @@ timer.scheduleAtFixedRate(task, 0, 1000);
 **Basic (1 pt)**  
 - Use a timer to log robot status every second:  
 
-[CODE BLOCK]java
+```java
 Timer timer = new Timer();
 
 TimerTask logTask = new TimerTask() {
@@ -98,12 +116,12 @@ TimerTask logTask = new TimerTask() {
 };
 
 timer.scheduleAtFixedRate(logTask, 0, 1000);
-[CODE BLOCK]
+```
 
 **Extra (1 pt)**  
 - Stop logging after 5 updates:  
 
-[CODE BLOCK]java
+```java
 TimerTask logTask = new TimerTask() {
     int count = 5;
 
@@ -119,7 +137,7 @@ TimerTask logTask = new TimerTask() {
 };
 
 timer.scheduleAtFixedRate(logTask, 0, 1000);
-[CODE BLOCK]
+```
 
 ---
 
@@ -135,7 +153,7 @@ timer.scheduleAtFixedRate(logTask, 0, 1000);
   - Use `TimerTask` for timed subsystem shutdowns.  
   - Cancel timers when tasks are complete to avoid wasted resources.  
 
-[CODE BLOCK]java
+```java
 // Before: manual loop with Thread.sleep()
 for (int i = 0; i < 5; i++) {
     System.out.println("Update " + i);
@@ -153,7 +171,7 @@ timer.scheduleAtFixedRate(new TimerTask() {
         if (count <= 0) timer.cancel();
     }
 }, 0, 1000);
-[CODE BLOCK]
+```
 
 ---
 
@@ -165,11 +183,10 @@ timer.scheduleAtFixedRate(new TimerTask() {
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize Timer = scheduler, TimerTask = job.  
 - Robot code: periodic logging, sensor checks, timed shutdowns.  
 - Archaeology: replace loops/delays with TimerTask.  
 - Segue: Next lesson → **Countdown Timer** (using Timer + TimerTask to count down).  
-[CODE BLOCK]
-```
+-->
