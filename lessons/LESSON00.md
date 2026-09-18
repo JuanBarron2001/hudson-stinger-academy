@@ -137,6 +137,8 @@ Some lessons also use the **operator** controller, which is **Keyboard 1** in sl
 
 The simulator window has to be selected (clicked on) for your key presses to count.
 
+> 🤖 **Want to see the robot actually move?** Set `LESSON = 98` and run it. Lesson 98 isn't a lesson, it's the **simulator check**: it drives with **W/S** and **J/L**, spins the rollers on the operator's **5**, and runs the climber on the **arrow keys**. Everything it hears shows up under **Demo/**. Use it any time you're not sure whether the problem is your code or your setup. Every real lesson starts as an empty file, so an empty file publishing nothing is normal.
+
 > 🔧 **Keys doing nothing?** Look at the **Joysticks** window. If slot 0 is empty, drag **Keyboard 0** from the **System Joysticks** window onto it. The key mapping lives in the **Keyboard 0 Settings** window if you ever need to check it.
 
 ### 5. Run it

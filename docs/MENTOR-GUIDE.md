@@ -55,6 +55,7 @@ For the 2026 offseason, lessons **00–05, 07, 09, 12–16, 19, 21, 22 and 26** 
 | `frc/robot/Robot.java` | The lesson host: loads the lesson, runs it in Teleoperated, runs the simulator | No |
 | `frc/lesson/LessonBase.java`, `LessonLoader.java`, `LessonLogger.java` | The harness and the hash-chained log | No |
 | `frc/lesson/lessonNN/{basic,extra}/` | The exercises | Yes |
+| `frc/lesson/lesson98/basic/` | The simulator check: a working demo that drives, shoots and climbs | No |
 | `frc/sim/RobotSim.java` | Physics that make the 2026 robot move at home | No |
 | `frc/robot/LimelightHelpers.java` | Limelight's helper file, copied from the competition code | No |
 | `simgui-ds.json` | Maps the keyboard to a driver (port 0) and an operator (port 1) Xbox controller | No |
@@ -70,6 +71,12 @@ Its limits:
 - It models every motor as a **Kraken X60**, the only motor CTRE's simulator supports.
 - Robot mass, robot inertia and roller inertia are **estimates**. The drivetrain gear ratio, wheel size and track width are the competition code's values, which match the kitbot template and may never have been measured.
 - There is **no Limelight**. Vision exercises use pretend buttons at home and the real camera at meetings.
+
+### The simulator check (lesson 98)
+
+Every real lesson starts as an empty stub, so a student's first run publishes nothing and moves nothing, which is indistinguishable from a broken setup. `LESSON = 98` runs a working demo instead: arcade drive on the sticks, rollers on the operator's A, climber on the D-pad, and every input echoed under `Demo/`. Point anyone stuck at it before debugging anything else.
+
+It drives with WPILib's `DifferentialDrive`, which is lesson 32's material, so copying it doesn't complete lessons 03–05, which ask for the mixing and the sign flipping by hand.
 
 ### Tests
 

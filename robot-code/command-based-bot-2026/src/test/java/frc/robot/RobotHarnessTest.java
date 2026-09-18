@@ -105,6 +105,62 @@ class RobotHarnessTest {
   }
 
   @Test
+  void theSimulatorCheckDrivesWithTheSticks() throws Exception {
+    Path log = Paths.get("frc.lesson.lesson98.basic-output.log");
+    Files.deleteIfExists(log);
+
+    HAL.initialize(500, 0);
+    DriverStationSim.setDsAttached(true);
+    DriverStationSim.setAutonomous(false);
+    DriverStationSim.setEnabled(true);
+    for (int port = 0; port < 2; port++) {
+      DriverStationSim.setJoystickAxisCount(port, 6);
+      DriverStationSim.setJoystickButtonCount(port, 10);
+    }
+
+    // Simulated motors keep their last command, so stop anything an earlier test left running.
+    // Otherwise this test would "pass" on leftover motion.
+    com.ctre.phoenix6.hardware.TalonFX[] driveMotors = {
+      new com.ctre.phoenix6.hardware.TalonFX(1), new com.ctre.phoenix6.hardware.TalonFX(2),
+      new com.ctre.phoenix6.hardware.TalonFX(3), new com.ctre.phoenix6.hardware.TalonFX(4)
+    };
+    RobotSim.start();
+    for (int i = 0; i < 15; i++) {
+      for (com.ctre.phoenix6.hardware.TalonFX m : driveMotors) m.set(0);
+      RobotSim.start().update();
+      Thread.sleep(20);
+    }
+    RobotSim.start().reset();
+    assertEquals(0, RobotSim.start().getTruePose().getX(), 0.05, "robot should start still");
+
+    Robot robot = new Robot(98, false);
+    robot.simulationInit();
+
+    // Hold W (left stick forward) and the operator's A.
+    for (int i = 0; i < 75; i++) {
+      DriverStationSim.setJoystickAxis(0, 1, -1.0);
+      DriverStationSim.setJoystickButton(1, 1, true);
+      DriverStationSim.notifyNewData();
+      DriverStation.refreshData();
+      robot.teleopPeriodic();
+      robot.robotPeriodic();
+      robot.simulationPeriodic();
+      Thread.sleep(20);
+    }
+
+    double x = RobotSim.start().getTruePose().getX();
+    System.out.printf("simulator check: drove %.2f m with W held%n", x);
+    assertTrue(x > 1.0, "holding W should drive the robot forward");
+
+    List<String> lines = Files.readAllLines(log, StandardCharsets.UTF_8);
+    assertTrue(lines.stream().anyMatch(l -> l.contains("|Demo/Driver Left Y (W and S)|")),
+        "grouped keys like Demo/... have to be logged, not just top-level ones");
+    assertTrue(lines.stream().anyMatch(l -> l.contains("|Demo/Roller Speed (RPS)|Double|-")),
+        "the operator's A should spin the rollers");
+    Files.deleteIfExists(log);
+  }
+
+  @Test
   void anEmptyLessonSaysSoInsteadOfLookingBroken() throws Exception {
     HAL.initialize(500, 0);
     DriverStationSim.setDsAttached(true);

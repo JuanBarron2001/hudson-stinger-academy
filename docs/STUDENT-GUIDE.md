@@ -247,6 +247,12 @@ The numbers in `PickYourLesson.java` point at a lesson that doesn't exist. Check
 
 Your `execute()` crashed. Scroll up to the error. The first line that mentions `frc.lesson` is usually the line with the problem. A very common one is using a motor or controller you never created in `setup()` (it's still `null`).
 
+### Robot lesson: nothing happens at all
+
+A lesson file starts **empty**, so a fresh lesson publishes nothing and moves nothing. That's normal, not a broken simulator. After five seconds the console says so.
+
+To prove your setup works, set `LESSON = 98` and run the **simulator check**: it drives with W/S and J/L, spins the rollers on the operator's 5 key, and shows every key it hears under **Demo/**.
+
 ### Robot lesson: nothing moves when I press keys
 
 - Is **Robot State** set to **Teleoperated**?

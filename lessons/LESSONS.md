@@ -16,6 +16,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 - **Code Archaeology is optional.** Do it when you have time.
 - **2026 Robot Half** shows which robot exercises are rewritten for the 2026 robot. The rest are on the way.
 - Robot facts (CAN IDs, buttons, speeds): [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md)
+- **Not sure if your simulator works?** Set `LESSON = 98` for the simulator check, a working demo you can drive. Real lessons start as empty files, so publishing nothing is normal.
 
 ---
 

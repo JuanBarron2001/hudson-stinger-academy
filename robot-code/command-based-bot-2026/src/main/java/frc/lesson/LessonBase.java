@@ -1,5 +1,7 @@
 package frc.lesson;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,7 +11,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -119,7 +123,7 @@ public abstract class LessonBase {
     loopCounter = (loopCounter + 1) % LOOPS_PER_SAMPLE;
     if (loopCounter != 0) return;
 
-    for (String key : SmartDashboard.getKeys()) {
+    for (String key : everyKey()) {
       // The simulator's own values aren't your work, so they stay out of your log.
       if (key.startsWith(SIM_KEY_PREFIX)) continue;
 
@@ -131,6 +135,27 @@ public abstract class LessonBase {
         if (!logLine(key, current.getClass().getSimpleName(), current.toString())) return;
         previousValues.put(key, current);
       }
+    }
+  }
+
+  /**
+   * Every SmartDashboard key, including ones inside groups. A key like "Flywheel/Actual RPS" is
+   * really an entry named "Actual RPS" inside a group named "Flywheel", and
+   * {@code SmartDashboard.getKeys()} only returns the top level, so grouped values would never be
+   * logged. The 2026 robot's own code names things this way, so lessons do too.
+   */
+  private static List<String> everyKey() {
+    List<String> keys = new ArrayList<>();
+    collectKeys(NetworkTableInstance.getDefault().getTable("SmartDashboard"), "", keys);
+    return keys;
+  }
+
+  private static void collectKeys(NetworkTable table, String prefix, List<String> keys) {
+    for (String key : table.getKeys()) {
+      keys.add(prefix + key);
+    }
+    for (String group : table.getSubTables()) {
+      collectKeys(table.getSubTable(group), prefix + group + "/", keys);
     }
   }
 
