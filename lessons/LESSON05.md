@@ -21,14 +21,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [01:09:00](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=4140s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 05](https://www.youtube.com/watch?v=Q_ll-EKocuI&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=7) (Java if statements are easy! 🤔, 13:29)
 
 ---
 
@@ -41,11 +43,16 @@ Learn to:
 - Add an `else` clause to print `"You are a child"`.  
 
 **Extra (1 pt)**  
-- Expand with multiple conditions:  
+- With a `Scanner`, ask for the user's **name** (`nextLine()`), then their **age** (`nextInt()`), then whether they're a **student** (`nextBoolean()`). Ask for the name first: after a `nextInt()`, lesson 03's leftover‑newline problem would swallow it.
+- **Group 1, the name:** if `name.isEmpty()` print `"You didn't enter your name"`, otherwise print `"Hello " + name + "!"`.
+- **Group 2, the age:** one `if` / `else if` / `else` chain with these messages:  
   - `age < 0` → `"You haven’t been born yet"`  
-  - `age == 0` → `"You are a baby"`  
+  - `age == 0` → `"You are a baby"` (two `=` signs: one `=` assigns, two compare)  
   - `age >= 65` → `"You are a senior"`  
-- Prompt the user for their age using `Scanner` and test the branching logic.  
+  - `age >= 18` → `"You are an adult"`  
+  - anything else → `"You are a child"`  
+- **Order matters.** Java checks from the top and stops at the first true condition. Put the checks in an order where a 70‑year‑old is called a senior, not an adult.
+- **Group 3, the student:** write `if (isStudent)`. You don't need `== true`.
 
 ---
 
@@ -94,10 +101,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Use joystick deadband logic as a real-world “if statement” example.
 - Archaeology: check for safety interlocks (e.g., “if limit switch is pressed, stop motor”).
 - Segue: This lesson builds naturally from arithmetic (Lesson 04) → now we make decisions with those values.
 - Future: Combine if statements with loops for Lesson 06.
-[CODE BLOCK]
+-->

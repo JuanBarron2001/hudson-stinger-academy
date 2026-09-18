@@ -1,26 +1,21 @@
 package lesson10.extra;
 import lessonRunner.BaseLesson;
-import java.util.Scanner;
 
-// CHALLENGE: Build a recipe ingredient parser with multiple string methods
-// 1. Use Scanner to read recipe commands like:
-//    - "Add 2 cups sugar and vanilla extract"
-//    - "MIX butter and eggs"
-//    - "Combine flour, salt, and baking powder"
-// 2. Parse using string methods working together:
-//    - .trim() to clean whitespace
-//    - .toUpperCase() to normalize case for checking
-//    - .toLowerCase() for later display if desired
-//    - .contains() to find ingredient keywords: "sugar", "butter", "eggs", "vanilla", "flour", "salt", "baking powder"
-//    - .indexOf() to find positions of keywords (optional, more advanced)
-//    - .replace() to swap aliases: "butter" -> "unsalted butter", "eggs" -> "large eggs"
-// 3. Extract all recognized ingredients found in the command
-// 4. Print a clean recipe step:
-//    "Recipe: Mix butter, eggs, and sugar together"
-// 5. Show multiple string methods working together to parse complex input
-// 6. Handle edge cases: empty input, all uppercase, extra spaces
+// LESSON 10 EXTRA - A recipe ingredient parser
+//
+// TASK:
+// 1. Store a recipe command in a String, like "Add 2 cups sugar and vanilla extract"
+//    or "MIX butter and eggs and sugar"
+// 2. If the RAW command .equalsIgnoreCase("done"), print "Recipe finished!"
+//    (that catches DONE, done and Done)
+// 3. Clean it with .trim() and .toLowerCase() (lowercase, same reason as the basic)
+// 4. Print where the first "and" is with .indexOf("and"), and the last with .lastIndexOf("and")
+// 5. Use .contains() to check for the ingredients "sugar", "butter", "eggs" and "vanilla"
+// 6. Use .replace() to swap an alias: "butter" -> "unsalted butter"
+// 7. List the ingredients you found
+// 8. Print a clean recipe step, like:
+//      Step 1: Mix butter, eggs, and sugar
 public class Main extends BaseLesson {
     public static void main(String[] args) {
-        // YOUR CODE HERE
     }
 }

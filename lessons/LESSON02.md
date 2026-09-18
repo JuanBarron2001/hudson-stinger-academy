@@ -28,7 +28,7 @@ If you’re following the **full 12‑hour compilation** and want to see how far
 ### 🎯 For the Quick‑Hit Learners  
 If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
 - **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
-- **This Lesson Only:** [Watch Lesson 02](https://www.youtube.com/watch?v=TGVLmr194DI&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=4)
+- **This Lesson Only:** [Watch Lesson 02](https://www.youtube.com/watch?v=TGVLmr194DI&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=2)
 
 ---
 

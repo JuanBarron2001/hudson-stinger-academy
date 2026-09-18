@@ -23,14 +23,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [02:10:20](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=7820s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 10](https://www.youtube.com/watch?v=Ntl3DxhyrQQ&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=13) (Useful string methods in Java! 🧵, 8:36)
 
 ---
 
@@ -38,25 +40,24 @@ Learn to:
 
 **Basic (1 pt)**  
 - Build a **magic spell parser** (fun and quirky!):
-  - Take a spell command string like `"cast fireball now"` or `"HEAL"` or `"  teleport   "`
-  - Use string methods to validate and parse:
-    - `.trim()` to remove extra whitespace
-    - `.toUpperCase()` to normalize case
-    - `.contains()` to check for magic keywords: "fireball", "heal", "teleport", "shield"
-    - `.length()` to ensure it's not empty
-  - If valid spell → print `"🔥 Casting Fireball!"` or `"✨ Healing!"`
-  - If invalid → print `"❌ Unknown spell!"`
-  - Test with messy inputs like `"   FIREBALL   "` and `"banana"` to show `.trim()` and `.contains()` working
+  - Start from a messy spell string, like `"   Cast FIREBALL now   "`
+  - `.trim()` the extra spaces, then `.toLowerCase()` it. Your keywords below are lowercase, so the spell has to be too: an uppercased spell never `.contains("fireball")`.
+  - If the spell `.isEmpty()` → print `"❌ No spell!"`
+  - Else if it `.equals("abracadabra")` exactly → print `"🐇 A rabbit appears!"`
+  - Else if it `.contains()` a keyword: `"fireball"` → `"🔥 Casting Fireball!"`, `"heal"` → `"✨ Healing!"`, and add `"teleport"` and `"shield"` yourself
+  - Else → print `"❌ Unknown spell!"`
+  - Also print the cleaned spell's `.length()` and its first letter, `.charAt(0)`
+  - Test with `"   FIREBALL   "`, `"banana"` and `""` to show each branch working
 
 **Extra (1 pt)**  
 - Build an advanced **recipe ingredient parser**:
-  - Take a recipe command like `"Add 2 cups sugar and vanilla extract"` or `"MIX butter and eggs"` 
+  - Take a recipe command like `"Add 2 cups sugar and vanilla extract"` or `"MIX butter and eggs and sugar"`
   - Parse using string methods:
-    - `.trim()` to clean input
-    - `.toUpperCase()` to normalize
-    - `.indexOf()` to find key positions (e.g., where "and" appears)
+    - `.trim()` and `.toLowerCase()` to clean it (lowercase, for the same reason as the basic)
+    - `.indexOf("and")` and `.lastIndexOf("and")` to find the first and last "and"
     - `.contains()` to check for ingredients: "sugar", "butter", "eggs", "vanilla"
     - `.replace()` to swap ingredient aliases (e.g., "butter" → "unsalted butter")
+    - `.equalsIgnoreCase("done")` on the **raw** command, before cleaning, to print `"Recipe finished!"` whether they typed `DONE` or `done`
   - Extract and list what ingredients were found
   - Print a clean recipe step: `"Step 1: Mix butter, eggs, and sugar"`
   - Show how multiple string methods work together to parse complex input  
@@ -110,7 +111,7 @@ Learn to:
   - Replace manual character checks with `.contains()` or `.indexOf()`.  
   - Use `.equalsIgnoreCase()` for more robust comparisons.  
 - Or write pseudo‑code for command parsing:  
-  [CODE BLOCK]java
+  ```java
   if (command.trim().equalsIgnoreCase("shoot")) {
       fireShooter();
   } else if (command.contains("drive")) {
@@ -118,7 +119,7 @@ Learn to:
   } else {
       stop();
   }
-  [CODE BLOCK]  
+  ```
 
 ---
 
@@ -130,10 +131,10 @@ Learn to:
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show `.length()` for password validation.  
 - Robot code: `.equals("AUTO")` to check autonomous mode.  
 - Archaeology: replace messy string parsing with `.contains()` or `.trim()`.  
 - Segue: Next lesson could cover **StringBuilder** for efficiency.  
-[CODE BLOCK]
+-->

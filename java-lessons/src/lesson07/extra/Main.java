@@ -1,20 +1,25 @@
 package lesson07.extra;
 import lessonRunner.BaseLesson;
-import java.util.Scanner;
 
-// CHALLENGE: Build a shape area & perimeter calculator
-// 1. Create a Scanner to read user input
-// 2. Prompt user to choose a shape: triangle, circle, or square
-// 3. Ask for necessary inputs (side, radius, base, height, etc.)
-// 4. Calculate area and perimeter based on the shape:
-//    TRIANGLE: area = (base * height) / 2, perimeter = side1 + side2 + side3
-//    CIRCLE: area = Math.PI * radius^2, circumference = 2 * Math.PI * radius
-//    SQUARE: area = side^2, perimeter = 4 * side
-// 5. Use Math.pow() for exponents and Math.PI for circle calculations
-// 6. Print results formatted nicely (hint: use printf to round to 2 decimals)
-// 7. Example output: "Circle with radius 5: Area = 78.54, Circumference = 31.42"
+// LESSON 07 EXTRA - The video's two exercises
+//
+// TASK:
+// 1. Create a Scanner
+// 2. Hypotenuse: ask for sides a and b of a right triangle, then
+//      c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
+//    Print c. Test it with 3 and 4: you should get 5.
+// 3. Circle and sphere: ask for a radius, then print
+//      circumference = 2 * Math.PI * radius
+//      area          = Math.PI * Math.pow(radius, 2)
+//      sphere volume = (4.0 / 3) * Math.PI * Math.pow(radius, 3)
+// 4. Try the volume with 4 / 3 instead of 4.0 / 3. Why is the answer wrong?
+//    (Hint: lesson 04's integer division.) Answer in a comment.
+// 5. Put a unit on each answer (cm, cm², cm³)
+// 6. Optional: show one decimal place with System.out.printf("%.1f cm%n", area);
+//    Lesson 08 explains printf.
+//
+// ANSWER TO STEP 4:
 public class Main extends BaseLesson {
     public static void main(String[] args) {
-        // YOUR CODE HERE
     }
 }

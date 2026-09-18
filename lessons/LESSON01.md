@@ -33,11 +33,17 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+Your code goes in `java-lessons/src/lesson01/basic/Main.java` (and `extra/Main.java`). The `main` method is already written for you.
+
+> The video installs a JDK and **IntelliJ**. Skip that part: the WPILib installer from [Lesson 00](./LESSON00.md) already gave you Java and **VS Code**. Pick the video up at **3:38**, where it creates a project.
+
 **Basic (1 pt)**  
-- Follow along with the YouTube video to set up Java in VS Code and run your first print statement.
+- Print three lines with `System.out.println("...");`
+- Print two things with `System.out.print("...");` and notice they land on the **same** line. Then add `\n` to the end of the first one and run it again.
+- Add a `//` comment and a `/* ... */` comment. Run it: comments never show up in the output.
 
 **Extra (1 pt)**  
-- Complete the homework: write a short poem, share fun facts, or introduce yourself using print statements.
+- The video's homework: write **at least three** `println` statements that make something. A short poem, a few fun facts, or an introduction of yourself.
 
 ---
 

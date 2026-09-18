@@ -1,17 +1,20 @@
 package lesson08.basic;
 import lessonRunner.BaseLesson;
 
-// TASK: Build a formatted player profile card using printf
-// 1. Create variables: name (String), rank (int), wins (int), score (double), level (int)
-// 2. Use printf to print a nice formatted profile card with headers and separators
-// 3. Use format specifiers:
-//    - %s for strings
-//    - %d for integers
-//    - %.2f for doubles with 2 decimal places
-// 4. Use width specifiers (%20s, %5d) to align columns nicely
-// 5. Use flags like %,d to show numbers with comma separators (e.g., 12,345)
-// 6. Use %n for newlines
-// 7. Example output:
+// LESSON 08 BASIC - A player profile card with printf
+//
+// TASK:
+// 1. Create variables: name (String), initial (char), rank (int), wins (int),
+//    score (double), level (int), isOnline (boolean)
+// 2. Use printf to print a profile card with a header and a footer
+// 3. Use every specifier at least once: %s, %c, %d, %f and %b
+// 4. Precision: %.2f for the score
+// 5. The , flag for thousands: %,.2f turns 12345.5 into 12,345.50
+// 6. Zero padding for the rank: %03d turns 1 into 001
+// 7. Width to line things up: a positive width right-justifies (%5d),
+//    a negative one left-justifies (%-12s)
+// 8. End every line with %n (or \n). printf never adds a new line for you.
+// 9. Example output:
 //    ================================
 //     Player Profile
 //    ================================
@@ -20,9 +23,9 @@ import lessonRunner.BaseLesson;
 //     Level:       45
 //     Wins:        234
 //     Score:       12,345.50
+//     Online:      true
 //    ================================
 public class Main extends BaseLesson {
     public static void main(String[] args) {
-        // YOUR CODE HERE
     }
 }

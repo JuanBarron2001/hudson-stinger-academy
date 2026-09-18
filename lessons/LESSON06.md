@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [01:22:28](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=4948s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 06](https://www.youtube.com/watch?v=-tt98ICTHtQ&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=8) (Generate random numbers using Java! 🔀, 5:01)
 
 ---
 
@@ -36,9 +38,9 @@ Learn to:
 **Basic (1 pt)**  
 - Import `java.util.Random`.  
 - Create a `Random` object.  
-- Roll a single 6-sided die using `nextInt(6) + 1`.  
-- Print the result.  
-- Bonus: Roll the die 5 times and print each result (call the roll 5 times or use a loop).
+- Roll a single 6-sided die with `random.nextInt(1, 7)` and print the result. The first number is included and the second is **not**, so `7` is what gets you 1 through 6. (`nextInt(6) + 1` does the same thing.)  
+- Print one `random.nextDouble()`. What range of numbers does it give you?  
+- Bonus: Roll the die 5 times and print each result.
 
 **Extra (1 pt)**  
 - Build a simple dice game:
@@ -85,13 +87,13 @@ Learn to:
   - Use randomness to stress‑test algorithms.  
   - Simulate coin‑flip logic for decision‑making in autonomous mode.  
 - Or write pseudo‑code for a random decision:  
-  [CODE BLOCK]java
+  ```java
   if (random.nextBoolean()) {
       driveLeft();
   } else {
       driveRight();
   }
-  [CODE BLOCK]  
+  ```
 
 ---
 
@@ -103,10 +105,10 @@ Learn to:
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show dice roll simulation as a fun intro.  
 - Robot code: add random delay before shooting to simulate real‑world timing.  
 - Archaeology: propose using randomness to test PID tuning under noisy conditions.  
 - Segue: Next lesson could cover loops → repeat random trials automatically.  
-[CODE BLOCK]
+-->

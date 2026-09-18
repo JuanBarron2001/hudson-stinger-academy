@@ -19,7 +19,8 @@ import java.util.Random;
 //      - If tx > 0 (target is to the right) → turn LEFT away from it (negative motor speed)
 //      - If tx < 0 (target is to the left) → turn RIGHT away from it (positive motor speed)
 //      - If tx ≈ 0 (target is centered) → move backward away from it
-// 5. Print behavior mode ("ATTRACTED" or "SCARED"), target tag ID, and tx offset to SmartDashboard
+// 5. Print behavior mode ("ATTRACTED" or "SCARED"), target tag ID, tx offset and
+//    detection status (does the Limelight see the tag?) to SmartDashboard
 // 6. Run the robot multiple times to see it either chase or flee based on random startup
 public class Lesson06 extends LessonBase {
     @Override

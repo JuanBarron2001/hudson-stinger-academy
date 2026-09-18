@@ -20,34 +20,38 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [02:03:47](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=7427s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 09](https://www.youtube.com/watch?v=23VT2wh3BG4&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=12) (Nested if statements are easy! 🎟️, 6:33)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Build a **movie ticket discount calculator** with nested logic:
-  - Create a `double basePrice = 15.00;`
-  - Create a Boolean variable `isStudent`
-  - Write a nested `if` statement:
-    - If `isStudent` → check nested condition:
-      - If also `isSenior` → apply 30% discount (`price *= 0.7`)
-      - Else → apply 15% discount (`price *= 0.85`)
-    - Else → full price (no discount)
+- Build the video's **movie ticket discount calculator**:
+  - Create `double price = 15.00;` and two booleans, `isStudent` and `isSenior`
+  - Write an `if` inside an `if`, **and** an `if` inside the `else`:
+    - If `isStudent`:
+      - if also `isSenior` → student + senior discount, 30% off (`price *= 0.7`)
+      - else → student discount, 10% off (`price *= 0.9`)
+    - Else:
+      - if `isSenior` → senior discount, 20% off (`price *= 0.8`)
+      - else → full price
   - Print the ticket type and final price with `printf` to 2 decimal places
-  - Example output: `"Student+Senior Ticket: $10.50"` or `"Student Ticket: $12.75"` or `"Regular Ticket: $15.00"`
+  - Try all four combinations. You should see `"Student+Senior Ticket: $10.50"`, `"Student Ticket: $13.50"`, `"Senior Ticket: $12.00"` and `"Regular Ticket: $15.00"`
 
 **Extra (1 pt)**  
 - Expand with user input and more complex nesting:
-  - Use `Scanner` to prompt for: student status (yes/no), senior status (yes/no), membership tier (BRONZE/SILVER/GOLD/NONE)
+  - Use `Scanner` to ask: student? and senior? (read both with `nextBoolean()`, like lesson 05), then the membership tier as a word: `BRONZE`, `SILVER`, `GOLD` or `NONE` (read it with `next()`)
+  - Compare words with `.equals`, never `==`: `tier.equals("GOLD")`. A `String` is a reference type (lesson 02's IOU), so `==` asks "is this the same IOU?" instead of "are these the same letters?", and a word you read in never is. Lesson 10 covers `.equals`.
   - Build nested logic:
     - If student:
       - If also senior:
@@ -60,7 +64,7 @@ Learn to:
         - Else → 15% discount
     - Else (not student):
       - If senior:
-        - If any member tier → 25% discount
+        - If any member tier (not `NONE`) → 25% discount
         - Else → 20% discount
       - Else → full price
   - Print a clear receipt showing discount reason and final price  
@@ -110,10 +114,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Movie ticket discount example → relatable intro.  
 - Robot code: nested safety checks (battery, arm, shooter).  
 - Archaeology: simplify nested ifs with logical operators.  
 - Segue: Next lesson could cover logical operators (`&&`, `||`, `!`) as an alternative to nesting.  
-[CODE BLOCK]
+-->

@@ -1,23 +1,22 @@
 package lesson08.extra;
 import lessonRunner.BaseLesson;
-import java.util.Scanner;
 
-// CHALLENGE: Build an interactive team member profile card with user input
-// 1. Create a Scanner to read user input
-// 2. Prompt for and read: name, team number, role, years on team, match wins, total hours
-// 3. Use printf to print a nicely formatted profile card
-// 4. Use format specifiers:
-//    - %s for strings
-//    - %d for integers (team number, years, wins)
-//    - %.1f for doubles (hours)
-// 5. Use width specifiers to align all fields
-// 6. Use flags and precision for readability
-// 7. Example output:
+// LESSON 08 EXTRA - An interactive team member profile card
+//
+// TASK:
+// 1. Create a Scanner
+// 2. Ask for: name, team number, role (driver/operator/engineer), years on team,
+//    match wins, total hours
+// 3. After every nextInt() or nextDouble(), call scanner.nextLine() once before reading
+//    the next word, or the leftover new line from lesson 03 swallows it
+// 4. Use printf to print a nicely aligned profile card with all six fields
+// 5. Use consistent width and precision throughout (%s, %d, %.1f for hours)
+// 6. Example output:
 //    ======================================
 //     Team Member Profile
 //    ======================================
 //     Name:          John Doe
-//     Team:          #1690
+//     Team:          #4295
 //     Role:          Driver
 //     Years on Team: 2
 //     Match Wins:    47
@@ -25,6 +24,5 @@ import java.util.Scanner;
 //    ======================================
 public class Main extends BaseLesson {
     public static void main(String[] args) {
-        // YOUR CODE HERE
     }
 }

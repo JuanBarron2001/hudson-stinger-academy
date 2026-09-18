@@ -13,7 +13,7 @@ import frc.lesson.LessonBase;
 //    - Timestamp (milliseconds since enable): use Timer.getFPGATimestamp()
 //    - Joystick inputs: left X/Y, right X/Y (each %+.2f)
 //    - Motor speeds: left wheel, right wheel (each %+.2f)
-//    - Distance to AprilTag: from Limelight (%.1f)
+//    - Distance to AprilTag: from Limelight ta, the target's area (%.1f)
 // 4. Use printf to format as an aligned table:
 //    Time(ms) | LX     LY     RX     RY     | LeftW  RightW | TagDist
 //    1250     | -0.25  +0.75  +0.50  -0.12  | +0.60  +0.65  | 24.5

@@ -1,24 +1,23 @@
 package lesson10.basic;
 import lessonRunner.BaseLesson;
-import java.util.Scanner;
 
-// TASK: Build a magic spell parser using string methods
-// 1. Use Scanner to read spell commands from user
-// 2. Valid spells: "fireball", "heal", "teleport", "shield"
-// 3. For each command, use string methods:
-//    - .trim() to remove leading/trailing whitespace
-//    - .toUpperCase() to normalize case
-//    - .contains() to check for spell keywords
-//    - .length() to check if not empty
-// 4. If valid spell found, print the spell being cast:
-//    - "🔥 Casting Fireball!"
-//    - "✨ Healing!"
-//    - "🌀 Teleporting!"
-//    - "🛡️ Casting Shield!"
-// 5. If invalid/empty, print "❌ Unknown spell!"
-// 6. Test with messy inputs like "   FIREBALL   " and "banana"
+// LESSON 10 BASIC - A magic spell parser
+//
+// TASK:
+// 1. Store a messy spell in a String, like "   Cast FIREBALL now   "
+// 2. .trim() the extra spaces, then .toLowerCase() it.
+//    Your keywords are lowercase, so the spell has to be too:
+//    an uppercased spell never .contains("fireball").
+// 3. if the spell .isEmpty()               -> print "❌ No spell!"
+//    else if it .equals("abracadabra")      -> print "🐇 A rabbit appears!"
+//    else if it .contains("fireball")       -> print "🔥 Casting Fireball!"
+//    else if it .contains("heal")           -> print "✨ Healing!"
+//    add "teleport" and "shield" yourself
+//    else                                   -> print "❌ Unknown spell!"
+// 4. Print the cleaned spell's .length() and its first letter, .charAt(0)
+// 5. Change the spell to "   FIREBALL   ", then "banana", then "" and run it each time
+//    to see every branch work
 public class Main extends BaseLesson {
     public static void main(String[] args) {
-        // YOUR CODE HERE
     }
 }

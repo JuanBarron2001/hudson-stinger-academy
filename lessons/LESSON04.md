@@ -28,7 +28,7 @@ If you’re following the **full 12‑hour compilation** and want to see how far
 ### 🎯 For the Quick‑Hit Learners  
 If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
 - **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
-- **This Lesson Only:** [Watch Lesson 03](https://www.youtube.com/watch?v=QAD5unRlCyo&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=5)
+- **This Lesson Only:** [Watch Lesson 04](https://www.youtube.com/watch?v=QAD5unRlCyo&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=5)
 
 ---
 
@@ -43,11 +43,15 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
   - Division (÷)
   - Modulus (%)  
 - Print each operation with both the expression and the result (e.g., `10 + 3 = 13`).
+- Use the video's shortcuts at least once each, printing the variable after every step:
+  - an **augmented assignment**, like `x += y` (it means `x = x + y`)
+  - the **increment** `x++` and the **decrement** `x--`
 
 **Extra (1 pt)**  
 - Ask the user for two numbers using `Scanner`.  
 - Perform at least three operations with those inputs and print the results.  
 - Optional: also show floating‑point division by casting to `double`.
+- **PEMDAS:** work out `3 + 4 * (7 - 5) / 2.0` by hand first, in the order the video uses. Then print it and check your answer.
 
 ---
 

@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [01:27:28](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=5248s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 07](https://www.youtube.com/watch?v=nle8CQXYhl4&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=9) (The Java Math class + exercises! 📐, 15:10)
 
 ---
 
@@ -40,15 +42,13 @@ Learn to:
 - Compare two numbers with `Math.max` and `Math.min`.  
 
 **Extra (1 pt)**  
-- Build a shape area & perimeter calculator:
-  - Prompt the user to pick a shape: **triangle**, **circle**, or **square**.
-  - Ask for the necessary inputs (side length, radius, etc.).
-  - Calculate and print the **area** and **perimeter** (or circumference for circle):
-    - **Triangle:** area = `(base × height) / 2`, perimeter = `side1 + side2 + side3`
-    - **Circle:** area = `Math.PI × radius²`, circumference = `2 × Math.PI × radius`
-    - **Square:** area = `side²`, perimeter = `4 × side`
-  - Use `Math.pow()` and `Math.PI` appropriately.
-  - Format output nicely (e.g., round to 2 decimal places).  
+The video's two exercises. Use a `Scanner` for the inputs.
+- **Hypotenuse:** ask for sides `a` and `b` of a right triangle, then `c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))`. Test it with 3 and 4: you should get 5.
+- **Circle and sphere:** ask for a `radius`, then print:
+  - circumference = `2 * Math.PI * radius`
+  - area = `Math.PI * Math.pow(radius, 2)`
+  - sphere volume = `(4.0 / 3) * Math.PI * Math.pow(radius, 3)`. Try it with `4 / 3` first. Why is the answer wrong? *(Hint: lesson 04's integer division.)*
+- Put a unit on each answer (cm, cm², cm³). Optional: show one decimal place with `System.out.printf("%.1f cm%n", area);`, which lesson 08 explains.
 
 ---
 
@@ -93,11 +93,11 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Hypotenuse exercise: practice with `Math.sqrt` and `Math.pow`.  
 - Circle/sphere exercise: circumference, area, volume using `Math.PI`.  
 - Robot code: joystick magnitude with Pythagorean theorem.  
 - Archaeology: replace hard‑coded constants with `Math.PI` or `Math.E`.  
 - Segue: Next lesson could cover loops to repeat calculations.  
-[CODE BLOCK]
+-->
