@@ -104,6 +104,36 @@ class RobotHarnessTest {
     Files.deleteIfExists(log);
   }
 
+  @Test
+  void anEmptyLessonSaysSoInsteadOfLookingBroken() throws Exception {
+    HAL.initialize(500, 0);
+    DriverStationSim.setDsAttached(true);
+    DriverStationSim.setAutonomous(false);
+    DriverStationSim.setEnabled(true);
+    DriverStationSim.notifyNewData();
+    DriverStation.refreshData();
+
+    java.io.ByteArrayOutputStream console = new java.io.ByteArrayOutputStream();
+    java.io.PrintStream realOut = System.out;
+    Robot robot;
+    try {
+      System.setOut(new java.io.PrintStream(console, true));
+      robot = new Robot(1, false); // lesson 01 basic: an empty stub, like a student's first run
+      for (int i = 0; i < 260; i++) {
+        robot.teleopPeriodic();
+      }
+    } finally {
+      System.setOut(realOut);
+    }
+
+    String printed = console.toString();
+    System.out.println("console said: " + printed.trim());
+    assertTrue(printed.contains("set the robot to Teleoperated"), "loading should say how to start it");
+    assertTrue(printed.contains("hasn't put anything on SmartDashboard yet"),
+        "an empty lesson should explain itself");
+    java.nio.file.Files.deleteIfExists(Paths.get("frc.lesson.lesson01.basic-output.log"));
+  }
+
   private static String md5(String text) throws Exception {
     byte[] digest = MessageDigest.getInstance("MD5").digest(text.getBytes(StandardCharsets.UTF_8));
     return HexFormat.of().formatHex(digest);

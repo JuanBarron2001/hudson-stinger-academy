@@ -23,7 +23,8 @@ public final class LessonLoader {
       LessonBase lesson = (LessonBase) lessonClass.getDeclaredConstructor().newInstance();
       lesson.setup();
       Runtime.getRuntime().addShutdownHook(new Thread(lesson::cleanup));
-      System.out.println("Loaded lesson: " + className);
+      System.out.println(
+          "Loaded lesson: " + className + " - set the robot to Teleoperated to run it.");
       return lesson;
     } catch (ClassNotFoundException e) {
       System.out.println(

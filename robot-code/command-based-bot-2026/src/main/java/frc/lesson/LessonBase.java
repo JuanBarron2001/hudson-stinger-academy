@@ -41,6 +41,8 @@ public abstract class LessonBase {
   private int loopCounter = 0;
   private int linesLogged = 0;
   private boolean halted = false;
+  private int quietLoops = 0;
+  private boolean saidItIsQuiet = false;
 
   protected LessonBase() {
     initLogger();
@@ -72,6 +74,22 @@ public abstract class LessonBase {
       return;
     }
     logSmartDashboardChanges();
+    nagIfNothingIsHappening();
+  }
+
+  /**
+   * A stub with no code in it publishes nothing, which looks exactly like a broken simulator. After
+   * about five seconds of silence, say so once.
+   */
+  private void nagIfNothingIsHappening() {
+    if (saidItIsQuiet || linesLogged > 0) return;
+    if (++quietLoops < 250) return;
+    saidItIsQuiet = true;
+    System.out.println(
+        "Lesson "
+            + getClass().getPackageName()
+            + " is running, but it hasn't put anything on SmartDashboard yet. If its file is still"
+            + " empty, that's expected: open it and work through the TASK list at the top.");
   }
 
   private void initLogger() {

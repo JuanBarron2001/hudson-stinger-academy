@@ -11,8 +11,8 @@ package frc.robot;
  * </ul>
  */
 public final class PickYourLesson {
-  /** The lesson number. Lesson 05 is just 5. */
-  public static final int LESSON = 1;
+  /** The lesson number. Lesson 05 is just 5. Starts on lesson 00, the setup check. */
+  public static final int LESSON = 0;
 
   /** false runs the basic half, true runs the extra half. */
   public static final boolean EXTRA = false;
