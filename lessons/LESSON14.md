@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [03:09:58](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=11398s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 14](https://www.youtube.com/watch?v=4ezfRdg6Z7E&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=20) (Java LOGICAL OPERATORS are easy! ❕, 11:26)
 
 ---
 
@@ -43,6 +45,11 @@ Learn to:
 - Use `&&` to require both temperature range and sunny conditions.  
 - Use `!isSunny` to print `"It is cloudy ☁️"`.  
 - Use `||` to check if `temp` is too hot (>30) or too cold (<0). Print `"The weather is bad"`.  
+- **Username rules**, the video's second example. Store a username in a `String` and check it with one `if` / `else if` / `else`:  
+  - `username.length() < 4 || username.length() > 12` → `"Username must be between 4 and 12 characters"`  
+  - `username.contains(" ") || username.contains("_")` → `"Username must not contain spaces or underscores"`  
+  - otherwise → `"Welcome " + username`  
+  - Try `"bob"`, `"bee_keeper"` and `"stinger4295"`.  
 
 ---
 
@@ -59,7 +66,8 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
   - `shooting && atSpeed` → conveyor `-0.7`, status `"FEEDING"`
   - `shooting && !atSpeed` → conveyor `-0.05`, status `"SPINNING UP"`
   - otherwise → conveyor `0`, status `"STOPPED"`
-- Compare with your lesson 09 version. Which is easier to read?
+- Put `shooting`, `atSpeed` and the status on SmartDashboard.
+- Compare with your lesson 09 version. Which is easier to read? Answer in a comment.
 
 **Extra (1 pt)**: climber soft limits  
 - Create the **driver controller** and the **climber**.
@@ -90,10 +98,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Weather example → fun intro to `&&`, `||`, `!`.  
 - Robot code: combine multiple safety checks with logical operators.  
 - Archaeology: simplify nested conditions with `&&` and `||`.  
 - Segue: Next lesson could cover **while loops** (repeating conditions).  
-[CODE BLOCK]
+-->

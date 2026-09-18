@@ -18,14 +18,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [03:53:33](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=14013s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 17](https://www.youtube.com/watch?v=iGo1Syv4YuM&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=24) (Learn BREAK & CONTINUE in 2 minutes! 🚦, 2:12)
 
 ---
 
@@ -68,7 +70,7 @@ Learn to:
   - Replace nested `if` checks with `continue` for cleaner code.  
   - Use `break` to exit once a condition is satisfied instead of checking repeatedly.  
 - Or write pseudo‑code for motor testing:  
-  [CODE BLOCK]java
+  ```java
   for (Motor m : motors) {
       if (!m.isConnected()) {
           continue; // skip disconnected motors
@@ -78,7 +80,7 @@ Learn to:
           break; // stop testing if a failure occurs
       }
   }
-  [CODE BLOCK]  
+  ```
 
 ---
 
@@ -90,10 +92,10 @@ Learn to:
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show difference between `break` (stop) and `continue` (skip).  
 - Robot code: skip bad sensor values with `continue`.  
 - Archaeology: simplify loops by replacing nested checks with `continue`.  
 - Segue: Next lesson could cover **nested loops** for patterns and grids.  
-[CODE BLOCK]
+-->

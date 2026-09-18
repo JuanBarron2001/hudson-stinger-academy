@@ -21,14 +21,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [02:35:19](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=9319s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 12](https://www.youtube.com/watch?v=t2PcC-FYFmI&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=16) (Learn the Java ternary operator in 5 minutes! ❔, 5:51)
 
 ---
 
@@ -36,8 +38,8 @@ Learn to:
 
 **Basic (1 pt)**  
 - Create an integer `score = 70;`  
-- Use the ternary operator to assign `"Pass"` or `"Fail"` to a string variable.  
-- Print the result.  
+- Use the ternary operator to assign `"Pass"` (a score of 60 or more) or `"Fail"` to a string variable.  
+- Print the result, then change the score to 55 and run it again.  
 
 **Extra (1 pt)**  
 - Write a program that:  
@@ -89,10 +91,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Use ternary operator for quick pass/fail checks.  
 - Robot code: joystick deadband logic in one line.  
 - Archaeology: simplify nested `if/else` into ternary for cleaner code.  
 - Segue: Next lesson could cover **switch statements** as another branching tool.  
-[CODE BLOCK]
+-->

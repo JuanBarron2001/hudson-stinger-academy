@@ -19,14 +19,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [02:18:55](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=8335s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 11](https://www.youtube.com/watch?v=44iQGNUcik0&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=14) (Java substrings are easy! 📧, 8:05)
 
 ---
 
@@ -44,14 +46,14 @@ Learn to:
 
 **Extra (1 pt)**  
 - Build a **filename/path parser** (more complex):
-  - Take a file path like `"/home/user/Documents/myfile.txt"` or `"C:\Users\robot\config.json"`
+  - Store a file path in a `String`, like `"/home/user/robot/config.json"`. For a Windows path, write every backslash twice inside the quotes: `"C:\\Users\\robot\\config.json"`. A single `\` starts an escape, like the `\n` from lesson 01, and `\U` isn't one, so it won't compile.
   - Extract:
-    - Filename: everything after the last `/` or `\`
-    - Extension: everything after the last `.`
-    - Directory: everything before the filename
+    - Filename: everything after the last `/` or `\` → `config.json`
+    - Extension: everything after the last `.` → `json`
+    - Directory: everything before the last `/` or `\` → `/home/user/robot`
   - Use `.lastIndexOf()` to find the last occurrence
   - Use `.substring()` to extract each part
-  - Handle edge cases (no extension, no directory, etc.)
+  - Handle edge cases: `.lastIndexOf()` gives `-1` when it finds nothing. What should print for `"notes"` (no extension) or `"config.json"` (no directory)?
   - Print all three parts clearly  
 
 ---
@@ -98,7 +100,7 @@ Learn to:
   - Use `.indexOf()` + `.substring()` instead of hard‑coded indices.  
   - Add validation with `.contains(":")` before slicing.  
 - Or write pseudo‑code for parsing:  
-  [CODE BLOCK]java
+  ```java
   if (command.contains(":")) {
       String action = command.substring(0, command.indexOf(":"));
       String value  = command.substring(command.indexOf(":") + 1);
@@ -106,7 +108,7 @@ Learn to:
   } else {
       System.out.println("Invalid command");
   }
-  [CODE BLOCK]  
+  ```
 
 ---
 
@@ -118,10 +120,10 @@ Learn to:
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Email slicer program → relatable beginner project.  
 - Robot code: parse operator commands like `"drive:fast"`.  
 - Archaeology: replace manual string splitting with `.substring()`.  
 - Segue: Next lesson could cover **StringBuilder** or **String.split()** for advanced parsing.  
-[CODE BLOCK]
+-->

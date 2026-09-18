@@ -1,16 +1,19 @@
 package lesson11.basic;
 import lessonRunner.BaseLesson;
 
+// LESSON 11 BASIC - The video's email slicer
+//
+// TASK:
+// 1. Create a Scanner and prompt: "Enter your email: "
+// 2. Read the email with nextLine()
+// 3. if the email .contains("@"):
+//      username = email.substring(0, email.indexOf("@"))
+//      domain   = email.substring(email.indexOf("@") + 1)
+//      print both
+//    else:
+//      print "Emails must contain @"
+// 4. Example: "bro123@gmail.com" -> username: bro123, domain: gmail.com
 public class Main extends BaseLesson {
     public static void main(String[] args) {
-        // TASK: Build an interactive email slicer
-        // 1. Create a Scanner to read user input
-        // 2. Prompt user: "Enter an email address: "
-        // 3. Validate that email contains "@" using .contains("@")
-        // 4. Use .indexOf("@") to find the position of the @ symbol
-        // 5. Extract username: email.substring(0, indexOf("@"))
-        // 6. Extract domain: email.substring(indexOf("@") + 1)
-        // 7. Print results: "Username: [username], Domain: [domain]"
-        // Example: "bro123@gmail.com" → "Username: bro123, Domain: gmail.com"
     }
 }

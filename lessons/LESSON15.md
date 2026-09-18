@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [03:21:23](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=12083s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 15](https://www.youtube.com/watch?v=ZjHJrmYknrk&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=21) (Learn Java while loops in 12 minutes! ♾️, 12:24)
 
 ---
 
@@ -40,12 +42,13 @@ Learn to:
 - Print `"Hello, <name>"` once valid input is given.  
 
 **Extra (1 pt)**  
-- Demonstrate an infinite loop example (`while (1 == 1)`) and explain why it never ends.  
-- Create a simple game loop:  
-  - Keep printing `"You are playing a game. Press Q to quit."`  
-  - Exit only when the user types `"Q"`.  
-- Show input validation with age:  
-  - Keep asking until the user enters a non‑negative number.  
+- **Infinite loop:** write `while (1 == 1) { System.out.println("Help, I'm stuck in a loop"); }` but leave it **commented out**. Don't run it: it prints forever, and every line lands in your log file. In a comment, explain why it never ends.
+- **Game loop:**  
+  - Start with `String response = "";` and loop `while (!response.equals("Q"))`.  
+  - Inside, print `"You are playing a game. Press Q to quit."` and read `response = scanner.next().toUpperCase();` so a lowercase `q` quits too.  
+  - After the loop, print `"You have quit the game"`.  
+- **Age validation:** ask for an age, then `while (age < 0)` print `"Your age can't be negative"` and ask again.  
+- **do‑while:** ask for a number between 1 and 10 with `do { ... } while (number < 1 || number > 10);`. In a comment, explain the difference: a `do‑while` always runs its body at least once, and a `while` may never run it.  
 
 ---
 
@@ -91,10 +94,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show difference between `while` and `do‑while` with input validation.  
 - Robot code: loop until a sensor condition is satisfied.  
 - Archaeology: check for infinite loops or polling loops in old code.  
 - Segue: Next lesson could cover **for loops** for counting iterations.  
-[CODE BLOCK]
+-->

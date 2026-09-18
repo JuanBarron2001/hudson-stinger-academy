@@ -20,6 +20,9 @@ import frc.lesson.LessonBase;
 //      shooting && !atSpeed   -> conveyor -0.05, status "SPINNING UP"
 //      otherwise              -> conveyor 0,     status "STOPPED"
 // 5. Put shooting, atSpeed and the status on SmartDashboard
+// 6. Compare with your lesson 09 version. Which is easier to read?
+//
+// ANSWER:
 public class Lesson14 extends LessonBase {
     // Variables declared up here keep their values between loops (lesson 21 explains why).
     private XboxController operator;

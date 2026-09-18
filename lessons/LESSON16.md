@@ -20,14 +20,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [03:43:33](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=13413s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 16](https://www.youtube.com/watch?v=vOmZ4JFhRds&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=23) (Java for loops are easy! 🔂, 10:01)
 
 ---
 
@@ -43,6 +45,8 @@ Learn to:
   - Decrementing from 10 down to 1 (`i = 10; i > 0; i--`)  
   - Incrementing by 2 or 3 (`i += 2`, `i += 3`)  
 - Accept user input with `Scanner` for how many times to loop.  
+- **Countdown mini‑project**, the end of the video: ask how many seconds to count down from, count down to 1 with a `for` loop, then print `"Happy New Year!"`.  
+  - To wait one second between numbers, call `Thread.sleep(1000);` inside the loop. Java will then insist that `main` says `throws InterruptedException` after its parentheses. Add it; lesson 45 explains what it means.  
 
 ---
 
@@ -84,10 +88,10 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show difference between `for` and `while` loops.  
 - Robot code: loop through motors or LEDs for testing.  
 - Archaeology: replace repeated code blocks with a loop.  
 - Segue: Next lesson could cover **nested loops** for grids or patterns.  
-[CODE BLOCK]
+-->

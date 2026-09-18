@@ -37,7 +37,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 10  | 🖥️ Useful String Methods in Java       | Explore methods like `length`, `charAt`, `indexOf`, and `equals`.       | [Open Lesson](./LESSON10.md) | [WORK IN PROGRESS] | Optional | — skip for now |
 | [ ] | 11  | 🖥️ The `substring` Method in Java      | Extract parts of strings using `substring(begin, end)`.                 | [Open Lesson](./LESSON11.md) | [WORK IN PROGRESS] | Optional | — skip for now |
 | [ ] | 12  | 🖥️ The Ternary Operator in Java        | Write compact conditional expressions with `?:`.                        | [Open Lesson](./LESSON12.md) | [AI_SLOB] | Core | ✅ Rebuilt |
-| [ ] | 13  | 🖥️ Enhanced Switches in Java           | Use modern switch expressions with arrows and `yield`.                  | [Open Lesson](./LESSON13.md) | [AI_SLOB] | Core | ✅ Rebuilt |
+| [ ] | 13  | 🖥️ Enhanced Switches in Java           | Replace long `if` / `else if` chains with enhanced switches: arrows, cases grouped with commas, and `default`. | [Open Lesson](./LESSON13.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 14  | 🖥️ Logical Operators in Java           | Combine conditions with `&&`, `\|\|`, and `!`.                            | [Open Lesson](./LESSON14.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 15  | 🖥️ While Loops in Java                 | Repeat code while a condition is true.                                  | [Open Lesson](./LESSON15.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 16  | 🖥️ For Loops in Java                   | Use `for` loops for counting and iteration.                             | [Open Lesson](./LESSON16.md) | [AI_SLOB] | Core | ✅ Rebuilt |
