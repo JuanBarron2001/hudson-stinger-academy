@@ -11,8 +11,8 @@ import frc.lesson.LessonBase;
 //
 // TASK:
 // 1. Create the operator controller (port 1) and both rollers (CAN 5 and 6)
-// 2. While A is held, run the rollers at a power you pick (negative launches;
-//    the right roller gets the opposite sign, like lesson 05). Otherwise stop them.
+// 2. While A is held, run the rollers at a power you pick (negative launches; both rollers
+//    get the SAME number, like lesson 05 -- they turn the same rollers). Otherwise stop them.
 // 3. target = -70         (the short shot, in rotations per second, from ROBOT.md)
 //    actual = leftRoller.getVelocity().getValueAsDouble()
 //    error  = target - actual

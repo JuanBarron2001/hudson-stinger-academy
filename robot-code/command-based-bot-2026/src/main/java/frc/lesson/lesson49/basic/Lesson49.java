@@ -17,11 +17,11 @@ import frc.lesson.LessonBase;
 //          @Override
 //          public void run() {
 //              leftRoller.set(-0.7);
-//              rightRoller.set(0.7);   // the right roller gets the opposite sign
+//              rightRoller.set(-0.7);  // the same number: both motors turn the same rollers
 //              conveyor.set(0.8);
 //          }
 //      };
-// 3. Do the same for ejectAction with the eject powers (rollers 0.9, conveyor 0.8)
+// 3. Do the same for ejectAction with the eject powers (both rollers 0.9, conveyor 0.8)
 // 4. In execute():
 //      B held           -> intakeAction.run()
 //      left bumper held -> ejectAction.run()

@@ -16,7 +16,7 @@ import frc.lesson.LessonBase;
 //      B held -> actions[0].run(),  left bumper held -> actions[1].run(),  otherwise stop
 // 3. Put the index you ran on SmartDashboard, so the log shows which slot did what.
 // 4. Write the intake action a SECOND way, as a lambda, and leave it in a comment:
-//      // Runnable intakeAction = () -> { leftRoller.set(-0.7); rightRoller.set(0.7);
+//      // Runnable intakeAction = () -> { leftRoller.set(-0.7); rightRoller.set(-0.7);
 //      //                                 conveyor.set(0.8); };
 //    Same object, four lines shorter. This is the shape every button binding uses.
 //

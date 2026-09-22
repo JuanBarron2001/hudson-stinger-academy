@@ -14,7 +14,7 @@ import frc.lesson.LessonBase;
 //      double rollerSpeed()                          returns the left roller's velocity
 //      boolean atSpeed(double target)                returns true within 3 of target (lesson 07)
 //      void setFuel(double rollerPower, double conveyorPower)
-//                                                    sets all three motors, right roller opposite sign
+//                                                    sets all three motors, both rollers the same
 // 3. Rebuild lesson 14's shoot logic in execute() using only those methods.
 //    It should read almost like English:  if (shooting && atSpeed(-70)) setFuel(...)
 // 4. Put the roller speed and whether it's at speed on SmartDashboard

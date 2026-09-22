@@ -151,6 +151,33 @@ class RobotSimTest {
   }
 
   @Test
+  void rollersSpinTogetherOnTheSameNumberAndStallWhenTheyFight() throws InterruptedException {
+    TalonFX left = motor(5, InvertedValue.CounterClockwise_Positive);
+    TalonFX right = motor(6, InvertedValue.Clockwise_Positive);
+    settle(left, right);
+
+    // Both motors turn the same rollers, so a lesson gives them the same number.
+    runLoops(60, () -> {
+      left.set(-0.7);
+      right.set(-0.7);
+    });
+    double together = left.getVelocity().getValueAsDouble();
+    System.out.printf("rollers, same number: %.1f RPS%n", together);
+    assertTrue(together < -20, "rollers should spin the launch way on the same number, got " + together);
+
+    settle(left, right);
+
+    // Opposite numbers are the classic mistake: the two motors fight and nothing turns.
+    runLoops(60, () -> {
+      left.set(-0.7);
+      right.set(0.7);
+    });
+    double fighting = left.getVelocity().getValueAsDouble();
+    System.out.printf("rollers, fighting:    %.1f RPS%n", fighting);
+    assertEquals(0, fighting, 1.0, "rollers should stall when the two motors disagree");
+  }
+
+  @Test
   void conveyorAndClimberMove() throws InterruptedException {
     TalonFX conveyor = motor(29, InvertedValue.CounterClockwise_Positive);
     TalonFX climber = motor(7, InvertedValue.CounterClockwise_Positive);

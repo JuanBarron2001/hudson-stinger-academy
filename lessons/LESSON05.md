@@ -76,7 +76,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
   - `else if` the left bumper is held → **EJECT**: rollers `+0.9`, conveyor `+0.8`
   - `else` → **STOPPED**: everything `0`
 - Put the mode and the left roller's speed (`leftRoller.getVelocity().getValueAsDouble()`) on SmartDashboard.
-- Hold B. **Does the roller actually spin?** If it reads 0, the right roller is mounted like the right side of the drivetrain.
+- Hold B. **Does the roller actually spin?** If it reads 0, check that you gave **both** rollers the same number. The two motors turn the same set of rollers, so when they disagree they fight each other and nothing moves. The drivetrain is the opposite case: its two *sides* need opposite signs, because they're two different gearboxes.
 - Hold **B and the left bumper at the same time**. Which one wins, and why? Answer in a comment.
 
 ---

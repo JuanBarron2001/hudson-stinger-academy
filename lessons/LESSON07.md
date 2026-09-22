@@ -58,7 +58,7 @@ Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/le
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 **Basic (1 pt)**: is the flywheel at speed?  
-- Create the **operator controller** and both **rollers**. While **A** is held (the **5** key at home), run the rollers at a power you pick. Negative launches, and the right roller gets the opposite sign.
+- Create the **operator controller** and both **rollers**. While **A** is held (the **5** key at home), run the rollers at a power you pick. Negative launches, and **both rollers get the same number**: the two motors turn the same rollers, so they have to agree or they fight.
 - `target = -70` (the short shot, in rotations per second), `actual = leftRoller.getVelocity().getValueAsDouble()`, and `error = target - actual`.
 - `atSpeed = Math.abs(error) < 3`. `Math.abs` throws away the minus sign, because being 5 away is 5 away whether you're above or below.
 - Put `target`, `actual`, `error` and `atSpeed` on SmartDashboard.

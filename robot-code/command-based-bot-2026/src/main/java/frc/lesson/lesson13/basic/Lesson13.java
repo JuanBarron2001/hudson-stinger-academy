@@ -18,7 +18,7 @@ import frc.lesson.LessonBase;
 //      case "EJECT"  -> rollers  0.9, conveyor  0.8
 //      case "SHOOT"  -> rollers at your lesson 07 power, conveyor -0.7
 //      default       -> both 0
-// 4. Set the motors (the right roller still gets the opposite sign)
+// 4. Set the motors. Both rollers get the same number: they turn the same rollers.
 // 5. Put the mode, rollerPower and conveyorPower on SmartDashboard
 public class Lesson13 extends LessonBase {
     // Variables declared up here keep their values between loops (lesson 21 explains why).

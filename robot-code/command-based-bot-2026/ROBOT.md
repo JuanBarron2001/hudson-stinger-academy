@@ -70,6 +70,8 @@ Tank drive: two motors per side, and both motors on a side turn the same gearbox
 
 Negative roller speed is the launch direction.
 
+**Both roller motors always get the same number.** They turn the same set of rollers, so they have to agree, the way the two motors on one side of the drivetrain do. They're mounted facing each other, and the opposite `Inverted` settings above are what make the same number spin them together — that config is what lesson 28 sets. Give them opposite numbers and they fight: in the simulator the rollers just sit at 0 RPS. *(The drivetrain is the other case: its two sides are two gearboxes, so left and right take opposite signs until lesson 28 configures them.)*
+
 ### Flywheel (closed-loop speed control)
 
 | Setting | Value |

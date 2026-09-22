@@ -18,8 +18,9 @@ import frc.lesson.LessonBase;
 //    else                                                          -> STOPPED: everything 0
 // 4. Put the mode ("INTAKE", "EJECT" or "STOPPED") on SmartDashboard, plus the left
 //    roller's speed:  leftRoller.getVelocity().getValueAsDouble()
-// 5. Hold B. Does the left roller actually spin? If it reads 0, think about which side of
-//    the drivetrain needed the opposite sign. The right roller is mounted the same way.
+// 5. Hold B. Does the left roller actually spin? If it reads 0, check that BOTH rollers got
+//    the same number: the two motors turn the same rollers, so if they disagree they fight
+//    and nothing moves. (The drivetrain was the opposite case: two sides, two gearboxes.)
 // 6. Hold B and the left bumper at the same time. Which one wins, and why?
 //
 // ANSWER TO STEP 6:

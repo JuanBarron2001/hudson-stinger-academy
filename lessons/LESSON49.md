@@ -84,7 +84,7 @@ intakeAction = new Runnable() {
     @Override
     public void run() {
         leftRoller.set(-0.7);
-        rightRoller.set(0.7);
+        rightRoller.set(-0.7);   // the same number: they turn the same rollers
         conveyor.set(0.8);
     }
 };
@@ -101,7 +101,7 @@ intakeAction = new Runnable() {
 - Write the same intake action a second way, as a **lambda**, and leave it in a comment:  
 
 ```java
-// Runnable intakeAction = () -> { leftRoller.set(-0.7); rightRoller.set(0.7); conveyor.set(0.8); };
+// Runnable intakeAction = () -> { leftRoller.set(-0.7); rightRoller.set(-0.7); conveyor.set(0.8); };
 ```
 
 - Same object, four lines shorter. This is the shape every button binding on a command-based robot uses, which is the next thing you'll learn.  

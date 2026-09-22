@@ -15,7 +15,7 @@ import frc.lesson.LessonBase;
 //      under 1.0s        -> rollers at your lesson 07 shooting power, conveyor 0   ("SPIN UP")
 //      1.0s up to 5.0s   -> rollers still going, conveyor -0.7                     ("LAUNCH")
 //      5.0s and after    -> all three motors 0                                     ("DONE")
-//    (the right roller still gets the opposite sign)
+//    (both rollers get the same number: they turn the same rollers)
 // 4. Put the phase name and timer.get() on SmartDashboard every loop, so your log reads
 //    like a timeline of the auto
 // 5. Read commands/auto/JustShoot.java in Part 3. It does the same thing with one
