@@ -100,78 +100,45 @@ Thread.sleep(4000);
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Use a timer to log robot status every second:  
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson50/basic/Lesson50.java` (and `extra/Lesson50.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-```java
-Timer timer = new Timer();
+> ⚠️ **Two different classes are called `Timer`.** Part 1's is `java.util.Timer`, and it comes with its own thread. WPILib has its own, `edu.wpi.first.wpilibj.Timer`, which is just a stopwatch you read. **Robot code uses WPILib's.** Import the wrong one and your code either won't compile or will do something much worse — see "Why not `TimerTask` on a robot?" below. Nothing in last season's competition code uses `java.util.Timer` at all.
 
-TimerTask logTask = new TimerTask() {
-    @Override
-    public void run() {
-        SmartDashboard.putString("Status", "Robot running...");
-    }
-};
+**Basic (1 pt)**: a stopwatch on the robot's own loop  
+- Import `edu.wpi.first.wpilibj.Timer` and make one as a field.  
+- In `setup()`, call `timer.restart()`.  
+- In `execute()`, read `timer.get()` and put the seconds on SmartDashboard. `execute()` already runs about 50 times a second, so you don't need anything to call you.  
+- Put a status next to it that changes with time: under 2 seconds, `"WAITING"`; after that, `"READY"`. This is the `if` from lesson 05, reading a clock.  
+- Add a button that calls `timer.restart()` and watch the seconds go back to zero.  
 
-timer.scheduleAtFixedRate(logTask, 0, 1000);
-```
+**Why not `TimerTask` on a robot?** Robot code runs one loop every 20 ms, and everything — motors, the dashboard, your lesson's log — expects to be touched from that loop. A `java.util.Timer` runs its `TimerTask` on a **second thread**, so two pieces of code can reach the same motor at the same moment, and which one wins is luck. It also keeps running after your lesson ends. Write it in the Java half, not here.
 
-**Extra (1 pt)**  
-- Stop logging after 5 updates:  
-
-```java
-TimerTask logTask = new TimerTask() {
-    int count = 5;
-
-    @Override
-    public void run() {
-        SmartDashboard.putString("Status", "Update " + count);
-        count--;
-        if (count <= 0) {
-            SmartDashboard.putString("Status", "Logging complete");
-            timer.cancel();
-        }
-    }
-};
-
-timer.scheduleAtFixedRate(logTask, 0, 1000);
-```
+**Extra (1 pt)**: run "Just Shoot" by hand  
+- Last season's `Just Shoot` auto is a sequence with times in it: spin the rollers up for 1 second, then feed for 15. Build the same shape out of one timer and `if`s, on the rollers (CAN 5, 6) and the conveyor (CAN 29).  
+  - `timer.get() < 1.0` → rollers at your lesson 07 shooting power, conveyor `0`.  
+  - between `1.0` and `5.0` → rollers still going, conveyor `-0.7` (the feed, from ROBOT.md).  
+  - after `5.0` → everything `0`, and put `"DONE"` on SmartDashboard.  
+- Publish the phase name every loop, so your log reads like a timeline of the auto.  
+- Then read `JustShoot.java` in Part 3 and compare: one `.withTimeout()` per step, no clock arithmetic anywhere. Write down which version you'd rather change the day before a match.  
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where repeated actions were handled with manual loops or delays.  
-- Suggest replacing them with **Timer + TimerTask** for cleaner scheduling.  
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `TimerTask` for periodic sensor checks.  
-  - Use `TimerTask` for timed subsystem shutdowns.  
-  - Cancel timers when tasks are complete to avoid wasted resources.  
+**Basic (1 pt)**: how the robot really tells time  
+- `Timer`, `TimerTask` and `Thread.sleep` appear **nowhere** in the whole competition code. Every timed thing is done two ways instead: `new WaitCommand(DRIVE_TO_CLIMB_WAIT_SECONDS)` in `commands/auto/DriveToClimb.java`, and `.withTimeout(JUST_SHOOT_DRIVE_SECONDS)` in `commands/auto/JustShoot.java`.  
+- What is the difference between the two? One of them does nothing for three seconds; the other lets a command run and then cuts it off. Say which is which, and why an auto needs both.  
+- Neither one blocks the robot loop. Explain what would happen to the driver's controls if an auto called `Thread.sleep(3000)` instead.  
 
-```java
-// Before: manual loop with Thread.sleep()
-for (int i = 0; i < 5; i++) {
-    System.out.println("Update " + i);
-    Thread.sleep(1000);
-}
-
-// After: TimerTask
-Timer timer = new Timer();
-timer.scheduleAtFixedRate(new TimerTask() {
-    int count = 5;
-    @Override
-    public void run() {
-        System.out.println("Update " + count);
-        count--;
-        if (count <= 0) timer.cancel();
-    }
-}, 0, 1000);
-```
+**Extra (1 pt)**: where 1.867 came from  
+- `Constants.java` has `JUST_SHOOT_DRIVE_SECONDS = 1.867`. Nobody picks 1.867 out of the air. Run `git log -S"1.867" -p src/main/java/frc/robot/Constants.java` and find the commit that set it. What was the number before, what date did it change, and how many other constants changed in the same commit? Its whole message is "updated const", which tells you nothing — so what would you have written instead?  
+- Same file, a few lines up: `SPIN_UP_SECONDS = 1` and `JUST_SHOOT_SECONDS = 15.0`. A 15-second launch in a 15-second auto. Is that a timeout or a "run until the period ends"?  
+- Now open `commands/SpinUp.java` and `commands/Launch.java`. Both read their motor powers from SmartDashboard with `SmartDashboard.getNumber("Launching launcher roller value", LAUNCHING_LAUNCHER_PERCENT)`. What does the auto shoot at if nobody opens the dashboard that day — and what does it shoot at if someone was tuning in the pit an hour earlier and left the box at 0.2?  
 
 ---
 

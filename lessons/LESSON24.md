@@ -50,22 +50,50 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-> **Not written yet.** This lesson's robot half and Code Archaeology were drafted for the wrong topic (a copy of lesson 23's), and haven't been rewritten for searching an array. Lesson 24 is optional this offseason: **skip Parts 2 and 3 for now.**
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson24/basic/Lesson24.java` (and `extra/Lesson24.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
+
+**Basic (1 pt)**: is that CAN ID on the robot?  
+- Start from lesson 22's array: `int[] canIds = {1, 2, 3, 4, 5, 6, 7, 29};`.  
+- Pick an `int target = 29;` and search the array with this lesson's loop: when `canIds[i] == target`, remember the index and `break`. The array never changes, so do the search **once in `setup()`** and store the answer in a field.  
+- In `execute()`, put the answer on SmartDashboard: `"CAN 29 found at index 7"`.  
+- Add the `boolean isFound` flag. After the loop, `if (!isFound)`, put `"CAN <target> is not on this robot"` instead.  
+- Now set `target = 8` and run it again. There is no CAN 8 on this robot, which is exactly the case the flag is for. Without it, the dashboard just says nothing, and you can't tell "not found" from "my code never ran".  
+
+**Extra (1 pt)**: search by mechanism name  
+- Add a `String[] mechanisms` in the **same order** as `canIds`:  
+  `{"left drive", "right drive", "left drive follower", "right drive follower", "left roller", "right roller", "climber", "conveyor"}`.  
+- Search it with `mechanisms[i].equals(target)`, **not** `==`, for a name like `"conveyor"`.  
+- The index is what links the two arrays: once you've found the name at index `i`, `canIds[i]` is that mechanism's CAN ID. Put both on SmartDashboard.  
+- Let the operator pick the target, the way the Java half let the user type it: **B** → `"conveyor"`, **A** → `"climber"`, **X** → `"left drive"`. At home the operator is Keyboard 1, so those are the **6**, **5** and **7** keys.  
+- Because the target now changes while the robot is running, the search moves out of `setup()` and into `execute()`. Search for a name that isn't in the array, like `"shooter"`, and check you still get the not-found message.  
+- Build a `TalonFX[]` from `canIds` the way you did in lesson 22, and publish the found motor's rotations. Search for `"left drive"`, hold **W** to drive, and watch the number you searched for move.  
 
 ---
 
 ## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-> Not written yet. See Part 2.
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
+
+**Basic (1 pt)**: find the search that doesn't look like one  
+- Open `VisionSubsystem.getPoseEstimate()`. It loops over `estimate.rawFiducials` and, the moment one tag's `ambiguity` is above `MAX_AMBIGUITY` (0.2), it stops and returns `null`.  
+- That is this lesson's search, with two changes: the early exit is a `return` instead of a `break`, and there is no `isFound` flag, because returning *is* the answer. Explain both in a comment.  
+- What does the method return when the camera sees no tags at all? Find the line that decides it.  
+
+**Extra (1 pt)**: which loops can't stop early  
+- A few lines below, `getVisibleTags()` and `getAvgTagDistance()` also loop over a `RawFiducial[]`, but neither one ever exits early. Why can't they? Say what each loop is actually doing with the array.  
+- `break` appears **zero times** in the whole competition code (`LimelightHelpers.java` included, and that file isn't even ours). Is that a bug, a style, or just what the code happened to need?  
+- How would you change `getVisibleTags()` to find one specific tag, say tag 7, and stop looking once it had it?  
 
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
+- **Max:** 6 pts  
   - Java‑Only: 2 pts  
-  - Robot Code and Code Archaeology: coming back once they're written for this topic
+  - Robot Code: 2 pts  
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 

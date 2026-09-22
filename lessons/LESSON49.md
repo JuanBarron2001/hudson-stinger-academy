@@ -70,22 +70,65 @@ task.run();
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-> **Not written yet.** Lesson 49 was an empty file until the 2026 audit, so it has no robot half or Code Archaeology. It's optional this offseason: **skip Parts 2 and 3 for now.**
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson49/basic/Lesson49.java` (and `extra/Lesson49.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
+
+**Basic (1 pt)**: one robot action, in a class with no name  
+- Create the operator controller, both rollers (CAN 5, 6) and the conveyor (CAN 29), the way lesson 13 did.  
+- In `setup()`, **after** the motors exist, build the intake action as an anonymous `Runnable` and keep it in a field:  
+
+```java
+intakeAction = new Runnable() {
+    @Override
+    public void run() {
+        leftRoller.set(-0.7);
+        rightRoller.set(0.7);
+        conveyor.set(0.8);
+    }
+};
+```
+
+- Build a second one, `ejectAction`, with the eject powers from ROBOT.md (rollers `+0.9`, conveyor `+0.8`).  
+- In `execute()`, hold **B** and call `intakeAction.run()`, hold the **left bumper** and call `ejectAction.run()`, otherwise stop all three motors. At home the operator is Keyboard 1, so B is the **6** key and the left bumper is **3**.  
+- Put the name of the action you ran on SmartDashboard, and next to it the roller speed you read in lesson 07, `leftRoller.getVelocity().getValueAsDouble()`. Intake should turn the rollers the opposite way from eject, and the sign tells you which.  
+- **Nothing runs on its own here.** A `Runnable` is just an object with a `run()` method, and *you* call it, from the robot's own loop. That matters: lesson 50 shows what goes wrong when something else calls it, on its own thread.  
+
+**Extra (1 pt)**: no name, no reuse, and the short way  
+- Put `intakeAction.getClass().getName()` on SmartDashboard. Java made up something like `frc.lesson.lesson49.extra.Lesson49$1`, for the same reason it did in the Java half: you never named the class.  
+- Hold both actions in a `Runnable[]` and pick one with the operator's buttons, so the array decides what the robot does. Each slot is a different anonymous class, and neither one can be reused anywhere else.  
+- Write the same intake action a second way, as a **lambda**, and leave it in a comment:  
+
+```java
+// Runnable intakeAction = () -> { leftRoller.set(-0.7); rightRoller.set(0.7); conveyor.set(0.8); };
+```
+
+- Same object, four lines shorter. This is the shape every button binding on a command-based robot uses, which is the next thing you'll learn.  
 
 ---
 
 ## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-> Not written yet. See Part 2.
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
+
+**Basic (1 pt)**: every lambda is an anonymous class  
+- In `RobotContainer.java`, find `fuelSubsystem.setDefaultCommand(fuelSubsystem.run(() -> fuelSubsystem.stop()));`.  
+- That `() -> fuelSubsystem.stop()` is a `Runnable`, exactly like yours. Rewrite it the long way, as `new Runnable() { ... }`, in a comment. Which one would you rather read at 2 AM at a competition?  
+- How did you know it was a `Runnable` and not something else? *(Hint: what does `Subsystem.run(...)` take?)*  
+
+**Extra (1 pt)**: the one that isn't a Runnable  
+- Find `new DynamicClimbUp(climberSubsystem, () -> driverController.getRightTriggerAxis())`, and open `DynamicClimbUp.java`. Its second parameter is a `DoubleSupplier`, an interface with one method, `double getAsDouble()`.  
+- Rewrite that lambda as an anonymous `DoubleSupplier`. You now have a working example of lesson 37's "you can't build an interface, but you can build an interface *with a body*".  
+- Why does the command take a `DoubleSupplier` at all, instead of just a `double`? Hold the trigger halfway and think about what a plain `double` would have captured.  
 
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
+- **Max:** 6 pts  
   - Java‑Only: 2 pts  
-  - Robot Code and Code Archaeology: coming once they're written
+  - Robot Code: 2 pts  
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 

@@ -48,7 +48,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 21  | 🖥️ Variable Scope in Java              | Understand local, instance, and class variable lifetimes.               | [Open Lesson](./LESSON21.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 22  | 🖥️ Arrays in Java                      | Store multiple values in a single variable using arrays.                | [Open Lesson](./LESSON22.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 23  | 🖥️ User Input into Arrays in Java      | Populate arrays with values from the user.                              | [Open Lesson](./LESSON23.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 24  | 🖥️ Searching an Array in Java          | Find an element with a linear search: a loop, `break`, a found flag, and `.equals()` for Strings. | [Open Lesson](./LESSON24.md) | [AI_SLOB] | Optional | — skip for now |
+| [ ] | 24  | 🖥️ Searching an Array in Java          | Find an element with a linear search: a loop, `break`, a found flag, and `.equals()` for Strings. | [Open Lesson](./LESSON24.md) | [AI_SLOB] | Optional | ✅ Rebuilt |
 | [ ] | 25  | 🖥️ Variable Arguments (Varargs) in Java | Pass a flexible number of arguments into methods.                       | [Open Lesson](./LESSON25.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 26  | 🖥️ 2D Arrays in Java                   | Work with tables and grids using two‑dimensional arrays.                | [Open Lesson](./LESSON26.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 27  | 🖥️ Objects & Classes in Java (Intro to OOP) | Learn the basics of object‑oriented programming.                        | [Open Lesson](./LESSON27.md) | [AI_SLOB] | Core | ⏳ Not yet |
@@ -73,8 +73,8 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 46  | 🖥️ Writing Files in Java (FileWriter)  | Save data to files using `FileWriter`.                                  | [Open Lesson](./LESSON46.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 47  | 🖥️ Reading Files in Java (BufferedReader + FileReader) | Read text files efficiently.                                            | [Open Lesson](./LESSON47.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 48  | 🖥️ Dates and Times in Java             | Work with `LocalDate`, `LocalTime`, and `LocalDateTime`.                | [Open Lesson](./LESSON48.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 49  | 🖥️ Anonymous Classes in Java           | Give one object its own behavior with a class that has no name, the pattern `TimerTask` and `Runnable` use. | [Open Lesson](./LESSON49.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 50  | 🖥️ Timer and TimerTask in Java         | Schedule tasks with `Timer` and `TimerTask`.                            | [Open Lesson](./LESSON50.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 49  | 🖥️ Anonymous Classes in Java           | Give one object its own behavior with a class that has no name, the pattern `TimerTask` and `Runnable` use. | [Open Lesson](./LESSON49.md) | [AI_SLOB] | Optional | ✅ Rebuilt |
+| [ ] | 50  | 🖥️ Timer and TimerTask in Java         | Schedule tasks with `Timer` and `TimerTask`.                            | [Open Lesson](./LESSON50.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 51  | 🖥️ Generics in Java                    | Write flexible, type‑safe classes and methods.                          | [Open Lesson](./LESSON51.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 52  | 🖥️ HashMaps in Java                    | Store key‑value pairs with `HashMap`.                                   | [Open Lesson](./LESSON52.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 53  | 🖥️ Enums in Java                       | Define fixed sets of constants with `enum`.                             | [Open Lesson](./LESSON53.md) | [AI_SLOB] | Core | ⏳ Not yet |
