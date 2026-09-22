@@ -60,63 +60,22 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Build a **simple command parser** for Shuffleboard input:
-  - Read command strings from Shuffleboard (text field): `"drivetrain:forward"`, `"drivetrain:backward"`, `"apriltag:5"`
-  - Use `.indexOf(":")` to find the delimiter position
-  - Extract the subsystem: `.substring(0, indexOf(":"))`
-  - Extract the action: `.substring(indexOf(":") + 1)`
-  - Validate with `.contains(":")`
-  - Execute appropriate robot action:
-    - If subsystem is `"drivetrain"` and action is `"forward"` → drive forward
-    - If action is `"backward"` → drive backward
-    - If action is `"stop"` → stop
-  - Print to SmartDashboard: `"Command: drivetrain:forward → DRIVING FORWARD"`
-
-**Extra (1 pt)**  
-- Build an **advanced multi-parameter parser**:
-  - Parse complex command strings with multiple colons: `"drivetrain:forward:0.5"`, `"apriltag:5:follow"`, `"apriltag:12:ignore"`
-  - Use `.indexOf(":")` to find the first delimiter, then use `.substring()` + `.indexOf(":")` again to find the second
-  - Extract all three parts:
-    - Subsystem: `"drivetrain"` or `"apriltag"`
-    - First param: direction/ID
-    - Second param: speed/action
-  - Example parsing:
-    - `"drivetrain:forward:0.5"` → subsystem=`"drivetrain"`, direction=`"forward"`, speed=`0.5`
-    - `"apriltag:5:follow"` → subsystem=`"apriltag"`, tagID=`5`, action=`"follow"`
-  - Execute appropriate actions based on all parsed parameters
-  - Print detailed log to SmartDashboard showing what was parsed and executed  
+> **Not written yet.** Lesson 11 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a place in last year’s robot code where strings were manually split.  
-- Suggest replacing it with `.substring()` for clarity.  
-
-**Extra (1 pt)**  
-- Propose improvements:  
-  - Use `.indexOf()` + `.substring()` instead of hard‑coded indices.  
-  - Add validation with `.contains(":")` before slicing.  
-- Or write pseudo‑code for parsing:  
-  ```java
-  if (command.contains(":")) {
-      String action = command.substring(0, command.indexOf(":"));
-      String value  = command.substring(command.indexOf(":") + 1);
-      execute(action, value);
-  } else {
-      System.out.println("Invalid command");
-  }
-  ```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

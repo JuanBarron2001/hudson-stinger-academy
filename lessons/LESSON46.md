@@ -93,73 +93,22 @@ try (FileWriter writer = new FileWriter(filePath)) {
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Write robot logs to a file:  
-
-```java
-try (FileWriter writer = new FileWriter("robot_log.txt")) {
-    writer.write("Robot initialized.\n");
-    writer.write("DriveTrain active.\n");
-    writer.write("Arm lifted.\n");
-    System.out.println("Robot log written.");
-} catch (IOException e) {
-    System.out.println("Error writing robot log.");
-}
-```
-
-**Extra (1 pt)**  
-- Use multi-line strings for structured logs:  
-
-```java
-String log = """
-        === Robot Log ===
-        DriveTrain: OK
-        Arm: OK
-        Shooter: OK
-        =================
-        """;
-
-try (FileWriter writer = new FileWriter("robot_status.txt")) {
-    writer.write(log);
-    System.out.println("Robot status written.");
-} catch (IOException e) {
-    System.out.println("Error writing robot status.");
-}
-```
+> **Not written yet.** Lesson 46 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where logs were only printed to console.  
-- Suggest writing logs to a file for persistence.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `FileWriter` for small logs.  
-  - Use `PrintWriter` for structured logs.  
-  - Use `BufferedWriter` for performance with large logs.  
-
-```java
-// Before: only console output
-System.out.println("Shooter RPM: 3000");
-
-// After: write to file
-try (FileWriter writer = new FileWriter("shooter_log.txt")) {
-    writer.write("Shooter RPM: 3000");
-} catch (IOException e) {
-    System.out.println("Error writing shooter log.");
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

@@ -75,67 +75,22 @@ try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Read a configuration file for robot settings:  
-
-```java
-try (BufferedReader reader = new BufferedReader(new FileReader("robot_config.txt"))) {
-    String line;
-    while ((line = reader.readLine()) != null) {
-        SmartDashboard.putString("Config", line);
-    }
-} catch (IOException e) {
-    SmartDashboard.putString("Error", "Could not read config file");
-}
-```
-
-**Extra (1 pt)**  
-- Parse numeric values from file lines:  
-
-```java
-try (BufferedReader reader = new BufferedReader(new FileReader("motor_speeds.txt"))) {
-    String line;
-    while ((line = reader.readLine()) != null) {
-        double speed = Double.parseDouble(line);
-        SmartDashboard.putNumber("Motor Speed", speed);
-    }
-} catch (IOException e) {
-    SmartDashboard.putString("Error", "Failed to read motor speeds");
-}
-```
+> **Not written yet.** Lesson 47 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where configuration values were hardcoded.  
-- Suggest replacing them with **external text files** read via `BufferedReader`.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Store subsystem parameters (e.g., PID values, motor speeds) in a config file.  
-  - Read them at runtime → easier tuning without recompiling code.  
-
-```java
-// Before: hardcoded
-double shooterRPM = 3000;
-
-// After: read from file
-try (BufferedReader reader = new BufferedReader(new FileReader("shooter_config.txt"))) {
-    shooterRPM = Double.parseDouble(reader.readLine());
-} catch (IOException e) {
-    shooterRPM = 3000; // fallback default
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

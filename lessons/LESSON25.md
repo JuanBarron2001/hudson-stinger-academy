@@ -79,57 +79,22 @@ public static void main(String[] args) {
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create a method `setMotorSpeeds(double... speeds)` that accepts any number of motor speeds.  
-- Print each motor speed.  
-
-```java
-static void setMotorSpeeds(double... speeds) {
-    for (int i = 0; i < speeds.length; i++) {
-        System.out.println("Motor " + i + " speed: " + speeds[i]);
-    }
-}
-```
-
-**Extra (1 pt)**  
-- Send motor speeds to **SmartDashboard** dynamically.  
-
-```java
-static void setMotorSpeeds(double... speeds) {
-    for (int i = 0; i < speeds.length; i++) {
-        SmartDashboard.putNumber("Motor " + i + " Speed", speeds[i]);
-    }
-}
-```
+> **Not written yet.** Lesson 25 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section in last year’s robot code where multiple overloaded methods existed (e.g., `driveForward(int speed)`, `driveForward(int left, int right)`).  
-- Suggest replacing them with a single varargs method.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace multiple `addMotor()` overloads with one `addMotors(Motor... motors)`.  
-  - Replace repeated `logSensorValues()` overloads with `logSensors(String... sensors)`.  
-
-```java
-static void logSensors(String... sensors) {
-    for (String sensor : sensors) {
-        System.out.println("Logging sensor: " + sensor);
-    }
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

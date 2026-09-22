@@ -86,79 +86,22 @@ System.out.println(car2); // Blue 2026 Chevrolet Corvette
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create a `Motor` class with attributes: `id`, `speed`.  
-- Override `toString()` to return `"Motor <id> running at <speed>"`.  
-
-**Extra (1 pt)**  
-- Store multiple `Motor` objects in an array.  
-- Print them directly to **SmartDashboard** using their overridden `toString()`.  
-
-```java
-public class Motor {
-    String id;
-    double speed;
-
-    Motor(String id, double speed) {
-        this.id = id;
-        this.speed = speed;
-    }
-
-    @Override
-    public String toString() {
-        return "Motor " + id + " running at " + speed;
-    }
-}
-
-// Example usage
-Motor[] motors = {
-    new Motor("Left", 0.5),
-    new Motor("Right", 0.5),
-    new Motor("Arm", 0.3)
-};
-
-for (Motor m : motors) {
-    SmartDashboard.putString(m.id, m.toString());
-}
-```
+> **Not written yet.** Lesson 35 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where objects were printed manually with multiple `println` statements.  
-- Suggest replacing them with a **custom `toString()`** method.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Override `toString()` in classes like `Sensor`, `Motor`, or `Subsystem`.  
-  - This way, printing the object directly shows useful details without extra formatting code.  
-
-```java
-public class Sensor {
-    String type;
-    String port;
-
-    Sensor(String type, String port) {
-        this.type = type;
-        this.port = port;
-    }
-
-    @Override
-    public String toString() {
-        return "Sensor type: " + type + " on port " + port;
-    }
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

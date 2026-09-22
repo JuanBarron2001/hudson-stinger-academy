@@ -72,60 +72,22 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Format **joystick input** with consistent decimal places and alignment:
-  - Read all 4 axes from an XboxController: left X, left Y, right X, right Y
-  - Use `printf` to print them in an aligned, easy-to-read format:
-    ```
-    Left X:  -0.25  |  Right X:  +0.50
-    Left Y:  +0.75  |  Right Y:  -0.12
-    ```
-  - Use:
-    - `%.2f` for 2 decimal places
-    - `%+` flag to show +/- signs
-    - Width specifiers for alignment
-    - `%n` for newlines
-  - Print this to console every 50-100ms so you can see real-time input
-
-**Extra (1 pt)**  
-- Build a **match data logger** that captures critical telemetry:
-  - Log the following **every 100ms** (or on a periodic timer):
-    - Timestamp (milliseconds since robot enable)
-    - Joystick inputs (4 axes: left X/Y, right X/Y, each `%+.2f`)
-    - Motor speeds (left wheel, right wheel, each `%+.2f`)
-    - Distance to AprilTag (from Limelight `ta`, in units, `%.1f`)
-  - Format as an aligned table so it's readable when scrolling through logs:
-    ```
-    Time(ms) | LX     LY     RX     RY     | LeftW  RightW | TagDist
-    1250     | -0.25  +0.75  +0.50  -0.12  | +0.60  +0.65  | 24.5
-    1350     | -0.23  +0.76  +0.48  -0.10  | +0.58  +0.63  | 23.8
-    ```
-  - Use consistent width and precision throughout so logs are machine-readable and human-readable
-  - This data is useful for post-match debugging!  
+> **Not written yet.** Lesson 08 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find debug output in last year's robot code (console or SmartDashboard prints).  
-- Identify messy or hard-to-read output (inconsistent spacing, no decimal places, values running together).  
-- Suggest how `printf` with proper width and precision would improve readability.  
-
-**Extra (1 pt)**  
-- Propose a formatted telemetry system for match data:
-  - What data matters most during a match? (sensor values, motor speeds, timing)
-  - Design a table format that's easy to read at a glance
-  - Write pseudo-code for logging that data with `printf`
-  - Consider: What precision do different values need? How should columns be aligned?
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

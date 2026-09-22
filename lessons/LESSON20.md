@@ -53,47 +53,22 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create an overloaded method `setMotorSpeed`:  
-  - One version accepts a single speed value.  
-  - Another version accepts left and right speeds separately.  
-
-**Extra (1 pt)**  
-- Add a third overload that accepts an array of motor speeds and sets each motor accordingly (arrays are lesson 22).  
-- Print results to **SmartDashboard**.  
+> **Not written yet.** Lesson 20 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a place in last year’s robot code where multiple methods with similar names existed (e.g., `driveForwardOneMotor`, `driveForwardTwoMotors`).  
-- Suggest how overloading could simplify them into one method name with different parameters.  
-
-**Extra (1 pt)**  
-- Write pseudo‑code for an overloaded `bakePizza` method:  
-  ```java
-  static String bakePizza(String bread) {
-      return bread + " pizza";
-  }
-
-  static String bakePizza(String bread, String cheese) {
-      return cheese + " " + bread + " pizza";
-  }
-
-  static String bakePizza(String bread, String cheese, String topping) {
-      return topping + " " + cheese + " " + bread + " pizza";
-  }
-  ```
-- Show how calling each version produces different results.  
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

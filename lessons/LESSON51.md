@@ -132,60 +132,22 @@ System.out.println(product2.getPrice()); // 15
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use generics to represent robot parts:  
-
-```java
-Product<String, Double> motor = new Product<>("Left Motor", 0.75);
-SmartDashboard.putString("Motor", motor.getItem());
-SmartDashboard.putNumber("Motor Power", motor.getPrice());
-```
-
-**Extra (1 pt)**  
-- Use generics for counters or tickets in robot events:  
-
-```java
-Product<String, Integer> matchTickets = new Product<>("Match Tickets", 15);
-SmartDashboard.putString("Item", matchTickets.getItem());
-SmartDashboard.putNumber("Price", matchTickets.getPrice());
-```
+> **Not written yet.** Lesson 51 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where multiple classes were written for different data types (e.g., `MotorDouble`, `MotorInt`).  
-- Suggest replacing them with a **generic class**.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `<T, U>` to handle both identifiers and values.  
-  - Reduce code duplication by writing one generic class instead of many.  
-
-```java
-// Before: separate classes
-class MotorDouble { String id; double power; }
-class MotorInt { String id; int power; }
-
-// After: generic class
-class Motor<T> {
-    String id;
-    T power;
-    Motor(String id, T power) {
-        this.id = id;
-        this.power = power;
-    }
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

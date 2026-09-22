@@ -96,52 +96,22 @@ if (date1.isBefore(date2)) {
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Log the current timestamp for robot events:  
-
-```java
-LocalDateTime eventTime = LocalDateTime.now();
-SmartDashboard.putString("Event Time", eventTime.toString());
-```
-
-**Extra (1 pt)**  
-- Format timestamps for logs:  
-
-```java
-DateTimeFormatter logFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-String logEntry = "Shooter activated at " + LocalDateTime.now().format(logFormat);
-
-SmartDashboard.putString("Log", logEntry);
-```
+> **Not written yet.** Lesson 48 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where events were logged without timestamps.  
-- Suggest adding `LocalDateTime.now()` to track when events occurred.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `DateTimeFormatter` for human-readable logs.  
-  - Store logs with timestamps in a file for debugging.  
-
-```java
-// Before
-System.out.println("Shooter activated");
-
-// After
-System.out.println("Shooter activated at " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

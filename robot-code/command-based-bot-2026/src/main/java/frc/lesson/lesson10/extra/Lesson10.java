@@ -1,34 +1,15 @@
 package frc.lesson.lesson10.extra;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import com.ctre.phoenix6.hardware.TalonFX;
 import frc.lesson.LessonBase;
 
-// LESSON 10 EXTRA - Build a command logger with validation and parsing
-// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
-// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
-//
-// TASK:
-// 1. Read operator input from Shuffleboard (text field for commands)
-// 2. Clean and validate the input:
-//    - .trim() to remove whitespace
-//    - .toLowerCase() for case-insensitive matching
-//    - .isEmpty() to check if command is empty
-// 3. Parse for valid keywords using .contains():
-//    Valid commands: "forward", "backward", "spin", "stop"
-// 4. Log each step to SmartDashboard for debugging:
-//    "Raw Input: '  FORWARD please  '"
-//    "Cleaned: 'forward please'"
-//    "Keyword Found: 'forward'"
-//    "Action: DRIVING FORWARD"
-// 5. Handle invalid commands gracefully:
-//    "Invalid command: 'banana' - recognized commands: forward, backward, spin, stop"
-// 6. Use .equals() or .equalsIgnoreCase() for exact matching if desired
-// 7. Execute the appropriate motor commands based on parsed keyword
-// 8. This is a realistic logger for debugging operator input during matches!
+// LESSON 10 EXTRA - Not written yet
+// Lesson 10 is optional this offseason, so its robot half was never rewritten for the 2026
+// robot. The 2025 draft that used to be here described hardware this robot doesn't have,
+// so it was taken out. Skip it for now. See lessons/LESSON10.md, Part 2.
 public class Lesson10 extends LessonBase {
     @Override
     public void execute() {
-        // YOUR CODE HERE
+        //SmartDashboard.putString("Testing SmartDashboard", "Hello From SmartDashboard: ");
     }
 }

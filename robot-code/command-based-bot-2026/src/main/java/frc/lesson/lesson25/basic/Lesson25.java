@@ -3,13 +3,10 @@ package frc.lesson.lesson25.basic;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.lesson.LessonBase;
 
-// LESSON 25 BASIC - setMotorSpeeds with varargs
-// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
-// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
-//
-// TASK:
-// 1. Write a method  setMotorSpeeds(double... speeds)  that accepts any number of motor speeds
-// 2. Print each motor speed
+// LESSON 25 BASIC - Not written yet
+// Lesson 25 is optional this offseason, so its robot half was never rewritten for the 2026
+// robot. The 2025 draft that used to be here described hardware this robot doesn't have,
+// so it was taken out. Skip it for now. See lessons/LESSON25.md, Part 2.
 public class Lesson25 extends LessonBase {
     @Override
     public void execute() {

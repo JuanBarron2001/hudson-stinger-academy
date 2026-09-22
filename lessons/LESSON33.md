@@ -103,81 +103,22 @@ public class Employee extends Person {
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create a parent class `Subsystem` with attribute `String name`.  
-- Constructor requires `name`.  
-- Add method `showName()`.  
-
-**Extra (1 pt)**  
-- Create child classes `DriveTrain` and `Arm` that extend `Subsystem`.  
-- Use `super(name)` in their constructors.  
-- Add unique attributes (`speed`, `strength`) and methods.  
-- Print results to **SmartDashboard**.  
-
-```java
-public class Subsystem {
-    String name;
-
-    Subsystem(String name) {
-        this.name = name;
-    }
-
-    void showName() {
-        System.out.println("Subsystem: " + this.name);
-    }
-}
-
-public class DriveTrain extends Subsystem {
-    double speed;
-
-    DriveTrain(String name, double speed) {
-        super(name);
-        this.speed = speed;
-    }
-}
-
-public class Arm extends Subsystem {
-    int strength;
-
-    Arm(String name, int strength) {
-        super(name);
-        this.strength = strength;
-    }
-}
-```
+> **Not written yet.** Lesson 33 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where child classes duplicated parent initialization code.  
-- Suggest replacing it with `super(...)` calls to the parent constructor.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `super` to centralize initialization logic.  
-  - Example: all subsystems require a `name` → handled in parent constructor.  
-  - Children only add their unique attributes.  
-
-```java
-public class Shooter extends Subsystem {
-    int rpm;
-
-    Shooter(String name, int rpm) {
-        super(name); // parent handles name
-        this.rpm = rpm;
-    }
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

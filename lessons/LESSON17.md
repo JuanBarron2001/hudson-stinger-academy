@@ -48,47 +48,22 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use `break` in a loop that checks sensors:  
-  - Example: stop looping once a limit switch is pressed.  
-
-**Extra (1 pt)**  
-- Use `continue` to skip invalid sensor readings:  
-  - Example: if a sensor returns `-1`, skip that iteration and move on.  
-- Print results to **SmartDashboard** for debugging.  
+> **Not written yet.** Lesson 17 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a loop in last year’s robot code where `break` was used to stop early.  
-- Explain why it was necessary (e.g., safety, efficiency).  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace nested `if` checks with `continue` for cleaner code.  
-  - Use `break` to exit once a condition is satisfied instead of checking repeatedly.  
-- Or write pseudo‑code for motor testing:  
-  ```java
-  for (Motor m : motors) {
-      if (!m.isConnected()) {
-          continue; // skip disconnected motors
-      }
-      testMotor(m);
-      if (m.hasError()) {
-          break; // stop testing if a failure occurs
-      }
-  }
-  ```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

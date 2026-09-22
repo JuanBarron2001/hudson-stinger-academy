@@ -81,62 +81,22 @@ for (Car car : cars) {
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create a `Motor` class with attributes:  
-  - `String id`  
-  - `double speed`  
-- Add a method `run()` that prints `"Motor <id> running at <speed>"`.  
-- Store multiple `Motor` objects in an array and loop through them.  
-
-**Extra (1 pt)**  
-- Use an enhanced for loop to update all motor speeds (e.g., set all to `0.5`).  
-- Print results to **SmartDashboard**.  
-
-```java
-Motor[] motors = {
-    new Motor("Left", 0.3),
-    new Motor("Right", 0.3),
-    new Motor("Arm", 0.2)
-};
-
-for (Motor m : motors) {
-    m.setSpeed(0.5);
-    SmartDashboard.putNumber("Motor " + m.id, m.speed);
-}
-```
+> **Not written yet.** Lesson 30 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where multiple objects were declared individually (e.g., `motor1`, `motor2`, `motor3`).  
-- Suggest replacing them with an **array of objects**.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace repeated method calls with a loop over an array.  
-  - Use anonymous objects in arrays for quick initialization.  
-
-```java
-Motor[] motors = {
-    new Motor("Left", 0.5),
-    new Motor("Right", 0.5),
-    new Motor("Claw", 0.2)
-};
-
-for (Motor m : motors) {
-    m.run();
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

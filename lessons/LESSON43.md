@@ -95,64 +95,22 @@ System.out.println(Character.isUpperCase(letter));// false
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use wrapper classes with **ArrayList** (since ArrayList only works with objects; lesson 44 covers `ArrayList`).  
-
-```java
-ArrayList<Integer> speeds = new ArrayList<>();
-speeds.add(50);   // autoboxing: int → Integer
-speeds.add(75);
-speeds.add(100);
-
-for (Integer s : speeds) {
-    SmartDashboard.putNumber("Speed", s);
-}
-```
-
-**Extra (1 pt)**  
-- Parse sensor values from strings:  
-
-```java
-String voltageReading = "12";
-int voltage = Integer.parseInt(voltageReading);
-
-String tempReading = "36.5";
-double temperature = Double.parseDouble(tempReading);
-
-SmartDashboard.putNumber("Voltage", voltage);
-SmartDashboard.putNumber("Temperature", temperature);
-```
+> **Not written yet.** Lesson 43 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where primitives were stored in collections.  
-- Suggest replacing them with **wrapper classes** (e.g., `ArrayList<Integer>` instead of `ArrayList<int>`).  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use wrapper utility methods for parsing sensor data from strings.  
-  - Use `Character.isLetter()` or `Character.isDigit()` for validating user input.  
-
-```java
-// Before
-// ArrayList<int> speeds; // invalid
-
-// After
-ArrayList<Integer> speeds = new ArrayList<>();
-speeds.add(60);
-speeds.add(80);
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

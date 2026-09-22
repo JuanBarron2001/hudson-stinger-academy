@@ -50,44 +50,22 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use a nested loop to simulate scanning a grid of sensors (rows × columns).  
-- Print each sensor’s index as you iterate.  
-
-**Extra (1 pt)**  
-- Pick the number of rows and columns. (Robot code has no keyboard to type them into.)  
-- Use nested loops to display a matrix of sensor states (e.g., `"OK"` or `"FAIL"`).  
-- Print results to **SmartDashboard**.  
+> **Not written yet.** Lesson 18 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a nested loop in last year’s robot code (e.g., iterating through motor controllers or joystick mappings).  
-- Explain what the outer loop and inner loop each controlled.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace repeated code with a nested loop.  
-  - Use better variable names (`i`, `j`) for clarity.  
-- Or write pseudo‑code for a matrix generator:  
-  ```java
-  for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
-          System.out.print(symbol);
-      }
-      System.out.println();
-  }
-  ```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

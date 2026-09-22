@@ -3,13 +3,10 @@ package frc.lesson.lesson46.extra;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.lesson.LessonBase;
 
-// LESSON 46 EXTRA - A structured status file
-// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
-// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
-//
-// TASK:
-// 1. Build a multi-line String status report (triple quotes) and write it to
-//    robot_status.txt
+// LESSON 46 EXTRA - Not written yet
+// Lesson 46 is optional this offseason, so its robot half was never rewritten for the 2026
+// robot. The 2025 draft that used to be here described hardware this robot doesn't have,
+// so it was taken out. Skip it for now. See lessons/LESSON46.md, Part 2.
 public class Lesson46 extends LessonBase {
     @Override
     public void execute() {

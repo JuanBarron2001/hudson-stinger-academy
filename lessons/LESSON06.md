@@ -56,52 +56,22 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use `Random` to generate a **target AprilTag ID** (1–16) **once at robot startup**.  
-- Store this ID in a variable.  
-- Use Limelight to continuously search for that specific tag during operation.  
-- Print the target tag ID and current Limelight detection status to **SmartDashboard**.  
-- **Key insight:** Randomness is used only at initialization; runtime behavior is deterministic and predictable.
-
-**Extra (1 pt)**  
-- Expand the scenario with robot personality:
-  - Use `nextBoolean()` to randomly determine robot **behavior** at startup:
-    - If true → **Attracted mode** — robot is drawn to the target tag (follow it).
-    - If false → **Scared mode** — robot runs away from the target tag (move opposite direction).
-  - Use Limelight `tx` (horizontal offset) to implement the selected behavior:
-    - Attracted: Turn toward the tag (positive motor speed when tx > 0)
-    - Scared: Turn away from the tag (negative motor speed when tx > 0)
-  - Print behavior mode, target tag ID, offset, and detection status to **SmartDashboard** for debugging.
-  - Test by running the robot multiple times and observing it either chase or flee based on random startup selection.  
+> **Not written yet.** Lesson 06 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a place in last year’s robot code where randomness could have been useful (e.g., testing robustness by simulating noisy sensor input).  
-- Explain why adding randomness might help.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use randomness to stress‑test algorithms.  
-  - Simulate coin‑flip logic for decision‑making in autonomous mode.  
-- Or write pseudo‑code for a random decision:  
-  ```java
-  if (random.nextBoolean()) {
-      driveLeft();
-  } else {
-      driveRight();
-  }
-  ```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

@@ -3,13 +3,10 @@ package frc.lesson.lesson30.extra;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.lesson.LessonBase;
 
-// LESSON 30 EXTRA - Update every motor
-// Optional this offseason. This robot half hasn't been rebuilt for the 2026 robot yet,
-// so LESSONS.md says "skip for now". The task below is the guide's current Part 2.
-//
-// TASK:
-// 1. Use an enhanced for loop to update every motor's speed (for example, all to 0.5)
-// 2. Print the results to SmartDashboard
+// LESSON 30 EXTRA - Not written yet
+// Lesson 30 is optional this offseason, so its robot half was never rewritten for the 2026
+// robot. The 2025 draft that used to be here described hardware this robot doesn't have,
+// so it was taken out. Skip it for now. See lessons/LESSON30.md, Part 2.
 public class Lesson30 extends LessonBase {
     @Override
     public void execute() {

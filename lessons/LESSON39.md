@@ -95,72 +95,22 @@ scanner.close();
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create an abstract class `Subsystem` with an abstract method `run()`.  
-- Create child classes `DriveTrain` and `Arm` that override `run()`.  
-
-**Extra (1 pt)**  
-- Use runtime polymorphism to decide which subsystem to run based on which operator button is held. Not typed input: robot code has no keyboard, and a `Scanner` waiting for one would freeze the robot loop like lesson 15's `while`.  
-- Print results to **SmartDashboard**.  
-
-```java
-public abstract class Subsystem {
-    abstract void run();
-}
-
-public class DriveTrain extends Subsystem {
-    @Override
-    void run() {
-        SmartDashboard.putString("DriveTrain", "Driving forward");
-    }
-}
-
-public class Arm extends Subsystem {
-    @Override
-    void run() {
-        SmartDashboard.putString("Arm", "Lifting object");
-    }
-}
-
-// Example runtime decision: which button is held right now?
-Subsystem subsystem;
-if (operator.getAButton()) {
-    subsystem = new DriveTrain();
-} else {
-    subsystem = new Arm();
-}
-subsystem.run();
-```
+> **Not written yet.** Lesson 39 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where different subsystems were manually selected with `if`/`else` blocks.  
-- Suggest replacing them with **runtime polymorphism**: declare a parent type, assign it to the chosen child, and call the method.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace repeated `if`/`else` calls with polymorphic behavior.  
-  - Example: `Subsystem subsystem = new DriveTrain(); subsystem.run();`  
-  - This makes the code more scalable when adding new subsystems.  
-
-```java
-Subsystem[] subsystems = { new DriveTrain(), new Arm() };
-
-for (Subsystem s : subsystems) {
-    s.run(); // dynamic dispatch
-}
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

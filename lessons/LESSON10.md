@@ -66,68 +66,22 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Build a **Shuffleboard command parser** for driver input:
-  - Read a string command from Shuffleboard (e.g., a text field where operator types)
-  - Parse using string methods:
-    - `.trim()` to clean whitespace
-    - `.toLowerCase()` to normalize case
-    - `.contains()` to check for keywords: `"forward"`, `"backward"`, `"spin"`
-  - Based on the command, execute robot actions:
-    - If contains `"forward"` → drive forward
-    - If contains `"backward"` → drive backward
-    - If contains `"spin"` → rotate in place
-    - Else → stop
-  - Print to SmartDashboard what command was understood: `"Operator: 'forward' → DRIVING FORWARD"`
-  - Handle messy input like `"  FORWARD  "` or `"FoRwArD"` by using `.trim()` and `.toLowerCase()`
-
-**Extra (1 pt)**  
-- Build a **command logger with validation**:
-  - Read operator input from Shuffleboard (text field)
-  - Clean and validate:
-    - `.trim()` whitespace
-    - `.toLowerCase()` for case-insensitivity
-    - `.isEmpty()` check for empty commands
-  - Parse with `.contains()` and `.indexOf()` to extract keywords:
-    - Valid commands: `"forward"`, `"backward"`, `"spin"`, `"stop"`
-  - Log to SmartDashboard:
-    - Raw input: `"  FORWARD please  "`
-    - Cleaned input: `"forward please"`
-    - Recognized keyword: `"forward"`
-    - Action taken: `"DRIVING FORWARD"`
-    - Unknown commands logged as: `"Invalid command: 'banana'"`
-  - Use `.equals()` or `.equalsIgnoreCase()` for exact command matching if desired  
+> **Not written yet.** Lesson 10 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a string method in last year’s robot code (e.g., `.equals()` for mode checking).  
-- Explain what it does and why it was needed.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace manual character checks with `.contains()` or `.indexOf()`.  
-  - Use `.equalsIgnoreCase()` for more robust comparisons.  
-- Or write pseudo‑code for command parsing:  
-  ```java
-  if (command.trim().equalsIgnoreCase("shoot")) {
-      fireShooter();
-  } else if (command.contains("drive")) {
-      driveForward();
-  } else {
-      stop();
-  }
-  ```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

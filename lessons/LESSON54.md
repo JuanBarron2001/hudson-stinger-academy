@@ -114,87 +114,22 @@ scanner.close();
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use a thread to monitor battery voltage in the background:  
-
-```java
-class BatteryMonitor implements Runnable {
-    @Override
-    public void run() {
-        while (true) {
-            SmartDashboard.putNumber("Battery Voltage", RobotController.getBatteryVoltage());
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                break;
-            }
-        }
-    }
-}
-
-Thread monitorThread = new Thread(new BatteryMonitor());
-monitorThread.setDaemon(true);
-monitorThread.start();
-```
-
-**Extra (1 pt)**  
-- Use a thread for timed autonomous actions:  
-
-```java
-class AutoTask implements Runnable {
-    @Override
-    public void run() {
-        try {
-            drivetrain.driveForward(0.5);
-            Thread.sleep(3000); // drive for 3 seconds
-            drivetrain.stop();
-        } catch (InterruptedException e) {
-            System.out.println("Auto task interrupted");
-        }
-    }
-}
-
-Thread autoThread = new Thread(new AutoTask());
-autoThread.start();
-```
+> **Not written yet.** Lesson 54 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where long operations (e.g., sensor polling, logging) blocked the main loop.  
-- Suggest moving those operations into a **separate thread**.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use daemon threads for background monitoring.  
-  - Use threads for timed sequences without blocking teleop.  
-  - Replace `Thread.sleep()` in main code with background tasks.  
-
-```java
-// Before: blocking call
-Thread.sleep(5000);
-arm.moveUp();
-
-// After: threaded task
-new Thread(() -> {
-    try {
-        Thread.sleep(5000);
-        arm.moveUp();
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-}).start();
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 

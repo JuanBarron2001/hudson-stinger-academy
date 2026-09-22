@@ -125,89 +125,22 @@ System.out.println("Game over");
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use multi‑threading to log sensor data while running main code:  
-
-```java
-class SensorLogger implements Runnable {
-    @Override
-    public void run() {
-        for (int i = 0; i < 5; i++) {
-            SmartDashboard.putNumber("Battery Voltage", RobotController.getBatteryVoltage());
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                System.out.println("Logger interrupted");
-            }
-        }
-    }
-}
-
-Thread logger = new Thread(new SensorLogger());
-logger.start();
-```
-
-**Extra (1 pt)**  
-- Run two concurrent tasks: one logging, one controlling motors:  
-
-```java
-Thread logger = new Thread(new SensorLogger());
-Thread motorTask = new Thread(() -> {
-    for (int i = 0; i < 5; i++) {
-        drivetrain.driveForward(0.5);
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            System.out.println("Motor task interrupted");
-        }
-    }
-    drivetrain.stop();
-});
-
-logger.start();
-motorTask.start();
-
-logger.join();
-motorTask.join();
-```
+> **Not written yet.** Lesson 55 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where tasks were run sequentially (e.g., logging first, then driving).  
-- Suggest replacing them with **multi‑threading** so both run concurrently.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `join()` to ensure threads finish before ending the program.  
-  - Use thread names for debugging.  
-  - Replace blocking loops with concurrent threads for responsiveness.  
-
-```java
-// Before: sequential
-logSensors();
-driveForward();
-
-// After: concurrent
-Thread logger = new Thread(() -> logSensors());
-Thread driver = new Thread(() -> driveForward());
-
-logger.start();
-driver.start();
-
-logger.join();
-driver.join();
-```
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
