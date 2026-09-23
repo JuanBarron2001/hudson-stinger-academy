@@ -76,7 +76,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 49  | 🖥️ Anonymous Classes in Java           | Give one object its own behavior with a class that has no name, the pattern `TimerTask` and `Runnable` use. | [Open Lesson](./LESSON49.md) | [AI_SLOB] | Optional | ✅ Rebuilt |
 | [ ] | 50  | 🖥️ Timer and TimerTask in Java         | Schedule tasks with `Timer` and `TimerTask`.                            | [Open Lesson](./LESSON50.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 51  | 🖥️ Generics in Java                    | Write flexible, type‑safe classes and methods.                          | [Open Lesson](./LESSON51.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 52  | 🖥️ HashMaps in Java                    | Store key‑value pairs with `HashMap`.                                   | [Open Lesson](./LESSON52.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 52  | 🖥️ HashMaps in Java                    | Store key‑value pairs with `HashMap`.                                   | [Open Lesson](./LESSON52.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 53  | 🖥️ Enums in Java                       | Define fixed sets of constants with `enum`.                             | [Open Lesson](./LESSON53.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 54  | 🖥️ Threading in Java                   | Run tasks concurrently with threads.                                    | [Open Lesson](./LESSON54.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 55  | 🖥️ Multi‑Threading in Java             | Manage multiple threads for parallel execution.                         | [Open Lesson](./LESSON55.md) | [AI_SLOB] | Optional | — skip for now |

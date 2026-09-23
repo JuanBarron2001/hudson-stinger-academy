@@ -110,63 +110,77 @@ for (String key : map.keySet()) {
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Use a HashMap to store subsystem names and their status:  
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson52/basic/Lesson52.java` (and `extra/Lesson52.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
-```java
-HashMap<String, String> subsystems = new HashMap<>();
-subsystems.put("DriveTrain", "OK");
-subsystems.put("Arm", "OK");
-subsystems.put("Shooter", "Needs Calibration");
+**Basic (1 pt)**: calling a command by its name  
 
-for (String key : subsystems.keySet()) {
-    SmartDashboard.putString(key, subsystems.get(key));
-}
-```
+[Lesson 38](./LESSON38.md) put commands in a dropdown. This one puts them in a phone book.
 
-**Extra (1 pt)**  
-- Store motor IDs and their power levels:  
+Here is the problem a `HashMap` actually solves on a robot. **PathPlanner autos are drawn in an app, not written in Java.** In that app you place a step called `"Intake"`. The app has never heard of your `Intake` class — it only knows the **word**. Something has to turn that word into the real command, and that something is a `Map<String, Command>`.
+
+- Write a small command you can make several of: `FuelFor(fuel, label, rollers, belt)` runs the two motors at whatever numbers you hand it.  
+- Build the map:  
 
 ```java
-HashMap<String, Double> motorPowers = new HashMap<>();
-motorPowers.put("LeftMotor", 0.75);
-motorPowers.put("RightMotor", 0.80);
-
-for (String motor : motorPowers.keySet()) {
-    SmartDashboard.putNumber(motor, motorPowers.get(motor));
-}
+Map<String, Command> actions = new HashMap<>();
+actions.put("Intake", new FuelFor(fuel, "Intake", -0.7, 0.8));
+actions.put("Eject",  new FuelFor(fuel, "Eject",   0.9, 0.8));
+actions.put("Shoot",  new FuelFor(fuel, "Shoot",  -0.72, -0.7));
 ```
+
+- Publish `actions.size()` and `actions.keySet()`. Put a `Lookup` string on the dashboard, call `actions.get(wanted)` each loop, and run whatever came back while the operator holds **B**.  
+- Change `Lookup` in the NetworkTables window between the three names and hold **B** each time. Measured: **−67.9**, **+87.3** and **−69.9 RPS**. You are choosing robot behaviour **by typing a word.**  
+- 🧪 **The experiment:** set `Lookup` to `"Intkae"` — a plain typo — and hold **B**. **Predict first.** `get()` returns `null`, `found` is false, and **nothing happens at all.** No error. No crash.  
+
+> 📖 **Why a map and not an if-chain?** You could write `if (wanted.equals("Intake"))` three times. Then the fourth action means editing that chain, and the tenth means reading twenty lines to find out what even exists. A map's `keySet()` **is** the list of what exists, and adding one is one line.
+
+**Extra (1 pt)**: hand your map to PathPlanner, then check it before the match  
+
+Your map and PathPlanner's are the same idea, and PathPlanner will take yours **whole**:
+
+```java
+NamedCommands.registerCommands(actions);     // it takes a Map<String, Command>
+```
+
+That single line is why you built a map instead of an if-chain. The library's API *is* a map, because the problem *is* a map.
+
+- Now write the check the basic half's typo was asking for. PathPlanner can tell you whether a name is registered: `NamedCommands.hasCommand("Intake")`.  
+- Make a list of every name your autos actually use — `"Intake"`, `"Eject"`, `"Shoot"`, `"ClimbUp"` — and publish `hasCommand()` for each at startup. 🧪 **Predict all four.**  
+
+```
+Intake   true
+Eject    true
+Shoot    true
+ClimbUp  FALSE   <- the auto needs it, and nobody ever registered it
+```
+
+- Publish one summary boolean, `Autos/All Names Registered`, true only if every name passed. **That single value is the thing a mentor can check in two seconds before a match.**  
+- Add a climb command to the map and watch it flip to true.  
+
+> 🚨 **Why this is the most useful code in the unit.** A missing named command doesn't crash anything. PathPlanner just **skips that step** — the robot drives its path, does nothing where the intake should have been, and everybody spends the afternoon arguing about the intake hardware. Six lines at startup turns that into a red boolean on the dashboard.
+
+> 🔁 **Look at what you have now seen three times.** [Lesson 34](./LESSON34.md)'s tuning slider that was never published. [Lesson 38](./LESSON38.md)'s dropdown with no name. And now a named command with nothing behind it. The same failure every time: the code is fine, and a human finds out too late. **This time you wrote the thing that tells them.**
+
+> 🧮 **One more map, if you want it.** Keys don't have to be `String`s. A `Map<Double, Double>` of distance → roller speed is [Lesson 26](./LESSON26.md)'s shot table again. Work out why that one is *awkward* as a map — what happens at a distance that isn't a key? — and what lesson 26's closest-row loop was really doing for you.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where multiple variables tracked subsystem states individually.  
-- Suggest replacing them with a **HashMap** for cleaner organization.  
+**Basic (1 pt)**: match the app against the code  
+- In [`OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026) (branch `Pre-DCMP-Flywheel`), `RobotContainer.java` lines 77–80 register four named commands: `Intake`, `Shoot`, `ClimbUp`, `ClimbDown`.  
+- Now open the **auto file itself**: `src/main/deploy/pathplanner/autos/PP Depot And Climb.auto`. It's JSON — a file drawn by an app, committed next to the code. Search it for `"type": "named"`.  
+- You'll find four, each with a `"name"`. **Check every one against the registered list.** (They match, this time. Confirm it yourself rather than taking my word for it.)  
+- Then answer the real question: **what in this repository would have told anybody if they didn't match?** Nothing does. You wrote the missing check in the extra half.  
 
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `HashMap<String, Double>` for sensor readings.  
-  - Use `HashMap<String, Boolean>` for toggles (enabled/disabled).  
-  - Iterate through maps to display all values dynamically.  
-
-```java
-// Before
-double leftMotor = 0.75;
-double rightMotor = 0.80;
-
-// After
-HashMap<String, Double> motors = new HashMap<>();
-motors.put("LeftMotor", 0.75);
-motors.put("RightMotor", 0.80);
-
-for (String motor : motors.keySet()) {
-    System.out.println(motor + ": " + motors.get(motor));
-}
-```
+**Extra (1 pt)**: the registration order that matters  
+- Read the comment above line 77: *"Register named commands for PathPlanner autos BEFORE building any auto."*  
+- Then find line 90, where `AutoBuilder.buildAuto("PP Depot And Climb")` runs — in the same constructor, thirteen lines later.  
+- Work out why the order matters, and what `buildAuto` must be doing with the map at that moment. Would moving the `registerCommand` calls into `configureBindings()` break it? Read carefully before answering.  
+- That comment is a **warning left by somebody who got it wrong once.** It's the most valuable kind of comment in the whole repository, and it's four words long. Find one more like it while you're in there.  
 
 ---
 
@@ -174,7 +188,7 @@ for (String motor : motors.keySet()) {
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Code Archaeology: 2 pts *(optional)*  
 
 ---
 
