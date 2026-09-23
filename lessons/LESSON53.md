@@ -175,8 +175,10 @@ String destination = switch (path) {
 
 ## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
+Last season's code is [`OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch `Pre-DCMP-Flywheel`.
+
 **Basic (1 pt)**: the enum that isn't there  
-- Last season's `CANFuelSubsystem` does the same four things your `BallPath` does. Go and find them: `INTAKE_ROLLER_PERCENT`, `INTAKE_FEEDER_PERCENT`, `EJECT_ROLLER_PERCENT`, `EJECT_FEEDER_PERCENT`, `SHUTTLE_FEEDER_PERCENT` and friends, in `Constants.java`.  
+- `CANFuelSubsystem` does the same four things your `BallPath` does. Go and find them: `INTAKE_ROLLER_PERCENT`, `INTAKE_FEEDER_PERCENT`, `EJECT_ROLLER_PERCENT`, `EJECT_FEEDER_PERCENT`, `SHUTTLE_FEEDER_PERCENT` and friends, in `Constants.java`.  
 - They are **loose doubles in a flat list**, and the pairing between a roller value and its feeder value exists only in the reader's head. Nothing stops somebody using `INTAKE_ROLLER_PERCENT` with `EJECT_FEEDER_PERCENT`.  
 - Count how many separate constants your one enum replaced. Then find the ones sitting under that `// Legacy / unused` label from [Lesson 31](./LESSON31.md) and work out which ball path each belonged to.  
 - **Write the argument you'd make in a code review** for turning those into an enum — and the strongest argument against, which is real: somebody tuning at an event wants to change one number in one obvious place, fast, with cold hands.  
