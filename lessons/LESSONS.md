@@ -56,7 +56,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 29  | 🖥️ Overloaded Constructors in Java     | Provide multiple ways to construct an object.                           | [Open Lesson](./LESSON29.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 30  | 🖥️ Arrays of Objects in Java           | Store and manage multiple objects in arrays.                            | [Open Lesson](./LESSON30.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 31  | 🖥️ The `static` Keyword in Java        | Share variables and methods across all instances.                       | [Open Lesson](./LESSON31.md) | [AI_SLOB] | Core | ✅ Rebuilt |
-| [ ] | 32  | 🖥️ Inheritance in Java                 | Reuse code by extending classes.                                        | [Open Lesson](./LESSON32.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 32  | 🖥️ Inheritance in Java                 | Reuse code by extending classes.                                        | [Open Lesson](./LESSON32.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 33  | 🖥️ The `super` Keyword in Java         | Access parent class constructors and methods.                           | [Open Lesson](./LESSON33.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 34  | 🖥️ Method Overriding in Java           | Redefine parent class methods in child classes.                         | [Open Lesson](./LESSON34.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 35  | 🖥️ The `toString()` Method in Java     | Customize object string representations.                                | [Open Lesson](./LESSON35.md) | [AI_SLOB] | Optional | — skip for now |
