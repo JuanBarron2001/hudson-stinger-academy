@@ -66,7 +66,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 39  | 🖥️ Runtime (Dynamic) Polymorphism in Java | Decide method behavior at runtime with overriding.                      | [Open Lesson](./LESSON39.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 40  | 🖥️ Getters and Setters in Java         | Encapsulate fields with accessor and mutator methods.                   | [Open Lesson](./LESSON40.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 41  | 🖥️ Aggregation in Java                 | Model "has‑a" relationships between classes.                            | [Open Lesson](./LESSON41.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 42  | 🖥️ Composition in Java                 | Build complex objects from simpler ones.                                | [Open Lesson](./LESSON42.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 42  | 🖥️ Composition in Java                 | Build complex objects from simpler ones.                                | [Open Lesson](./LESSON42.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 43  | 🖥️ Wrapper Classes in Java             | Use object versions of primitive types.                                 | [Open Lesson](./LESSON43.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 44  | 🖥️ ArrayLists in Java                  | Work with resizable lists using `ArrayList`.                            | [Open Lesson](./LESSON44.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 45  | 🖥️ Exceptions in Java                  | Handle runtime errors with try‑catch blocks.                            | [Open Lesson](./LESSON45.md) | [AI_SLOB] | Core | ⏳ Not yet |
