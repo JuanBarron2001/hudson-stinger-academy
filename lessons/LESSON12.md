@@ -64,7 +64,8 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 - Rewrite the power ternary as an `if` / `else` in a comment. Which version is easier to read *here*?
 
 **Extra (1 pt)**: which hub is ours?  
-- Copy this line exactly. Lesson 43 explains how it works: `boolean isRed = DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red;`
+- Copy this line exactly: `boolean isRed = DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red;`  
+  [Lesson 53](./LESSON53.md) explains `Alliance.Red` and `Alliance.Blue` — they are enum constants. The `.orElse(Alliance.Blue)` part means *"use blue if the driver station hasn't told us yet"*; copy it as-is for now, because the Java course never covers `Optional`.
 - Use a ternary to pick the hub's x: `11.9903` if red, otherwise `4.5227`. The hub's y is `4.0214` either way, so notice when a ternary *isn't* needed.
 - Switch the alliance in the simulator's **FMS** window and watch the hub's x change.
 - **Precision mode:** while the driver's **right bumper** is held (the **2** key), scale driving by `0.35` instead of `0.7`, picked with a ternary.

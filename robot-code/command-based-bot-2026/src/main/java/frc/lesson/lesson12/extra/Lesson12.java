@@ -11,7 +11,10 @@ import frc.lesson.LessonBase;
 // The robot shoots at its OWN alliance's hub. Hub centers are in ROBOT.md -> Vision.
 //
 // TASK:
-// 1. Copy this line into execute() exactly (lesson 43 explains how it works):
+// 1. Copy this line into execute() exactly. Lesson 53 explains Alliance.Red and
+//    Alliance.Blue - they are enum constants. The .orElse(...) part just means
+//    "use Blue if the driver station hasn't told us yet"; copy it as-is for now,
+//    because the Java course never covers Optional:
 //      boolean isRed = DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red;
 // 2. Use ternaries to pick the hub center:
 //      hubX = 11.9903 if isRed, otherwise 4.5227
