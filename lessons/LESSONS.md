@@ -58,7 +58,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 31  | 🖥️ The `static` Keyword in Java        | Share variables and methods across all instances.                       | [Open Lesson](./LESSON31.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 32  | 🖥️ Inheritance in Java                 | Reuse code by extending classes.                                        | [Open Lesson](./LESSON32.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 33  | 🖥️ The `super` Keyword in Java         | Access parent class constructors and methods.                           | [Open Lesson](./LESSON33.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 34  | 🖥️ Method Overriding in Java           | Redefine parent class methods in child classes.                         | [Open Lesson](./LESSON34.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 34  | 🖥️ Method Overriding in Java           | Redefine parent class methods in child classes.                         | [Open Lesson](./LESSON34.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 35  | 🖥️ The `toString()` Method in Java     | Customize object string representations.                                | [Open Lesson](./LESSON35.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 36  | 🖥️ Abstraction in Java                 | Hide implementation details with abstract classes.                      | [Open Lesson](./LESSON36.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 37  | 🖥️ Interfaces in Java                  | Define contracts for classes with interfaces.                           | [Open Lesson](./LESSON37.md) | [AI_SLOB] | Core | ⏳ Not yet |
