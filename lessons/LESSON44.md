@@ -97,60 +97,83 @@ for (String fruit : fruits) {
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Use ArrayLists to store motor speeds:  
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson44/basic/Lesson44.java` (and `extra/Lesson44.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). This half needs `getPose()` from [Lesson 40](./LESSON40.md).
+
+**Basic (1 pt)**: which tags are near me right now?  
+
+[Lesson 22](./LESSON22.md) gave you an array of CAN IDs. An array is the right shape when you know the count and it never changes: this robot has eight motors, forever.
+
+*"Which AprilTags are within range of the robot"* is not that. It's four tags, then six, then five, changing every loop as you drive. **You cannot size an array for that.**
+
+> 📷 **Good news: this one needs no camera.** The 2026 field layout ships inside WPILib — all **32 tags** with their real positions — and lesson 40 gave you a pose. Where you *think* you are, plus where the tags *actually* are, is enough to do something real in the simulator.
+
+- Load the field in `setup()` and publish how many tags it has:  
 
 ```java
-ArrayList<Double> motorSpeeds = new ArrayList<>();
-motorSpeeds.add(0.5);
-motorSpeeds.add(0.75);
-motorSpeeds.add(1.0);
+field = AprilTagFields.k2026RebuiltWelded.loadAprilTagLayoutField();
+SmartDashboard.putNumber("Field/Total Tags", field.getTags().size());   // 32
+```
 
-for (Double speed : motorSpeeds) {
-    SmartDashboard.putNumber("Motor Speed", speed);
+- Reset your pose so you start somewhere known: `drivetrain.resetPose(new Pose2d());`  
+- In `execute()`, build the list of tags close to you:  
+
+```java
+List<AprilTag> inRange = new ArrayList<>();
+for (AprilTag tag : field.getTags()) {
+    double dx = tag.pose.getX() - me.getX();
+    double dy = tag.pose.getY() - me.getY();
+    if (Math.hypot(dx, dy) < 4.0) {
+        inRange.add(tag);
+    }
 }
 ```
 
-**Extra (1 pt)**  
-- Accept sensor readings as strings, parse them, and add to an ArrayList:  
+- Publish `inRange.size()` and a string of the IDs, then drive. 🧪 **Predict what the count does as you go forward.** Hold **W** and watch.  
 
-```java
-ArrayList<Integer> voltages = new ArrayList<>();
-voltages.add(Integer.parseInt("12"));
-voltages.add(Integer.parseInt("11"));
-voltages.add(Integer.parseInt("13"));
+Driving straight up the field you get something like:
 
-for (Integer v : voltages) {
-    SmartDashboard.putNumber("Voltage", v);
-}
 ```
+x=0.67 m: 4 tags  (28 29 30 31)
+x=2.40 m: 5 tags  (17 27 28 29 30)
+x=3.26 m: 6 tags  (17 18 27 28 29 30)
+x=4.12 m: 5 tags  (17 18 19 27 28)
+```
+
+The list grows, shrinks and swaps members, and **you never once said how big it is.**
+
+> 🧮 **Two shapes, and why picking wrong costs you an evening.** `field.getTags()` is 32 tags, fixed, known before the match — array-shaped. `inRange` changes every loop — list-shaped. An array here would mean guessing a maximum *and* separately tracking how many slots are really filled, which is precisely the bug you'd spend a night hunting.
+
+**Extra (1 pt)**: the rest of the list, and one question about nothing  
+
+- Use the methods an array doesn't have: `isEmpty()`, `size()`, `contains(...)`, `get(0)`.  
+- `contains()` compares with `equals()`, and `AprilTag` has one — but `inRange.contains(new AprilTag(18, field.getTagPose(18).get()))` is a mouthful. Write a small helper that loops and checks `tag.ID` instead, and note in a comment which you'd rather read at 1am.  
+- Sort nearest-first so `get(0)` means *the closest tag*: `inRange.sort(Comparator.comparingDouble(t -> distanceTo(t)));` — that's a lambda, promised since [Lesson 32](./LESSON32.md). Copy the pattern for now. Publish the closest tag's ID and distance.  
+- 🧪 **The crash.** Publish `inRange.get(0).ID` **without** checking `isEmpty()` first, then drive to a corner until nothing is in range. **Predict what happens.** You get an `IndexOutOfBoundsException` and the lesson dies mid-match. Fix it with `isEmpty()`.  
+- **Now the design question this lesson is really about.** When nothing is in range, what should your method hand back?  
+  **(a)** an empty list  **(b)** `null`  **(c)** a stand-in value like `-1`  
+
+**Write your answer down before you read Part 3**, because last season's code picked **(a)** in one method and **(c)** in another, about ten lines apart.
+
+> ✅ **Why an empty list is usually right:** a caller can loop over it and get zero iterations — correct, with no special case. Loop over `null` and you crash. And `-1` isn't a list at all, so every caller has to remember a magic number that means "nothing". One day somebody won't.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where multiple values were stored in fixed arrays.  
-- Suggest replacing them with **ArrayLists** for flexibility.  
+**Basic (1 pt)**: you just wrote their method  
+- Open `getVisibleTags()` in `src/main/java/frc/robot/subsystems/VisionSubsystem.java` ([`OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch `Pre-DCMP-Flywheel`). Read it next to your own code.  
+- It is the same four moves: start with an empty `ArrayList<AprilTag>`, loop over something fixed, `add()` the ones that pass a check, return the list.  
+- The interesting difference is **where the fixed thing comes from**. Theirs loops over `RawFiducial[]` — an **array**, handed over by the Limelight, because the camera knows exactly how many tags it saw this frame. Yours loops over the whole 32-tag field. Both convert a fixed array into a list that grows.  
+- So write down the rule you'd give a rookie: **when does data arrive as an array, and when do you build a list from it?**  
 
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `ArrayList<Double>` for dynamic motor speeds.  
-  - Use `ArrayList<String>` for logging subsystem states.  
-  - Use `Collections.sort()` to order values when needed.  
-
-```java
-// Before
-double[] speeds = {0.5, 0.75, 1.0};
-
-// After
-ArrayList<Double> speeds = new ArrayList<>();
-speeds.add(0.5);
-speeds.add(0.75);
-speeds.add(1.0);
-```
+**Extra (1 pt)**: two answers to "nothing", ten lines apart  
+- `getVisibleTags()` returns an **empty list** when the camera sees nothing — answer (a), and it even has an early `return tags;` to do it deliberately.  
+- Scroll down to `getAvgTagDistance()`. Same file, same situation, and it returns **`-1`** — answer (c).  
+- Find every caller of `getAvgTagDistance()` and check: **does each one remember that `-1` means "no tags"?** What happens to `Math.abs(dist - targetDistanceInches)` if one forgets?  
+- Both methods were written by the same people on the same day. Neither is a typo. Write down why you think the shapes diverged, then say which one you'd make the other one match, and what that change would cost.  
 
 ---
 
@@ -158,7 +181,7 @@ speeds.add(1.0);
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Code Archaeology: 2 pts *(optional)*  
 
 ---
 
