@@ -64,7 +64,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 37  | 🖥️ Interfaces in Java                  | Define contracts for classes with interfaces.                           | [Open Lesson](./LESSON37.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 38  | 🖥️ Polymorphism in Java                | Use one interface for multiple implementations.                         | [Open Lesson](./LESSON38.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 39  | 🖥️ Runtime (Dynamic) Polymorphism in Java | Decide method behavior at runtime with overriding.                      | [Open Lesson](./LESSON39.md) | [AI_SLOB] | Optional | — skip for now |
-| [ ] | 40  | 🖥️ Getters and Setters in Java         | Encapsulate fields with accessor and mutator methods.                   | [Open Lesson](./LESSON40.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 40  | 🖥️ Getters and Setters in Java         | Encapsulate fields with accessor and mutator methods.                   | [Open Lesson](./LESSON40.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 41  | 🖥️ Aggregation in Java                 | Model "has‑a" relationships between classes.                            | [Open Lesson](./LESSON41.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 42  | 🖥️ Composition in Java                 | Build complex objects from simpler ones.                                | [Open Lesson](./LESSON42.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 43  | 🖥️ Wrapper Classes in Java             | Use object versions of primitive types.                                 | [Open Lesson](./LESSON43.md) | [AI_SLOB] | Optional | — skip for now |
