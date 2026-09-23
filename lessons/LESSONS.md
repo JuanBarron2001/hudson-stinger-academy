@@ -52,7 +52,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 25  | 🖥️ Variable Arguments (Varargs) in Java | Pass a flexible number of arguments into methods.                       | [Open Lesson](./LESSON25.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 26  | 🖥️ 2D Arrays in Java                   | Work with tables and grids using two‑dimensional arrays.                | [Open Lesson](./LESSON26.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 27  | 🖥️ Objects & Classes in Java (Intro to OOP) | Learn the basics of object‑oriented programming.                        | [Open Lesson](./LESSON27.md) | [AI_SLOB] | Core | ✅ Rebuilt |
-| [ ] | 28  | 🖥️ Constructors in Java                | Initialize objects with constructors.                                   | [Open Lesson](./LESSON28.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 28  | 🖥️ Constructors in Java                | Initialize objects with constructors.                                   | [Open Lesson](./LESSON28.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 29  | 🖥️ Overloaded Constructors in Java     | Provide multiple ways to construct an object.                           | [Open Lesson](./LESSON29.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 30  | 🖥️ Arrays of Objects in Java           | Store and manage multiple objects in arrays.                            | [Open Lesson](./LESSON30.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 31  | 🖥️ The `static` Keyword in Java        | Share variables and methods across all instances.                       | [Open Lesson](./LESSON31.md) | [AI_SLOB] | Core | ⏳ Not yet |
