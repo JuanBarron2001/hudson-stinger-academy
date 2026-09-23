@@ -69,7 +69,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 42  | 🖥️ Composition in Java                 | Build complex objects from simpler ones.                                | [Open Lesson](./LESSON42.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 43  | 🖥️ Wrapper Classes in Java             | Use object versions of primitive types.                                 | [Open Lesson](./LESSON43.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 44  | 🖥️ ArrayLists in Java                  | Work with resizable lists using `ArrayList`.                            | [Open Lesson](./LESSON44.md) | [AI_SLOB] | Core | ✅ Rebuilt |
-| [ ] | 45  | 🖥️ Exceptions in Java                  | Handle runtime errors with try‑catch blocks.                            | [Open Lesson](./LESSON45.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 45  | 🖥️ Exceptions in Java                  | Handle runtime errors with try‑catch blocks.                            | [Open Lesson](./LESSON45.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 46  | 🖥️ Writing Files in Java (FileWriter)  | Save data to files using `FileWriter`.                                  | [Open Lesson](./LESSON46.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 47  | 🖥️ Reading Files in Java (BufferedReader + FileReader) | Read text files efficiently.                                            | [Open Lesson](./LESSON47.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 48  | 🖥️ Dates and Times in Java             | Work with `LocalDate`, `LocalTime`, and `LocalDateTime`.                | [Open Lesson](./LESSON48.md) | [AI_SLOB] | Optional | — skip for now |

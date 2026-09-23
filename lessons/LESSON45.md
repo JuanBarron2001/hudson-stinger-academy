@@ -98,58 +98,104 @@ try (Scanner scanner2 = new Scanner(System.in)) {
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Handle exceptions when reading sensor values:  
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson45/basic/Lesson45.java` (and `extra/Lesson45.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
+
+**Basic (1 pt)**: the file that might not be there  
+
+Every exception you've written so far was about bad input — somebody typed `pizza` where a number belonged. On a robot the classic one is different: **a file that was supposed to be deployed, and wasn't.**
+
+PathPlanner keeps its robot settings in `src/main/deploy/pathplanner/settings.json`, which is copied onto the roboRIO when you deploy. `RobotConfig.fromGUISettings()` reads it. If it isn't there, that call throws — at **startup**, before a match rather than during one.
+
+- Load the config inside a `try`, and keep `config.massKG`. Call it plainly first, with no `try` at all, and read what `javac` says — that error is the compiler telling you this call is known to fail.  
+- Add the `catch`. **Do not just print.** Record three things a human can see:  
 
 ```java
-try {
-    String sensorValue = "abc"; // invalid numeric input
-    int voltage = Integer.parseInt(sensorValue);
-    SmartDashboard.putNumber("Voltage", voltage);
-} catch (NumberFormatException e) {
-    SmartDashboard.putString("Error", "Invalid sensor value");
+catch (Exception e) {
+    autoReady = false;
+    status = "AUTO WILL NOT RUN: " + e.getClass().getSimpleName() + " - " + e.getMessage();
+    e.printStackTrace();          // for the mentor, in the console
 }
 ```
 
-**Extra (1 pt)**  
-- Use `finally` for code that must run either way. Parse a `String` like the basic half, not a `Scanner`: robot code has no keyboard, and waiting for one would freeze the robot loop like lesson 15's `while`.  
+- Publish `Auto/Ready`, `Auto/Status` and the mass. Run it: **Ready `true`, Status `loaded`, mass 36.287 kg.**  
+- 🧪 **The experiment:** rename `settings.json` to `settings.json.bak` and run again. **Predict the dashboard before you look.** You get:  
 
-```java
-String speedText = "0.75"; // then try "fast"
-try {
-    double speed = Double.parseDouble(speedText);
-    SmartDashboard.putNumber("Motor Speed", speed);
-} catch (NumberFormatException e) {
-    SmartDashboard.putString("Error", "Invalid speed input");
-} finally {
-    SmartDashboard.putString("Status", "Speed input checked"); // runs either way
-}
 ```
+Auto/Ready   false
+Auto/Status  AUTO WILL NOT RUN: FileNotFoundException - .../pathplanner/settings.json
+             (No such file or directory)
+```
+
+Rename it back.
+
+> 📬 **Why the message matters.** `e.getMessage()` here is the **full path of the file it wanted**. That's a stranger at 7am being told exactly which file to go find. Compare it with what a bare `"something went wrong"` would have given them.
+
+> 🎯 **The rule this lesson exists for:** a `catch` block is not for making an error go away. It is for deciding **who finds out, and when**. Here the robot can still drive — so let it drive, and make sure the one person who can fix it knows *before* the match instead of during it.
+
+**Extra (1 pt)**: three ways to "handle" it, and only one is honest  
+
+Write all three, run each with `settings.json` renamed away, and write down what a drive team would actually experience.
+
+| Version | Code | What the drive team gets |
+|---|---|---|
+| **A** | no `try` at all | The lesson never starts. `LessonLoader` prints *"crashed while starting up"*. The robot is dead — obvious, immediate, and useless |
+| **B** | `catch (Exception e) { e.printStackTrace(); return; }` | The robot boots, the dashboard looks normal, teleop works — and autonomous does nothing, which you discover with 15 seconds to fix it. **This is the version most teams ship** |
+| **C** | the basic half's | The robot drives, and the dashboard says in words that auto will not run |
+
+- 🧪 **Now try to catch the *right* exception.** Change `catch (Exception e)` to `catch (IOException e)`. **Predict whether it compiles.**  
+- **It does not**, and the error is the entire point:  
+
+```
+unreported exception org.json.simple.parser.ParseException;
+must be caught or declared to be thrown
+```
+
+`fromGUISettings()` can fail **two** ways, and `catch (Exception e)` was quietly covering both without you ever learning the second one existed.
+
+- So find out what the second one is for. `IOException` means the file **isn't there**. `ParseException` means it **is** there and isn't valid JSON. Open `settings.json`, delete one closing brace, and run it — different exception, completely different fix, and a message that says so. Then catch them properly (two blocks, or `catch (IOException | ParseException e)`) and put the brace back.  
+- Add a `finally` that publishes `Auto/Check Finished`. Run it both ways. **Predict whether `finally` runs when the `catch` runs.**  
+
+**Then the part that isn't about exceptions at all.** Publish `config.massKG` next to the mass the simulator uses:
+
+| Where | Robot mass | Drive current limit |
+|---|---|---|
+| `settings.json` | **36.287 kg** | **33 A** |
+| `frc/sim/RobotSim.java` | **55 kg** *(marked "estimate")* | — |
+| Your `Constants` / last season's code | — | **60 A** |
+
+Same robot. Three files. Different numbers, and nothing in the code will ever complain. Write down which you'd trust, and how you'd settle it with a scale, a tape measure and twenty minutes at a meeting. **That answer is worth more than this lesson is.**
+
+> 💡 **The big idea:** an exception is the program telling you it cannot keep a promise. Your only real choice is whether that message reaches a human in time to matter.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where invalid input or sensor data caused crashes.  
-- Suggest wrapping those sections in **try-catch** blocks.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Catch **specific exceptions** (e.g., `NumberFormatException` for parsing).  
-  - Use **finally** or **try-with-resources** to ensure cleanup.  
+**Basic (1 pt)**: version B, in the wild  
+- Open `configureAutoBuilder()` in `CANDriveSubsystem.java` ([`OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch `Pre-DCMP-Flywheel`). Here is the whole handler:  
 
 ```java
 try {
-    int rpm = Integer.parseInt(sensorString);
-    shooter.setRPM(rpm);
-} catch (NumberFormatException e) {
-    System.out.println("Invalid RPM input, using default.");
-    shooter.setRPM(3000);
+    robotConfig = RobotConfig.fromGUISettings();
+} catch (Exception e) {
+    e.printStackTrace();
+    return;
 }
+
+AutoBuilder.configure( ... );
 ```
+
+- That `return` is **version B**, in the code that went to competition. Trace what it means: if the settings file is missing, `AutoBuilder.configure(...)` is **never called**, and the robot carries on booting as though nothing happened.  
+- Now follow the consequence. `RobotContainer` line 90 calls `AutoBuilder.buildAuto("PP Depot And Climb")` to fill the auto chooser. **What happens there if `AutoBuilder` was never configured?** Read PathPlanner's source or try it — and notice the failure has now moved to a completely different file from the thing that actually went wrong.  
+- **Answer the question the heading asks:** what does the drive team see at a match? Be specific about *when* they find out.  
+
+**Extra (1 pt)**: catch, log, and carry on  
+- `e.printStackTrace()` writes to the console. On a robot, who is reading that console during a match? Where does it go after the match?  
+- Find every `catch` in the project (`grep -rn "catch (" src/main/java/frc/robot`) and sort them into the three versions from the table above. How many are version B?  
+- Pick the one you think is most dangerous and write the version C rewrite — three or four lines, publishing something a human would see. That's a real pull request someone could merge before next season.  
 
 ---
 
@@ -157,7 +203,7 @@ try {
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Code Archaeology: 2 pts *(optional)*  
 
 ---
 
