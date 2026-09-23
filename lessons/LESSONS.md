@@ -61,7 +61,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 34  | 🖥️ Method Overriding in Java           | Redefine parent class methods in child classes.                         | [Open Lesson](./LESSON34.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 35  | 🖥️ The `toString()` Method in Java     | Customize object string representations.                                | [Open Lesson](./LESSON35.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 36  | 🖥️ Abstraction in Java                 | Hide implementation details with abstract classes.                      | [Open Lesson](./LESSON36.md) | [AI_SLOB] | Core | ✅ Rebuilt |
-| [ ] | 37  | 🖥️ Interfaces in Java                  | Define contracts for classes with interfaces.                           | [Open Lesson](./LESSON37.md) | [AI_SLOB] | Core | ⏳ Not yet |
+| [ ] | 37  | 🖥️ Interfaces in Java                  | Define contracts for classes with interfaces.                           | [Open Lesson](./LESSON37.md) | [AI_SLOB] | Core | ✅ Rebuilt |
 | [ ] | 38  | 🖥️ Polymorphism in Java                | Use one interface for multiple implementations.                         | [Open Lesson](./LESSON38.md) | [AI_SLOB] | Core | ⏳ Not yet |
 | [ ] | 39  | 🖥️ Runtime (Dynamic) Polymorphism in Java | Decide method behavior at runtime with overriding.                      | [Open Lesson](./LESSON39.md) | [AI_SLOB] | Optional | — skip for now |
 | [ ] | 40  | 🖥️ Getters and Setters in Java         | Encapsulate fields with accessor and mutator methods.                   | [Open Lesson](./LESSON40.md) | [AI_SLOB] | Core | ⏳ Not yet |
