@@ -37,9 +37,9 @@ Every lesson carries a status in `lessons/LESSONS.md`. The ladder is the actual 
 | `[COMPLETE]` | Reviewed, connected to robot code, has test data |
 | `[NEEDS UPDATE]` | Was complete, has since gone stale |
 
-Where things actually stand today: lessons **01–11** have real content, **12–55** are `[AI_SLOB]` over empty stubs, and **56–70** have stubs with no guide at all. Lesson 04 is the only `[COMPLETE]` one, so **treat `LESSON04.md` as the reference implementation** — when you're unsure what "finished" looks like, open that file.
+Where things actually stand today (2026-09-25): every lesson from **00 to 57** has a guide and stubs, and the course ends at 57. Lessons 12–57 are `[READY FOR REVIEW]`: each was checked against its video, or written from scratch for 56 and 57, but hasn't had a final read yet. Lesson 04 is the only `[COMPLETE]` one, so **treat `LESSON04.md` as the reference implementation** — when you're unsure what "finished" looks like, open that file.
 
-For the 2026 offseason, lessons **00–05, 07, 09, 12–16, 19, 21, 22 and 26** (every core lesson in the first 26) have robot halves rewritten for the 2026 robot. Every other lesson's robot stub is still the generic 2025 exercise, carried over so the project compiles. The **2026 Robot** column in `lessons/LESSONS.md` tracks which is which.
+For the 2026 offseason, **every Core lesson** has a robot half written for the 2026 robot. The Optional lessons have none this season: their robot halves say "not written yet, skip for now". The **2026 Path** and **2026 Robot** columns in `lessons/LESSONS.md` show which is which.
 
 ---
 
@@ -157,7 +157,7 @@ Numbered, imperative, one action per line. A student who follows the list exactl
 
 ### Step 4 — Add scripted input if the lesson uses `Scanner`
 
-See section 6 below. Lessons that read input **will hang forever** without this, and the failure looks like a frozen terminal rather than an error.
+Add `java-lessons/resources/lessonNN.basic.txt` (and `.extra.txt`) with one answer per line. Section 6 below has the details.
 
 ### Step 5 — Run it yourself, end to end
 
@@ -225,23 +225,22 @@ One real limitation: values containing `|` or a newline break the line format. S
 
 ## 6. Adding scripted input to a `Scanner` lesson
 
-Right now this is hardcoded in `LessonRunner.main`, as a chain of checks against the lesson number:
+Lessons that read input get their answers from a plain text file in `java-lessons/resources/`, one file per half, named after the lesson's package:
 
-```java
-if (lessonNum.equals("03")) {
-    LessonInput lessonInput = new LessonInput();
-    lessonInput.addScriptedLine("6.7");
-    lessonInput.addScriptedLine("2.1");
-    System.setIn(lessonInput);
-}
+```
+java-lessons/resources/lesson03.basic.txt
+java-lessons/resources/lesson03.extra.txt
 ```
 
-To add a lesson, copy that block and change the number and the answers. One `addScriptedLine` per `Scanner` read, **in order**.
+**One answer per line, in the order the lesson asks.** A blank line is an answer too: the user pressing Enter without typing. `lesson15.basic.txt` starts with two blank lines to prove the "don't skip the prompt" loop works. Before running each half, `LessonRunner` checks for its file. If the file exists, it "types" each answer into the lesson and echoes it, so the answers appear in the console and in the log, right after their questions. If there's no file, the lesson reads the real keyboard.
 
-⚠️ **Two traps, both currently live in the code:**
+To add input for a lesson, you only need to add a file. There's no Java to touch.
 
-1. **Don't forget `System.setIn(...)`.** The existing lesson 04 block builds a `LessonInput`, adds two lines, and never installs it — so lesson 04's extra exercise hangs. Use the lesson 03 block as your template, not lesson 04.
-2. **This doesn't scale,** and it's already showing. Seventy lessons of `if` blocks in `main` is not a plan. Moving the scripted answers into per-lesson files under `java-lessons/resources/` (which exists and is empty, clearly meant for this) is on the task list.
+- **Pick answers that go down the interesting branch.** Lesson 05 answers age `70`, which catches a senior who's been checked as an adult first. Lesson 45 answers `pizza`, which reaches the `catch`. Lesson 24 searches for `coconut`, which isn't there.
+- **Cover every question, and end loops on a valid answer.** If a lesson asks for more answers than its file has, the runner stops it with a message naming the file. Lesson 15's game loop needs its `q`, and its range check needs a number from 1 to 10 at the end.
+- **Students can edit their copy** to try other answers. The files are shipped from upstream, so tell them to put a file back before they rebase, or they'll get a conflict.
+
+All 24 halves that read input have a file, and each one was checked by running a solution through the runner (2026-09-25).
 
 ---
 
@@ -251,8 +250,9 @@ Things that will waste your time if you don't know them. Verified in the code on
 
 | Where | What |
 |---|---|
-| `LessonInput.timeDelay(int ms)` | Ignores its parameter and always sleeps 30ms, so `SIMULATED_READING_SPEED_MS` is dead code |
-| `LessonRunner`, lesson 04 branch | Builds a `LessonInput` but never calls `System.setIn` — lesson 04 extra hangs |
+| `LessonInput.timeDelay(int ms)` | Ignored its parameter and always slept 30ms. *Fixed 2026-09-25* |
+| `LessonRunner`, lesson 04 branch | Built a `LessonInput` but never called `System.setIn`, so lesson 04 extra hung. *Fixed 2026-09-25: every half goes through the answer files (section 6)* |
+| `LessonRunner` | Closed `System.in` after reading the lesson number, so a lesson with no scripted answers couldn't read the keyboard at all. *Fixed 2026-09-25* |
 | `RobotContainer.teleopPeriodic()` | Throws `NullPointerException` when no lesson loaded, right after printing a friendly "skipping" message. *Fixed in 2026: `LessonLoader` explains and nothing runs* |
 | `LessonBase.logSmartDashboardChanges()` | Stops logging permanently after 137 cycles — `modResetCount` never resets. *Fixed in 2026: samples 10×/s, caps at 10,000 lines and says so in the log* |
 | `LessonRunner` | Never calls `closeLogger()` |
@@ -308,7 +308,7 @@ which is a confusing way of saying "that's not a JDK."
 ## 9. Lesson numbering
 
 - **00**: setup (git, fork, simulator). No Java half and no points.
-- **01–89**: the Java course, following the source video series. 01–55 have guides; 56–70 have stubs awaiting guides. **Each lesson's robot half programs a piece of last season's robot**, so there's no separate robot track.
+- **01–89**: the Java course, following the source video series. Only 00–57 exist: 56 is lambdas, 57 is the capstone, and 58–89 are unused. **Each lesson's robot half programs a piece of last season's robot**, so there's no separate robot track.
 - **90–99**: reserved. The drivetrain arc once planned here (tank, then mecanum, then swerve) is on hold. Tank drive now lives in lessons 03–05, and mecanum and swerve wait for the swerve robot.
 
 `LessonRunner` requires exactly two digits, so any new track has to live inside 00–99 unless the runner changes.

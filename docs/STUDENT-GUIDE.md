@@ -106,6 +106,8 @@ Type a **two-digit** number. `01`, not `1`. The runner is picky about this and w
 
 It then runs your **basic** program, then your **extra** program, one after the other.
 
+**Lessons that ask questions answer themselves.** If a lesson reads input with a `Scanner`, the runner types the answers for you from a file like `java-lessons/resources/lesson03.basic.txt`, one answer per line, and you'll see them appear after each question. Want to try different answers? Edit that file. Just put it back before you pull new lessons, or git will complain. If a lesson has no answers file, you type the answers yourself.
+
 ### Where your code goes
 
 For lesson 07, you'd edit these two files:
