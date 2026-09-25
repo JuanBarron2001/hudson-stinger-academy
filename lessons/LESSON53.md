@@ -96,7 +96,7 @@ switch (today) {
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson53/basic/Lesson53.java` (and `extra/Lesson53.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). The ball paths table is in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-> 🏁 **This is the last core robot half of the offseason.** Everything after it is the lambdas lesson and the capstone.
+> 🏁 **This is the last core robot half of the offseason.** Everything after it is [the lambdas lesson](./LESSON56.md) and the capstone.
 
 **Basic (1 pt)**: the four ball paths, named at last  
 

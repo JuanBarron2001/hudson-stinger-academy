@@ -39,7 +39,7 @@ import frc.lesson.LessonBase;
 // way to say the same thing:
 //      new DynamicClimb(climber, () -> driver.getRightTriggerAxis())
 // That is the exact line last season's code uses. It is a DoubleSupplier too - Java writes
-// the class for you. Lesson 49 showed you the long way round; the lambdas lesson finishes it.
+// the class for you. Lesson 49 showed you the long way round; lesson 56 finishes it.
 public class Lesson37 extends LessonBase {
     // Declare your driver controller, your Climber, and BOTH DynamicClimb commands here.
 

@@ -113,7 +113,7 @@ drive = new DifferentialDrive(leftLeader::set, rightLeader::set);   // in the co
 drive.arcadeDrive(forward * forwardScale, turn * turnScale);        // in arcade()
 ```
 
-- The `::` is a **method reference**. Read it as *"the `set` method of `leftLeader`"*. The lambdas lesson explains it properly; copy the pattern for now, the same way you did in [Lesson 49](./LESSON49.md).  
+- The `::` is a **method reference**. Read it as *"the `set` method of `leftLeader`"*. [Lesson 56](./LESSON56.md) explains it properly; copy the pattern for now, the same way you did in [Lesson 49](./LESSON49.md).  
 - Your `execute()` is now two lines: read the sticks, call `arcade()`.  
 - 🧪 Run it and hold **W** for two seconds. You go about **3.9 m**. Lesson 29 went **5.4 m** with the same numbers. **Predict why before reading on.**  
 

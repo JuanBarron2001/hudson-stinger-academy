@@ -41,7 +41,7 @@ import frc.lesson.LessonBase;
 //
 // (You have written this shape before without knowing it: lesson 32's
 //  DifferentialDrive(leftLeader::set, rightLeader::set) hands over two "things that accept
-//  a double" the same way. The lambdas lesson ties it together.)
+//  a double" the same way. Lesson 56 ties it together.)
 public class Lesson37 extends LessonBase {
     // Declare your driver controller, your Climber and your DynamicClimb here.
 

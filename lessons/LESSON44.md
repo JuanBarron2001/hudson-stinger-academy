@@ -150,7 +150,7 @@ The list grows, shrinks and swaps members, and **you never once said how big it 
 
 - Use the methods an array doesn't have: `isEmpty()`, `size()`, `contains(...)`, `get(0)`.  
 - `contains()` compares with `equals()`, and `AprilTag` has one — but `inRange.contains(new AprilTag(18, field.getTagPose(18).get()))` is a mouthful. Write a small helper that loops and checks `tag.ID` instead, and note in a comment which you'd rather read at 1am.  
-- Sort nearest-first so `get(0)` means *the closest tag*: `inRange.sort(Comparator.comparingDouble(t -> distanceTo(t)));` — that's a lambda, promised since [Lesson 32](./LESSON32.md). Copy the pattern for now. Publish the closest tag's ID and distance.  
+- Sort nearest-first so `get(0)` means *the closest tag*: `inRange.sort(Comparator.comparingDouble(t -> distanceTo(t)));` — that's a lambda, promised since [Lesson 32](./LESSON32.md). Copy the pattern for now; [Lesson 56](./LESSON56.md) explains it. Publish the closest tag's ID and distance.  
 - 🧪 **The crash.** Publish `inRange.get(0).ID` **without** checking `isEmpty()` first, then drive to a corner until nothing is in range. **Predict what happens.** You get an `IndexOutOfBoundsException` and the lesson dies mid-match. Fix it with `isEmpty()`.  
 - **Now the design question this lesson is really about.** When nothing is in range, what should your method hand back?  
   **(a)** an empty list  **(b)** `null`  **(c)** a stand-in value like `-1`  

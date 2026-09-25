@@ -104,7 +104,7 @@ intakeAction = new Runnable() {
 // Runnable intakeAction = () -> { leftRoller.set(-0.7); rightRoller.set(-0.7); conveyor.set(0.8); };
 ```
 
-- Same object, four lines shorter. This is the shape every button binding on a command-based robot uses, which is the next thing you'll learn.  
+- Same object, four lines shorter. This is the shape every button binding on a command-based robot uses, which [Lesson 56](./LESSON56.md) teaches.  
 
 ---
 

@@ -31,7 +31,7 @@ import frc.lesson.LessonBase;
 //                      : "finished"
 //      isFinished()  - return false. This one runs until somebody stops it.
 // 4. Here: schedule it while the operator holds B (the 6 key), and cancel it when they
-//    let go. No lambdas yet, so ask plainly:
+//    let go. No lambdas yet (lesson 56 replaces this), so ask plainly:
 //      if (operator.getBButton() && !intake.isScheduled()) { intake.schedule(); }
 //      if (!operator.getBButton() && intake.isScheduled()) { intake.cancel(); }
 // 5. Run it. Hold B for a second, let go, and read your log top to bottom.

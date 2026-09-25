@@ -20,7 +20,7 @@ import frc.lesson.LessonBase;
 //    comment which one you'd rather read at 1am.
 // 3. Sort nearest-first, so get(0) means "the closest tag":
 //      inRange.sort(Comparator.comparingDouble(t -> distanceTo(t)));
-//    That's a lambda. You've seen them promised since lesson 32 - copy it for now.
+//    That's a lambda. You've seen them promised since lesson 32 - copy it for now. Lesson 56 explains it.
 //    Publish the closest tag's ID and its distance.
 // 4. THE CRASH. Publish  inRange.get(0).ID  WITHOUT checking isEmpty() first, then drive
 //    to a corner of the field until nothing is in range. PREDICT what happens.

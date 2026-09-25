@@ -107,7 +107,7 @@ addRequirements(fuel);
 That is a claim: *while I run, I own the fuel mechanism.* The scheduler enforces it, and the extra half is where you watch it happen.
 
 - Override all four. `initialize()` resets a loop counter and publishes `Intake/State` = `"started"`. `execute()` counts the loop and calls `fuel.intake()`. `end()` calls `fuel.stop()` and publishes `"interrupted"` or `"finished"`. `isFinished()` returns `false` — this one runs until somebody stops it.  
-- Schedule it from the lesson while the operator holds **B**. No lambdas yet, so ask plainly:  
+- Schedule it from the lesson while the operator holds **B**. No lambdas yet ([Lesson 56](./LESSON56.md) replaces these two lines with one), so ask plainly:  
 
 ```java
 if (operator.getBButton() && !intake.isScheduled()) { intake.schedule(); }

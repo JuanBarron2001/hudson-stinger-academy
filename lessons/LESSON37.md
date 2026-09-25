@@ -163,7 +163,7 @@ byFixed   = new DynamicClimb(climber, new FixedSpeed(0.3));
 
 > 🎯 **The whole lesson in one line:** an interface is a promise about *one behaviour*. `DynamicClimb` asked for "something that can give me a double" and got a trigger, then a constant — and could just as easily get a dashboard value, a sensor, or an autonomous routine. It never has to know, and it never has to change.
 
-> ⚡ **The short way, coming soon.** `TriggerAxis` is eight lines wrapping one expression. Java has a shorter way to say exactly the same thing: `new DynamicClimb(climber, () -> driver.getRightTriggerAxis())`. That is the literal line last season's code uses, and it is a `DoubleSupplier` too — Java writes the class for you. [Lesson 49](./LESSON49.md) showed you the long way round; the lambdas lesson finishes the job.
+> ⚡ **The short way, coming soon.** `TriggerAxis` is eight lines wrapping one expression. Java has a shorter way to say exactly the same thing: `new DynamicClimb(climber, () -> driver.getRightTriggerAxis())`. That is the literal line last season's code uses, and it is a `DoubleSupplier` too — Java writes the class for you. [Lesson 49](./LESSON49.md) showed you the long way round; [Lesson 56](./LESSON56.md) finishes the job.
 
 ---
 

@@ -26,8 +26,8 @@ import frc.lesson.LessonBase;
 // 4. Now replace your arcade math with WPILib's:
 //      drive = new DifferentialDrive(leftLeader::set, rightLeader::set);   // in the constructor
 //      drive.arcadeDrive(forward * forwardScale, turn * turnScale);        // in arcade()
-//    The  ::  is a method reference. Read it as "the set method of leftLeader". The lambdas
-//    lesson explains it properly; for now copy the pattern.
+//    The  ::  is a method reference. Read it as "the set method of leftLeader". Lesson 56
+//    explains it properly; for now copy the pattern.
 // 5. Here: execute() is now TWO lines - read the sticks, call arcade(). That's all.
 // 6. Run it and hold W for two seconds. You'll go about 3.9 m. Lesson 29 went 5.4 m with
 //    the SAME numbers. PREDICT why before you read on.
