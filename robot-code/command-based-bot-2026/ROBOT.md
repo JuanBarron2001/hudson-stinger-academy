@@ -128,12 +128,14 @@ The competition code reads the Limelight through `LimelightHelpers.java`, a file
 
 ## Autonomous routines
 
+Only **Shoot And Climb** worked on the real robot in 2026. The PathPlanner autos never did: the team couldn't get PathPlanner working with the tank drivetrain.
+
 | Name | What it does |
 |---|---|
-| Shoot And Climb (default) | Climber up, drive forward 2 s, shoot for 4 s, climber down |
+| Shoot And Climb (default) | Climber up, drive forward 2 s, shoot for 4 s, climber down. **The only auto that worked in 2026** |
 | Drive To Climb | Climber up, wait 3 s, drive forward 2 s, climber down |
 | Just Shoot | Climber up, drive forward 1.867 s, spin up for 1 s, shoot for 15 s |
-| PP Depot And Climb | A path drawn in PathPlanner, using the named commands Intake, Shoot, ClimbUp and ClimbDown |
+| PP Depot And Climb | A path drawn in PathPlanner, using the named commands Intake, Shoot, ClimbUp and ClimbDown. **Never worked on the real robot** |
 
 ---
 

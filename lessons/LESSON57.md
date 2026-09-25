@@ -10,7 +10,7 @@ _Learn it. Test it. Break it. Fix it. Own it._ 🏁
 This lesson doesn't teach a new Java idea. It uses all of them at once:
 - Read a real robot log with the Java you already know: `ArrayList`, `HashMap`, exceptions and lambdas  
 - Put every class you've written since [Lesson 27](./LESSON27.md) into one robot program that you run instead of a lesson  
-- Run last season's PathPlanner autonomous on **your** code  
+- Get last season's PathPlanner autonomous running on **your** code, which last season's team never managed  
 - Write down what you'd change about last season's robot code before 2027, with evidence  
 
 > 🧑‍🏫 **This lesson needs robot time.** The simulator half is homework like any other lesson. Deploying to the real robot happens at a meeting, with a mentor, and you'll probably need more than one meeting for it.
@@ -127,7 +127,9 @@ Then, in the simulator:
 
 **Extra (1 pt)**: last season's autonomous, on your code  
 
-Last season's robot ran autos drawn in the PathPlanner app. You're going to run one of them, `PP Depot And Climb`, on the robot you wrote.
+Last season's code has two autos drawn in the PathPlanner app, and **neither one ever worked on the real robot**. The team couldn't get PathPlanner to drive a tank drivetrain, so the only auto that worked all season was `Shoot And Climb`, which is timed and has no paths. You're going to run `PP Depot And Climb` on the robot you wrote.
+
+> ⚠️ **Working in the simulator doesn't mean it'll work on the robot.** It drives in the simulator below, but the simulator uses guessed numbers for the wheels, the gearing and the robot's weight, and the real Pigeon is mounted on its side, which lesson 40 showed the simulator can't reproduce. Whatever goes wrong on the real robot is worth more than getting it right here, so write it all down.
 
 - **Copy the drawings.** From [`OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026) (branch `Pre-DCMP-Flywheel`), copy `src/main/deploy/pathplanner/paths/`, `autos/` and `navgrid.json` into the same place in your project. `settings.json` is already there from [Lesson 45](./LESSON45.md), and it's identical to last season's.  
 - **Teach your `Drivetrain` to follow a path.** PathPlanner needs four methods from it, and you have two already from [Lesson 40](./LESSON40.md), `getPose()` and `resetPose(Pose2d)`. Add:  
@@ -158,7 +160,7 @@ public void driveRobotRelative(ChassisSpeeds speeds)  // go this fast
 - 🧪 **The experiment.** Move `registerCommands` to **after** `buildAuto` and run Autonomous again. **Predict what happens before you run.**  
 - It drives **every path perfectly**, and nothing else happens at all. No intake, no climb, no shot. The only sign is four console warnings, `PathPlanner attempted to create a command 'Intake' that has not been registered`, printed at startup, long before the match. Your `hasCommand` check catches it, but only if it runs before the auto is built. It's the failure [Lesson 38](./LESSON38.md) asked you to name: **code that runs perfectly and fails a human.** Put the registration back.  
 
-> 🏁 **What you just did:** a whole robot, every subsystem, every command, and a PathPlanner auto, all written by you, and running the same drawings the team competed with. That's the whole course.
+> 🏁 **What you just did:** a whole robot, every subsystem, every command, and a PathPlanner auto, all written by you, and running drawings the team never got to work. If it works on the real robot too, you've fixed something last season's programmers couldn't. That's the whole course.
 
 ---
 
