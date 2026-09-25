@@ -37,32 +37,32 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson40.basic;`, and `package lesson40.extra;` for the extra's copy).
 
 **Basic (1 pt)**: lock the data, then open it on purpose  
-- Create a `Car` class whose attributes are **private**:  
-
-```java
-public class Car {
-    private String model;
-    private String color;
-    private int price;
-
-    Car(String model, String color, int price) {
-        this.model = model;
-        this.color = color;
-        this.price = price;
-    }
-}
-```
-
-- In `main()`, create `new Car("Charger", "Yellow", 10000)` and try to print `car.color`. Read the error: `private` means only code inside `Car` can touch it.  
+- Create a `Car` class whose three attributes are **private**: `private String model;`, `private String color;` and `private int price;`. Give it a constructor, `Car(String model, String color, int price)`, that sets all three.  
+- In `main()`, create `new Car("Charger", "Yellow", 10000)` and try to print `car.color`. Read the error, `color has private access in Car`: `private` means only code inside `Car` can touch it. Delete the line.  
 - Add a **getter** for each attribute, so they can be read: `public String getModel()`, `public String getColor()` and `public int getPrice()`, each returning its attribute. Print all three with the getters.  
 - Add **setters** for `color` and `price` only: `public void setColor(String color)` and `public void setPrice(int price)`. You can repaint a car or sell it for a new price, but a Charger can't turn into a Corvette, so there is **no** `setModel`.  
-- Repaint the car blue, change its price, and print it again with the getters. Then try `car.setModel("Corvette")` and read the error.  
+- Repaint the car `"Blue"`, set its price to `5000`, and print it again with the getters. Then try `car.setModel("Corvette")` and read the error, `cannot find symbol`. Delete it.  
+
+Expected output (all three getters on one line):  
+
+```
+Charger Yellow 10000
+Charger Blue 5000
+```
 
 **Extra (1 pt)**: rules inside getters and setters  
 - Make the model `private final String model;`. `final` means it can be set once, in the constructor, and never again, even from inside `Car`.  
-- Add logic to the getter: have `getPrice()` return `"$" + price` (a `String` now).  
-- Add a rule to the setter: if the new price is less than 0, print `"Price can't be less than zero"` and leave the old price alone.  
-- Try `car.setPrice(-100)`. The message prints, and the price stays what it was.  
+- Add logic to the getter: have `getPrice()` return `"$"` followed by the price (a `String` now).  
+- Add a rule to the setter: if the new price is less than 0, print `Price can't be less than zero` and leave the old price alone.  
+- Print the price, try `car.setPrice(-100)`, and print the price again. The message prints, and the price stays what it was.  
+
+Expected output:  
+
+```
+$10000
+Price can't be less than zero
+$10000
+```
 
 ---
 

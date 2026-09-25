@@ -38,87 +38,61 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Code for `main` goes **inside** your existing `main`: keep the `public class Main extends BaseLesson` line your file already has, because without `extends BaseLesson` the lesson runner can't run it. `MyRunnable` gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27.
 
 **Basic (1 pt)**  
-- Create a `Runnable` class in `MyRunnable.java`:  
+- In `MyRunnable.java`, write `public class MyRunnable implements Runnable`. Its `run()` counts from 1 to 5, sleeping 1000 ms before each number (catching `InterruptedException` as in lesson 54), and prints the thread's name, a space, and the number. The name comes from `Thread.currentThread().getName()`.  
+- Add `throws InterruptedException` to `main`'s first line.  
+- In `main`, create two threads, each from its own `new MyRunnable()`, and `start()` both.  
+- End `main` with `Thread.sleep(6000);`. The threads run in the background: if `main` finishes first, the lesson runner stops logging, and their counting never reaches your log. Lesson 50's timer had the same problem, and the extra shows the proper fix.  
+- Run it a few times. Both threads count at the same time, and Java names them `Thread-0` and `Thread-1`.  
 
-```java
-public class MyRunnable implements Runnable {
-    @Override
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            try {
-                Thread.sleep(1000); // pause 1 second
-            } catch (InterruptedException e) {
-                System.out.println("Thread was interrupted");
-            }
-            System.out.println(Thread.currentThread().getName() + " " + i);
-        }
-    }
-}
+Expected output (**the order of each pair changes from run to run**, which is the point):  
+
 ```
-
-- Run two of them at once from `main`. Add `throws InterruptedException` to `main`'s first line for the `sleep` at the end:  
-
-```java
-Thread thread1 = new Thread(new MyRunnable());
-Thread thread2 = new Thread(new MyRunnable());
-
-thread1.start();
-thread2.start();
-
-// Keep main alive until both threads finish counting
-Thread.sleep(6000);
+Thread-1 1
+Thread-0 1
+Thread-1 2
+Thread-0 2
+Thread-1 3
+Thread-0 3
+Thread-1 4
+Thread-0 4
+Thread-1 5
+Thread-0 5
 ```
-
-- Both threads count at the same time, and their lines come out in a different order each run. Java names them `Thread-0` and `Thread-1`.  
-- Why the `sleep` at the end? The threads run in the background. If `main` finishes first, the lesson runner stops logging, and their counting never reaches your log. Lesson 50's timer had the same problem, and the extra shows the proper fix.  
-
----
 
 **Extra (1 pt)**  
-- Ping‑pong, the video's exercise. Give `MyRunnable` some text to print instead of the count:  
+- Ping‑pong, the video's exercise. Give `MyRunnable` some text to print instead of the count: `private final String text;`, a constructor `public MyRunnable(String text)`, and a `run()` that prints the text five times, one second apart.  
+- In `main`, first **without** `join`: print `Game start`, start a `"Ping"` thread and a `"Pong"` thread, then print `Game over`. **Predict it.** `Game over` prints before a single ping, because `main` doesn't wait for anything.  
+- Now the proper fix. After starting both threads, call `join()` on each one, inside a `try` that catches `InterruptedException` (`Main thread was interrupted`). `join()` means *"wait here until that thread has finished."* Print `Game over` after the `try`.  
 
-```java
-public class MyRunnable implements Runnable {
-    private final String text;
+Expected output, before and after `join` (Ping and Pong may swap within a pair):  
 
-    public MyRunnable(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                System.out.println("Thread interrupted");
-            }
-            System.out.println(text);
-        }
-    }
-}
 ```
-
-- In `main`, first **without** `join`: print `"Game start"`, start a `"Ping"` thread and a `"Pong"` thread, then print `"Game over"`. `Game over` prints before a single ping, because `main` doesn't wait for anything.  
-- Now make `main` wait for both threads with `join()`, the proper fix:  
-
-```java
-System.out.println("Game start");
-
-Thread thread1 = new Thread(new MyRunnable("Ping"));
-Thread thread2 = new Thread(new MyRunnable("Pong"));
-
-thread1.start();
-thread2.start();
-
-try {
-    thread1.join();
-    thread2.join();
-} catch (InterruptedException e) {
-    System.out.println("Main thread was interrupted");
-}
-
-System.out.println("Game over");
+Game start
+Game over
+Ping
+Pong
+Ping
+Pong
+Ping
+Pong
+Ping
+Pong
+Ping
+Pong
+```
+```
+Game start
+Ping
+Pong
+Ping
+Pong
+Ping
+Pong
+Ping
+Pong
+Ping
+Pong
+Game over
 ```
 
 ---

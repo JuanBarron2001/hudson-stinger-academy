@@ -36,60 +36,26 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson39.basic;`, and `package lesson39.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create an abstract parent class `Animal` with an abstract method `speak()`.  
+- Create an abstract parent class, `Animal`, with one abstract method, `abstract void speak();`.  
+- Create `Dog` and `Cat`, which extend `Animal` and override `speak()`, printing `The dog goes woof` and `The cat goes meow`.  
+- In `main()`, create a `Dog` and a `Cat` and call `speak()` on each. Then try `new Animal()` and read the error, `Animal is abstract; cannot be instantiated`. Delete it.  
 
-```java
-public abstract class Animal {
-    abstract void speak();
-}
+Expected output:  
+
 ```
-
-- Create child classes `Dog` and `Cat` that override `speak()`.  
-
-```java
-public class Dog extends Animal {
-    @Override
-    void speak() {
-        System.out.println("The dog goes woof");
-    }
-}
-
-public class Cat extends Animal {
-    @Override
-    void speak() {
-        System.out.println("The cat goes meow");
-    }
-}
+The dog goes woof
+The cat goes meow
 ```
-
-- In `main()`, create a `Dog` and a `Cat` and call `speak()` on each. Then try `new Animal()` and read the error.  
 
 **Extra (1 pt)**  
-- Use **runtime polymorphism** with user input. Add `import java.util.Scanner;` at the top of your `Main.java`, and put this **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.  
+- Use **runtime polymorphism**, where the user picks the pet while the program runs. Add `import java.util.Scanner;` at the top of your `Main.java`, and write the rest **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.  
+- Ask `Would you like a pet? (1 = Dog, 2 = Cat): ` and read an `int`.  
+- Declare `Animal animal;`, but don't create it yet. Then, if the choice is `1`, make it a `new Dog()`, and otherwise a `new Cat()`.  
+- Call `animal.speak()` **once**, after the `if`. Which `speak()` runs isn't decided until the program is running and the user has answered. Close the scanner.  
 
-```java
-Scanner scanner = new Scanner(System.in);
-
-System.out.print("Would you like a pet? (1 = Dog, 2 = Cat): ");
-int choice = scanner.nextInt();
-
-Animal animal; // declared as parent type
-
-if (choice == 1) {
-    animal = new Dog();
-} else {
-    animal = new Cat();
-}
-
-// Runtime polymorphism: Java decides which speak() to call while the program runs
-animal.speak();
-
-scanner.close();
-```
-
-- Output:  
-  - Input `1` → `The dog goes woof`  
-  - Input `2` → `The cat goes meow`  
+Expected output:  
+- Input `1` → `The dog goes woof`  
+- Input `2` → `The cat goes meow`  
 
 ---
 

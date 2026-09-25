@@ -35,80 +35,39 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-> In the code below, the `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it. New classes like `MyRunnable` get their own file next to `Main.java`, starting with the same `package` line, like lesson 27.
+> The `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it. New classes like `MyRunnable` get their own file next to `Main.java`, starting with the same `package` line, like lesson 27.
 
 **Basic (1 pt)**  
-- Without threads, a long task blocks the main program:  
-
-```java
-// at the top of the file:
-import java.util.Scanner;
-
-// inside main:
-Scanner scanner = new Scanner(System.in);
-
-System.out.println("You have 5 seconds to enter your name:");
-for (int i = 1; i <= 5; i++) {
-    try {
-        Thread.sleep(1000); // blocks the main thread
-    } catch (InterruptedException e) {
-        System.out.println("Thread was interrupted");
-    }
-    if (i == 5) {
-        System.out.println("Time's up!");
-    }
-}
-
-System.out.print("Enter your name: ");
-String name = scanner.nextLine();
-System.out.println("Hello " + name);
-scanner.close();
-```
-
+- Without threads, a long task blocks the main program. Import `java.util.Scanner` and create one.  
+- Print `You have 5 seconds to enter your name:`.  
+- Count from 1 to 5 with a `for` loop that sleeps 1000 ms each time: `Thread.sleep(1000)`, inside a `try` that catches `InterruptedException` and prints `Thread was interrupted`. When `i` is 5, print `Time's up!`.  
+- **Then** ask `Enter your name: `, read it, and print `Hello ` and the name.  
 - Problem: you can't even see the name prompt until the countdown is over. Everything runs on **one** thread, the main thread, one line at a time.  
 
----
+Expected output, typing `SpongeBob` once the prompt finally appears:  
+
+```
+You have 5 seconds to enter your name:
+Time's up!
+Enter your name: SpongeBob
+Hello SpongeBob
+```
 
 **Extra (1 pt)**  
-- Move the countdown to its own thread, with the **Runnable** interface. In a new file, `MyRunnable.java`:  
-
-```java
-public class MyRunnable implements Runnable {
-    @Override
-    public void run() {
-        for (int i = 1; i <= 10; i++) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                System.out.println("Thread interrupted");
-            }
-            if (i == 10) {
-                System.out.println("Time's up!");
-            }
-        }
-    }
-}
-```
-
-- And inside `main`:  
-
-```java
-Scanner scanner = new Scanner(System.in);
-
-System.out.println("You have 10 seconds to enter your name:");
-Thread timerThread = new Thread(new MyRunnable());
-timerThread.setDaemon(true); // ends when the main program ends
-timerThread.start();
-
-System.out.print("Enter your name: ");
-String name = scanner.nextLine();
-System.out.println("Hello " + name);
-scanner.close();
-```
-
-- Now the countdown runs **in the background** while the main thread waits for your name.  
-- Take out `setDaemon(true)` and answer quickly. The program keeps running until the countdown finishes, because Java waits for every ordinary thread. A **daemon** thread doesn't hold the program open.  
+- Move the countdown to its own thread, with the **`Runnable`** interface (lesson 49). In a new file, `MyRunnable.java`, write `public class MyRunnable implements Runnable`. Its `public void run()` counts from 1 to 10, sleeping 1000 ms each time, and prints `Time's up!` at 10.  
+- In `main`, create a `Scanner` and print `You have 10 seconds to enter your name:`.  
+- Build the thread with `new Thread(new MyRunnable())`, call `setDaemon(true)` on it (so it ends when the main program ends), and `start()` it.  
+- Ask for the name and print `Hello ` and the name. Now the countdown runs **in the background** while the main thread waits for you. The prompt appears immediately.  
+- Take out `setDaemon(true)` and answer quickly. The program keeps running until the countdown finishes, because Java waits for every ordinary thread. A **daemon** thread doesn't hold the program open. Put it back.  
 - The video also calls `System.exit(0)` when time is up, to end the whole program. Leave that out here: it would shut down the lesson runner too, before it finishes your log.  
+
+Expected output, answering straight away:  
+
+```
+You have 10 seconds to enter your name:
+Enter your name: SpongeBob
+Hello SpongeBob
+```
 
 ---
 

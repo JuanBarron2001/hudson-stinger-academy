@@ -34,69 +34,38 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-> In the code below, the `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
+> The `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
 > ⚠️ **Make `main` wait for the timer.** A `Timer` runs its task on its own thread, in the background. If `main` finishes first, the lesson runner stops logging, so the task's output never reaches your log. And a timer that's never cancelled keeps the program running forever. So after scheduling, call `Thread.sleep(...)` long enough for the task to finish, and add `throws InterruptedException` to `main`, like lesson 16's countdown.
 
 **Basic (1 pt)**  
-- Create a `Timer` and a `TimerTask`, using an **anonymous class** (lesson 49):  
+- Import `java.util.Timer` and `java.util.TimerTask`, and add `throws InterruptedException` to `main`'s first line, after the parentheses.  
+- Create a `Timer`.  
+- Create a `TimerTask` using an **anonymous class** (lesson 49), `new TimerTask() { ... };`, whose `public void run()` prints `Hello`.  
+- `timer.schedule(task, 3000)` runs it once, after 3 seconds (3000 ms).  
+- Then wait for it and stop the timer, so the program can end: `Thread.sleep(4000);` and `timer.cancel();`.  
+- Try it without those last two lines once, and look at your log: `Hello` isn't in it, and the program doesn't end on its own (stop it with **Ctrl+C**). Then put them back.  
 
-```java
-// at the top of the file:
-import java.util.Timer;
-import java.util.TimerTask;
+Expected output, three seconds after it starts:  
 
-// main's first line becomes:
-// public static void main(String[] args) throws InterruptedException {
-
-// inside main:
-Timer timer = new Timer();
-
-TimerTask task = new TimerTask() {
-    @Override
-    public void run() {
-        System.out.println("Hello");
-    }
-};
-
-// Run the task once, after 3 seconds (3000 ms)
-timer.schedule(task, 3000);
-
-// Wait for it, then stop the timer so the program can end
-Thread.sleep(4000);
-timer.cancel();
 ```
-
-- Try it without the last two lines once, and look at your log: `Hello` isn't in it, and the program doesn't end on its own (stop it with **Ctrl+C**). Then put them back.  
+Hello
+```
 
 **Extra (1 pt)**  
-- Schedule a task to repeat at a fixed rate, and let the task stop itself:  
-
-```java
-Timer timer = new Timer();
-
-TimerTask task = new TimerTask() {
-    int count = 3;
-
-    @Override
-    public void run() {
-        System.out.println("Hello");
-        count--;
-        if (count <= 0) {
-            System.out.println("Task complete");
-            timer.cancel();
-        }
-    }
-};
-
-// Start immediately (0 ms delay), repeat every 1000 ms
-timer.scheduleAtFixedRate(task, 0, 1000);
-
-// The task cancels the timer itself, but main still has to wait for it
-Thread.sleep(4000);
-```
-
+- Schedule a task to repeat, and let the task stop itself. Give the anonymous `TimerTask` its own field, `int count = 3;`. Its `run()` prints `Hello` and counts down; once `count` reaches `0`, it prints `Task complete` and calls `timer.cancel()`.  
+- `timer.scheduleAtFixedRate(task, 0, 1000)` starts it immediately (0 ms delay) and repeats every 1000 ms.  
+- The task cancels the timer itself, but `main` still has to wait for it: `Thread.sleep(4000);`.  
 - Change the first number, the delay, to `3000`. Now it waits 3 seconds before the first `Hello`. How long does `main` have to sleep now?  
+
+Expected output, one line a second:  
+
+```
+Hello
+Hello
+Hello
+Task complete
+```
 
 ---
 

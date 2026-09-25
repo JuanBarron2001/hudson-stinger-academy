@@ -37,66 +37,34 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson41.basic;`, and `package lesson41.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create a `Book` class with attributes and a method to display info:  
-
-```java
-public class Book {
-    String title;
-    int pages;
-
-    Book(String title, int pages) {
-        this.title = title;
-        this.pages = pages;
-    }
-
-    String displayInfo() {
-        return this.title + " (" + this.pages + " pages)";
-    }
-}
-```
-
-- Create a few `Book` objects and store them in an array.  
+- Create a `Book` class with `String title` and `int pages`, a constructor, `Book(String title, int pages)`, and `String displayInfo()`, which **returns** (doesn't print) the title followed by the page count in brackets: `The Two Towers (352 pages)`.  
+- In `main()`, create three books: `"The Fellowship of the Ring"`, 423; `"The Two Towers"`, 352; and `"The Return of the King"`, 416. Store them in a `Book[]` array.  
 - Print every book's `displayInfo()` with an enhanced `for` loop.  
 
+Expected output:  
+
+```
+The Fellowship of the Ring (423 pages)
+The Two Towers (352 pages)
+The Return of the King (416 pages)
+```
+
 **Extra (1 pt)**  
-- Create a `Library` class that **aggregates** `Book` objects:  
+- Create a `Library` class that **aggregates** books: `String name`, `int year` and `Book[] books`, with a constructor, `Library(String name, int year, Book[] books)`, that takes all three.  
+- Give it `void displayInfo()`, which prints the year and name on one line, then `Books available:`, then every book's `displayInfo()`.  
+- In `main()`, build the three books and their array **first**, then `new Library("New York City Public Library", 1897, books)`, and call its `displayInfo()`.  
+- After the library, print the first book's `displayInfo()` on its own. The book was built **before** the library and doesn't need it: that independence is what makes this aggregation. Lesson 42's composition is the opposite.  
 
-```java
-public class Library {
-    String name;
-    int year;
-    Book[] books;
+Expected output:  
 
-    Library(String name, int year, Book[] books) {
-        this.name = name;
-        this.year = year;
-        this.books = books;
-    }
-
-    void displayInfo() {
-        System.out.println(this.year + " " + this.name);
-        System.out.println("Books available:");
-        for (Book b : books) {
-            System.out.println(b.displayInfo());
-        }
-    }
-}
 ```
-
-- Demonstrate usage:  
-
-```java
-Book b1 = new Book("The Fellowship of the Ring", 423);
-Book b2 = new Book("The Two Towers", 352);
-Book b3 = new Book("The Return of the King", 416);
-
-Book[] books = { b1, b2, b3 };
-
-Library library = new Library("New York City Public Library", 1897, books);
-library.displayInfo();
+1897 New York City Public Library
+Books available:
+The Fellowship of the Ring (423 pages)
+The Two Towers (352 pages)
+The Return of the King (416 pages)
+The Fellowship of the Ring (423 pages)
 ```
-
-- After the library, print `b1.displayInfo()` on its own. The book was built **before** the library and doesn't need it: that independence is what makes this aggregation. Lesson 42's composition is the opposite.  
 
 ---
 

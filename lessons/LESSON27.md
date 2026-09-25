@@ -38,51 +38,41 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > **Where a new class goes.** Make a new file next to your `Main.java`: `java-lessons/src/lesson27/basic/Car.java`. Its first line must be `package lesson27.basic;`, the same as `Main.java`, or `Main` can't find it. The extra half lives in a different folder, so it needs its own `Car.java` that starts with `package lesson27.extra;`. Copy your basic one over and change that line.
 
 **Basic (1 pt)**  
-- Create a `Car` class with attributes:  
-  - `String make`  
-  - `String model`  
-  - `int year`  
-  - `double price`  
-  - `boolean isRunning`  
+- Create a `Car` class with five attributes, each with a starting value: `String make` (`"Ford"`), `String model` (`"Mustang"`), `int year` (`2025`), `double price` (`58000.99`) and `boolean isRunning` (`false`).  
+- In `main()`, create a car with `Car car = new Car();` and print each attribute with the dot operator: `car.make`, `car.model`, and so on.  
 
-```java
-public class Car {
-    String make = "Ford";
-    String model = "Mustang";
-    int year = 2025;
-    double price = 58000.99;
-    boolean isRunning = false;
-}
+Expected output:  
+
 ```
-
-- In `main()`, create a `Car` object and print its attributes using the dot operator.  
+Ford
+Mustang
+2025
+58000.99
+false
+```
 
 **Extra (1 pt)**  
-- Add methods to the `Car` class:  
-
-```java
-void start() {
-    isRunning = true;
-    System.out.println("You start the engine");
-}
-
-void stop() {
-    isRunning = false;
-    System.out.println("You stop the engine");
-}
-
-void drive() {
-    System.out.println("You drive the " + model);
-}
-
-void brake() {
-    System.out.println("You brake the " + model);
-}
-```
-
-- Call these methods from `main()` and print `isRunning` before and after.  
+- Add four methods to `Car`, with no `static` this time:  
+  - `void start()` sets `isRunning` to `true` and prints `You start the engine`  
+  - `void stop()` sets it back to `false` and prints `You stop the engine`  
+  - `void drive()` prints `You drive the ` and the model  
+  - `void brake()` prints `You brake the ` and the model  
+- In `main()`, print `isRunning`, call `start()`, print it again, call `stop()`, and print it once more. Then call `drive()` and `brake()`.  
 - Change an attribute straight from `main` with the dot operator: `car.isRunning = true;`  
 - Create a **second** `Car` and print its make and model. Why is it exactly the same as the first one? Lesson 28's constructors fix that.  
+
+Expected output (before the `car.isRunning = true;` line):  
+
+```
+false
+You start the engine
+true
+You stop the engine
+false
+You drive the Mustang
+You brake the Mustang
+Ford Mustang
+```
 
 ---
 

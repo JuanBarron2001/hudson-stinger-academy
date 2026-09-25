@@ -35,44 +35,34 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Create a method `add(int... numbers)` that sums any number of integers. One method replaces all the `add` overloads you wrote in lesson 20.  
-- Java packs the arguments into an array called `numbers`. Print `numbers.length` inside `add` to see how many arrived.  
+- Write `static int add(int... numbers)`, which adds up every number it's given. One method replaces all the `add` overloads you wrote in lesson 20.  
+- The three dots tell Java to pack all the arguments into an array called `numbers`, so an enhanced `for` loop can walk through them.  
+- Inside `add`, print how many numbers arrived, using `numbers.length`.  
+- In `main()`, print `add(1, 2, 3)` and `add(5, 10, 15, 20)`.  
 
-```java
-static int add(int... numbers) {
-    int sum = 0;
-    for (int number : numbers) {
-        sum += number;
-    }
-    return sum;
-}
+Expected output:  
 
-public static void main(String[] args) {
-    System.out.println(add(1, 2, 3));       // 6
-    System.out.println(add(5, 10, 15, 20)); // 50
-}
+```
+add got 3 numbers
+6
+add got 4 numbers
+50
 ```
 
 **Extra (1 pt)**  
-- Create a method `average(double... numbers)` that calculates the average.  
-- Handle the case when no arguments are passed (avoid division by zero).  
+- Write `static double average(double... numbers)`, which returns the sum divided by `numbers.length`. Print `average(2, 3, 4, 5)`.  
+- Now print `average()` with no arguments. **Predict it first.** It prints `NaN` ("not a number"): `0.0 / 0` doesn't crash for a `double`, it quietly gives you nonsense.  
+- Fix it: if `numbers.length == 0`, return `0` before dividing.  
 
-```java
-static double average(double... numbers) {
-    if (numbers.length == 0) {
-        return 0;
-    }
-    double sum = 0;
-    for (double number : numbers) {
-        sum += number;
-    }
-    return sum / numbers.length;
-}
+Expected output, before and after the fix:  
 
-public static void main(String[] args) {
-    System.out.println(average(2, 3, 4, 5)); // 3.5
-    System.out.println(average());           // 0.0
-}
+```
+3.5
+NaN
+```
+```
+3.5
+0.0
 ```
 
 ---

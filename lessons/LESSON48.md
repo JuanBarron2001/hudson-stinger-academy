@@ -34,63 +34,39 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-> In the code below, the `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
+> The `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
 **Basic (1 pt)**  
-- Get the current date, time, and date-time:  
+- Import `LocalDate`, `LocalTime`, `LocalDateTime` and `Instant`, all from `java.time`.  
+- Print each one's `now()`, with a label: `Date: `, `Time: `, `DateTime: ` and `UTC Instant: `.  
+- Compare the date-time and the instant. Why are their hours different? *(Hint: the `Z` at the end of the instant means UTC, not your time zone.)* Answer in a comment.  
 
-```java
-// at the top of the file:
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.LocalDateTime;
-import java.time.Instant;
+Expected output (your date and times will differ, and so may the gap between the hours):  
 
-// inside main:
-LocalDate date = LocalDate.now();
-LocalTime time = LocalTime.now();
-LocalDateTime dateTime = LocalDateTime.now();
-Instant instant = Instant.now();
-
-System.out.println("Date: " + date);
-System.out.println("Time: " + time);
-System.out.println("DateTime: " + dateTime);
-System.out.println("UTC Instant: " + instant);
 ```
-
-- Compare `dateTime` and `instant`. Why are their hours different? *(Hint: the `Z` at the end of the instant means UTC, not your time zone.)*  
+Date: 2026-09-24
+Time: 23:52:37.138986544
+DateTime: 2026-09-24T23:52:37.139804602
+UTC Instant: 2026-09-25T04:52:37.140593612Z
+```
 
 **Extra (1 pt)**  
-- Format date-time with a custom pattern (`MM` is the month, `dd` the day, `yyyy` the year, `HH:mm:ss` the time):  
-
-```java
-// at the top of the file:
-import java.time.format.DateTimeFormatter;
-
-// inside main:
-LocalDateTime now = LocalDateTime.now();
-DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
-String formatted = now.format(formatter);
-
-System.out.println("Formatted: " + formatted);
-```
-
-- Create your own date-times with `of()`, and compare them the way the video does:  
-
-```java
-LocalDateTime date1 = LocalDateTime.of(2024, 12, 25, 12, 0, 0); // Christmas, noon
-LocalDateTime date2 = LocalDateTime.of(2025, 1, 1, 0, 0, 0);    // New Year's, midnight
-
-if (date1.isBefore(date2)) {
-    System.out.println(date1 + " is earlier than " + date2);
-} else if (date1.isAfter(date2)) {
-    System.out.println(date1 + " is later than " + date2);
-} else if (date1.isEqual(date2)) {
-    System.out.println(date1 + " is equal to " + date2);
-}
-```
-
+- Import `java.time.format.DateTimeFormatter`. Make one with `DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss")` (`MM` is the month, `dd` the day, `yyyy` the year, `HH:mm:ss` the time), then print `Formatted: ` and `LocalDateTime.now().format(...)`.  
+- Build your own date-times with `LocalDateTime.of(year, month, day, hour, minute, second)`: `date1` is Christmas 2024 at noon, and `date2` is New Year's 2025 at midnight.  
+- Compare them the way the video does, with an `if` / `else if` / `else if`:  
+  - `date1.isBefore(date2)` prints the two joined by ` is earlier than `  
+  - `date1.isAfter(date2)` prints ` is later than `  
+  - `date1.isEqual(date2)` prints ` is equal to `  
 - Change `date1` so each branch prints once: January 2nd, 2025, then New Year's at midnight.  
+
+Expected output (the first line will differ). Notice a time with zero seconds prints as just `12:00`:  
+
+```
+Formatted: 09-24-2026 23:52:37
+2024-12-25T12:00 is earlier than 2025-01-01T00:00
+2025-01-02T00:00 is later than 2025-01-01T00:00
+2025-01-01T00:00 is equal to 2025-01-01T00:00
+```
 
 ---
 

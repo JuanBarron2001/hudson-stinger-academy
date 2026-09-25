@@ -35,77 +35,43 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-> In the code below, the `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
+> The `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
 **Basic (1 pt)**  
-- Create a HashMap with `String` keys and `Double` values:  
+- Import `java.util.HashMap`, and create a `HashMap<String, Double>` called `map`: the keys are `String`s and the values are `Double`s.  
+- `put` three prices, `"Apple"` at `0.50`, `"Orange"` at `0.75` and `"Banana"` at `0.25`, and print the map.  
+- Keys must be unique. `put` `"Orange"` again at `1000000.0` and print the map again. **Predict it first:** is there a second orange?  
 
-```java
-// at the top of the file:
-import java.util.HashMap;
+Expected output:  
 
-// inside main:
-HashMap<String, Double> map = new HashMap<>();
-
-// Add items
-map.put("Apple", 0.50);
-map.put("Orange", 0.75);
-map.put("Banana", 0.25);
-
-System.out.println(map);
 ```
-
-- Keys must be unique. Adding another `"Orange"` overwrites the old value:  
-
-```java
-map.put("Orange", 1000000.0); // overwrites previous price
+{Apple=0.5, Orange=0.75, Banana=0.25}
+{Apple=0.5, Orange=1000000.0, Banana=0.25}
 ```
 
 **Extra (1 pt)**  
-- Add, remove, and retrieve values:  
+- Build the basic half's three prices again, then `put` `"Coconut"` at `1.00` and print the map. Coconut doesn't land at the end: a `HashMap` keeps no order at all, so never count on one.  
+- `remove("Apple")` and print the map. Print `get("Coconut")` too.  
+- Print `containsKey("Banana")`, `containsKey("Pineapple")`, `containsValue(1.0)` and `containsValue(1)`. Why is the last one `false`? *(Hint: `1` is an `Integer`, not a `Double`, lesson 43.)*  
+- Use `containsKey` the way the video does, before you `get`: if the map has `"Pineapple"`, print its price, and otherwise print `Key not found`.  
+- Print `size()`.  
+- Print every pair with `for (String key : map.keySet())`: the key, then `: $`, then its price.  
 
-```java
-map.put("Coconut", 1.00);
-System.out.println(map); // includes Coconut
+Expected output:  
 
-map.remove("Apple");
-System.out.println(map); // Apple removed
-
-System.out.println("Coconut price: " + map.get("Coconut")); // 1.0
 ```
-
-- Check for keys and values:  
-
-```java
-System.out.println(map.containsKey("Banana")); // true
-System.out.println(map.containsKey("Pineapple")); // false
-
-System.out.println(map.containsValue(1.0)); // true
-System.out.println(map.containsValue(1));   // false (wrong type)
-```
-
-- Use `containsKey` the way the video does, before you `get`:  
-
-```java
-if (map.containsKey("Pineapple")) {
-    System.out.println(map.get("Pineapple"));
-} else {
-    System.out.println("Key not found");
-}
-```
-
-- Get the size of the map:  
-
-```java
-System.out.println("Map size: " + map.size());
-```
-
-- Iterate with a for-each loop:  
-
-```java
-for (String key : map.keySet()) {
-    System.out.println(key + ": $" + map.get(key));
-}
+{Apple=0.5, Coconut=1.0, Orange=0.75, Banana=0.25}
+{Coconut=1.0, Orange=0.75, Banana=0.25}
+1.0
+true
+false
+true
+false
+Key not found
+3
+Coconut: $1.0
+Orange: $0.75
+Banana: $0.25
 ```
 
 ---

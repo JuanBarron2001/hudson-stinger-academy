@@ -37,83 +37,35 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson36.basic;`, and `package lesson36.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create an abstract parent class `Shape` with:  
-  - Abstract method: `double area()`  
-  - Concrete method: `void display()`  
-
-```java
-public abstract class Shape {
-    // Abstract method (must be implemented by children)
-    abstract double area();
-
-    // Concrete method (inherited by children)
-    void display() {
-        System.out.println("This is a shape");
-    }
-}
-```
-
-- Create child classes `Circle`, `Triangle`, and `Rectangle` that extend `Shape`.  
-- Each child **must** have an `area()` method, or Java won't compile it: that's what `abstract` enforces. For now, give each one `@Override double area() { return 0; }`. The extra fills them in.  
-- In `main()`, try `new Shape()` and read the error, then delete it. `Shape` is too general to build.  
+- Create an abstract parent class, `public abstract class Shape`, with two methods:  
+  - `abstract double area();`, an **abstract** method: no body, just a semicolon. Every child has to write its own.  
+  - `void display()`, an ordinary method that prints `This is a shape`. Children inherit it.  
+- Create `Circle`, `Triangle` and `Rectangle`, which each extend `Shape`.  
+- Each child **must** have an `area()` method, or Java won't compile it: that's what `abstract` enforces. For now, give each one an `@Override double area()` that returns `0`. The extra fills them in.  
+- In `main()`, try `new Shape()` and read the error, `Shape is abstract; cannot be instantiated`, then delete it. `Shape` is too general to build.  
 - Create one `Circle`, one `Triangle` and one `Rectangle`, and call `display()` on each. They inherited it from `Shape` without writing it.  
 
-**Extra (1 pt)**  
-- Implement the `area()` method in each child:  
+Expected output:  
 
-```java
-public class Circle extends Shape {
-    double radius;
-
-    Circle(double radius) {
-        this.radius = radius;
-    }
-
-    @Override
-    double area() {
-        return Math.PI * radius * radius;
-    }
-}
-
-public class Triangle extends Shape {
-    double base, height;
-
-    Triangle(double base, double height) {
-        this.base = base;
-        this.height = height;
-    }
-
-    @Override
-    double area() {
-        return 0.5 * base * height;
-    }
-}
-
-public class Rectangle extends Shape {
-    double length, width;
-
-    Rectangle(double length, double width) {
-        this.length = length;
-        this.width = width;
-    }
-
-    @Override
-    double area() {
-        return length * width;
-    }
-}
+```
+This is a shape
+This is a shape
+This is a shape
 ```
 
-- Demonstrate usage:  
+**Extra (1 pt)**  
+- Give each child its measurements, a constructor that sets them, and a real `area()`:  
+  - `Circle(double radius)`: π × radius², with `Math.PI`  
+  - `Triangle(double base, double height)`: half of base × height  
+  - `Rectangle(double length, double width)`: length × width  
+- In `main()`, store each one in a variable of type **`Shape`**: `new Circle(3)`, `new Triangle(4, 5)` and `new Rectangle(6, 7)`. Print each one's `area()`. A `Shape` variable can call `area()` because every `Shape` is guaranteed to have one.  
 
-```java
-Shape circle = new Circle(3);
-Shape triangle = new Triangle(4, 5);
-Shape rectangle = new Rectangle(6, 7);
+Expected output:  
 
-System.out.println(circle.area());    // 28.27...
-System.out.println(triangle.area());  // 10.0
-System.out.println(rectangle.area()); // 42.0
+```
+28.274333882308138
+10.0
+42.0
 ```
 
 ---

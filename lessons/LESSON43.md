@@ -44,52 +44,35 @@ Character c = new Character('$'); // char → Character
 Boolean d = new Boolean(true);    // boolean → Boolean
 ```
 
-- The modern way, **autoboxing**. Type this one: Java wraps each value for you.  
-
-```java
-Integer a = 123;
-Double b = 3.14;
-Character c = '$';
-Boolean d = true;
-```
-
+- The modern way is **autoboxing**, and this one you type. Make the same four variables, `Integer a`, `Double b`, `Character c` and `Boolean d`, with the same four values, but assign each value straight to its variable with no `new`. Java wraps each one for you.  
 - Print all four. They look like plain values, but each one is an object now.  
 
+Expected output:  
+
+```
+123
+3.14
+$
+true
+```
+
 **Extra (1 pt)**  
-- **Unboxing**: converting wrapper → primitive  
+- **Unboxing** goes the other way: assign each wrapper straight to a primitive, `int x = a;` and so on for `double`, `char` and `boolean`. Print all four on one line.  
+- **Primitive → `String`:** make four `String`s with `Integer.toString(123)`, `Double.toString(3.14)`, `Character.toString('$')` and `Boolean.toString(false)`. Print all four added together. **Predict it first.** You get one long `String`, because every piece is a `String` now.  
+- **`String` → primitive:** `Integer.parseInt("123")`, `Double.parseDouble("3.14")` and `Boolean.parseBoolean("true")`. There's no `Character.parseChar`, so take the first letter of a `String` instead, with `"pizza".charAt(0)`. Add the parsed `int` and `double` together: they're numbers now, so they add up instead of sticking together. Then print the `boolean` and the `char`.  
+- **Character checks:** print `Character.isLetter('b')`, `Character.isLetter('$')` and `Character.isUpperCase('b')`. Checks like these are how you'd validate a username or password.  
 
-```java
-int x = a;       // Integer → int
-double y = b;    // Double → double
-char z = c;      // Character → char
-boolean flag = d;// Boolean → boolean
+Expected output:  
+
 ```
-
-- **Utility methods**:  
-
-```java
-// Convert primitive to String
-String s1 = Integer.toString(123);
-String s2 = Double.toString(3.14);
-String s3 = Character.toString('$');
-String s4 = Boolean.toString(false);
-
-// Convert String to primitive
-int i = Integer.parseInt("123");
-double d2 = Double.parseDouble("3.14");
-boolean b2 = Boolean.parseBoolean("true");
-
-// There's no Character.parseChar: take the first letter of a String instead
-char first = "pizza".charAt(0);
-
-// Character checks
-char letter = 'b';
-System.out.println(Character.isLetter(letter));   // true
-System.out.println(Character.isUpperCase(letter));// false
+123 3.14 $ true
+1233.14$false
+126.14
+true p
+true
+false
+false
 ```
-
-- Print `s1 + s2 + s3 + s4`. You get one long `String`, `1233.14$false`, because every piece is a `String` now. Then try `i + d2`: numbers add up instead of sticking together.  
-- Try `Character.isLetter('$')`. Checks like these are how you'd validate a username or password.  
 
 ---
 

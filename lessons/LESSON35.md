@@ -37,49 +37,34 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson35.basic;`, and `package lesson35.extra;` for the extra's copy).
 
 **Basic (1 pt)**  
-- Create a `Car` class with attributes and constructor:  
-
-```java
-public class Car {
-    String make;
-    String model;
-    int year;
-    String color;
-
-    Car(String make, String model, int year, String color) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.color = color;
-    }
-}
-```
-
+- Create a `Car` class with `String make`, `String model`, `int year` and `String color`, and a constructor, `Car(String make, String model, int year, String color)`, that sets all four.  
 - In `main()`, create `new Car("Ford", "Mustang", 2025, "Red")` and print it directly with `System.out.println(car);`. You’ll see something like  
   `lesson35.basic.Car@6d06d69c`: the class's full name and a hash code. That's `Object`'s default `toString()`, which every class inherits.  
-- Now print the details the long way: `car.color + " " + car.year + " " + car.make + " " + car.model`.  
+- Now print the details the long way: the color, year, make and model, with a space between each.  
+
+Expected output (the first line's code will differ):  
+
+```
+lesson35.basic.Car@6d06d69c
+Red 2025 Ford Mustang
+```
 
 **Extra (1 pt)**  
-- Override the `toString()` method to return meaningful details:  
+- Override `toString()` in `Car`, so that it returns the same four details:  
 
 ```java
 @Override
-public String toString() {
-    return this.color + " " + this.year + " " + this.make + " " + this.model;
-}
+public String toString()
 ```
 
-- Now printing the object directly gives:  
-  `Red 2025 Ford Mustang`  
+- It has to be `public`, because the version it overrides in `Object` is. Leave `public` off and read the error: `toString() in Car cannot override toString() in Object`.  
+- In `main()`, create two cars, `new Car("Ford", "Mustang", 2025, "Red")` and `new Car("Chevrolet", "Corvette", 2026, "Blue")`, and print each one directly. `println` calls your `toString()` for you.  
 
-- Example usage:  
+Expected output:  
 
-```java
-Car car1 = new Car("Ford", "Mustang", 2025, "Red");
-Car car2 = new Car("Chevrolet", "Corvette", 2026, "Blue");
-
-System.out.println(car1); // Red 2025 Ford Mustang
-System.out.println(car2); // Blue 2026 Chevrolet Corvette
+```
+Red 2025 Ford Mustang
+Blue 2026 Chevrolet Corvette
 ```
 
 ---

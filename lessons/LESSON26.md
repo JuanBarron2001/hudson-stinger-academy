@@ -36,35 +36,32 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Create a 2D array of groceries:  
+- A 2D array is an array of arrays, and each row is its own array. Create `String[][] groceries` with three rows: `Apple`, `Orange`, `Banana`; then `Potato`, `Onion`, `Carrot`; then `Chicken`, `Pork`, `Beef`, `Fish`. The rows don't have to be the same length.  
+- Print it as a grid with nested enhanced `for` loops. The outer loop takes one row at a time (`String[] foods : groceries`). The inner loop prints each food in that row followed by a space, and then you print a new line.  
 
-```java
-String[][] groceries = {
-    {"Apple", "Orange", "Banana"},
-    {"Potato", "Onion", "Carrot"},
-    {"Chicken", "Pork", "Beef", "Fish"}
-};
+Expected output:  
 
-// Nested loop to print
-for (String[] foods : groceries) {
-    for (String food : foods) {
-        System.out.print(food + " ");
-    }
-    System.out.println();
-}
+```
+Apple Orange Banana 
+Potato Onion Carrot 
+Chicken Pork Beef Fish 
 ```
 
 **Extra (1 pt)**  
-- Modify elements using two indices:  
+- Change three elements with two indices, `[row][column]`: `Apple` to `Pineapple`, `Potato` to `Celery`, and `Pork` to `Eggs`. Work out each pair of indices yourself, then print the grid again to check.  
+- **Telephone keypad**, the video's mini‑project. Build a `char[][] telephone` with four rows: `'1' '2' '3'`, `'4' '5' '6'`, `'7' '8' '9'` and `'*' '0' '#'` (single quotes, because they're `char`s). Print it as a grid with nested enhanced `for` loops: the outer loop's type is `char[]` (one row), the inner loop's is `char`.  
 
-```java
-groceries[0][0] = "Pineapple"; // replaces Apple
-groceries[1][0] = "Celery";    // replaces Potato
-groceries[2][1] = "Eggs";      // replaces Pork
+Expected output:  
+
 ```
-
-- Print the grid again to check each change. The first index is the **row**, the second is the **column**.  
-- **Telephone keypad**, the video's mini‑project. Build a `char[][] telephone` with four rows: `'1' '2' '3'`, `'4' '5' '6'`, `'7' '8' '9'` and `'*' '0' '#'` (single quotes, because they're `char`s). Print it as a grid with nested enhanced `for` loops: the outer loop's type is `char[]` (one row), the inner loop's is `char`.
+Pineapple Orange Banana 
+Celery Onion Carrot 
+Chicken Eggs Beef Fish 
+1 2 3 
+4 5 6 
+7 8 9 
+* 0 # 
+```
 
 ---
 

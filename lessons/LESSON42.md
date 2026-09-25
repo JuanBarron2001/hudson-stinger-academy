@@ -36,60 +36,40 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson42.basic;`, and `package lesson42.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create an `Engine` class with a `type` attribute and a `start()` method:  
+- Create an `Engine` class with a `String type`, a constructor, `Engine(String type)`, and `void start()`, which prints `You start the `, the type, and ` engine`.  
+- Create a `Car` class that **contains** an engine: `String model`, `int year` and `Engine engine`. Its constructor is  
 
 ```java
-public class Engine {
-    String type;
-
-    Engine(String type) {
-        this.type = type;
-    }
-
-    void start() {
-        System.out.println("You start the " + this.type + " engine");
-    }
-}
+Car(String model, int year, String engineType)
 ```
 
-- Create a `Car` class that **contains** an `Engine` object:  
+  and it builds the engine **itself**, from `engineType`. The engine is created as part of the car. That's **composition**: a car *has an* engine.  
+- Give `Car` its own `void start()`, which starts the engine and then prints the model followed by ` is running`.  
+- In `main()`, create `new Car("Corvette", 2025, "V8")`. Print its model and year, then `Engine type: ` and `car.engine.type`, then call `car.start()`.  
 
-```java
-public class Car {
-    String model;
-    int year;
-    Engine engine; // composition: Car has an Engine
+Expected output:  
 
-    Car(String model, int year, String engineType) {
-        this.model = model;
-        this.year = year;
-        this.engine = new Engine(engineType); // engine created as part of car
-    }
-
-    void start() {
-        engine.start();
-        System.out.println(this.model + " is running");
-    }
-}
 ```
-
-- Demonstrate usage:  
-
-```java
-Car car = new Car("Corvette", 2025, "V8");
-System.out.println(car.model + " " + car.year);
-System.out.println("Engine type: " + car.engine.type);
-
-car.start();
-// Output:
-// You start the V8 engine
-// Corvette is running
+Corvette 2025
+Engine type: V8
+You start the V8 engine
+Corvette is running
 ```
 
 **Extra (1 pt)**  
-- Print `car.engine` directly. You get a hash code, because it's an object (lesson 35). Give `Engine` a `toString()` that returns `type + " engine"`, and print it again.  
-- Build a second car with a different engine, like `new Car("Mustang", 2025, "V6")`, and start both.  
+- Print `car.engine` directly. You get a hash code, because it's an object (lesson 35). Give `Engine` a `toString()` that returns the type followed by ` engine`, and print it again.  
+- Build a second car with a different engine, `new Car("Mustang", 2025, "V6")`, and start both.  
 - Notice that `main` never created an `Engine`: each car built its own inside its constructor, and the only way to reach one is through its car (`car.engine`). When a car goes away, its engine goes with it. In a comment, compare that with lesson 41, where the books were built first and handed to the library, so they outlived it.  
+
+Expected output (after the hash code line):  
+
+```
+V8 engine
+You start the V8 engine
+Corvette is running
+You start the V6 engine
+Mustang is running
+```
 
 ---
 

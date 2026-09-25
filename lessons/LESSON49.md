@@ -36,37 +36,38 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson49.basic;`, and `package lesson49.extra;` for the extra's copy).
 
 **Basic (1 pt)**: one unusual dog  
-- Create a `Dog` class with one method, `void speak()`, that prints `"The dog goes woof"`. In `main()`, create a dog and make it speak.  
-- Scooby‑Doo is a dog who talks. **The long way** first: a new file, `TalkingDog.java`, where `TalkingDog extends Dog` and overrides `speak()` to print `"Scooby-Doo says ruh-roh"`. Create one and make it speak.  
-- That's a whole class for a single dog. **The short way:** delete `TalkingDog.java`, and give a second, ordinary `Dog` its own `speak()` right where you create it:  
+- Create a `Dog` class with one method, `void speak()`, that prints `The dog goes woof`. In `main()`, create a dog and make it speak.  
+- Scooby‑Doo is a dog who talks. **The long way** first: a new file, `TalkingDog.java`, where `TalkingDog extends Dog` and overrides `speak()` to print `Scooby-Doo says ruh-roh`. Create one and make it speak.  
+- That's a whole class for a single dog. **The short way:** delete `TalkingDog.java`, and give a second, ordinary `Dog` its own `speak()` right where you create it. The shape is:  
 
 ```java
 Dog dog2 = new Dog() {
-    @Override
-    void speak() {
-        System.out.println("Scooby-Doo says ruh-roh");
-    }
+    // an @Override of speak(), exactly as you'd write it in a class
 };
 ```
 
-- The braces after `new Dog()` are a class with **no name**: an anonymous class. Notice the `;` after the closing brace. Make both dogs speak: the first still goes woof.  
+- The braces after `new Dog()` are a class with **no name**: an anonymous class. Notice the `;` after the closing brace, because the whole thing is one statement. Make both dogs speak: the first still goes woof.  
+
+Expected output (after deleting `TalkingDog.java`):  
+
+```
+The dog goes woof
+Scooby-Doo says ruh-roh
+```
 
 **Extra (1 pt)**: no name, and no class needed  
 - Print `dog2.getClass().getName()`. Java made up a name like `lesson49.extra.Main$1`, because you never gave the class one. That's also why an anonymous class **can't be reused**: there's no name to write `new` in front of. If you need the same behavior twice, write a real class.  
 - Make a second unusual dog, like Clifford, with a different `speak()`. Each anonymous class belongs to exactly one object.  
-- An anonymous class can fill in an **interface** too. `Runnable` is built into Java, and its one method is `public void run()`. You can't write `new Runnable()` by itself (lesson 37: interfaces aren't classes), but you can with a body:  
-
-```java
-Runnable task = new Runnable() {
-    @Override
-    public void run() {
-        System.out.println("Running a one-time task");
-    }
-};
-task.run();
-```
-
+- An anonymous class can fill in an **interface** too. `Runnable` is built into Java, and its one method is `public void run()`. You can't write `new Runnable()` by itself (lesson 37: interfaces aren't classes), but you can with a body. Make a `Runnable task` whose `run()` prints `Running a one-time task`, then call `task.run()`.  
 - Lesson 50's `TimerTask` works exactly this way, and so does lesson 54's `Runnable` for threads.  
+
+Expected output (your Clifford line will be whatever you made him say):  
+
+```
+lesson49.extra.Main$1
+Clifford goes WOOF
+Running a one-time task
+```
 
 ---
 

@@ -37,68 +37,25 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson38.basic;`, and `package lesson38.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create an abstract parent class `Vehicle` with an abstract method `go()`.  
+- Create an abstract parent class, `Vehicle`, with one abstract method, `abstract void go();`.  
+- Create `Car`, `Bike` and `Boat`, which each extend `Vehicle` and override `go()`. They print `You drive the car`, `You ride the bike` and `You sail the boat`.  
+- First try the video's mistake: `Car[] cars = { new Car(), new Bike(), new Boat() };`. Read the error, `incompatible types: Bike cannot be converted to Car`, because a bike isn't a car. Delete it, and find the one type all three share.  
+- Put all three in an array of that type, `Vehicle[] vehicles`, and loop over it with `for (Vehicle vehicle : vehicles)`, calling `vehicle.go()`. Each one runs its **own** `go()`, even though the loop only knows it's a `Vehicle`. That's **polymorphism**.  
 
-```java
-public abstract class Vehicle {
-    abstract void go();
-}
+Expected output:  
+
 ```
-
-- Create child classes `Car`, `Bike`, and `Boat` that extend `Vehicle` and override `go()`.  
-
-```java
-public class Car extends Vehicle {
-    @Override
-    void go() {
-        System.out.println("You drive the car");
-    }
-}
-
-public class Bike extends Vehicle {
-    @Override
-    void go() {
-        System.out.println("You ride the bike");
-    }
-}
-
-public class Boat extends Vehicle {
-    @Override
-    void go() {
-        System.out.println("You sail the boat");
-    }
-}
-```
-
-- First try the video's mistake: `Car[] cars = { new Car(), new Bike(), new Boat() };`. Read the error: a bike isn't a car. Then find the one type they all share.  
-- Demonstrate polymorphism with an array of `Vehicle`:  
-
-```java
-Vehicle[] vehicles = { new Car(), new Bike(), new Boat() };
-
-for (Vehicle v : vehicles) {
-    v.go(); // dynamic dispatch
-}
+You drive the car
+You ride the bike
+You sail the boat
 ```
 
 **Extra (1 pt)**  
-- Achieve polymorphism with an **interface** instead of an abstract class:  
-
-```java
-public interface Vehicle {
-    public void go();
-}
-
-public class Car implements Vehicle {
-    @Override
-    public void go() {
-        System.out.println("You drive the car");
-    }
-}
-```
-
-- Change `Bike` and `Boat` the same way (`implements Vehicle`, and `public void go()`).  
+- Now get polymorphism with an **interface** instead of an abstract class. Turn `Vehicle` into `public interface Vehicle`, with `void go();`.  
+- Change `Car`, `Bike` and `Boat` from `extends Vehicle` to `implements Vehicle`, and make each `go()` `public` (lesson 37: an interface's methods are always public).  
 - Run the same `Vehicle[]` loop in `main`. It shouldn't need a single change: code written against `Vehicle` works whether `Vehicle` is an abstract class or an interface.  
+
+Expected output: the same three lines as the basic half.  
 
 ---
 

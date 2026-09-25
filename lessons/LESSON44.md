@@ -36,64 +36,44 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Import the ArrayList class:  
-  `import java.util.ArrayList;`
+- Import the class at the top of the file: `import java.util.ArrayList;`  
+- Create an `ArrayList<Integer>` called `numbers` with `new ArrayList<>()`, add `3`, `1` and `2` with `add(...)`, and print the list. It's `Integer`, not `int`: an `ArrayList` holds objects, so Java autoboxes each number, like lesson 43.  
+- Create an `ArrayList<String>` called `fruits`, add `"Apple"`, `"Orange"`, `"Banana"` and `"Coconut"`, and print it.  
 
-- Create an ArrayList of integers:  
+Expected output:  
 
-```java
-ArrayList<Integer> numbers = new ArrayList<>();
-numbers.add(3);
-numbers.add(1);
-numbers.add(2);
-
-System.out.println(numbers); // [3, 1, 2]
 ```
-
-- Create an ArrayList of strings:  
-
-```java
-ArrayList<String> fruits = new ArrayList<>();
-fruits.add("Apple");
-fruits.add("Orange");
-fruits.add("Banana");
-fruits.add("Coconut");
-
-System.out.println(fruits); // [Apple, Orange, Banana, Coconut]
+[3, 1, 2]
+[Apple, Orange, Banana, Coconut]
 ```
 
 **Extra (1 pt)**  
-- Demonstrate ArrayList methods:  
-
-```java
-fruits.remove(0); // removes Apple
-fruits.set(0, "Pineapple"); // replaces Orange with Pineapple
-System.out.println(fruits.get(1)); // Banana
-System.out.println(fruits.size()); // 3
-```
-
-- Sort with Collections:  
-
-```java
-import java.util.Collections; // this line goes at the TOP of the file, with the other imports
-
-Collections.sort(fruits);       // this one goes in main
-System.out.println(fruits); // [Banana, Coconut, Pineapple]
-```
-
-- Iterate with enhanced for loop:  
-
-```java
-for (String fruit : fruits) {
-    System.out.println(fruit);
-}
-```
-
+- Starting from the basic half's `fruits`:  
+  - `remove(0)` takes out the item at index 0, `Apple`, and everything after it moves up one  
+  - `set(0, "Pineapple")` replaces whatever is at index 0 now. **Predict which fruit that is.**  
+  - print `get(1)` and `size()`  
+- Add `import java.util.Collections;` at the top, then call `Collections.sort(fruits);` in `main` and print the list.  
+- Print every fruit on its own line with an enhanced `for` loop.  
 - **The video's exercise, a food list from user input:**  
   - Create an empty `ArrayList<String> foods` and a `Scanner`.  
-  - Ask `"Enter the number of food you would like: "` and read it with `nextInt()`, then call `scanner.nextLine()` once to clear the leftover new line (lesson 03).  
-  - Loop that many times, asking `"Enter food #" + i + ": "`, and `foods.add(...)` each answer.  
+  - Ask `Enter the number of food you would like: ` and read it with `nextInt()`, then call `scanner.nextLine()` once to clear the leftover new line (lesson 03).  
+  - Loop that many times, asking `Enter food #1: `, `Enter food #2: ` and so on, and `add(...)` each answer to `foods`.  
   - Print the whole list. Unlike lesson 23's array, you never had to pick its size up front.  
+
+Expected output, answering `2`, `pizza` and `tacos`:  
+
+```
+Banana
+3
+[Banana, Coconut, Pineapple]
+Banana
+Coconut
+Pineapple
+Enter the number of food you would like: 2
+Enter food #1: pizza
+Enter food #2: tacos
+[pizza, tacos]
+```
 
 ---
 

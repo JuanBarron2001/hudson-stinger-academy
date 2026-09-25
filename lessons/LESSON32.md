@@ -38,47 +38,40 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Animal.java`, `Dog.java` and `Cat.java` all start with `package lesson32.basic;`. The extra folder gets its own copies with `package lesson32.extra;`.
 
 **Basic (1 pt)**  
-- Create a parent class `Animal` with:  
-  - Attribute: `boolean isAlive`  
-  - Constructor: sets `isAlive = true`  
-  - Method: `void eat()`  
+- Create a parent class, `Animal`, with a `boolean isAlive`, a constructor `Animal()` that sets it to `true`, and `void eat()`, which prints `The animal is eating`.  
+- Create `Dog` and `Cat`, which each **extend** `Animal` and are otherwise empty: `public class Dog extends Animal { }`.  
+- In `main()`, create a dog and a cat. Print each one's `isAlive`, and call `eat()` on both. `Dog` and `Cat` are empty, yet they have both, because they inherited them from `Animal`.  
 
-```java
-public class Animal {
-    boolean isAlive;
+Expected output:  
 
-    Animal() {
-        isAlive = true;
-    }
-
-    void eat() {
-        System.out.println("The animal is eating");
-    }
-}
 ```
-
-- Create child classes `Dog` and `Cat` that **extend** `Animal`.  
-- Instantiate them and show they inherit `isAlive` and `eat()`.  
+true
+true
+The animal is eating
+The animal is eating
+```
 
 **Extra (1 pt)**  
-- Add unique attributes and methods:  
-  - `Dog`: `int lives = 1; void speak() { System.out.println("The dog goes woof"); }`  
-  - `Cat`: `int lives = 9; void speak() { System.out.println("The cat goes meow"); }`  
-
-```java
-Dog dog = new Dog();
-Cat cat = new Cat();
-
-System.out.println(dog.isAlive); // true
-dog.eat();                       // inherited
-dog.speak();                     // unique
-
-System.out.println(cat.lives);   // 9
-cat.speak();                     // unique
-```
-
+- Give each child something of its own:  
+  - `Dog`: `int lives = 1;` and `void speak()`, which prints `The dog goes woof`  
+  - `Cat`: `int lives = 9;` and `void speak()`, which prints `The cat goes meow`  
+- In `main()`, print each one's `isAlive` and `lives` on one line, then call its `eat()` and `speak()`.  
 - **Multi‑level inheritance**, the end of the video. Add a grandparent class `Organism` and move `isAlive` and its constructor into it, so `Animal extends Organism`. `Dog` and `Cat` still have `isAlive`: they get it through `Animal`.  
-- Add `Plant extends Organism` with `void photosynthesize()` that prints `"The plant absorbs sunlight"`. A plant is alive, but it can't `eat()`, and a dog can't `photosynthesize()`. Try calling `dog.photosynthesize()` and read the error. They're siblings under `Organism`, not parent and child.  
+- Add `Plant extends Organism` with `void photosynthesize()`, which prints `The plant absorbs sunlight`. Create a plant, print its `isAlive`, and make it photosynthesize.  
+- A plant is alive, but it can't `eat()`, and a dog can't `photosynthesize()`. Try calling `dog.photosynthesize()` and read the error: `cannot find symbol ... method photosynthesize()`. They're siblings under `Organism`, not parent and child. Delete that line.  
+
+Expected output:  
+
+```
+true 1
+The animal is eating
+The dog goes woof
+true 9
+The animal is eating
+The cat goes meow
+true
+The plant absorbs sunlight
+```
 
 ---
 

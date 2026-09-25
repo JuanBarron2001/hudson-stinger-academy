@@ -37,67 +37,31 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson33.basic;`, and `package lesson33.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create a `Person` class with attributes and constructor:  
-
-```java
-public class Person {
-    String first;
-    String last;
-
-    Person(String first, String last) {
-        this.first = first;
-        this.last = last;
-    }
-
-    void showName() {
-        System.out.println(this.first + " " + this.last);
-    }
-}
-```
-
-- Create a `Student` class that extends `Person`.  
-- Add a `double gpa` attribute.  
-- Use `super(first, last)` in the constructor.  
-
-```java
-public class Student extends Person {
-    double gpa;
-
-    Student(String first, String last, double gpa) {
-        super(first, last); // call parent constructor
-        this.gpa = gpa;
-    }
-
-    void showGpa() {
-        System.out.println(this.first + "'s GPA is " + this.gpa);
-    }
-}
-```
-
-- Before you add the `super(first, last);` line, try setting `this.first = first;` in `Student`'s constructor instead, and read the error. `Person`'s only constructor needs a first and last name, so a `Student` can't be built until it hands them up to the parent with `super`.  
+- Create a `Person` class with `String first` and `String last`, a constructor `Person(String first, String last)` that sets both, and `void showName()`, which prints the first name, a space, and the last name.  
+- Create a `Student` class that extends `Person` and adds a `double gpa`. Its constructor is `Student(String first, String last, double gpa)`.  
+- **First,** try setting `this.first = first;` in `Student`'s constructor and read the error: `constructor Person in class Person cannot be applied to given types ... required: String,String, found: no arguments`. `Person`'s only constructor needs a first and last name, so a `Student` can't be built until it hands them up to the parent.  
+- Replace that line with `super(first, last);` as the constructor's **first** line, then set the gpa.  
+- Give `Student` a `void showGpa()`, which prints the first name followed by `'s GPA is ` and the gpa.  
 - In `main()`, create `new Student("Harry", "Potter", 3.25)`, then call `showName()` and `showGpa()`. `showName()` came from `Person`.  
 
-**Extra (1 pt)**  
-- Create an `Employee` class that extends `Person`.  
-- Add an `int salary` attribute.  
-- Use `super(first, last)` in the constructor.  
+Expected output:  
 
-```java
-public class Employee extends Person {
-    int salary;
-
-    Employee(String first, String last, int salary) {
-        super(first, last);
-        this.salary = salary;
-    }
-
-    void showSalary() {
-        System.out.println(this.first + "'s salary is $" + this.salary);
-    }
-}
+```
+Harry Potter
+Harry's GPA is 3.25
 ```
 
+**Extra (1 pt)**  
+- Create an `Employee` class that extends `Person` and adds an `int salary`. Its constructor, `Employee(String first, String last, int salary)`, calls `super(first, last)` too.  
+- Give it `void showSalary()`, which prints the first name followed by `'s salary is $` and the salary.  
 - In `main()`, create `new Employee("Rubeus", "Hagrid", 50000)` and call `showName()` and `showSalary()`.  
+
+Expected output:  
+
+```
+Rubeus Hagrid
+Rubeus's salary is $50000
+```
 
 ---
 

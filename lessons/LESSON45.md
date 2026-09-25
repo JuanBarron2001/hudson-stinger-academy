@@ -36,65 +36,39 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Example of dividing by zero:  
-
-```java
-try {
-    int result = 1 / 0; // dangerous code
-} catch (ArithmeticException e) {
-    System.out.println("You can't divide by zero!");
-}
-```
-
-- Example of input mismatch:  
-
-```java
-// These two lines go at the TOP of the file, with the other imports:
-import java.util.Scanner;
-import java.util.InputMismatchException;
-
-// The rest goes in main:
-Scanner scanner = new Scanner(System.in);
-
-try {
-    System.out.print("Enter a number: ");
-    int number = scanner.nextInt();
-    System.out.println("You entered: " + number);
-} catch (InputMismatchException e) {
-    System.out.println("That wasn't a number!");
-}
-```
-
+- Put `int result = 1 / 0;` inside a `try` block. After it, `catch (ArithmeticException e)` and print `You can't divide by zero!`. Run it once **without** the `try` first, and read the exception it crashes with.  
+- Add `import java.util.Scanner;` and `import java.util.InputMismatchException;` at the **top** of the file.  
+- Create a `Scanner`. Inside a `try`: ask `Enter a number: `, read it with `nextInt()`, and print `You entered: ` and the number. Then `catch (InputMismatchException e)` and print `That wasn't a number!`.  
 - Run it twice: once typing a number, once typing a word like `pizza`. Without the `try`, the word would crash the program with an `InputMismatchException`.  
 
+Expected output, typing `42` and then (on the second run) `pizza`:  
+
+```
+You can't divide by zero!
+Enter a number: 42
+You entered: 42
+```
+```
+You can't divide by zero!
+Enter a number: pizza
+That wasn't a number!
+```
+
 **Extra (1 pt)**  
-- Using multiple catch blocks and a catch-all:  
-
-```java
-try {
-    int result = 1 / 0;
-} catch (ArithmeticException e) {
-    System.out.println("Math error: " + e.getMessage());
-} catch (Exception e) {
-    System.out.println("Something went wrong.");
-} finally {
-    System.out.println("This always executes.");
-}
-```
-
-- Using **try-with-resources**:  
-
-```java
-try (Scanner scanner2 = new Scanner(System.in)) {
-    System.out.print("Enter a number: ");
-    int num = scanner2.nextInt();
-    System.out.println("You entered: " + num);
-} catch (InputMismatchException e) {
-    System.out.println("Invalid input!");
-}
-```
-
+- Try the `1 / 0` again, this time with **three** blocks after it:  
+  - `catch (ArithmeticException e)`, which prints `Math error: ` followed by `e.getMessage()`  
+  - `catch (Exception e)`, which prints `Something went wrong.`: the safety net, and it goes **last**  
+  - `finally`, which prints `This always executes.`  
+- **Predict** which of the three print before you run it.  
+- **Try-with-resources:** create the `Scanner` **inside** the `try`'s parentheses, `try (Scanner scanner = new Scanner(System.in))`. Ask for a number again, and `catch (InputMismatchException e)` with `Invalid input!`.  
 - With try‑with‑resources, Java closes the `Scanner` for you when the `try` ends, even if an exception was thrown. The video's advice: catch **specific** exceptions first, so the user learns what went wrong, and keep `Exception e` last, as a safety net.  
+
+Expected output of the first part:  
+
+```
+Math error: / by zero
+This always executes.
+```
 
 ---
 

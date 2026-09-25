@@ -37,95 +37,35 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > `import` lines go at the **top** of your `Main.java`, and statements go **inside** `main`. New classes like `Box` get their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson51.basic;`, and `package lesson51.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Generics are everywhere in Java. For example, `ArrayList<E>`:  
+- You've used generics already. Make an `ArrayList<String>` of `Apple`, `Orange` and `Banana` and print it, then an `ArrayList<Integer>` of `1`, `2` and `3` and print that. The type in the angle brackets decides what the list may hold.  
+- Now write your own: a **generic class**, `public class Box<T>`. `T` is a **type parameter**, a placeholder for whatever type a particular box will hold. Give it:  
+  - `private T item;`  
+  - `public void setItem(T item)`  
+  - `public T getItem()`  
+- In `main()`, make a `Box<String>`, put `"Banana"` in it, and print `getItem()`. Then make a `Box<Integer>`, put `3` in it, and print that.  
+- Now try `intBox.setItem("Banana");` and read the error: `incompatible types: String cannot be converted to Integer`. The `<Integer>` you wrote is the **type argument**: it fills in the `T` for that box, and Java checks it before the program ever runs. Delete the line.  
 
-```java
-import java.util.ArrayList; // at the top of the file
+Expected output:  
 
-ArrayList<String> fruits = new ArrayList<>();
-fruits.add("Apple");
-fruits.add("Orange");
-fruits.add("Banana");
-
-System.out.println(fruits); // [Apple, Orange, Banana]
 ```
-
-- If you change the type argument to `Integer`, you can only store numbers:  
-
-```java
-ArrayList<Integer> numbers = new ArrayList<>();
-numbers.add(1);
-numbers.add(2);
-numbers.add(3);
+[Apple, Orange, Banana]
+[1, 2, 3]
+Banana
+3
 ```
-
----
-
-- Create a **generic Box class**:  
-
-```java
-public class Box<T> {
-    private T item;
-
-    public void setItem(T item) {
-        this.item = item;
-    }
-
-    public T getItem() {
-        return item;
-    }
-}
-```
-
-- Usage:  
-
-```java
-Box<String> stringBox = new Box<>();
-stringBox.setItem("Banana");
-System.out.println(stringBox.getItem()); // Banana
-
-Box<Integer> intBox = new Box<>();
-intBox.setItem(3);
-System.out.println(intBox.getItem()); // 3
-```
-
-- Now try `intBox.setItem("Banana");` and read the error. The `<Integer>` you wrote is the **type argument**: it fills in the `T` for that box, and Java checks it before the program ever runs. Delete the line.  
-
----
 
 **Extra (1 pt)**  
-- Create a **Product class** with two type parameters:  
+- Create a class with **two** type parameters, `public class Product<T, U>`: `private T item;` and `private U price;`, a constructor `public Product(T item, U price)`, and `getItem()` and `getPrice()`. Work out what each getter's return type has to be.  
+- In `main()`, make a `Product<String, Double>` for `"Apple"` at `0.5`, and a `Product<String, Integer>` for `"Ticket"` at `15`. Same class, different type arguments.  
+- Print each product's item and price.  
 
-```java
-public class Product<T, U> {
-    private T item;
-    private U price;
+Expected output:  
 
-    public Product(T item, U price) {
-        this.item = item;
-        this.price = price;
-    }
-
-    public T getItem() {
-        return item;
-    }
-
-    public U getPrice() {
-        return price;
-    }
-}
 ```
-
-- Usage with different type arguments:  
-
-```java
-Product<String, Double> product1 = new Product<>("Apple", 0.5);
-System.out.println(product1.getItem());  // Apple
-System.out.println(product1.getPrice()); // 0.5
-
-Product<String, Integer> product2 = new Product<>("Ticket", 15);
-System.out.println(product2.getItem());  // Ticket
-System.out.println(product2.getPrice()); // 15
+Apple
+0.5
+Ticket
+15
 ```
 
 ---

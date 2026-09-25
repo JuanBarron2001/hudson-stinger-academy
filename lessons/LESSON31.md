@@ -36,44 +36,30 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Friend.java` starts with `package lesson31.basic;` in the basic folder, and the extra folder gets its own copy with `package lesson31.extra;`.
 
 **Basic (1 pt)**  
-- **First, without `static`**, the way the video starts: give `Friend` a `name` and a plain `int numberOfFriends = 0;`, add 1 to it in the constructor, create two friends, and print each one's `numberOfFriends`. Why do both say `1`? Answer in a comment.  
-- Now add `static` to that variable, so every `Friend` shares **one** count instead of each keeping its own:  
+- **First, without `static`**, the way the video starts: give `Friend` a `String name` and a plain `int numberOfFriends = 0;`, and a constructor, `Friend(String name)`, that sets the name and adds 1 to `numberOfFriends`.  
+- In `main()`, create two friends and print **each one's** `numberOfFriends`. **Predict it first.** Then explain in a comment why both say `1`.  
+- Now make it `static int numberOfFriends = 0;`, so every `Friend` shares **one** count instead of each keeping its own. Create a few more friends and print the total: it goes up with every friend now.  
 
-```java
-public class Friend {
-    String name;
-    static int numberOfFriends = 0;
+Expected output, before `static`:  
 
-    Friend(String name) {
-        this.name = name;
-        numberOfFriends++;
-    }
-
-    static void showFriends() {
-        System.out.println("You have " + numberOfFriends + " total friends");
-    }
-}
 ```
-
-- In `main()`, create several `Friend` objects and print the total count. It goes up with every friend now.  
+1
+1
+```
 
 **Extra (1 pt)**  
-- Demonstrate accessing the static variable and method via the **class name**:  
-
-```java
-public static void main(String[] args) {
-    Friend f1 = new Friend("SpongeBob");
-    Friend f2 = new Friend("Patrick");
-    Friend f3 = new Friend("Squidward");
-
-    // Access static variable and method via class name
-    System.out.println(Friend.numberOfFriends); // 3
-    Friend.showFriends(); // "You have 3 total friends"
-}
-```
-
+- Add a static method to `Friend`, `static void showFriends()`, which prints `You have `, the count, and ` total friends`. There's no `this.` in a static method, because it doesn't belong to any one friend.  
+- In `main()`, create three friends (SpongeBob, Patrick and Squidward), then print `Friend.numberOfFriends` and call `Friend.showFriends()`, both through the **class name**.  
 - Use `Friend.numberOfFriends`, not `f1.numberOfFriends`. It works either way, but the class name tells the reader the value belongs to the class, not to one friend.  
 - `Math.round(2.5)` is a static method too: you've been calling it on the class since lesson 07, without ever writing `new Math()`. Print one to prove it.  
+
+Expected output:  
+
+```
+3
+You have 3 total friends
+3
+```
 
 ---
 

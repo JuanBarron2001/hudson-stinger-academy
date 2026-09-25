@@ -37,45 +37,30 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson34.basic;`, and `package lesson34.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create a parent class `Animal` with a `move()` method.  
-
-```java
-public class Animal {
-    void move() {
-        System.out.println("This animal is running");
-    }
-}
-```
-
-- Create child classes `Dog`, `Cat`, and `Fish` that extend `Animal`.  
-- By default, they inherit the `move()` method.  
+- Create a parent class, `Animal`, with `void move()`, which prints `This animal is running`.  
+- Create `Dog`, `Cat` and `Fish`, which each extend `Animal` and are otherwise empty. They all inherit `move()`.  
 - In `main()`, create a `Dog`, a `Cat` and a `Fish`, and call `move()` on each. All three are "running", which is wrong for a fish.  
 
+Expected output:  
+
+```
+This animal is running
+This animal is running
+This animal is running
+```
+
 **Extra (1 pt)**  
-- Override the `move()` method in the `Fish` class to provide a unique implementation.  
+- In `Fish`, write its own `void move()`, which prints `This animal is swimming`, with `@Override` on the line above it. This is **overriding**: same name, same parameters, and the child's version wins.  
+- In `main()`, call `move()` on a `Dog`, a `Cat` and a `Fish` again. Only the fish swims now.  
+- Now misspell the override as `void moves()`, keeping `@Override` above it, and read the error: `method does not override or implement a method from a supertype`. Without `@Override`, Java would quietly add a new method, and the fish would go back to running with no warning. Fix the spelling.  
 
-```java
-public class Fish extends Animal {
-    @Override
-    void move() {
-        System.out.println("This animal is swimming");
-    }
-}
+Expected output:  
+
 ```
-
-- Demonstrate:  
-
-```java
-Dog dog = new Dog();
-Cat cat = new Cat();
-Fish fish = new Fish();
-
-dog.move();  // "This animal is running"
-cat.move();  // "This animal is running"
-fish.move(); // "This animal is swimming"
+This animal is running
+This animal is running
+This animal is swimming
 ```
-
-- Now misspell the override as `void moves()`, keeping `@Override` above it, and read the error. Without `@Override`, Java would quietly add a new method, and the fish would go back to running with no warning. Fix the spelling.  
 
 ---
 

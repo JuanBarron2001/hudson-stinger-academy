@@ -36,40 +36,41 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-> In the code below, the `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
+> The `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
 **Basic (1 pt)**  
-- Read the `test.txt` you wrote in lesson 46, line by line. It's in `java-lessons/`, the folder you run lessons from, so its name alone is enough:  
+- Read the `test.txt` you wrote in lesson 46, line by line. It's in `java-lessons/`, the folder you run lessons from, so `String filePath = "test.txt";` is enough.  
+- Import `BufferedReader`, `FileReader`, `FileNotFoundException` and `IOException`, all from `java.io`.  
+- Open it with try-with-resources (lesson 45): `try (BufferedReader reader = new BufferedReader(new FileReader(filePath)))`. The `FileReader` does the actual reading. The `BufferedReader` wraps it, like a middleman, so it can read a whole line at a time.  
+- Inside, declare `String line;` and loop with `while ((line = reader.readLine()) != null)`, printing each line. `readLine()` hands back one line each time you call it, and `null` once there are no lines left, which is why the loop stops at `null`. That one condition does two jobs: it reads the next line into `line`, *then* checks it.  
+- Catch `FileNotFoundException` first (`Could not locate file.`), then `IOException` (`Something went wrong.`).  
 
-```java
-// at the top of the file:
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+Expected output:  
 
-// inside main:
-String filePath = "test.txt";
-
-try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-    String line;
-    while ((line = reader.readLine()) != null) {
-        System.out.println(line); // print each line
-    }
-} catch (FileNotFoundException e) {
-    System.out.println("Could not locate file.");
-} catch (IOException e) {
-    System.out.println("Something went wrong.");
-}
+```
+I like pizza
 ```
 
-- `readLine()` hands back one line each time you call it, and `null` once there are no lines left. That's why the `while` loop stops at `null`.  
-- The `FileReader` does the actual reading. The `BufferedReader` wraps it, like a middleman, so it can read a whole line at a time.  
-
 **Extra (1 pt)**  
-- Misspell the file name and run it: you get the `FileNotFoundException` message instead of a crash.  
-- Count the lines: add an `int` counter that goes up inside the `while` loop, and print `"Lines: " + count` after it.  
+- Misspell the file name and run it: you get the `FileNotFoundException` message instead of a crash. Then fix it.  
+- Count the lines: add an `int` counter that goes up inside the `while` loop, and print `Lines: ` and the count after it.  
 - Read the multi‑line file you wrote to your Desktop in lesson 46's extra, using its full path (`"C:\\Users\\YourName\\Desktop\\test.txt"` on Windows, `"/Users/YourName/Desktop/test.txt"` on a Mac, `"/home/YourName/Desktop/test.txt"` on Linux).  
+
+Expected output: the misspelled name, then `test.txt`, then the Desktop file:  
+
+```
+Could not locate file.
+```
+```
+I like pizza
+Lines: 1
+```
+```
+I like pizza
+It's really good
+Buy me pizza
+Lines: 3
+```
 
 ---
 

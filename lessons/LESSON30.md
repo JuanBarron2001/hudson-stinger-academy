@@ -38,44 +38,33 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Car.java` starts with `package lesson30.basic;` in the basic folder, and the extra folder gets its own copy with `package lesson30.extra;`.
 
 **Basic (1 pt)**  
-- Create a `Car` class with attributes and a constructor:  
+- Create a `Car` class with `String model` and `String color`, a constructor `Car(String model, String color)` that sets both, and `void drive()`, which prints `You drive the `, then the color, a space, and the model.  
+- In `main()`, create three cars (a red Mustang, a blue Corvette and a yellow Charger) and store them in a `Car[]` array.  
+- Use a `for` loop that stops at `cars.length` to call `drive()` on each one.  
 
-```java
-public class Car {
-    String model;
-    String color;
+Expected output:  
 
-    Car(String model, String color) {
-        this.model = model;
-        this.color = color;
-    }
-
-    void drive() {
-        System.out.println("You drive the " + this.color + " " + this.model);
-    }
-}
 ```
-
-- Instantiate three cars and store them in an array.  
-- Use a **for loop** to call `drive()` on each.  
+You drive the Red Mustang
+You drive the Blue Corvette
+You drive the Yellow Charger
+```
 
 **Extra (1 pt)**  
-- Use an **enhanced for loop** to simplify iteration.  
-- Create an array with **anonymous objects** directly:  
+- Build the array with **anonymous objects**: put the three `new Car(...)` calls straight inside the array's braces, with no variable for each car.  
+- Drive every car with an **enhanced `for` loop** (`for (Car car : cars)`).  
+- Paint every car: in another enhanced `for` loop, set `car.color = "Black";`, then drive them all again. Changing an object you got from the array changes the object itself.  
 
-```java
-Car[] cars = {
-    new Car("Mustang", "Red"),
-    new Car("Corvette", "Blue"),
-    new Car("Charger", "Yellow")
-};
+Expected output:  
 
-for (Car car : cars) {
-    car.drive();
-}
 ```
-
-- Paint every car: in another enhanced `for` loop, set `car.color = "Black";`, then drive them all again. Changing an object you got from the array changes the object itself.
+You drive the Red Mustang
+You drive the Blue Corvette
+You drive the Yellow Charger
+You drive the Black Mustang
+You drive the Black Corvette
+You drive the Black Charger
+```
 
 ---
 

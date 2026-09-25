@@ -37,71 +37,33 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > Every interface and class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Prey.java`, `Predator.java`, `Rabbit.java` and so on all start with `package lesson37.basic;` (and `package lesson37.extra;` for the extra's copies).
 
 **Basic (1 pt)**  
-- Create two interfaces:  
-
-```java
-public interface Prey {
-    void flee();
-}
-
-public interface Predator {
-    void hunt();
-}
-```
-
-- Create a `Rabbit` class that implements `Prey`:  
-
-```java
-public class Rabbit implements Prey {
-    @Override
-    public void flee() {
-        System.out.println("The rabbit is running away!");
-    }
-}
-```
-
-- Create a `Hawk` class that implements `Predator`:  
-
-```java
-public class Hawk implements Predator {
-    @Override
-    public void hunt() {
-        System.out.println("The hawk is hunting!");
-    }
-}
-```
-
+- Create two interfaces, each with one method and no body:  
+  - `public interface Prey`, with `void flee();`  
+  - `public interface Predator`, with `void hunt();`  
+- Create `public class Rabbit implements Prey`. It has to fill in `flee()`: `@Override public void flee()`, which prints `The rabbit is running away!`.  
+- Create `public class Hawk implements Predator`, with `@Override public void hunt()`, which prints `The hawk is hunting!`.  
 - In `main()`, create a `Rabbit` and a `Hawk`, and call `rabbit.flee()` and `hawk.hunt()`. A rabbit has no `hunt()` and a hawk has no `flee()`.  
-- Delete the word `public` from the rabbit's `flee()` and read the error. An interface's methods are always public, so the class that fills them in has to keep them public. Put it back.  
+- Delete the word `public` from the rabbit's `flee()` and read the error: `flee() in Rabbit cannot implement flee() in Prey`. An interface's methods are always public, so the class that fills them in has to keep them public. Put it back.  
+
+Expected output:  
+
+```
+The rabbit is running away!
+The hawk is hunting!
+```
 
 **Extra (1 pt)**  
-- Create a `Fish` class that implements **both** `Prey` and `Predator`:  
+- Create `public class Fish implements Prey, Predator`. It has to fill in **both** contracts: `flee()` prints `The fish is swimming away!` and `hunt()` prints `The fish is hunting smaller fish!`.  
+- In `main()`, create a `Rabbit`, a `Hawk` and a `Fish`. Call `rabbit.flee()`, `hawk.hunt()`, `fish.flee()` and `fish.hunt()`.  
+- A class can extend only **one** parent, but it can implement as many interfaces as it likes.  
 
-```java
-public class Fish implements Prey, Predator {
-    @Override
-    public void flee() {
-        System.out.println("The fish is swimming away!");
-    }
+Expected output:  
 
-    @Override
-    public void hunt() {
-        System.out.println("The fish is hunting smaller fish!");
-    }
-}
 ```
-
-- Demonstrate usage:  
-
-```java
-Rabbit rabbit = new Rabbit();
-Hawk hawk = new Hawk();
-Fish fish = new Fish();
-
-rabbit.flee(); // The rabbit is running away!
-hawk.hunt();   // The hawk is hunting!
-fish.flee();   // The fish is swimming away!
-fish.hunt();   // The fish is hunting smaller fish!
+The rabbit is running away!
+The hawk is hunting!
+The fish is swimming away!
+The fish is hunting smaller fish!
 ```
 
 ---

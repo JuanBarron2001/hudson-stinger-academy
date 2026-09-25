@@ -37,57 +37,32 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `User.java` starts with `package lesson29.basic;` in the basic folder, and the extra folder gets its own copy with `package lesson29.extra;`.
 
 **Basic (1 pt)**  
-- Create a `User` class with attributes:  
-  - `String username`  
-  - `String email`  
-  - `int age`  
-
-- Add a constructor that accepts only a username and sets default values for the other fields.  
+- Create a `User` class with three attributes: `String username`, `String email` and `int age`.  
+- Add a constructor that takes **only** a username, `User(String username)`, and fills in defaults for the other two: `"Not Provided"` for the email and `0` for the age.  
 - In `main()`, create `new User("SpongeBob")` and print its username, email and age.  
 
-```java
-public class User {
-    String username;
-    String email;
-    int age;
+Expected output:  
 
-    // Constructor with username only
-    User(String username) {
-        this.username = username;
-        this.email = "Not Provided";
-        this.age = 0;
-    }
-}
+```
+SpongeBob
+Not Provided
+0
 ```
 
 **Extra (1 pt)**  
-- Add more constructors:  
-  - One with `username` and `email`  
-  - One with `username`, `email`, and `age`  
-  - One with **no arguments** (default/guest profile)  
-- In `main()`, create one user with each constructor, like the video: `"SpongeBob"`; `"Patrick"` and `"pstar@aol.com"`; `"Sandy"`, `"scheeks@gmail.com"` and `27`; and one with nothing. Print all four. Java picks the constructor whose parameters match what you pass.  
+- Add three more constructors. They're overloads, like lesson 20's methods:  
+  - `User(String username, String email)`, where the age defaults to `0`  
+  - `User(String username, String email, int age)`  
+  - `User()`, a guest profile: username `"Guest"`, email `"Not Provided"`, age `0`  
+- In `main()`, create one user with each constructor, like the video: `"SpongeBob"`; `"Patrick"` and `"pstar@aol.com"`; `"Sandy"`, `"scheeks@gmail.com"` and `27`; and one with nothing. Print each user's three attributes on one line. Java picks the constructor whose parameters match what you pass.  
 
-```java
-// Constructor with username + email
-User(String username, String email) {
-    this.username = username;
-    this.email = email;
-    this.age = 0;
-}
+Expected output:  
 
-// Constructor with username + email + age
-User(String username, String email, int age) {
-    this.username = username;
-    this.email = email;
-    this.age = age;
-}
-
-// Constructor with no arguments
-User() {
-    this.username = "Guest";
-    this.email = "Not Provided";
-    this.age = 0;
-}
+```
+SpongeBob Not Provided 0
+Patrick pstar@aol.com 0
+Sandy scheeks@gmail.com 27
+Guest Not Provided 0
 ```
 
 ---

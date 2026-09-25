@@ -38,57 +38,41 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `java-lessons/src/lesson28/basic/Student.java` starts with `package lesson28.basic;`, and the extra folder gets its own copy with `package lesson28.extra;`.
 
 **Basic (1 pt)**  
-- Create a `Student` class with attributes:  
-  - `String name`  
-  - `int age`  
-  - `double gpa`  
-  - `boolean isEnrolled`  
-
-- Add a **Constructor** that accepts `name`, `age`, and `gpa`.  
-- Use the `this` keyword to assign parameters to attributes.  
-- Automatically set `isEnrolled = true`.  
-- In `main()`, create one student with `new Student("SpongeBob", 30, 3.2)` and print its four attributes.  
+- Create a `Student` class with four attributes, and no starting values this time: `String name`, `int age`, `double gpa` and `boolean isEnrolled`.  
+- Add a **constructor** that takes three of them:  
 
 ```java
-public class Student {
-    String name;
-    int age;
-    double gpa;
-    boolean isEnrolled;
+Student(String name, int age, double gpa)
+```
 
-    // Constructor
-    Student(String name, int age, double gpa) {
-        this.name = name;
-        this.age = age;
-        this.gpa = gpa;
-        this.isEnrolled = true; // default
-    }
+- Inside it, use `this` to tell the attribute apart from the parameter with the same name: `this.name = name;`. Do the same for the other two.  
+- Also set `this.isEnrolled = true;`, because every new student is enrolled.  
+- Add `void study()`, which prints the student's name followed by ` is studying`.  
+- In `main()`, create `new Student("SpongeBob", 30, 3.2)` and print its four attributes.  
 
-    void study() {
-        System.out.println(this.name + " is studying");
-    }
-}
+Expected output:  
+
+```
+SpongeBob
+30
+3.2
+true
 ```
 
 **Extra (1 pt)**  
-- In `main()`, create three students with unique values.  
-- Print their attributes and call the `study()` method.  
-- Try `new Student()` with no arguments. Read the error: once a class has a constructor with parameters, every new object has to pass them.  
+- In `main()`, create three students: `"SpongeBob", 30, 3.2`, then `"Patrick", 34, 1.5`, then `"Sandy", 27, 4.0`.  
+- Print each one's name, age, gpa and `isEnrolled` on one line, then call `study()` on all three.  
+- Try `new Student()` with no arguments. Read the error: `constructor Student in class Student cannot be applied to given types ... required: String,int,double`. Once a class has a constructor with parameters, every new object has to pass them. Delete the line.  
 
-```java
-public static void main(String[] args) {
-    Student s1 = new Student("SpongeBob", 30, 3.2);
-    Student s2 = new Student("Patrick", 34, 1.5);
-    Student s3 = new Student("Sandy", 27, 4.0);
+Expected output:  
 
-    System.out.println(s1.name + " " + s1.age + " " + s1.gpa + " " + s1.isEnrolled);
-    System.out.println(s2.name + " " + s2.age + " " + s2.gpa + " " + s2.isEnrolled);
-    System.out.println(s3.name + " " + s3.age + " " + s3.gpa + " " + s3.isEnrolled);
-
-    s1.study();
-    s2.study();
-    s3.study();
-}
+```
+SpongeBob 30 3.2 true
+Patrick 34 1.5 true
+Sandy 27 4.0 true
+SpongeBob is studying
+Patrick is studying
+Sandy is studying
 ```
 
 ---

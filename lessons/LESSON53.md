@@ -37,57 +37,36 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 > An enum is a special kind of class, so `Day` gets its own file next to `Main.java`, `Day.java`, starting with the same `package` line, like lesson 27 (`package lesson53.basic;`, and `package lesson53.extra;` for the extra's copy).
 
 **Basic (1 pt)**  
-- Create an enum for days of the week:  
+- Create an enum for the days of the week, `public enum Day`, whose seven constants each carry their number: `SUNDAY(1)`, `MONDAY(2)`, and so on to `SATURDAY(7)`. The list of constants ends with a `;`.  
+- An enum can have fields and a constructor like any class. Give it `private final int dayNumber;`, a constructor `Day(int dayNumber)` that sets it, and `public int getDayNumber()`.  
+- In `main()`, make `Day day = Day.SUNDAY;`, then print `day` and `day.getDayNumber()`.  
 
-```java
-public enum Day {
-    SUNDAY(1),
-    MONDAY(2),
-    TUESDAY(3),
-    WEDNESDAY(4),
-    THURSDAY(5),
-    FRIDAY(6),
-    SATURDAY(7);
+Expected output:  
 
-    private final int dayNumber;
-
-    Day(int dayNumber) {
-        this.dayNumber = dayNumber;
-    }
-
-    public int getDayNumber() {
-        return dayNumber;
-    }
-}
 ```
-
-- Usage in `main`:  
-
-```java
-Day day = Day.SUNDAY;
-System.out.println(day);              // SUNDAY
-System.out.println(day.getDayNumber());// 1
+SUNDAY
+1
 ```
 
 **Extra (1 pt)**  
-- Use enums in a switch statement:  
-
-```java
-Day today = Day.WEDNESDAY;
-
-switch (today) {
-    case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> 
-        System.out.println("It is a weekday");
-    case SATURDAY, SUNDAY -> 
-        System.out.println("It is the weekend");
-}
-```
-
+- Make `Day today = Day.WEDNESDAY;` and use it in an **enhanced switch** (lesson 13): `MONDAY` to `FRIDAY` print `It is a weekday`, and `SATURDAY` and `SUNDAY` print `It is the weekend`. The cases have no quotes and no `Day.` in front, because they're enum constants, not `String`s.  
 - Enums are faster than comparing strings in switches and more readable than using integers.  
 - **Let the user pick the day**, like the end of the video:  
-  - Read a line with a `Scanner` and turn it into a `Day` with `Day.valueOf(response.toUpperCase())`. The constants are all caps, so `monday` has to become `MONDAY`.  
-  - Type `Pizza day` and read the exception. Wrap the `valueOf` and the `switch` in a `try`, and `catch (IllegalArgumentException e)` to print `"Please enter a valid day"`.  
+  - Ask `Enter a day of the week: `, read a line with a `Scanner`, and turn it into a `Day` with `Day.valueOf(response.toUpperCase())`. The constants are all caps, so `monday` has to become `MONDAY`.  
+  - Type `Pizza day` and read the exception: `No enum constant ... PIZZA DAY`. Wrap the `valueOf` and the `switch` in a `try`, and `catch (IllegalArgumentException e)` to print `Please enter a valid day`.  
   - Then make pizza day real: add `PIZZA_DAY(8)` to the enum and put it in the weekend case. Typing `pizza_day` works now.  
+
+Expected output, running it three times with `monday`, `Pizza day` and `pizza_day`:  
+
+```
+It is a weekday
+Enter a day of the week: monday
+It is a weekday
+Enter a day of the week: Pizza day
+Please enter a valid day
+Enter a day of the week: pizza_day
+It is the weekend
+```
 
 ---
 

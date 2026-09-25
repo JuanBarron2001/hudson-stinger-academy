@@ -35,59 +35,38 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-> In the code below, the `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
+> The `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
 **Basic (1 pt)**  
-- Write a file with `FileWriter`:  
-
-```java
-// at the top of the file:
-import java.io.FileWriter;
-import java.io.IOException;
-
-// inside main:
-try (FileWriter writer = new FileWriter("test.txt")) {
-    writer.write("I like pizza");
-    System.out.println("File has been written.");
-} catch (IOException e) {
-    System.out.println("Could not write file.");
-}
-```
-
+- Import `java.io.FileWriter` and `java.io.IOException`.  
+- Open the file with try-with-resources (lesson 45), so Java closes it for you: `try (FileWriter writer = new FileWriter("test.txt"))`.  
+- Inside the `try`, write `I like pizza` with `writer.write(...)`, then print `File has been written.`. Catch `IOException` and print `Could not write file.`.  
 - Run it, then find `test.txt`. With just a name and no folder, the file lands in the folder you ran the lesson from: `java-lessons/`. (In the video it lands in IntelliJ's source folder instead.) It should say `I like pizza`.  
 
-**Extra (1 pt)**  
-- Write to a full (absolute) path, like your Desktop, and catch a bad path separately:  
+Expected output:  
 
-```java
-// at the top of the file:
-import java.io.FileWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-// inside main:
-String filePath = "C:\\Users\\YourName\\Desktop\\test.txt"; // Windows: every backslash doubled
-// String filePath = "/Users/YourName/Desktop/test.txt";         // Mac
-// String filePath = "/home/YourName/Desktop/test.txt";          // Linux
-String textContent = """
-        I like pizza
-        It's really good
-        Buy me pizza
-        """;
-
-try (FileWriter writer = new FileWriter(filePath)) {
-    writer.write(textContent);
-    System.out.println("File has been written.");
-} catch (FileNotFoundException e) {
-    System.out.println("Could not locate file location.");
-} catch (IOException e) {
-    System.out.println("Could not write file.");
-}
+```
+File has been written.
 ```
 
-- Use the line for **your** computer, with your own user name, and delete the others.  
-- The triple quotes `"""` make a multi‑line `String`, handy when there's a lot of text.  
+**Extra (1 pt)**  
+- Import `FileWriter`, `FileNotFoundException` and `IOException`, all from `java.io`.  
+- Make a `String filePath` holding the full (absolute) path to a `test.txt` on **your** Desktop, with your own user name:  
+  - Windows: `"C:\\Users\\YourName\\Desktop\\test.txt"`, with every backslash doubled  
+  - Mac: `"/Users/YourName/Desktop/test.txt"`  
+  - Linux: `"/home/YourName/Desktop/test.txt"`  
+- Make a `String textContent` with three lines about pizza, using triple quotes, `"""`. That makes a multi‑line `String`, handy when there's a lot of text. The opening `"""` has to be the last thing on its line.  
+- Write it with try-with-resources, and catch **two** exceptions: `FileNotFoundException` first (`Could not locate file location.`), then `IOException` (`Could not write file.`).  
 - Misspell `Desktop` as `Deskto` and run it again. The folder doesn't exist, so you get the `FileNotFoundException` message. Catch the specific exception first and the general `IOException` last (lesson 45's advice).  
+
+Expected output, with the right path and then with `Deskto`:  
+
+```
+File has been written.
+```
+```
+Could not locate file location.
+```
 
 ---
 
