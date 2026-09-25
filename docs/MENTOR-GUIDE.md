@@ -51,9 +51,10 @@ For the 2026 offseason, lessons **00–05, 07, 09, 12–16, 19, 21, 22 and 26** 
 
 | Path | What it is | Students edit it? |
 |---|---|---|
-| `frc/robot/PickYourLesson.java` | The two lines that choose a lesson | Yes, only this |
-| `frc/robot/Robot.java` | The lesson host: loads the lesson, runs it in Teleoperated, runs the simulator | No |
+| `frc/robot/PickYourLesson.java` | The lines that choose a lesson, and `MY_ROBOT`, which runs the student's own `RobotContainer` instead (lesson 57) | Yes, only this |
+| `frc/robot/Robot.java` | The lesson host: loads the lesson, runs it in Teleoperated, runs the simulator. With `MY_ROBOT` on, it builds the student's `RobotContainer` and runs its `getAutonomousCommand()` in Autonomous | No |
 | `frc/lesson/LessonBase.java`, `LessonLoader.java`, `LessonLogger.java` | The harness and the hash-chained log | No |
+| `frc/lesson/myrobot/MyRobot.java` | Finds the student's `RobotContainer` by name, so a fresh clone builds without one, and logs the whole run to `frc.lesson.myrobot-output.log` | No |
 | `frc/lesson/lessonNN/{basic,extra}/` | The exercises | Yes |
 | `frc/lesson/lesson98/basic/` | The simulator check: a working demo that drives, shoots and climbs | No |
 | `frc/sim/RobotSim.java` | Physics that make the 2026 robot move at home | No |
@@ -104,6 +105,8 @@ Students fork the academy and pull new lessons with `git fetch upstream` and `gi
 ### Meetings
 
 Students deploy their own copy to the real robot. With one robot and two hours, plan a rotation. Put the drivetrain on blocks for drive lessons, and have a mentor hold enable and disable for anything that spins the flywheel or moves the climber.
+
+Lesson 57, the capstone, is the one lesson that can't be homework: its deliverable is each student's whole robot running on the real one, with `MY_ROBOT = true`. Its PathPlanner extra drives last season's `PP Depot And Climb` auto, which needs about 3.5 m by 2 m of floor, so run it on the field or with the robot on blocks, never in a crowded room.
 
 ---
 

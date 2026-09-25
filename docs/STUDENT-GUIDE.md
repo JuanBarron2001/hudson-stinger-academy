@@ -140,6 +140,8 @@ public static final boolean EXTRA = false;
 
 `EXTRA = false` runs the basic half; `true` runs the extra half. That's the only file you ever edit to choose a lesson.
 
+There's a third line, `MY_ROBOT`. Leave it `false` until [Lesson 57](../lessons/LESSON57.md), the capstone: then it runs **your** robot, `frc/robot/RobotContainer.java`, instead of a lesson.
+
 ### Launch the simulator
 
 In VS Code: **Ctrl+Shift+P → WPILib: Simulate Robot Code → Sim GUI → OK**.
