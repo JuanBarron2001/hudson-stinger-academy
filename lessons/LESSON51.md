@@ -19,171 +19,79 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [10:38:16](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=38296s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 51](https://www.youtube.com/watch?v=H9vc4gTtGGA&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=66) (Learn Java generics in 13 minutes! 📦, 13:56)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> `import` lines go at the **top** of your `Main.java`, and statements go **inside** `main`. New classes like `Box` get their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson51.basic;`, and `package lesson51.extra;` for the extra's copies).
+
 **Basic (1 pt)**  
-- Generics are everywhere in Java. For example, `ArrayList<E>`:  
+- You've used generics already. Make an `ArrayList<String>` of `Apple`, `Orange` and `Banana` and print it, then an `ArrayList<Integer>` of `1`, `2` and `3` and print that. The type in the angle brackets decides what the list may hold.  
+- Now write your own: a **generic class**, `public class Box<T>`. `T` is a **type parameter**, a placeholder for whatever type a particular box will hold. Give it:  
+  - `private T item;`  
+  - `public void setItem(T item)`  
+  - `public T getItem()`  
+- In `main()`, make a `Box<String>`, put `"Banana"` in it, and print `getItem()`. Then make a `Box<Integer>`, put `3` in it, and print that.  
+- Now try `intBox.setItem("Banana");` and read the error: `incompatible types: String cannot be converted to Integer`. The `<Integer>` you wrote is the **type argument**: it fills in the `T` for that box, and Java checks it before the program ever runs. Delete the line.  
 
-[CODE BLOCK]java
-import java.util.ArrayList;
+Expected output:  
 
-ArrayList<String> fruits = new ArrayList<>();
-fruits.add("Apple");
-fruits.add("Orange");
-fruits.add("Banana");
-
-System.out.println(fruits); // [Apple, Orange, Banana]
-[CODE BLOCK]
-
-- If you change the type argument to `Integer`, you can only store numbers:  
-
-[CODE BLOCK]java
-ArrayList<Integer> numbers = new ArrayList<>();
-numbers.add(1);
-numbers.add(2);
-numbers.add(3);
-[CODE BLOCK]
-
----
-
-- Create a **generic Box class**:  
-
-[CODE BLOCK]java
-public class Box<T> {
-    private T item;
-
-    public void setItem(T item) {
-        this.item = item;
-    }
-
-    public T getItem() {
-        return item;
-    }
-}
-[CODE BLOCK]
-
-- Usage:  
-
-[CODE BLOCK]java
-Box<String> stringBox = new Box<>();
-stringBox.setItem("Banana");
-System.out.println(stringBox.getItem()); // Banana
-
-Box<Integer> intBox = new Box<>();
-intBox.setItem(3);
-System.out.println(intBox.getItem()); // 3
-[CODE BLOCK]
-
----
+```
+[Apple, Orange, Banana]
+[1, 2, 3]
+Banana
+3
+```
 
 **Extra (1 pt)**  
-- Create a **Product class** with two type parameters:  
+- Create a class with **two** type parameters, `public class Product<T, U>`: `private T item;` and `private U price;`, a constructor `public Product(T item, U price)`, and `getItem()` and `getPrice()`. Work out what each getter's return type has to be.  
+- In `main()`, make a `Product<String, Double>` for `"Apple"` at `0.5`, and a `Product<String, Integer>` for `"Ticket"` at `15`. Same class, different type arguments.  
+- Print each product's item and price.  
 
-[CODE BLOCK]java
-public class Product<T, U> {
-    private T item;
-    private U price;
+Expected output:  
 
-    public Product(T item, U price) {
-        this.item = item;
-        this.price = price;
-    }
-
-    public T getItem() {
-        return item;
-    }
-
-    public U getPrice() {
-        return price;
-    }
-}
-[CODE BLOCK]
-
-- Usage with different type arguments:  
-
-[CODE BLOCK]java
-Product<String, Double> product1 = new Product<>("Apple", 0.5);
-System.out.println(product1.getItem());  // Apple
-System.out.println(product1.getPrice()); // 0.5
-
-Product<String, Integer> product2 = new Product<>("Ticket", 15);
-System.out.println(product2.getItem());  // Ticket
-System.out.println(product2.getPrice()); // 15
-[CODE BLOCK]
+```
+Apple
+0.5
+Ticket
+15
+```
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use generics to represent robot parts:  
-
-[CODE BLOCK]java
-Product<String, Double> motor = new Product<>("Left Motor", 0.75);
-SmartDashboard.putString("Motor", motor.getItem());
-SmartDashboard.putNumber("Motor Power", motor.getPrice());
-[CODE BLOCK]
-
-**Extra (1 pt)**  
-- Use generics for counters or tickets in robot events:  
-
-[CODE BLOCK]java
-Product<String, Integer> matchTickets = new Product<>("Match Tickets", 15);
-SmartDashboard.putString("Item", matchTickets.getItem());
-SmartDashboard.putNumber("Price", matchTickets.getPrice());
-[CODE BLOCK]
+> **Not written yet.** Lesson 51 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where multiple classes were written for different data types (e.g., `MotorDouble`, `MotorInt`).  
-- Suggest replacing them with a **generic class**.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use `<T, U>` to handle both identifiers and values.  
-  - Reduce code duplication by writing one generic class instead of many.  
-
-[CODE BLOCK]java
-// Before: separate classes
-class MotorDouble { String id; double power; }
-class MotorInt { String id; int power; }
-
-// After: generic class
-class Motor<T> {
-    String id;
-    T power;
-    Motor(String id, T power) {
-        this.id = id;
-        this.power = power;
-    }
-}
-[CODE BLOCK]
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Combine Part I and Part II into one complete Generics lesson.  
 - Emphasize type parameters (`<T>`) vs. type arguments (`<String>`).  
@@ -191,4 +99,4 @@ Ideas:
 - Robot code: flexible subsystems with generics.  
 - Archaeology: replace duplicate classes with one generic class.  
 - Segue: Next lesson → **Generic Methods & Bounded Types** (`<T extends Number>`).  
-[CODE BLOCK]
+-->

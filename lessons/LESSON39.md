@@ -18,161 +18,72 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [08:14:27](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=29667s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 39](https://www.youtube.com/watch?v=YDKHfqzaF30&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=51) (Learn runtime polymorphism in 5 minutes! 🤷‍♂️, 5:10)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson39.basic;`, and `package lesson39.extra;` for the extra's copies).
+
 **Basic (1 pt)**  
-- Create an abstract parent class `Animal` with an abstract method `speak()`.  
+- Create an abstract parent class, `Animal`, with one abstract method, `abstract void speak();`.  
+- Create `Dog` and `Cat`, which extend `Animal` and override `speak()`, printing `The dog goes woof` and `The cat goes meow`.  
+- In `main()`, create a `Dog` and a `Cat` and call `speak()` on each. Then try `new Animal()` and read the error, `Animal is abstract; cannot be instantiated`. Delete it.  
 
-[CODE BLOCK]java
-public abstract class Animal {
-    abstract void speak();
-}
-[CODE BLOCK]
+Expected output:  
 
-- Create child classes `Dog` and `Cat` that override `speak()`.  
-
-[CODE BLOCK]java
-public class Dog extends Animal {
-    @Override
-    void speak() {
-        System.out.println("The dog goes woof");
-    }
-}
-
-public class Cat extends Animal {
-    @Override
-    void speak() {
-        System.out.println("The cat goes meow");
-    }
-}
-[CODE BLOCK]
+```
+The dog goes woof
+The cat goes meow
+```
 
 **Extra (1 pt)**  
-- Use **runtime polymorphism** with user input:  
+- Use **runtime polymorphism**, where the user picks the pet while the program runs. Add `import java.util.Scanner;` at the top of your `Main.java`, and write the rest **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.  
+- Ask `Would you like a pet? (1 = Dog, 2 = Cat): ` and read an `int`.  
+- Declare `Animal animal;`, but don't create it yet. Then, if the choice is `1`, make it a `new Dog()`, and otherwise a `new Cat()`.  
+- Call `animal.speak()` **once**, after the `if`. Which `speak()` runs isn't decided until the program is running and the user has answered. Close the scanner.  
 
-[CODE BLOCK]java
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Would you like a pet? (1 = Dog, 2 = Cat): ");
-        int choice = scanner.nextInt();
-
-        Animal animal; // declared as parent type
-
-        if (choice == 1) {
-            animal = new Dog();
-        } else {
-            animal = new Cat();
-        }
-
-        // Runtime polymorphism: JVM decides which speak() to call
-        animal.speak();
-
-        scanner.close();
-    }
-}
-[CODE BLOCK]
-
-- Output:  
-  - Input `1` → `The dog goes woof`  
-  - Input `2` → `The cat goes meow`  
+Expected output:  
+- Input `1` → `The dog goes woof`  
+- Input `2` → `The cat goes meow`  
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create an abstract class `Subsystem` with an abstract method `run()`.  
-- Create child classes `DriveTrain` and `Arm` that override `run()`.  
-
-**Extra (1 pt)**  
-- Use runtime polymorphism to decide which subsystem to activate based on user input.  
-- Print results to **SmartDashboard**.  
-
-[CODE BLOCK]java
-public abstract class Subsystem {
-    abstract void run();
-}
-
-public class DriveTrain extends Subsystem {
-    @Override
-    void run() {
-        SmartDashboard.putString("DriveTrain", "Driving forward");
-    }
-}
-
-public class Arm extends Subsystem {
-    @Override
-    void run() {
-        SmartDashboard.putString("Arm", "Lifting object");
-    }
-}
-
-// Example runtime decision
-Scanner scanner = new Scanner(System.in);
-System.out.print("Choose subsystem (1 = DriveTrain, 2 = Arm): ");
-int choice = scanner.nextInt();
-
-Subsystem subsystem;
-if (choice == 1) {
-    subsystem = new DriveTrain();
-} else {
-    subsystem = new Arm();
-}
-subsystem.run();
-scanner.close();
-[CODE BLOCK]
+> **Not written yet.** Lesson 39 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where different subsystems were manually selected with `if`/`else` blocks.  
-- Suggest replacing them with **runtime polymorphism**: declare a parent type, assign it to the chosen child, and call the method.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace repeated `if`/`else` calls with polymorphic behavior.  
-  - Example: `Subsystem subsystem = new DriveTrain(); subsystem.run();`  
-  - This makes the code more scalable when adding new subsystems.  
-
-[CODE BLOCK]java
-Subsystem[] subsystems = { new DriveTrain(), new Arm() };
-
-for (Subsystem s : subsystems) {
-    s.run(); // dynamic dispatch
-}
-[CODE BLOCK]
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize runtime polymorphism = method chosen at runtime, not compile time.  
 - Robot code: subsystems selected dynamically based on input.  
 - Archaeology: replace rigid `if`/`else` with polymorphic design.  
 - Segue: Next lesson → **Casting & instanceof** (downcasting objects, type checks).  
-[CODE BLOCK]
+-->

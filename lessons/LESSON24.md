@@ -1,4 +1,4 @@
-# 🖥️ Lesson 24 – User Input into Arrays in Java
+# 🖥️ Lesson 24 – Searching an Array in Java
 
 **Hudson Stinger Academy** – Rookie & Vet Training Series  
 _Learn it. Test it. Break it. Fix it. Own it._ 🐝
@@ -6,133 +6,86 @@ _Learn it. Test it. Break it. Fix it. Own it._ 🐝
 ---
 
 ## 🎯 Overview
-**Keywords:** Java, Arrays, User Input, Scanner, Dynamic Size, For Loop, Enhanced For Loop  
+**Keywords:** Java, Arrays, Linear Search, For Loop, break, Boolean Flag, Not Operator, equals, Scanner  
 Learn to:
-- Allocate memory for arrays before assigning values  
-- Understand why arrays need a fixed size at creation  
-- Fill arrays with user input using `Scanner`  
-- Dynamically set array size based on user input  
-- Handle input buffer issues when mixing `nextInt()` and `nextLine()`  
+- Search an array one element at a time (a **linear search**)  
+- Stop searching as soon as you find it, with `break`  
+- Use a `boolean` flag and `!` to say "not found"  
+- Search an array of `String`s with `.equals()`, and know why `==` doesn't work there  
+- Search for something the user types in  
 
 ---
 
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [05:20:38](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=19238s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 24](https://www.youtube.com/watch?v=EB9-OOnCthg&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=33) (How to SEARCH an ARRAY easy! 🔎, 7:30)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
-**Basic (1 pt)**  
-- Create a `String[] foods = new String[3];`  
-- Use a `for` loop to prompt the user three times:  
+**Basic (1 pt)**: search an array of numbers  
+- Create an array of numbers, like `int[] numbers = {1, 9, 2, 8, 3, 7, 4};`, and an `int target = 2;`.  
+- Loop through the array with a `for` loop that stops at `numbers.length`.  
+- Inside the loop, `if (numbers[i] == target)`, print `"Element found at index " + i` and then `break`. Once you've found it, there's no reason to keep looking.  
+- Search for a number that isn't in the array, like `5`. Nothing prints at all. That's the next fix:  
+  - Before the loop, create `boolean isFound = false;`. Set it to `true` when you find the target.  
+  - After the loop, `if (!isFound)`, print `"Element not found in the array"`.  
 
-[CODE BLOCK]java
-String[] foods = new String[3];
-Scanner scanner = new Scanner(System.in);
-
-for (int i = 0; i < foods.length; i++) {
-    System.out.print("Enter a food: ");
-    foods[i] = scanner.nextLine();
-}
-
-for (String food : foods) {
-    System.out.println(food);
-}
-scanner.close();
-[CODE BLOCK]
-
-**Extra (1 pt)**  
-- Ask the user how many foods they want to enter.  
-- Use that number to set the array size dynamically.  
-- Clear the input buffer after `nextInt()` with `scanner.nextLine()`.  
-
-[CODE BLOCK]java
-System.out.print("How many foods do you want? ");
-int size = scanner.nextInt();
-scanner.nextLine(); // clear buffer
-
-String[] foods = new String[size];
-
-for (int i = 0; i < foods.length; i++) {
-    System.out.print("Enter a food: ");
-    foods[i] = scanner.nextLine();
-}
-
-for (String food : foods) {
-    System.out.println(food);
-}
-[CODE BLOCK]
+**Extra (1 pt)**: search an array of words  
+- Create `String[] fruits = {"apple", "orange", "banana"};` and search it for `"orange"` the same way.  
+- Compare with `fruits[i].equals(target)`, **not** `==`. A `String` is a reference type (lesson 02's IOU), so `==` asks whether two strings sit at the same memory address, not whether they have the same letters.  
+- Now let the user pick: use a `Scanner` to ask `"Enter a fruit to search for: "` and read the target with `nextLine()`.  
+- Search for `"banana"`, then for `"coconut"`, and check you get the right message each time.  
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Create an array of motor names and print them:  
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson24/basic/Lesson24.java` (and `extra/Lesson24.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-[CODE BLOCK]java
-String[] motors = {"leftMotor", "rightMotor", "armMotor"};
-for (String motor : motors) {
-    System.out.println("Motor: " + motor);
-}
-[CODE BLOCK]
+**Basic (1 pt)**: is that CAN ID on the robot?  
+- Start from lesson 22's array: `int[] canIds = {1, 2, 3, 4, 5, 6, 7, 29};`.  
+- Pick an `int target = 29;` and search the array with this lesson's loop: when `canIds[i] == target`, remember the index and `break`. The array never changes, so do the search **once in `setup()`** and store the answer in a field.  
+- In `execute()`, put the answer on SmartDashboard: `"CAN 29 found at index 7"`.  
+- Add the `boolean isFound` flag. After the loop, `if (!isFound)`, put `"CAN <target> is not on this robot"` instead.  
+- Now set `target = 8` and run it again. There is no CAN 8 on this robot, which is exactly the case the flag is for. Without it, the dashboard just says nothing, and you can't tell "not found" from "my code never ran".  
 
-**Extra (1 pt)**  
-- Ask the user how many motors they want to configure.  
-- Create an array of motor speeds with that size.  
-- Fill the array with user input values.  
-- Print results to **SmartDashboard**.  
-
-[CODE BLOCK]java
-System.out.print("How many motors? ");
-int motorCount = scanner.nextInt();
-double[] speeds = new double[motorCount];
-
-for (int i = 0; i < motorCount; i++) {
-    System.out.print("Enter speed for motor " + i + ": ");
-    speeds[i] = scanner.nextDouble();
-}
-
-// Example SmartDashboard output
-for (int i = 0; i < motorCount; i++) {
-    SmartDashboard.putNumber("Motor " + i + " Speed", speeds[i]);
-}
-[CODE BLOCK]
+**Extra (1 pt)**: search by mechanism name  
+- Add a `String[] mechanisms` in the **same order** as `canIds`:  
+  `{"left drive", "right drive", "left drive follower", "right drive follower", "left roller", "right roller", "climber", "conveyor"}`.  
+- Search it with `mechanisms[i].equals(target)`, **not** `==`, for a name like `"conveyor"`.  
+- The index is what links the two arrays: once you've found the name at index `i`, `canIds[i]` is that mechanism's CAN ID. Put both on SmartDashboard.  
+- Let the operator pick the target, the way the Java half let the user type it: **B** → `"conveyor"`, **A** → `"climber"`, **X** → `"left drive"`. At home the operator is Keyboard 1, so those are the **6**, **5** and **7** keys.  
+- Because the target now changes while the robot is running, the search moves out of `setup()` and into `execute()`. Search for a name that isn't in the array, like `"shooter"`, and check you still get the not-found message.  
+- Build a `TalonFX[]` from `canIds` the way you did in lesson 22, and publish the found motor's rotations. Search for `"left drive"`, hold **W** to drive, and watch the number you searched for move.  
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where multiple variables were used for similar data (e.g., `motor1`, `motor2`, `motor3`).  
-- Suggest replacing them with an array.  
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace repeated `println` statements with a loop over an array.  
-  - Use arrays to store joystick button states or autonomous path steps.  
+**Basic (1 pt)**: find the search that doesn't look like one  
+- Open `VisionSubsystem.getPoseEstimate()`. It loops over `estimate.rawFiducials` and, the moment one tag's `ambiguity` is above `MAX_AMBIGUITY` (0.2), it stops and returns `null`.  
+- That is this lesson's search, with two changes: the early exit is a `return` instead of a `break`, and there is no `isFound` flag, because returning *is* the answer. Explain both in a comment.  
+- What does the method return when the camera sees no tags at all? Find the line that decides it.  
 
-[CODE BLOCK]java
-System.out.print("How many motors? ");
-int size = scanner.nextInt();
-scanner.nextLine(); // clear buffer
-double[] speeds = new double[size];
-
-for (int i = 0; i < size; i++) {
-    System.out.print("Enter speed for motor " + i + ": ");
-    speeds[i] = scanner.nextDouble();
-}
-[CODE BLOCK]
+**Extra (1 pt)**: which loops can't stop early  
+- A few lines below, `getVisibleTags()` and `getAvgTagDistance()` also loop over a `RawFiducial[]`, but neither one ever exits early. Why can't they? Say what each loop is actually doing with the array.  
+- `break` appears **zero times** in the whole competition code (`LimelightHelpers.java` included, and that file isn't even ours). Is that a bug, a style, or just what the code happened to need?  
+- How would you change `getVisibleTags()` to find one specific tag, say tag 7, and stop looking once it had it?  
 
 ---
 
@@ -140,14 +93,8 @@ for (int i = 0; i < size; i++) {
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 
-[CODE BLOCK]LOG
-Ideas:
-- Show difference between fixed-size arrays and dynamic size from user input.  
-- Robot code: arrays for motor speeds or sensor names.  
-- Archaeology: replace multiple variables with arrays for cleaner code.  
-- Segue: Next lesson could cover **2D arrays** (grids/matrices) since user input arrays lead naturally into them.  
-[CODE BLOCK]
+> 🐝 *"The sting is in the details — master them, and you master the bot."*

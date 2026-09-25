@@ -28,7 +28,7 @@ If you’re following the **full 12‑hour compilation** and want to see how far
 ### 🎯 For the Quick‑Hit Learners  
 If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
 - **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
-- **This Lesson Only:** [Watch Lesson 03](https://www.youtube.com/watch?v=QAD5unRlCyo&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=5)
+- **This Lesson Only:** [Watch Lesson 04](https://www.youtube.com/watch?v=QAD5unRlCyo&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=5)
 
 ---
 
@@ -43,45 +43,48 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
   - Division (÷)
   - Modulus (%)  
 - Print each operation with both the expression and the result (e.g., `10 + 3 = 13`).
+- Use the video's shortcuts at least once each, printing the variable after every step:
+  - an **augmented assignment**, like `x += y` (it means `x = x + y`)
+  - the **increment** `x++` and the **decrement** `x--`
 
 **Extra (1 pt)**  
 - Ask the user for two numbers using `Scanner`.  
 - Perform at least three operations with those inputs and print the results.  
 - Optional: also show floating‑point division by casting to `double`.
+- **PEMDAS:** work out `3 + 4 * (7 - 5) / 2.0` by hand first, in the order the video uses. Then print it and check your answer.
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Given a `double motorSpeed`, divide it by 2.  
-- Output the result to **SmartDashboard**.  
-- Ignore floating‑point precision details for now.
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson04/basic/Lesson04.java` (and `extra/Lesson04.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Extra (1 pt)**  
-- With only the joystick speed (0.0 to 1.0), compute and print:
-  - Theoretical motor RPM  
-  - Theoretical robot linear speed  
-- Research or ask teammates/mentors for:
-  - Motor free speed (RPM) from the datasheet  
-  - Wheel diameter  
-  - How to convert RPM to linear speed (use wheel circumference and unit conversions)
+**Basic (1 pt)**: arcade drive, by hand  
+- Create the driver controller and all four drive motors.
+- `forward` = the left stick's up/down, sign flipped, **× 0.7**. `turn` = `driver.getRightX()` **× 0.8**. Those are the competition robot's stick scaling numbers, because a full-strength stick is too twitchy to drive.
+- `left = forward + turn` and `right = forward - turn`. Set the motors, with the right side still getting the opposite sign.
+- Put `forward`, `turn`, `left` and `right` on SmartDashboard.
+- Hold **W** and **L** together. What number does `left` show, and what can a motor actually do with a number like that? Answer in a comment.
+
+**Extra (1 pt)**: distance and top speed  
+- Drive with your arcade code from the basic half.
+- Read the left leader's encoder: `leftLeader.getPosition().getValueAsDouble()` is **motor rotations**.
+- Convert to meters: **÷ 10.71** (gear ratio) gives wheel rotations, then **× `Math.PI` × 0.1524** (wheel diameter in meters) gives meters. Put both on SmartDashboard.
+- Drive straight forward, then compare your meters with the true distance, the first number in **Sim Field → Robot**. How close are they?
+- A Kraken X60 spins about **6000 RPM** with nothing attached. Work out the robot's **top speed** in m/s and mph (÷ 60, ÷ 10.71, × π × 0.1524, then × 2.237 for mph) and put both on SmartDashboard.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Find any math operation in last year’s robot code and explain:  
-  - What it’s doing  
-  - Why it’s needed  
-  - Which variables are involved
+- `CANDriveSubsystem.java` has `METERS_PER_MOTOR_ROTATION`. Walk through its math step by step and compare it with yours. Same answer?
 
 **Extra (1 pt)**  
-- If you find a place where math could improve behavior or clarity, describe it.  
-- If not, write **pseudo‑code** for a math‑driven feature, such as:  
-  - Calculating the angle between the robot and the goal using geometry  
-  - Estimating travel time from distance and speed
+- `driveRobotRelative` assumes a free speed of **6380 RPM**, which is a *Falcon 500*. Look at the real robot, or ask a mentor: are its drive motors Falcons or Krakens? How far off is the competition code's top speed if they're Krakens?
 
 ---
 
@@ -89,7 +92,7 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 

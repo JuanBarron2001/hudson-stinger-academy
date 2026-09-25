@@ -19,165 +19,80 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [08:29:39](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=30579s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 41](https://www.youtube.com/watch?v=pqQAHA1XjJk&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=53) (Learn Java AGGREGATION in 9 minutes! 🏫, 9:26)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+> Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson41.basic;`, and `package lesson41.extra;` for the extra's copies).
+
 **Basic (1 pt)**  
-- Create a `Book` class with attributes and a method to display info:  
+- Create a `Book` class with `String title` and `int pages`, a constructor, `Book(String title, int pages)`, and `String displayInfo()`, which **returns** (doesn't print) the title followed by the page count in brackets: `The Two Towers (352 pages)`.  
+- In `main()`, create three books: `"The Fellowship of the Ring"`, 423; `"The Two Towers"`, 352; and `"The Return of the King"`, 416. Store them in a `Book[]` array.  
+- Print every book's `displayInfo()` with an enhanced `for` loop.  
 
-[CODE BLOCK]java
-public class Book {
-    String title;
-    int pages;
+Expected output:  
 
-    Book(String title, int pages) {
-        this.title = title;
-        this.pages = pages;
-    }
-
-    String displayInfo() {
-        return this.title + " (" + this.pages + " pages)";
-    }
-}
-[CODE BLOCK]
-
-- Create a few `Book` objects and store them in an array.  
+```
+The Fellowship of the Ring (423 pages)
+The Two Towers (352 pages)
+The Return of the King (416 pages)
+```
 
 **Extra (1 pt)**  
-- Create a `Library` class that **aggregates** `Book` objects:  
+- Create a `Library` class that **aggregates** books: `String name`, `int year` and `Book[] books`, with a constructor, `Library(String name, int year, Book[] books)`, that takes all three.  
+- Give it `void displayInfo()`, which prints the year and name on one line, then `Books available:`, then every book's `displayInfo()`.  
+- In `main()`, build the three books and their array **first**, then `new Library("New York City Public Library", 1897, books)`, and call its `displayInfo()`.  
+- After the library, print the first book's `displayInfo()` on its own. The book was built **before** the library and doesn't need it: that independence is what makes this aggregation. Lesson 42's composition is the opposite.  
 
-[CODE BLOCK]java
-public class Library {
-    String name;
-    int year;
-    Book[] books;
+Expected output:  
 
-    Library(String name, int year, Book[] books) {
-        this.name = name;
-        this.year = year;
-        this.books = books;
-    }
-
-    void displayInfo() {
-        System.out.println(this.year + " " + this.name);
-        System.out.println("Books available:");
-        for (Book b : books) {
-            System.out.println(b.displayInfo());
-        }
-    }
-}
-[CODE BLOCK]
-
-- Demonstrate usage:  
-
-[CODE BLOCK]java
-Book b1 = new Book("The Fellowship of the Ring", 423);
-Book b2 = new Book("The Two Towers", 352);
-Book b3 = new Book("The Return of the King", 416);
-
-Book[] books = { b1, b2, b3 };
-
-Library library = new Library("New York City Public Library", 1897, books);
-library.displayInfo();
-[CODE BLOCK]
+```
+1897 New York City Public Library
+Books available:
+The Fellowship of the Ring (423 pages)
+The Two Towers (352 pages)
+The Return of the King (416 pages)
+The Fellowship of the Ring (423 pages)
+```
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create a `Motor` class with attributes: `id`, `speed`.  
-- Create a `Robot` class that **aggregates** multiple `Motor` objects.  
-
-**Extra (1 pt)**  
-- Add a `displayInfo()` method in `Robot` to print all motors’ info to **SmartDashboard**.  
-
-[CODE BLOCK]java
-public class Motor {
-    String id;
-    double speed;
-
-    Motor(String id, double speed) {
-        this.id = id;
-        this.speed = speed;
-    }
-
-    String displayInfo() {
-        return id + " running at " + speed;
-    }
-}
-
-public class Robot {
-    String name;
-    Motor[] motors;
-
-    Robot(String name, Motor[] motors) {
-        this.name = name;
-        this.motors = motors;
-    }
-
-    void displayInfo() {
-        SmartDashboard.putString("Robot", name);
-        for (Motor m : motors) {
-            SmartDashboard.putString(m.id, m.displayInfo());
-        }
-    }
-}
-[CODE BLOCK]
+> **Not written yet.** Lesson 41 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where subsystems contained collections of parts (e.g., drivetrain with multiple motors).  
-- Suggest replacing them with **aggregation**: a `DriveTrain` class that has `Motor[]`.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace repeated variables with arrays of objects.  
-  - Use aggregation to group related objects logically.  
-
-[CODE BLOCK]java
-public class DriveTrain {
-    Motor[] motors;
-
-    DriveTrain(Motor[] motors) {
-        this.motors = motors;
-    }
-
-    void displayInfo() {
-        for (Motor m : motors) {
-            System.out.println(m.displayInfo());
-        }
-    }
-}
-[CODE BLOCK]
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize that aggregation = “has‑a” relationship, but objects can live independently.  
 - Robot code: robot has motors, but motors can exist outside robot.  
 - Archaeology: replace scattered variables with aggregated collections.  
 - Segue: Next lesson → **Composition** (stronger relationship, objects cannot exist independently).  
-[CODE BLOCK]
+-->

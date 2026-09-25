@@ -23,14 +23,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [02:10:20](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=7820s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 10](https://www.youtube.com/watch?v=Ntl3DxhyrQQ&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=13) (Useful string methods in Java! 🧵, 8:36)
 
 ---
 
@@ -38,25 +40,24 @@ Learn to:
 
 **Basic (1 pt)**  
 - Build a **magic spell parser** (fun and quirky!):
-  - Take a spell command string like `"cast fireball now"` or `"HEAL"` or `"  teleport   "`
-  - Use string methods to validate and parse:
-    - `.trim()` to remove extra whitespace
-    - `.toUpperCase()` to normalize case
-    - `.contains()` to check for magic keywords: "fireball", "heal", "teleport", "shield"
-    - `.length()` to ensure it's not empty
-  - If valid spell → print `"🔥 Casting Fireball!"` or `"✨ Healing!"`
-  - If invalid → print `"❌ Unknown spell!"`
-  - Test with messy inputs like `"   FIREBALL   "` and `"banana"` to show `.trim()` and `.contains()` working
+  - Start from a messy spell string, like `"   Cast FIREBALL now   "`
+  - `.trim()` the extra spaces, then `.toLowerCase()` it. Your keywords below are lowercase, so the spell has to be too: an uppercased spell never `.contains("fireball")`.
+  - If the spell `.isEmpty()` → print `"❌ No spell!"`
+  - Else if it `.equals("abracadabra")` exactly → print `"🐇 A rabbit appears!"`
+  - Else if it `.contains()` a keyword: `"fireball"` → `"🔥 Casting Fireball!"`, `"heal"` → `"✨ Healing!"`, and add `"teleport"` and `"shield"` yourself
+  - Else → print `"❌ Unknown spell!"`
+  - Also print the cleaned spell's `.length()` and its first letter, `.charAt(0)`
+  - Test with `"   FIREBALL   "`, `"banana"` and `""` to show each branch working
 
 **Extra (1 pt)**  
 - Build an advanced **recipe ingredient parser**:
-  - Take a recipe command like `"Add 2 cups sugar and vanilla extract"` or `"MIX butter and eggs"` 
+  - Take a recipe command like `"Add 2 cups sugar and vanilla extract"` or `"MIX butter and eggs and sugar"`
   - Parse using string methods:
-    - `.trim()` to clean input
-    - `.toUpperCase()` to normalize
-    - `.indexOf()` to find key positions (e.g., where "and" appears)
+    - `.trim()` and `.toLowerCase()` to clean it (lowercase, for the same reason as the basic)
+    - `.indexOf("and")` and `.lastIndexOf("and")` to find the first and last "and"
     - `.contains()` to check for ingredients: "sugar", "butter", "eggs", "vanilla"
     - `.replace()` to swap ingredient aliases (e.g., "butter" → "unsalted butter")
+    - `.equalsIgnoreCase("done")` on the **raw** command, before cleaning, to print `"Recipe finished!"` whether they typed `DONE` or `done`
   - Extract and list what ingredients were found
   - Print a clean recipe step: `"Step 1: Mix butter, eggs, and sugar"`
   - Show how multiple string methods work together to parse complex input  
@@ -65,75 +66,29 @@ Learn to:
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Build a **Shuffleboard command parser** for driver input:
-  - Read a string command from Shuffleboard (e.g., a text field where operator types)
-  - Parse using string methods:
-    - `.trim()` to clean whitespace
-    - `.toLowerCase()` to normalize case
-    - `.contains()` to check for keywords: `"forward"`, `"backward"`, `"spin"`
-  - Based on the command, execute robot actions:
-    - If contains `"forward"` → drive forward
-    - If contains `"backward"` → drive backward
-    - If contains `"spin"` → rotate in place
-    - Else → stop
-  - Print to SmartDashboard what command was understood: `"Operator: 'forward' → DRIVING FORWARD"`
-  - Handle messy input like `"  FORWARD  "` or `"FoRwArD"` by using `.trim()` and `.toLowerCase()`
-
-**Extra (1 pt)**  
-- Build a **command logger with validation**:
-  - Read operator input from Shuffleboard (text field)
-  - Clean and validate:
-    - `.trim()` whitespace
-    - `.toLowerCase()` for case-insensitivity
-    - `.isEmpty()` check for empty commands
-  - Parse with `.contains()` and `.indexOf()` to extract keywords:
-    - Valid commands: `"forward"`, `"backward"`, `"spin"`, `"stop"`
-  - Log to SmartDashboard:
-    - Raw input: `"  FORWARD please  "`
-    - Cleaned input: `"forward please"`
-    - Recognized keyword: `"forward"`
-    - Action taken: `"DRIVING FORWARD"`
-    - Unknown commands logged as: `"Invalid command: 'banana'"`
-  - Use `.equals()` or `.equalsIgnoreCase()` for exact command matching if desired  
+> **Not written yet.** Lesson 10 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a string method in last year’s robot code (e.g., `.equals()` for mode checking).  
-- Explain what it does and why it was needed.  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace manual character checks with `.contains()` or `.indexOf()`.  
-  - Use `.equalsIgnoreCase()` for more robust comparisons.  
-- Or write pseudo‑code for command parsing:  
-  [CODE BLOCK]java
-  if (command.trim().equalsIgnoreCase("shoot")) {
-      fireShooter();
-  } else if (command.contains("drive")) {
-      driveForward();
-  } else {
-      stop();
-  }
-  [CODE BLOCK]  
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show `.length()` for password validation.  
 - Robot code: `.equals("AUTO")` to check autonomous mode.  
 - Archaeology: replace messy string parsing with `.contains()` or `.trim()`.  
 - Segue: Next lesson could cover **StringBuilder** for efficiency.  
-[CODE BLOCK]
+-->

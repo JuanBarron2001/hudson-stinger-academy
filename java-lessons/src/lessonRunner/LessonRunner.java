@@ -1,23 +1,35 @@
 package lessonRunner;
 
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class LessonRunner {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    /**
+     * The real keyboard, except that closing it does nothing. Lessons are taught to close their
+     * Scanner, and closing a Scanner closes System.in with it, which would leave the extra half
+     * with no keyboard at all.
+     */
+    private static final InputStream KEYBOARD = new FilterInputStream(System.in) {
+        @Override
+        public void close() {}
+    };
 
+    public static void main(String[] args) {
         printOutBanner();
 
         try {
             System.out.print("Enter lesson number (two digits, e.g. 01): ");
-            String lessonNum = scanner.nextLine().trim();
+            String lessonNum = readLine(KEYBOARD).trim();
 
             if (!lessonNum.matches("\\d{2}")) {
                 System.err.println("❌ Invalid lesson number format. Use exactly two digits like '01'.");
-                scanner.close();
                 return;
             }
 
@@ -28,34 +40,12 @@ public class LessonRunner {
             //     scanner.close();
             //     return;
             // }
-            scanner.close();
             String className = "Main"; // assuming Main for now for everything
 
-            if(lessonNum.equals("03"))
-            {
-                LessonInput lessonInput = new LessonInput();
-                lessonInput.addScriptedLine("6.7");
-                lessonInput.addScriptedLine("2.1");
-                System.setIn(lessonInput);
-            }
+            useAnswersFor(lessonNum + ".basic");
             runProgram(lessonNum+".basic", className);
             System.out.println("-----------------------------------------------");
-            if(lessonNum.equals("03"))
-            {
-                LessonInput lessonInput = new LessonInput();
-                lessonInput.addScriptedLine("First Last");
-                lessonInput.addScriptedLine("Math");
-                lessonInput.addScriptedLine("92.3");
-                lessonInput.addScriptedLine("95.7");
-                lessonInput.addScriptedLine("90.1");
-                lessonInput.addScriptedLine("91.2");
-                System.setIn(lessonInput);
-            } else if(lessonNum.equals("04"))
-            {
-                LessonInput lessonInput = new LessonInput();
-                lessonInput.addScriptedLine("6");
-                lessonInput.addScriptedLine("7");
-            }
+            useAnswersFor(lessonNum + ".extra");
             runProgram(lessonNum+".extra", className);
 
         } catch (ClassNotFoundException e) {
@@ -66,6 +56,35 @@ public class LessonRunner {
             System.out.println("❌ Something happened — it might be this program or your program.\n"
                              + "   Reach out to your Programming Mentor or Head Programmer Student.");
         }
+    }
+
+    /**
+     * If resources/lessonNN.half.txt exists, the lesson's questions are answered from it, one line
+     * per answer. Otherwise the lesson reads the real keyboard.
+     */
+    private static void useAnswersFor(String lessonHalf) throws IOException
+    {
+        Path answers = Paths.get("resources", "lesson" + lessonHalf + ".txt");
+        if (Files.exists(answers)) {
+            System.out.println("\n⌨️  Answering this lesson's questions from " + answers);
+            System.setIn(LessonInput.fromFile(answers));
+        } else {
+            System.setIn(KEYBOARD);
+        }
+    }
+
+    /**
+     * Reads one line, one byte at a time. A Scanner would read ahead and keep typed-ahead input
+     * for itself, where the lesson's own Scanner could never get it.
+     */
+    private static String readLine(InputStream in) throws IOException
+    {
+        StringBuilder line = new StringBuilder();
+        int b;
+        while ((b = in.read()) != -1 && b != '\n') {
+            if (b != '\r') line.append((char) b);
+        }
+        return line.toString();
     }
 
     private static void printOutBanner()

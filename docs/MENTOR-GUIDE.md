@@ -13,13 +13,13 @@ One lesson is **three files in three places**, plus a fourth part that lives onl
 ```
 lessons/LESSON07.md                                    ← the written guide
 java-lessons/src/lesson07/{basic,extra}/Main.java      ← the Java-only exercise
-robot-code/command-based-bot-2025/src/main/java/
+robot-code/command-based-bot-2026/src/main/java/
         frc/lesson/lesson07/{basic,extra}/Lesson07.java ← the robot exercise
 ```
 
-Six points total: 2 for Java-only, 2 for robot code, 2 for "Code Archaeology" (reading last season's robot code), each split into a required **basic** half and a stretch **extra** half.
+Six points total: 2 for Java-only, 2 for robot code, 2 for "Code Archaeology" (reading last season's robot code), each split into a required **basic** half and a stretch **extra** half. **Archaeology is optional** as of the 2026 offseason: students aim for two lessons a week, Java first, then robot, and skip archaeology when short on time.
 
-The naming is load-bearing. `LessonRunner` and `RobotContainer` both find lessons by **reflection on the package name**, so `lesson07.basic.Main` and `frc.lesson.lesson07.basic.Lesson07` must be spelled exactly that way or the lesson silently fails to load. Two digits, always — `lesson7` will not be found.
+The naming is load-bearing. `LessonRunner` and `LessonLoader` both find lessons by **reflection on the package name**, so `lesson07.basic.Main` and `frc.lesson.lesson07.basic.Lesson07` must be spelled exactly that way or the lesson silently fails to load. Two digits, always — `lesson7` will not be found.
 
 ---
 
@@ -37,11 +37,80 @@ Every lesson carries a status in `lessons/LESSONS.md`. The ladder is the actual 
 | `[COMPLETE]` | Reviewed, connected to robot code, has test data |
 | `[NEEDS UPDATE]` | Was complete, has since gone stale |
 
-Where things actually stand today: lessons **01–11** have real content, **12–55** are `[AI_SLOB]` over empty stubs, and **56–70** have stubs with no guide at all. Lesson 04 is the only `[COMPLETE]` one, so **treat `LESSON04.md` as the reference implementation** — when you're unsure what "finished" looks like, open that file.
+Where things actually stand today (2026-09-25): every lesson from **00 to 57** has a guide and stubs, and the course ends at 57. Lessons 12–57 are `[READY FOR REVIEW]`: each was checked against its video, or written from scratch for 56 and 57, but hasn't had a final read yet. Lesson 04 is the only `[COMPLETE]` one, so **treat `LESSON04.md` as the reference implementation** — when you're unsure what "finished" looks like, open that file.
+
+For the 2026 offseason, **every Core lesson** has a robot half written for the 2026 robot. The Optional lessons have none this season: their robot halves say "not written yet, skip for now". The **2026 Path** and **2026 Robot** columns in `lessons/LESSONS.md` show which is which.
 
 ---
 
-## 3. Taking a lesson from AI_SLOB to COMPLETE
+## 3. The seasonal rebuild: how `robot-code/` changes every year
+
+`java-lessons/` teaches Java principles and doesn't change. `robot-code/` teaches WPILib, and each offseason it's re-authored against **last season's robot**, so students rebuild that robot's code one lesson at a time. Lesson NN teaches the same Java idea in all three parts. The plan for 2026 lives in the mentor's notes; the robot facts students need are in `robot-code/command-based-bot-2026/ROBOT.md`.
+
+### What's in the 2026 project
+
+| Path | What it is | Students edit it? |
+|---|---|---|
+| `frc/robot/PickYourLesson.java` | The lines that choose a lesson, and `MY_ROBOT`, which runs the student's own `RobotContainer` instead (lesson 57) | Yes, only this |
+| `frc/robot/Robot.java` | The lesson host: loads the lesson, runs it in Teleoperated, runs the simulator. With `MY_ROBOT` on, it builds the student's `RobotContainer` and runs its `getAutonomousCommand()` in Autonomous | No |
+| `frc/lesson/LessonBase.java`, `LessonLoader.java`, `LessonLogger.java` | The harness and the hash-chained log | No |
+| `frc/lesson/myrobot/MyRobot.java` | Finds the student's `RobotContainer` by name, so a fresh clone builds without one, and logs the whole run to `frc.lesson.myrobot-output.log` | No |
+| `frc/lesson/lessonNN/{basic,extra}/` | The exercises | Yes |
+| `frc/lesson/lesson98/basic/` | The simulator check: a working demo that drives, shoots and climbs | No |
+| `frc/sim/RobotSim.java` | Physics that make the 2026 robot move at home | No |
+| `frc/robot/LimelightHelpers.java` | Limelight's helper file, copied from the competition code | No |
+| `simgui-ds.json` | Maps the keyboard to a driver (port 0) and an operator (port 1) Xbox controller | No |
+| `ROBOT.md` | CAN IDs, inversions, ball paths, buttons, speeds | Read it |
+
+### The simulator
+
+A Phoenix 6 motor in simulation doesn't move unless code feeds it a rotor position and velocity. Without that, it behaves like a **stalled** Kraken: the default 120 A stator limit caps its output at about 3 V, which looks exactly like a broken license or a bad `set()` call and is neither.
+
+`RobotSim` fixes this for the drivetrain, the launcher rollers, the conveyor, the climber and the Pigeon. It opens its own `TalonFX` handles by CAN ID, which point at the same simulated devices a lesson creates, so it works however a student writes their code. It sets each motor's mounting (`Orientation`) to match the real robot, so a forgotten inversion behaves like it would on carpet: the drivetrain spins in place, and un-flipped launcher rollers fight each other at 0 RPS.
+
+Its limits:
+- It models every motor as a **Kraken X60**, the only motor CTRE's simulator supports.
+- Robot mass, robot inertia and roller inertia are **estimates**. The drivetrain gear ratio, wheel size and track width are the competition code's values, which match the kitbot template and may never have been measured.
+- There is **no Limelight**. Vision exercises use pretend buttons at home and the real camera at meetings.
+
+### The simulator check (lesson 98)
+
+Every real lesson starts as an empty stub, so a student's first run publishes nothing and moves nothing, which is indistinguishable from a broken setup. `LESSON = 98` runs a working demo instead: arcade drive on the sticks, rollers on the operator's A, climber on the D-pad, and every input echoed under `Demo/`. Point anyone stuck at it before debugging anything else.
+
+It drives with WPILib's `DifferentialDrive`, which is lesson 32's material, so copying it doesn't complete lessons 03–05, which ask for the mixing and the sign flipping by hand.
+
+### Tests
+
+```bash
+./gradlew test -Dorg.gradle.java.home=$HOME/wpilib/2026/jdk
+```
+
+runs `RobotSimTest` (straight driving, forgotten inversion, gyro, flywheel holding -80 RPS with the competition gains, conveyor and climber) and `RobotHarnessTest` (a test-only lesson drives the simulated robot through the real `Robot` class, and the log's hash chain checks out; lesson 00 passes with simulated controller input). They run in real time, so **`build` and `deploy` skip them on purpose**: a slow student laptop should never block a deploy at a meeting. Run them after touching the harness or the simulator.
+
+### Re-authoring a lesson's robot half
+
+1. Start from the Java topic of that lesson number and ask which piece of this season's robot uses it. If nothing honest fits, mark the lesson optional instead of forcing it.
+2. Write the stub as a numbered task list at the top of `LessonNN.java`, with the motor and controller fields pre-declared. Students can't declare fields until lesson 21, but they can fill them in.
+3. **Check it in the simulator before a student does.** Write a throwaway solution, run it against `RobotSim`, and confirm the guide's promises actually happen, like "the robot creeps" or "the rollers read 0 RPS". **Don't commit solutions.** This repo is public, and so are forks of it.
+4. Rewrite Part 2 of the guide to match, and aim Part 3 at a specific spot in last season's code.
+5. Update the **2026 Robot** column in `lessons/LESSONS.md`.
+
+### Forks, rebasing and privacy
+
+Students fork the academy and pull new lessons with `git fetch upstream` and `git rebase upstream/main` (lesson 00). Two things to know:
+
+- **A fork of a public repo is public.** Anyone, including other students, can read anyone's fork. If that matters, the options are GitHub Classroom (a private repo per student, created from the academy), or each student making a private repo and pushing a copy of the academy into it, which keeps the history so `upstream` rebasing still works. A plain fork can't be made private.
+- **Don't change files students have already edited.** Rebases stay conflict-free as long as upstream only adds new lessons and never rewrites a released stub, `PickYourLesson.java` or `simgui-ds.json`.
+
+### Meetings
+
+Students deploy their own copy to the real robot. With one robot and two hours, plan a rotation. Put the drivetrain on blocks for drive lessons, and have a mentor hold enable and disable for anything that spins the flywheel or moves the climber.
+
+Lesson 57, the capstone, is the one lesson that can't be homework: its deliverable is each student's whole robot running on the real one, with `MY_ROBOT = true`. Its PathPlanner extra drives last season's `PP Depot And Climb` auto, which needs about 3.5 m by 2 m of floor, so run it on the field or with the robot on blocks, never in a crowded room.
+
+---
+
+## 4. Taking a lesson from AI_SLOB to COMPLETE
 
 This is the core loop. Budget about an hour per lesson.
 
@@ -88,7 +157,7 @@ Numbered, imperative, one action per line. A student who follows the list exactl
 
 ### Step 4 — Add scripted input if the lesson uses `Scanner`
 
-See section 5 below. Lessons that read input **will hang forever** without this, and the failure looks like a frozen terminal rather than an error.
+Add `java-lessons/resources/lessonNN.basic.txt` (and `.extra.txt`) with one answer per line. Section 6 below has the details.
 
 ### Step 5 — Run it yourself, end to end
 
@@ -100,7 +169,7 @@ Edit the row in `lessons/LESSONS.md`. While you're in there, note that **rows 27
 
 ---
 
-## 4. How the grading harness works
+## 5. How the grading harness works
 
 Worth understanding before you change any of it, because the design is deliberate.
 
@@ -118,7 +187,7 @@ Worth understanding before you change any of it, because the design is deliberat
 
 ### The robot side
 
-`LessonBase` does the same job against SmartDashboard instead of stdout. Rather than capturing prints, it walks `SmartDashboard.getKeys()` on a timer, diffs each value against what it saw last, and logs only what changed.
+`LessonBase` does the same job against SmartDashboard instead of stdout. Rather than capturing prints, it walks `SmartDashboard.getKeys()` on a timer, diffs each value against what it saw last, and logs only what changed. In the 2026 project it samples every 5 loops (10 times a second), skips the simulator's own `Sim ` keys, stops at 10,000 lines with a note in the log, and logs a lesson's crash once instead of fifty times a second.
 
 ### What the hash chain does and doesn't do
 
@@ -154,41 +223,44 @@ One real limitation: values containing `|` or a newline break the line format. S
 
 ---
 
-## 5. Adding scripted input to a `Scanner` lesson
+## 6. Adding scripted input to a `Scanner` lesson
 
-Right now this is hardcoded in `LessonRunner.main`, as a chain of checks against the lesson number:
+Lessons that read input get their answers from a plain text file in `java-lessons/resources/`, one file per half, named after the lesson's package:
 
-```java
-if (lessonNum.equals("03")) {
-    LessonInput lessonInput = new LessonInput();
-    lessonInput.addScriptedLine("6.7");
-    lessonInput.addScriptedLine("2.1");
-    System.setIn(lessonInput);
-}
+```
+java-lessons/resources/lesson03.basic.txt
+java-lessons/resources/lesson03.extra.txt
 ```
 
-To add a lesson, copy that block and change the number and the answers. One `addScriptedLine` per `Scanner` read, **in order**.
+**One answer per line, in the order the lesson asks.** A blank line is an answer too: the user pressing Enter without typing. `lesson15.basic.txt` starts with two blank lines to prove the "don't skip the prompt" loop works. Before running each half, `LessonRunner` checks for its file. If the file exists, it "types" each answer into the lesson and echoes it, so the answers appear in the console and in the log, right after their questions. If there's no file, the lesson reads the real keyboard.
 
-⚠️ **Two traps, both currently live in the code:**
+To add input for a lesson, you only need to add a file. There's no Java to touch.
 
-1. **Don't forget `System.setIn(...)`.** The existing lesson 04 block builds a `LessonInput`, adds two lines, and never installs it — so lesson 04's extra exercise hangs. Use the lesson 03 block as your template, not lesson 04.
-2. **This doesn't scale,** and it's already showing. Seventy lessons of `if` blocks in `main` is not a plan. Moving the scripted answers into per-lesson files under `java-lessons/resources/` (which exists and is empty, clearly meant for this) is on the task list.
+- **Pick answers that go down the interesting branch.** Lesson 05 answers age `70`, which catches a senior who's been checked as an adult first. Lesson 45 answers `pizza`, which reaches the `catch`. Lesson 24 searches for `coconut`, which isn't there.
+- **Cover every question, and end loops on a valid answer.** If a lesson asks for more answers than its file has, the runner stops it with a message naming the file. Lesson 15's game loop needs its `q`, and its range check needs a number from 1 to 10 at the end.
+- **Students can edit their copy** to try other answers. The files are shipped from upstream, so tell them to put a file back before they rebase, or they'll get a conflict.
+
+All 24 halves that read input have a file, and each one was checked by running a solution through the runner (2026-09-25).
 
 ---
 
-## 6. Known sharp edges
+## 7. Known sharp edges
 
-Things that will waste your time if you don't know them. All verified in the code on 2026-09-15.
+Things that will waste your time if you don't know them. Verified in the code on 2026-09-15; the robot-side ones marked *fixed* were fixed in `command-based-bot-2026` on 2026-09-17 and still exist in the 2025 project.
 
 | Where | What |
 |---|---|
-| `LessonInput.timeDelay(int ms)` | Ignores its parameter and always sleeps 30ms, so `SIMULATED_READING_SPEED_MS` is dead code |
-| `LessonRunner`, lesson 04 branch | Builds a `LessonInput` but never calls `System.setIn` — lesson 04 extra hangs |
-| `RobotContainer.teleopPeriodic()` | Throws `NullPointerException` when no lesson loaded, right after printing a friendly "skipping" message |
-| `LessonBase.logSmartDashboardChanges()` | Stops logging permanently after 137 cycles — `modResetCount` never resets |
+| `LessonInput.timeDelay(int ms)` | Ignored its parameter and always slept 30ms. *Fixed 2026-09-25* |
+| `LessonRunner`, lesson 04 branch | Built a `LessonInput` but never called `System.setIn`, so lesson 04 extra hung. *Fixed 2026-09-25: every half goes through the answer files (section 6)* |
+| `LessonRunner` | Closed `System.in` after reading the lesson number, so a lesson with no scripted answers couldn't read the keyboard at all. *Fixed 2026-09-25* |
+| `RobotContainer.teleopPeriodic()` | Throws `NullPointerException` when no lesson loaded, right after printing a friendly "skipping" message. *Fixed in 2026: `LessonLoader` explains and nothing runs* |
+| `LessonBase.logSmartDashboardChanges()` | Stops logging permanently after 137 cycles — `modResetCount` never resets. *Fixed in 2026: samples 10×/s, caps at 10,000 lines and says so in the log* |
 | `LessonRunner` | Never calls `closeLogger()` |
 | `LessonRunner` catch-all | Swallows the stack trace, leaving you nothing to debug |
-| `Robot.java` | Lesson selection is hardcoded; students edit source to switch lessons |
+| `Robot.java` | Lesson selection is hardcoded; students edit source to switch lessons. *In 2026 it's `PickYourLesson.java`, still source, but isolated* |
+| `.gitignore` | Ignored `*.log` since the first commit, so `git add .` silently skipped every submission log. *Fixed: `!*-output.log`* |
+| Phoenix 6 in simulation | A motor with no physics feeding it looks stalled at ~3 V. Use `RobotSim`; see section 3 |
+| `ctre_sim/` | Phoenix creates it wherever the sim runs. Ignored in the 2026 project |
 | `lessons/LESSON49.md` | Zero bytes, and the index skips 48 → 50 |
 | Lesson 24 | Duplicates lesson 23 — the index says so itself |
 | `robot-code/educational-bot-2025/` | Untracked, empty but for a stale `build/` tree |
@@ -196,12 +268,12 @@ Things that will waste your time if you don't know them. All verified in the cod
 
 ---
 
-## 7. Build and run commands
+## 8. Build and run commands
 
 The system JDK on the development machine is a **JRE only** — no compiler. Use the JDK bundled with WPILib.
 
 ```bash
-export JDK=$HOME/wpilib/2025/jdk/bin
+export JDK=$HOME/wpilib/2026/jdk/bin
 ```
 
 **Java lessons** (run from `java-lessons/`, because logs land in the working directory):
@@ -212,11 +284,12 @@ $JDK/javac -d out $(find src -name "*.java")
 $JDK/java -cp out lessonRunner.LessonRunner
 ```
 
-**Robot project** (from `robot-code/command-based-bot-2025/`):
+**Robot project** (from `robot-code/command-based-bot-2026/`):
 
 ```bash
-./gradlew compileJava  -Dorg.gradle.java.home=$HOME/wpilib/2025/jdk
-./gradlew simulateJava -Dorg.gradle.java.home=$HOME/wpilib/2025/jdk
+./gradlew compileJava  -Dorg.gradle.java.home=$HOME/wpilib/2026/jdk
+./gradlew simulateJava -Dorg.gradle.java.home=$HOME/wpilib/2026/jdk
+./gradlew test         -Dorg.gradle.java.home=$HOME/wpilib/2026/jdk   # real-time simulator tests
 ```
 
 Add `--offline` when you have no network; the dependencies are already cached locally.
@@ -232,18 +305,17 @@ which is a confusing way of saying "that's not a JDK."
 
 ---
 
-## 8. Lesson numbering
+## 9. Lesson numbering
 
-- **01–89** — the Java course, following the source video series. 01–55 have guides; 56–70 have stubs awaiting guides.
-- **90–99** — reserved for robot systems, taught in terms of a subsystem rather than a language feature. **Nothing in this block is written yet.** Lessons 90–95 are reserved for a planned drivetrain arc — tank, then mecanum, then swerve.
-
-The 90-block exists because drivetrain lessons don't depend on the Java course past roughly lesson 30, and numbering them 71+ would imply a prerequisite chain that isn't real — parking the most motivating material in the curriculum behind seventy lessons nobody finishes first.
+- **00**: setup (git, fork, simulator). No Java half and no points.
+- **01–89**: the Java course, following the source video series. Only 00–57 exist: 56 is lambdas, 57 is the capstone, and 58–89 are unused. **Each lesson's robot half programs a piece of last season's robot**, so there's no separate robot track.
+- **90–99**: reserved. The drivetrain arc once planned here (tank, then mecanum, then swerve) is on hold. Tank drive now lives in lessons 03–05, and mecanum and swerve wait for the swerve robot.
 
 `LessonRunner` requires exactly two digits, so any new track has to live inside 00–99 unless the runner changes.
 
 ---
 
-## 9. Writing style
+## 10. Writing style
 
 The guides have a voice. Keep it.
 

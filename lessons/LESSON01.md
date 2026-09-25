@@ -33,31 +33,47 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
+Your code goes in `java-lessons/src/lesson01/basic/Main.java` (and `extra/Main.java`). The `main` method is already written for you.
+
+> The video installs a JDK and **IntelliJ**. Skip that part: the WPILib installer from [Lesson 00](./LESSON00.md) already gave you Java and **VS Code**. Pick the video up at **3:38**, where it creates a project.
+
 **Basic (1 pt)**  
-- Follow along with the YouTube video to set up Java in VS Code and run your first print statement.
+- Print three lines with `System.out.println("...");`
+- Print two things with `System.out.print("...");` and notice they land on the **same** line. Then add `\n` to the end of the first one and run it again.
+- Add a `//` comment and a `/* ... */` comment. Run it: comments never show up in the output.
 
 **Extra (1 pt)**  
-- Complete the homework: write a short poem, share fun facts, or introduce yourself using print statements.
+- The video's homework: write **at least three** `println` statements that make something. A short poem, a few fun facts, or an introduction of yourself.
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson01/basic/Lesson01.java` (and `extra/Lesson01.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 **Basic (1 pt)**  
-- Add a single SmartDashboard print to display a message from the robot.
+- Put one message on **SmartDashboard**, like `SmartDashboard.putString("Hello", "Hello from the 2026 robot!");`
+- Run the simulator, click **Teleoperated**, and find your message under **NetworkTables → SmartDashboard**.
 
 **Extra (1 pt)**  
-- List three potential SmartDashboard prints you would expect to see during a match (promotes driver/developer thinking).
+- A driver of the 2026 robot is in the middle of a match. Put **three** values on SmartDashboard that they would want to see, **one of each kind**:
+  - a **number** with `putNumber`, like the flywheel's speed
+  - a **true/false** with `putBoolean`, like whether the Limelight sees the hub
+  - a **word** with `putString`, like whether the climber is `"UP"` or `"DOWN"`
+- The values are made up for now. Later lessons replace them with real sensor readings.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Find where a SmartDashboard print was used in last year’s code and explain the potential reason for it.
+- Search the code for `SmartDashboard.put`. Pick **two** and explain who each one is for: a **driver** during a match, or a **programmer** fixing something.
 
 **Extra (1 pt)**  
-- Identify a place in the code where adding a SmartDashboard print would help a driver or developer, and add it.
+- `ClimbUp.java` publishes a value named just `Pos`. The position of *what*, and in what units? Suggest a better name, and explain why yours is better.
 
 ---
 
@@ -65,7 +81,7 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 

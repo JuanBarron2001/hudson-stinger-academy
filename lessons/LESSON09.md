@@ -13,40 +13,45 @@ Learn to:
 - Apply multiple conditions to calculate different outcomes  
 - Format output with `printf` for cleaner results  
 - Understand when nested logic is more effective than flat `if/else` chains  
+- Build the 2026 robot's shoot-when-ready decision tree  
 
 ---
 
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [02:03:47](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=7427s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 09](https://www.youtube.com/watch?v=23VT2wh3BG4&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=12) (Nested if statements are easy! 🎟️, 6:33)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Build a **movie ticket discount calculator** with nested logic:
-  - Create a `double basePrice = 15.00;`
-  - Create a Boolean variable `isStudent`
-  - Write a nested `if` statement:
-    - If `isStudent` → check nested condition:
-      - If also `isSenior` → apply 30% discount (`price *= 0.7`)
-      - Else → apply 15% discount (`price *= 0.85`)
-    - Else → full price (no discount)
+- Build the video's **movie ticket discount calculator**:
+  - Create `double price = 15.00;` and two booleans, `isStudent` and `isSenior`
+  - Write an `if` inside an `if`, **and** an `if` inside the `else`:
+    - If `isStudent`:
+      - if also `isSenior` → student + senior discount, 30% off (`price *= 0.7`)
+      - else → student discount, 10% off (`price *= 0.9`)
+    - Else:
+      - if `isSenior` → senior discount, 20% off (`price *= 0.8`)
+      - else → full price
   - Print the ticket type and final price with `printf` to 2 decimal places
-  - Example output: `"Student+Senior Ticket: $10.50"` or `"Student Ticket: $12.75"` or `"Regular Ticket: $15.00"`
+  - Try all four combinations. You should see `"Student+Senior Ticket: $10.50"`, `"Student Ticket: $13.50"`, `"Senior Ticket: $12.00"` and `"Regular Ticket: $15.00"`
 
 **Extra (1 pt)**  
 - Expand with user input and more complex nesting:
-  - Use `Scanner` to prompt for: student status (yes/no), senior status (yes/no), membership tier (BRONZE/SILVER/GOLD/NONE)
+  - Use `Scanner` to ask: student? and senior? (read both with `nextBoolean()`, like lesson 05), then the membership tier as a word: `BRONZE`, `SILVER`, `GOLD` or `NONE` (read it with `next()`)
+  - Compare words with `.equals`, never `==`: `tier.equals("GOLD")`. A `String` is a reference type (lesson 02's IOU), so `==` asks "is this the same IOU?" instead of "are these the same letters?", and a word you read in never is. Lesson 10 covers `.equals`.
   - Build nested logic:
     - If student:
       - If also senior:
@@ -59,69 +64,45 @@ Learn to:
         - Else → 15% discount
     - Else (not student):
       - If senior:
-        - If any member tier → 25% discount
+        - If any member tier (not `NONE`) → 25% discount
         - Else → 20% discount
       - Else → full price
   - Print a clear receipt showing discount reason and final price  
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
 
-**Basic (1 pt)**  
-- Use nested `if` statements to implement a **button-triggered targeting system**:
-  - Get alliance color from DriverStation (RED or BLUE)
-  - Get button press state from XboxController (e.g., A button)
-  - Nested logic:
-    - If alliance is RED:
-      - If button is pressed → drive toward AprilTag
-      - Else → stop driving
-    - Else (alliance is BLUE):
-      - If button is pressed → drive away from AprilTag
-      - Else → stop driving
-  - Print the alliance color, button state, and action to **SmartDashboard**
+Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson09/basic/Lesson09.java` (and `extra/Lesson09.java`). The task list is at the top of each file.  
+Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Extra (1 pt)**  
-- Expand with **multi-level nesting** for smarter strategy:
-  - Get alliance color, button press, and battery voltage (or distance to tag)
-  - Nested logic:
-    - If alliance is RED:
-      - If button is pressed:
-        - If battery is good (> 11.5V) → drive toward tag at full speed
-        - Else → drive toward tag at reduced speed (50%)
-      - Else → stop
-    - Else (alliance is BLUE):
-      - If button is pressed:
-        - If distance to tag is close (< 2 meters) → stop (don't go closer)
-        - Else → drive toward tag
-      - Else → stop
-  - Print decision logic to **SmartDashboard** so you can debug what the robot decided (useful during matches!)
-  - Example: `"RED + Button + LowBattery → Slow Track"` or `"BLUE + Button + CloseToTag → Stop"`  
+**Basic (1 pt)**: a shot that waits until it's ready  
+- Create the **operator controller**, both **rollers** and the **conveyor**.
+- Build this with an `if` **inside** an `if`:
+  - If **A** is held: run the rollers at your lesson 07 power, then
+    - if the rollers are at speed → conveyor `-0.7`, status `"FEEDING"`
+    - else → conveyor `-0.05` to hold the ball back, status `"SPINNING UP"`
+  - Else → stop everything, status `"STOPPED"`
+- Put the status and the roller speed on SmartDashboard.
+- Tap **A** and let go quickly. Does the conveyor ever feed? Why or why not?
+
+**Extra (1 pt)**: don't shoot blind  
+- Inside "A is held", nest two more checks, in this order: **target seen?** → **aimed?** → **at speed?** Only `"FEEDING"` runs the conveyor. The other statuses, `"NO TARGET"`, `"AIMING"` and `"SPINNING UP"`, hold it back.
+- **At home** there's no camera, so pretend: operator **X** held (**7** key) means "the Limelight sees the hub", and **Y** held (**8** key) means "we're aimed".
+- **At a meeting**, swap in the real camera: `LimelightHelpers.getTV("limelight")` for target seen, and `Math.abs(LimelightHelpers.getTX("limelight")) < 1.5` for aimed.
+- Should the rollers already spin up while the status is `"NO TARGET"`? Decide, and explain in a comment.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
+
+> *Optional: skip this part if you're short on time.* Last season's code is [`Hudson-Robotics/OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Code-2026), branch **`Pre-DCMP-Flywheel`**.
 
 **Basic (1 pt)**  
-- Find a nested `if` in last year’s robot code.  
-- Explain what it checks and why nesting was necessary.  
+- Draw the decision tree in `AlignAndShoot.java`'s `execute()`. Boxes and arrows on paper are fine, or indented text in a comment.
 
 **Extra (1 pt)**  
-- Suggest improvements:  
-  - Could the nested logic be simplified with `&&` or `||` operators?  
-  - Could readability improve by restructuring?  
-- Or write pseudo‑code for a nested safety check:  
-  [CODE BLOCK]java
-  if (isShooterActive) {
-      if (ballDetected) {
-          fire();
-      } else {
-          stopShooter();
-      }
-  } else {
-      idle();
-  }
-  [CODE BLOCK]  
+- `AlignAndShoot` handles "no target" with an early `return` instead of nesting everything inside an `if`. Rewrite its logic as nested `if`s in pseudo-code. Which version is easier to read, and why?
 
 ---
 
@@ -129,14 +110,14 @@ Learn to:
 - **Max:** 6 pts  
   - Java‑Only: 2 pts  
   - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Code Archaeology: 2 pts *(optional)*
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Movie ticket discount example → relatable intro.  
 - Robot code: nested safety checks (battery, arm, shooter).  
 - Archaeology: simplify nested ifs with logical operators.  
 - Segue: Next lesson could cover logical operators (`&&`, `||`, `!`) as an alternative to nesting.  
-[CODE BLOCK]
+-->

@@ -1,14 +1,12 @@
 package lesson02.basic;
 import lessonRunner.BaseLesson;
 
-// TASK: Create five variables, one of each type:
-// 1. String
-// 2. int
-// 3. double
-// 4. char
-// 5. boolean
-// Print all five variables to the console using System.out.println()
-
+// LESSON 02 BASIC - The video's homework: five variables
+//
+// TASK:
+// 1. Create five variables, one of each type:
+//    a String, an int, a double, a char and a boolean
+// 2. Print all five with System.out.println()
 public class Main extends BaseLesson {
     public static void main(String[] args) {
     }

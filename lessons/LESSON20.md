@@ -19,14 +19,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [04:19:51](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=15591s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 20](https://www.youtube.com/watch?v=nhnAx79gxCM&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=27) (Learn Java overloaded methods in 6 minutes! 🍕, 6:08)
 
 ---
 
@@ -34,66 +36,47 @@ Learn to:
 
 **Basic (1 pt)**  
 - Create an `add` method that takes two `double` parameters and returns their sum.  
-- Call it with `1` and `2` → output should be `3`.  
+- Call it with `1` and `2` → output should be `3.0` (it's a `double`).  
+- Write a **second** method with the exact same line, `static double add(double a, double b)`, and run it. Read the error, then delete the copy. The name plus the parameter list is the method's **signature**, and no two methods can share one.  
 
 **Extra (1 pt)**  
 - Overload the `add` method to accept three and four parameters.  
 - Call each version and print results.  
 - Demonstrate that methods with the same name but different parameter lists are valid.  
+- **Pizza**, the video's second example. Write three overloads of `static String bakePizza(...)`:  
+  - `bakePizza(String bread)` returns `bread + " pizza"`  
+  - `bakePizza(String bread, String cheese)` returns `cheese + " " + bread + " pizza"`  
+  - `bakePizza(String bread, String cheese, String topping)` returns `topping + " " + cheese + " " + bread + " pizza"`  
+  - Call all three. Java picks the one whose parameters match: `bakePizza("flatbread", "mozzarella", "pepperoni")` gives `"pepperoni mozzarella flatbread pizza"`.  
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Create an overloaded method `setMotorSpeed`:  
-  - One version accepts a single speed value.  
-  - Another version accepts left and right speeds separately.  
-
-**Extra (1 pt)**  
-- Add a third overload that accepts an array of motor speeds and sets each motor accordingly.  
-- Print results to **SmartDashboard**.  
+> **Not written yet.** Lesson 20 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a place in last year’s robot code where multiple methods with similar names existed (e.g., `driveForwardOneMotor`, `driveForwardTwoMotors`).  
-- Suggest how overloading could simplify them into one method name with different parameters.  
-
-**Extra (1 pt)**  
-- Write pseudo‑code for an overloaded `bakePizza` method:  
-  [CODE BLOCK]java
-  static String bakePizza(String bread) {
-      return bread + " pizza";
-  }
-
-  static String bakePizza(String bread, String cheese) {
-      return cheese + " " + bread + " pizza";
-  }
-
-  static String bakePizza(String bread, String cheese, String topping) {
-      return topping + " " + cheese + " " + bread + " pizza";
-  }
-  [CODE BLOCK]  
-- Show how calling each version produces different results.  
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Math example (`add`) → simple intro to overloading.  
 - Pizza example → fun, real‑world analogy.  
 - Robot code: overloaded methods for motor control.  
 - Archaeology: replace multiple similar methods with one overloaded method.  
 - Segue: Next lesson could cover **variable scope** or **access modifiers**.  
-[CODE BLOCK]
+-->

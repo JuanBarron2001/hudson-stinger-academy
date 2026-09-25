@@ -18,14 +18,16 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [03:53:33](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=14013s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 17](https://www.youtube.com/watch?v=iGo1Syv4YuM&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=24) (Learn BREAK & CONTINUE in 2 minutes! 🚦, 2:12)
 
 ---
 
@@ -46,54 +48,29 @@ Learn to:
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use `break` in a loop that checks sensors:  
-  - Example: stop looping once a limit switch is pressed.  
-
-**Extra (1 pt)**  
-- Use `continue` to skip invalid sensor readings:  
-  - Example: if a sensor returns `-1`, skip that iteration and move on.  
-- Print results to **SmartDashboard** for debugging.  
+> **Not written yet.** Lesson 17 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a loop in last year’s robot code where `break` was used to stop early.  
-- Explain why it was necessary (e.g., safety, efficiency).  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Replace nested `if` checks with `continue` for cleaner code.  
-  - Use `break` to exit once a condition is satisfied instead of checking repeatedly.  
-- Or write pseudo‑code for motor testing:  
-  [CODE BLOCK]java
-  for (Motor m : motors) {
-      if (!m.isConnected()) {
-          continue; // skip disconnected motors
-      }
-      testMotor(m);
-      if (m.hasError()) {
-          break; // stop testing if a failure occurs
-      }
-  }
-  [CODE BLOCK]  
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
-[CODE BLOCK]LOG
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:
 - Show difference between `break` (stop) and `continue` (skip).  
 - Robot code: skip bad sensor values with `continue`.  
 - Archaeology: simplify loops by replacing nested checks with `continue`.  
 - Segue: Next lesson could cover **nested loops** for patterns and grids.  
-[CODE BLOCK]
+-->

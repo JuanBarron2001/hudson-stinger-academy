@@ -19,137 +19,88 @@ Learn to:
 ## ⏱️ Progress Tracking
 
 ### 📊 For the Marathon Watchers  
-- **Start Time in 12‑Hour Video:** [blank]  
-- **Full Course (12h video):** [link here]  
+If you’re following the **full 12‑hour compilation** and want to see how far you’ve made it through the *entire* course:  
+- **Start Time in 12‑Hour Video:** [08:45:17](https://www.youtube.com/watch?v=xTtL8E4LzTQ&t=31517s)  
+- **Full Course (12h video):** [Watch Compilation](https://www.youtube.com/watch?v=xTtL8E4LzTQ)
 
 ---
 
 ### 🎯 For the Quick‑Hit Learners  
-- **Lesson Playlist:** [link here]  
-- **This Lesson Only:** [link here]  
+If you just want **this lesson only** and to be done with it — no scrubbing through hours of footage:  
+- **Lesson Playlist:** [Java tutorial for beginners (2025) ☕](https://www.youtube.com/playlist?list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc)  
+- **This Lesson Only:** [Watch Lesson 43](https://www.youtube.com/watch?v=5bt07czziV4&list=PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc&index=55) (Learn WRAPPER CLASSES in 10 minutes! 🎁, 10:36)
 
 ---
 
 ## 💻 Part 1 – Java‑Only (2 pts)
 
 **Basic (1 pt)**  
-- Wrapping primitives (old/deprecated way):  
+- Wrapping primitives the old way. **Just read this one, don't type it:** these constructors are deprecated, and Java now warns that they'll be removed. It's the clearest picture of what "wrapping" means, though: the number goes inside an object.  
 
-[CODE BLOCK]java
+```java
 Integer a = new Integer(123);     // int → Integer
 Double b = new Double(3.14);      // double → Double
 Character c = new Character('$'); // char → Character
 Boolean d = new Boolean(true);    // boolean → Boolean
-[CODE BLOCK]
+```
 
-- Modern way: **autoboxing**  
+- The modern way is **autoboxing**, and this one you type. Make the same four variables, `Integer a`, `Double b`, `Character c` and `Boolean d`, with the same four values, but assign each value straight to its variable with no `new`. Java wraps each one for you.  
+- Print all four. They look like plain values, but each one is an object now.  
 
-[CODE BLOCK]java
-Integer a = 123;
-Double b = 3.14;
-Character c = '$';
-Boolean d = true;
-[CODE BLOCK]
+Expected output:  
+
+```
+123
+3.14
+$
+true
+```
 
 **Extra (1 pt)**  
-- **Unboxing**: converting wrapper → primitive  
+- **Unboxing** goes the other way: assign each wrapper straight to a primitive, `int x = a;` and so on for `double`, `char` and `boolean`. Print all four on one line.  
+- **Primitive → `String`:** make four `String`s with `Integer.toString(123)`, `Double.toString(3.14)`, `Character.toString('$')` and `Boolean.toString(false)`. Print all four added together. **Predict it first.** You get one long `String`, because every piece is a `String` now.  
+- **`String` → primitive:** `Integer.parseInt("123")`, `Double.parseDouble("3.14")` and `Boolean.parseBoolean("true")`. There's no `Character.parseChar`, so take the first letter of a `String` instead, with `"pizza".charAt(0)`. Add the parsed `int` and `double` together: they're numbers now, so they add up instead of sticking together. Then print the `boolean` and the `char`.  
+- **Character checks:** print `Character.isLetter('b')`, `Character.isLetter('$')` and `Character.isUpperCase('b')`. Checks like these are how you'd validate a username or password.  
 
-[CODE BLOCK]java
-int x = a;       // Integer → int
-double y = b;    // Double → double
-char z = c;      // Character → char
-boolean flag = d;// Boolean → boolean
-[CODE BLOCK]
+Expected output:  
 
-- **Utility methods**:  
-
-[CODE BLOCK]java
-// Convert primitive to String
-String s1 = Integer.toString(123);
-String s2 = Double.toString(3.14);
-String s3 = Character.toString('$');
-String s4 = Boolean.toString(false);
-
-// Convert String to primitive
-int i = Integer.parseInt("123");
-double d2 = Double.parseDouble("3.14");
-boolean b2 = Boolean.parseBoolean("true");
-
-// Character checks
-char letter = 'b';
-System.out.println(Character.isLetter(letter));   // true
-System.out.println(Character.isUpperCase(letter));// false
-[CODE BLOCK]
+```
+123 3.14 $ true
+1233.14$false
+126.14
+true p
+true
+false
+false
+```
 
 ---
 
 ## 🤖 Part 2 – Robot Code (2 pts)
 
-**Basic (1 pt)**  
-- Use wrapper classes with **ArrayList** (since ArrayList only works with objects).  
-
-[CODE BLOCK]java
-ArrayList<Integer> speeds = new ArrayList<>();
-speeds.add(50);   // autoboxing: int → Integer
-speeds.add(75);
-speeds.add(100);
-
-for (Integer s : speeds) {
-    SmartDashboard.putNumber("Speed", s);
-}
-[CODE BLOCK]
-
-**Extra (1 pt)**  
-- Parse sensor values from strings:  
-
-[CODE BLOCK]java
-String voltageReading = "12";
-int voltage = Integer.parseInt(voltageReading);
-
-String tempReading = "36.5";
-double temperature = Double.parseDouble(tempReading);
-
-SmartDashboard.putNumber("Voltage", voltage);
-SmartDashboard.putNumber("Temperature", temperature);
-[CODE BLOCK]
+> **Not written yet.** Lesson 43 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
+>
+> Ahead of the pace and want the points anyway? Ask a mentor. Writing this half with you is a good use of a meeting.
 
 ---
 
-## 📜 Part 3 – Code Archaeology (2 pts)
+## 📜 Part 3 – Code Archaeology (2 pts, optional)
 
-**Basic (1 pt)**  
-- Find a section of last year’s robot code where primitives were stored in collections.  
-- Suggest replacing them with **wrapper classes** (e.g., `ArrayList<Integer>` instead of `ArrayList<int>`).  
-
-**Extra (1 pt)**  
-- Suggest improvements:  
-  - Use wrapper utility methods for parsing sensor data from strings.  
-  - Use `Character.isLetter()` or `Character.isDigit()` for validating user input.  
-
-[CODE BLOCK]java
-// Before
-// ArrayList<int> speeds; // invalid
-
-// After
-ArrayList<Integer> speeds = new ArrayList<>();
-speeds.add(60);
-speeds.add(80);
-[CODE BLOCK]
+> Not written yet. See Part 2.
 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
+- **Max right now:** 2 pts  
   - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
-  - Code Archaeology: 2 pts  
+  - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---
 
-[CODE BLOCK]LOG  
+<!-- Drafting notes from the transcript draft. Hidden from students.
 Ideas:  
 - Emphasize wrapper classes = objects for primitives.  
 - Robot code: ArrayLists require wrapper classes.  
 - Archaeology: replace invalid primitive collections with wrapper equivalents.  
 - Segue: Next lesson → **ArrayLists** (dynamic arrays that only work with objects).  
-[CODE BLOCK]
+-->
