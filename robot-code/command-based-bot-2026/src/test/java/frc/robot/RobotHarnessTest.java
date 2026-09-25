@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.simulation.DriverStationSim;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.sim.RobotSim;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -188,6 +189,69 @@ class RobotHarnessTest {
     assertTrue(printed.contains("hasn't put anything on SmartDashboard yet"),
         "an empty lesson should explain itself");
     java.nio.file.Files.deleteIfExists(Paths.get("frc.lesson.lesson01.basic-output.log"));
+  }
+
+  @Test
+  void myRobotRunsTheContainersAutoThenStopsItForTeleop() throws Exception {
+    Path log = Paths.get("frc.lesson.myrobot-output.log");
+    Files.deleteIfExists(log);
+
+    HAL.initialize(500, 0);
+    DriverStationSim.setDsAttached(true);
+    DriverStationSim.setAutonomous(true);
+    DriverStationSim.setEnabled(true);
+    DriverStationSim.notifyNewData();
+    DriverStation.refreshData();
+
+    Robot robot = new Robot("frc.robot.StandInRobotContainer");
+    robot.autonomousInit();
+    for (int i = 0; i < 30; i++) {
+      robot.robotPeriodic();
+    }
+    double autoLoops = SmartDashboard.getNumber("StandIn/Auto Loops", 0);
+    assertTrue(autoLoops >= 25, "Autonomous should run the container's command, ran " + autoLoops);
+
+    DriverStationSim.setAutonomous(false);
+    DriverStationSim.notifyNewData();
+    DriverStation.refreshData();
+    robot.teleopInit();
+    for (int i = 0; i < 10; i++) {
+      robot.robotPeriodic();
+      robot.teleopPeriodic();
+    }
+    assertEquals("auto stopped", SmartDashboard.getString("StandIn/State", ""));
+    assertEquals(autoLoops, SmartDashboard.getNumber("StandIn/Auto Loops", 0), 1,
+        "the autonomous command should stop when Teleoperated starts");
+
+    List<String> lines = Files.readAllLines(log, StandardCharsets.UTF_8);
+    assertTrue(lines.stream().anyMatch(l -> l.contains("|StandIn/Auto Loops|")),
+        "a whole robot run is logged, Autonomous included");
+    String previous = FIRST_LINE_SEED;
+    for (String line : lines) {
+      String[] fields = line.split("\\|");
+      assertEquals(md5(previous), fields[fields.length - 1], "hash chain broken at: " + line);
+      previous = line;
+    }
+    Files.deleteIfExists(log);
+  }
+
+  @Test
+  void myRobotWithNoRobotContainerSaysSo() {
+    HAL.initialize(500, 0);
+    java.io.ByteArrayOutputStream console = new java.io.ByteArrayOutputStream();
+    java.io.PrintStream realOut = System.out;
+    try {
+      System.setOut(new java.io.PrintStream(console, true));
+      Robot robot = new Robot("frc.robot.NoSuchRobotContainer");
+      robot.autonomousInit();
+      robot.robotPeriodic();
+      robot.teleopInit();
+      robot.teleopPeriodic();
+    } finally {
+      System.setOut(realOut);
+    }
+    assertTrue(console.toString().contains("Lesson 42 is where you make it"),
+        "a missing RobotContainer should be explained, not crash");
   }
 
   private static String md5(String text) throws Exception {
