@@ -81,7 +81,7 @@ This offseason, the robot half of each lesson programs a piece of **last season'
 | [ ] | 54  | 🖥️ Threading in Java                   | Run tasks concurrently with threads.                                    | [Open Lesson](./LESSON54.md) | [READY FOR REVIEW] | Optional | — skip for now |
 | [ ] | 55  | 🖥️ Multi‑Threading in Java             | Manage multiple threads for parallel execution.                         | [Open Lesson](./LESSON55.md) | [READY FOR REVIEW] | Optional | — skip for now |
 | [ ] | 56  | 🖥️ Lambdas & Method References        | Write `() -> ...` and `::` — the short form of the anonymous classes from lesson 49. Owed by lessons 32, 34, 37, 44 and 49. | [Open Lesson](./LESSON56.md) | [READY FOR REVIEW] | Core | ✅ Rebuilt |
-| [ ] | 57  | 🤖 Capstone: Your Whole Robot          | Full `RobotContainer`, button bindings, PathPlanner, and a deploy to the real robot. | — not written yet | [IDEA] | Core | ⏳ Not yet |
+| [ ] | 57  | 🤖 Capstone: Your Whole Robot          | Full `RobotContainer`, button bindings, PathPlanner, and a deploy to the real robot. | [Open Lesson](./LESSON57.md) | [READY FOR REVIEW] | Core | ✅ Rebuilt |
 
 
 ## 📌 Lesson Status Key
