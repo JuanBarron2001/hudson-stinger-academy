@@ -5,9 +5,10 @@ import lessonRunner.BaseLesson;
 //
 // TASK:
 // 1. Copy Car.java into this folder, with  package lesson35.extra;
-// 2. In Car, override toString() to return the details:
+// 2. In Car, override toString() so it returns the color, year, make and model, with a
+//    space between each:
 //      @Override
-//      public String toString() { return this.color + " " + this.year + " " + this.make + " " + this.model; }
+//      public String toString()
 //    (it has to be public: the one it overrides in Object is public)
 // 3. In main, create two cars and print each one directly:
 //      new Car("Ford", "Mustang", 2025, "Red")        -> Red 2025 Ford Mustang

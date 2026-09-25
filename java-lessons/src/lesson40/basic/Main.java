@@ -15,7 +15,7 @@ import lessonRunner.BaseLesson;
 // 4. Add setters for color and price ONLY, so just those can be WRITTEN:
 //      public void setColor(String color)   public void setPrice(int price)
 //    No setModel: a Charger can't turn into a Corvette.
-// 5. Repaint the car blue, change its price, and print it again with the getters
+// 5. Repaint the car "Blue", set its price to 5000, and print it again with the getters
 // 6. Try car.setModel("Corvette") and read the error, then delete it
 public class Main extends BaseLesson {
     public static void main(String[] args) {

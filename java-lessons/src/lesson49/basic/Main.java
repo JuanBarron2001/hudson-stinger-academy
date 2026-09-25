@@ -9,10 +9,9 @@ import lessonRunner.BaseLesson;
 // 2. The long way: TalkingDog.java, where  TalkingDog extends Dog  and overrides speak()
 //    to print "Scooby-Doo says ruh-roh". Create one and make it speak.
 // 3. The short way: delete TalkingDog.java, and give a second, ordinary Dog its own
-//    speak() right where you create it:
+//    speak() right where you create it. The shape is:
 //      Dog dog2 = new Dog() {
-//          @Override
-//          void speak() { System.out.println("Scooby-Doo says ruh-roh"); }
+//          ... an @Override of speak(), exactly as you'd write it in a class ...
 //      };
 //    The braces are a class with no name, an anonymous class. Note the ; at the end.
 // 4. Make both dogs speak. The first one still goes woof.
