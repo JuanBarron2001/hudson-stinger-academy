@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson38.basic;`, and `package lesson38.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create an abstract parent class, `Vehicle`, with one abstract method, `abstract void go();`.  
 - Create `Car`, `Bike` and `Boat`, which each extend `Vehicle` and override `go()`. They print `You drive the car`, `You ride the bike` and `You sail the boat`.  
 - First try the video's mistake: `Car[] cars = { new Car(), new Bike(), new Boat() };`. Read the error, `incompatible types: Bike cannot be converted to Car`, because a bike isn't a car. Delete it, and find the one type all three share.  
@@ -59,14 +59,14 @@ Expected output: the same three lines as the basic half.
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson38/basic/Lesson38.java` (and `extra/Lesson38.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
 > 🏁 **Last lesson of the commands unit.** At a competition nobody edits code between matches — the drive team picks the autonomous routine off a dropdown. That dropdown is a `SendableChooser<Command>`, and the only reason it can hold three different classes at once is polymorphism.
 
-**Basic (1 pt)**: one box, three different autos  
+**Basic (3 pts)**: one box, three different autos  
 
 - Write three autos. Each is a `Command`, and **none of them needs a timer** — each knows it is finished by looking at the robot:  
 
@@ -96,7 +96,7 @@ SmartDashboard.putData("Auto Chooser", chooser);      // NAME IT. Part 3 explain
 
 > 🔍 **One oddity worth spotting:** the dropdown says `Drive Forward` but `getName()` says `DriveForward`. The label is yours; the name came from the class. They don't have to match, and on real robots they usually don't.
 
-**Extra (1 pt)**: the same call, three answers — and the bug that loses a match  
+**Extra (2 pts)**: the same call, three answers — and the bug that loses a match  
 
 - Put all three autos in one array, and look hard at the type:  
 
@@ -134,9 +134,9 @@ Open `RobotContainer.java` in [`OG-Code-2026`](https://github.com/Hudson-Robotic
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

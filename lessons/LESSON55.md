@@ -33,11 +33,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Code for `main` goes **inside** your existing `main`: keep the `public class Main extends BaseLesson` line your file already has, because without `extends BaseLesson` the lesson runner can't run it. `MyRunnable` gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - In `MyRunnable.java`, write `public class MyRunnable implements Runnable`. Its `run()` counts from 1 to 5, sleeping 1000 ms before each number (catching `InterruptedException` as in lesson 54), and prints the thread's name, a space, and the number. The name comes from `Thread.currentThread().getName()`.  
 - Add `throws InterruptedException` to `main`'s first line.  
 - In `main`, create two threads, each from its own `new MyRunnable()`, and `start()` both.  
@@ -97,7 +97,7 @@ Game over
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 55 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -112,8 +112,8 @@ Game over
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

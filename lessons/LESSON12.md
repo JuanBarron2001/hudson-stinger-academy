@@ -34,9 +34,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create an integer `score = 70;`  
 - Use the ternary operator to assign `"Pass"` (a score of 60 or more) or `"Fail"` to a string variable.  
 - Print the result, then change the score to 55 and run it again.  
@@ -51,19 +51,19 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson12/basic/Lesson12.java` (and `extra/Lesson12.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: the climber  
+**Basic (3 pts)**: the climber  
 - Create the **driver controller** and the **climber** (CAN 7).
 - One ternary picks the climber power: `0.5` if the D-pad is pushed up (`driver.getPOV() == 0`, the **up arrow** at home), otherwise `0.0`.
 - A second ternary picks a word from the climber's position: `"UP"` past 100 rotations, otherwise `"DOWN"`.
 - Put the power, the position and the word on SmartDashboard.
 - Rewrite the power ternary as an `if` / `else` in a comment. Which version is easier to read *here*?
 
-**Extra (1 pt)**: which hub is ours?  
+**Extra (2 pts)**: which hub is ours?  
 - Copy this line exactly: `boolean isRed = DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red;`  
   [Lesson 53](./LESSON53.md) explains `Alliance.Red` and `Alliance.Blue` — they are enum constants. The `.orElse(Alliance.Blue)` part means *"use blue if the driver station hasn't told us yet"*; copy it as-is for now, because the Java course never covers `Optional`.
 - Use a ternary to pick the hub's x: `11.9903` if red, otherwise `4.5227`. The hub's y is `4.0214` either way, so notice when a ternary *isn't* needed.
@@ -85,9 +85,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

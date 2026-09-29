@@ -33,11 +33,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Car.java` starts with `package lesson30.basic;` in the basic folder, and the extra folder gets its own copy with `package lesson30.extra;`.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `Car` class with `String model` and `String color`, a constructor `Car(String model, String color)` that sets both, and `void drive()`, which prints `You drive the `, then the color, a space, and the model.  
 - In `main()`, create three cars (a red Mustang, a blue Corvette and a yellow Charger) and store them in a `Car[]` array.  
 - Use a `for` loop that stops at `cars.length` to call `drive()` on each one.  
@@ -68,7 +68,7 @@ You drive the Black Charger
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 30 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -83,8 +83,8 @@ You drive the Black Charger
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

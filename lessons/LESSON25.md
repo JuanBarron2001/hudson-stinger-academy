@@ -32,9 +32,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Write `static int add(int... numbers)`, which adds up every number it's given. One method replaces all the `add` overloads you wrote in lesson 20.  
 - The three dots tell Java to pack all the arguments into an array called `numbers`, so an enhanced `for` loop can walk through them.  
 - Inside `add`, print how many numbers arrived, using `numbers.length`.  
@@ -67,7 +67,7 @@ NaN
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 25 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -82,8 +82,8 @@ NaN
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

@@ -17,7 +17,7 @@ robot-code/command-based-bot-2026/src/main/java/
         frc/lesson/lesson07/{basic,extra}/Lesson07.java ← the robot exercise
 ```
 
-Six points total: 2 for Java-only, 2 for robot code, 2 for "Code Archaeology" (reading last season's robot code), each split into a required **basic** half and a stretch **extra** half. **Archaeology is optional** as of the 2026 offseason: students aim for two lessons a week, Java first, then robot, and skip archaeology when short on time.
+Ten points total: 5 for robot code (basic 3, extra 2), 3 for Java-only (basic 2, extra 1), 2 for "Code Archaeology" (reading last season's robot code; basic 1, extra 1), each split into a required **basic** half and a stretch **extra** half. The basics outweigh the extras on purpose, so a student doing only the basics still earns 5–6 of 10, and the robot half outweighs the Java half because it's the point of the course. Optional lessons have no robot half, so they're worth 3. **Archaeology is optional** as of the 2026 offseason: students aim for two lessons a week, Java first, then robot, and skip archaeology when short on time.
 
 The naming is load-bearing. `LessonRunner` and `LessonLoader` both find lessons by **reflection on the package name**, so `lesson07.basic.Main` and `frc.lesson.lesson07.basic.Lesson07` must be spelled exactly that way or the lesson silently fails to load. Two digits, always — `lesson7` will not be found.
 

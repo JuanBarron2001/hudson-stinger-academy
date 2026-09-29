@@ -33,11 +33,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Animal.java`, `Dog.java` and `Cat.java` all start with `package lesson32.basic;`. The extra folder gets its own copies with `package lesson32.extra;`.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a parent class, `Animal`, with a `boolean isAlive`, a constructor `Animal()` that sets it to `true`, and `void eat()`, which prints `The animal is eating`.  
 - Create `Dog` and `Cat`, which each **extend** `Animal` and are otherwise empty: `public class Dog extends Animal { }`.  
 - In `main()`, create a dog and a cat. Print each one's `isAlive`, and call `eat()` on both. `Dog` and `Cat` are empty, yet they have both, because they inherited them from `Animal`.  
@@ -75,14 +75,14 @@ The plant absorbs sunlight
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson32/basic/Lesson32.java` (and `extra/Lesson32.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
 > 🏁 **This lesson ends the drivetrain-and-fuel unit.** After it, your two classes are real WPILib subsystems, and [Lesson 34](./LESSON34.md) can finally write a command. If you've fallen behind, this is the checkpoint to catch up at — ask a mentor for the reference copy.
 
-**Basic (1 pt)**: `Drivetrain extends SubsystemBase`  
+**Basic (3 pts)**: `Drivetrain extends SubsystemBase`  
 
 One word, and your class inherits a pile of machinery WPILib already wrote. You have been on the receiving end of this since lesson 01, by the way: every lesson you have ever written says `extends LessonBase`, which is exactly where `setup()` and `execute()` come from.
 
@@ -112,7 +112,7 @@ drive.arcadeDrive(forward * forwardScale, turn * turnScale);        // in arcade
 
 > 🎯 **The answer:** `arcadeDrive` **squares** your input by default, so `0.7` becomes `0.49`. It's meant to give finer control near the middle of the stick, where drivers spend most of their time. Pass a third argument to turn it off — `drive.arcadeDrive(forward * forwardScale, turn * turnScale, false)` — and you're back to **5.4 m**. Decide which one this robot should have, and write down why. That is a real driver-preference argument, and you now have the numbers for both sides of it.
 
-**Extra (1 pt)**: do it again, then count what the one word bought you  
+**Extra (2 pts)**: do it again, then count what the one word bought you  
 
 - Make `Fuel extend SubsystemBase` too, and move **all** its telemetry into its own `periodic()`: the name, the last action, the roller speed. Group the keys with prefixes — `Fuel/...` and `Drive/...` — the way last season's code does.  
 - Drive **and** intake at once: sticks for the drivetrain, the operator's **B** for the intake. Your `execute()` should be about four lines and mention no motors at all.  
@@ -150,9 +150,9 @@ You wrote none of it. That is what inheritance is: a parent that already did the
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

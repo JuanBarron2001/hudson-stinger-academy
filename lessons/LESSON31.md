@@ -31,11 +31,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Friend.java` starts with `package lesson31.basic;` in the basic folder, and the extra folder gets its own copy with `package lesson31.extra;`.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - **First, without `static`**, the way the video starts: give `Friend` a `String name` and a plain `int numberOfFriends = 0;`, and a constructor, `Friend(String name)`, that sets the name and adds 1 to `numberOfFriends`.  
 - In `main()`, create two friends and print **each one's** `numberOfFriends`. **Predict it first.** Then explain in a comment why both say `1`.  
 - Now make it `static int numberOfFriends = 0;`, so every `Friend` shares **one** count instead of each keeping its own. Create a few more friends and print the total: it goes up with every friend now.  
@@ -63,14 +63,14 @@ You have 3 total friends
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson31/basic/Lesson31.java` (and `extra/Lesson31.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). Every number you are about to move lives in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 > 🧱 Same robot, fourth lesson on it. This one doesn't add a mechanism — it cleans up the three classes you already have.
 
-**Basic (1 pt)**: `Constants`, the file every robot has  
+**Basic (3 pts)**: `Constants`, the file every robot has  
 
 Count the loose numbers in your code right now: `1`, `2`, `3`, `4`, `5`, `6`, `29`, `60`, `100`, `80`, `-0.7`, `0.8`, `-0.72`, `-70`, `0.7`. Each one is typed somewhere specific, and when the conveyor moves to a different CAN ID you get to go find them all.
 
@@ -108,7 +108,7 @@ There is no `new Constants()` anywhere. There never will be.
 
 > 📦 **Why nested classes and not one flat list?** A flat `Constants` becomes 200 lines of numbers with names like `LEFT_ID`, and you start guessing. Grouped, the name can be short, because `DriveConstants.LEFT_LEADER_ID` already says which left it is.
 
-**Extra (1 pt)**: a static method, a static import, and a counter that catches a real bug  
+**Extra (2 pts)**: a static method, a static import, and a counter that catches a real bug  
 
 - Make `frc/robot/RobotMath.java` with one static method — [Lesson 19](./LESSON19.md)'s deadband: `public static double deadband(double value, double band)`, returning `0` when `Math.abs(value) < band`. Nothing about it needs a drivetrain, or a robot, or any object, so it's `static`. Call it as `RobotMath.deadband(...)`.  
 - Add a counter to `Drivetrain`: `public static int built = 0;`, with `built++` in the constructor that does the real work (the two-argument one — the chained one must not double-count). Publish it straight off the class: `Drivetrain.built`.  
@@ -139,9 +139,9 @@ Open `src/main/java/frc/robot/Constants.java` in [`OG-Code-2026`](https://github
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

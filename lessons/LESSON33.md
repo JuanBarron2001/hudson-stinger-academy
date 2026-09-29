@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson33.basic;`, and `package lesson33.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `Person` class with `String first` and `String last`, a constructor `Person(String first, String last)` that sets both, and `void showName()`, which prints the first name, a space, and the last name.  
 - Create a `Student` class that extends `Person` and adds a `double gpa`. Its constructor is `Student(String first, String last, double gpa)`.  
 - **First,** try setting `this.first = first;` in `Student`'s constructor and read the error: `constructor Person in class Person cannot be applied to given types ... required: String,String, found: no arguments`. `Person`'s only constructor needs a first and last name, so a `Student` can't be built until it hands them up to the parent.  
@@ -65,7 +65,7 @@ Rubeus's salary is $50000
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 33 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -80,8 +80,8 @@ Rubeus's salary is $50000
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

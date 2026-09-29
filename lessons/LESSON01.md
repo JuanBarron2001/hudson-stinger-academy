@@ -31,13 +31,13 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 Your code goes in `java-lessons/src/lesson01/basic/Main.java` (and `extra/Main.java`). The `main` method is already written for you.
 
 > The video installs a JDK and **IntelliJ**. Skip that part: the WPILib installer from [Lesson 00](./LESSON00.md) already gave you Java and **VS Code**. Pick the video up at **3:38**, where it creates a project.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Print three lines with `System.out.println("...");`
 - Print two things with `System.out.print("...");` and notice they land on the **same** line. Then add `\n` to the end of the first one and run it again.
 - Add a `//` comment and a `/* ... */` comment. Run it: comments never show up in the output.
@@ -47,16 +47,16 @@ Your code goes in `java-lessons/src/lesson01/basic/Main.java` (and `extra/Main.j
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson01/basic/Lesson01.java` (and `extra/Lesson01.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**  
+**Basic (3 pts)**  
 - Put one message on **SmartDashboard**, like `SmartDashboard.putString("Hello", "Hello from the 2026 robot!");`
 - Run the simulator, click **Teleoperated**, and find your message under **NetworkTables → SmartDashboard**.
 
-**Extra (1 pt)**  
+**Extra (2 pts)**  
 - A driver of the 2026 robot is in the middle of a match. Put **three** values on SmartDashboard that they would want to see, **one of each kind**:
   - a **number** with `putNumber`, like the flywheel's speed
   - a **true/false** with `putBoolean`, like whether the Limelight sees the hub
@@ -78,9 +78,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

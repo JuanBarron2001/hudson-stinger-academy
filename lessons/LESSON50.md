@@ -32,13 +32,13 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > The `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
 > ⚠️ **Make `main` wait for the timer.** A `Timer` runs its task on its own thread, in the background. If `main` finishes first, the lesson runner stops logging, so the task's output never reaches your log. And a timer that's never cancelled keeps the program running forever. So after scheduling, call `Thread.sleep(...)` long enough for the task to finish, and add `throws InterruptedException` to `main`, like lesson 16's countdown.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Import `java.util.Timer` and `java.util.TimerTask`, and add `throws InterruptedException` to `main`'s first line, after the parentheses.  
 - Create a `Timer`.  
 - Create a `TimerTask` using an **anonymous class** (lesson 49), `new TimerTask() { ... };`, whose `public void run()` prints `Hello`.  
@@ -69,14 +69,14 @@ Task complete
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson50/basic/Lesson50.java` (and `extra/Lesson50.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 > ⚠️ **Two different classes are called `Timer`.** Part 1's is `java.util.Timer`, and it comes with its own thread. WPILib has its own, `edu.wpi.first.wpilibj.Timer`, which is just a stopwatch you read. **Robot code uses WPILib's.** Import the wrong one and your code either won't compile or will do something much worse — see "Why not `TimerTask` on a robot?" below. Nothing in last season's competition code uses `java.util.Timer` at all.
 
-**Basic (1 pt)**: a stopwatch on the robot's own loop  
+**Basic (3 pts)**: a stopwatch on the robot's own loop  
 - Import `edu.wpi.first.wpilibj.Timer` and make one as a field.  
 - In `setup()`, call `timer.restart()`.  
 - In `execute()`, read `timer.get()` and put the seconds on SmartDashboard. `execute()` already runs about 50 times a second, so you don't need anything to call you.  
@@ -85,7 +85,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 
 **Why not `TimerTask` on a robot?** Robot code runs one loop every 20 ms, and everything — motors, the dashboard, your lesson's log — expects to be touched from that loop. A `java.util.Timer` runs its `TimerTask` on a **second thread**, so two pieces of code can reach the same motor at the same moment, and which one wins is luck. It also keeps running after your lesson ends. Write it in the Java half, not here.
 
-**Extra (1 pt)**: run "Just Shoot" by hand  
+**Extra (2 pts)**: run "Just Shoot" by hand  
 - Last season's `Just Shoot` auto is a sequence with times in it: spin the rollers up for 1 second, then feed for 15. Build the same shape out of one timer and `if`s, on the rollers (CAN 5, 6) and the conveyor (CAN 29).  
   - `timer.get() < 1.0` → rollers at your lesson 07 shooting power, conveyor `0`.  
   - between `1.0` and `5.0` → rollers still going, conveyor `-0.7` (the feed, from ROBOT.md).  
@@ -112,9 +112,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts  
 
 ---

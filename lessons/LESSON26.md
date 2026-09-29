@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - A 2D array is an array of arrays, and each row is its own array. Create `String[][] groceries` with three rows: `Apple`, `Orange`, `Banana`; then `Potato`, `Onion`, `Carrot`; then `Chicken`, `Pork`, `Beef`, `Fish`. The rows don't have to be the same length.  
 - Print it as a grid with nested enhanced `for` loops. The outer loop takes one row at a time (`String[] foods : groceries`). The inner loop prints each food in that row followed by a space, and then you print a new line.  
 
@@ -65,18 +65,18 @@ Chicken Eggs Beef Fish
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson26/basic/Lesson26.java` (and `extra/Lesson26.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: a shot table  
+**Basic (3 pts)**: a shot table  
 - A `double[][]` field where each row is `{distance in inches, roller speed in RPS}`: `{30, -60}`, `{75, -75}`, `{120, -90}`.
 - Read the distance from SmartDashboard: `putNumber("Distance (in)", 60)` in `setup()`, and `getNumber` in `execute()`. You can change it in the simulator's NetworkTables window.
 - Loop over the rows, find the one whose distance is **closest** to yours, and put its speed and its row number on SmartDashboard.
 - Try 0, 50, 53, 100 and 500 inches. Which answers look wrong for a real shot?
 
-**Extra (1 pt)**: blend between rows  
+**Extra (2 pts)**: blend between rows  
 - Find the two rows your distance falls **between**. Compute `fraction = (distance - low) / (high - low)`, then `speed = lowSpeed + fraction * (highSpeed - lowSpeed)`.
 - Below the first row, use the first row's speed; above the last row, use the last row's speed.
 - Try 30, 52.5, 75, 100 and 500.
@@ -97,9 +97,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

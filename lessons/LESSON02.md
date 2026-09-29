@@ -32,9 +32,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Complete the **homework from the video**:  
   - Create **five variables** — one each for: a string, an integer, a double, a char, and a boolean.  
   - Print them all to the console.
@@ -50,18 +50,18 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson02/basic/Lesson02.java` (and `extra/Lesson02.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**  
+**Basic (3 pts)**  
 - Store the **team number** (4295) in a variable and put it on SmartDashboard.
 - Store the **left leader** drive motor's CAN ID in a variable, and use it to create the motor: `new TalonFX(leftLeaderId)`.
 - Store a speed of **0.25** in a variable, set the motor to it, and put the speed on SmartDashboard.
 - Run it and open **Sim Field**. Only one of the robot's four drive motors is pushing. **What does the robot do?** Write your answer as a comment in your code.
 
-**Extra (1 pt)**  
+**Extra (2 pts)**  
 - Store the **team number** and **team name** in variables and put both on SmartDashboard.
 - Store **all four** drivetrain CAN IDs in variables with clear names (`leftLeaderId`, not `id1`), and create all four motors from them.
 - Pick **one speed under 0.5**, store it in a variable, and set all four motors to it. Put the speed on SmartDashboard.
@@ -83,9 +83,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

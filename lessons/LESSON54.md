@@ -33,11 +33,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > The `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it. New classes like `MyRunnable` get their own file next to `Main.java`, starting with the same `package` line, like lesson 27.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Without threads, a long task blocks the main program. Import `java.util.Scanner` and create one.  
 - Print `You have 5 seconds to enter your name:`.  
 - Count from 1 to 5 with a `for` loop that sleeps 1000 ms each time: `Thread.sleep(1000)`, inside a `try` that catches `InterruptedException` and prints `Thread was interrupted`. When `i` is 5, print `Time's up!`.  
@@ -71,7 +71,7 @@ Hello SpongeBob
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 54 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -86,8 +86,8 @@ Hello SpongeBob
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

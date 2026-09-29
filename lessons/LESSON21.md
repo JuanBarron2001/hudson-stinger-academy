@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a local variable `x = 1` inside `main()`.  
 - Print it.  
 - Create another method `doSomething()` with its own local variable `x = 2`.  
@@ -50,19 +50,19 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson21/basic/Lesson21.java` (and `extra/Lesson21.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: why variables have been living up top  
+**Basic (3 pts)**: why variables have been living up top  
 - In `execute()`, declare a **local** counter (`int localCount = 0; localCount++;`) and put it on SmartDashboard.
 - Declare a **field** counter (`private int fieldCount = 0;`) outside any method, add 1 to it in `execute()`, and put it on SmartDashboard.
 - Run for five seconds. What does each counter show? Explain **why** in a comment.
 - This stub has no fields, so declare your **own** for the operator controller and both rollers. Create them in `setup()` and run the rollers at `0.3` while **A** is held.
 - What would go wrong if you created the rollers inside `execute()`? Answer in a comment.
 
-**Extra (1 pt)**: toggles and memory  
+**Extra (2 pts)**: toggles and memory  
 - Make **B** a toggle: one press turns intake on, the next turns it off. You'll need a field that remembers whether B was pressed **last loop**: `if (bPressed && !bWasPressed)`.
 - When intake is on: rollers `-0.7`, conveyor `0.8` (ROBOT.md). Otherwise stop them.
 - Keep a field with the **fastest roller speed ever seen** (`Math.max`). Put it and whether intake is on on SmartDashboard.
@@ -83,9 +83,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Import the class at the top of the file: `import java.util.ArrayList;`  
 - Create an `ArrayList<Integer>` called `numbers` with `new ArrayList<>()`, add `3`, `1` and `2` with `add(...)`, and print the list. It's `Integer`, not `int`: an `ArrayList` holds objects, so Java autoboxes each number, like lesson 43.  
 - Create an `ArrayList<String>` called `fruits`, add `"Apple"`, `"Orange"`, `"Banana"` and `"Coconut"`, and print it.  
@@ -77,12 +77,12 @@ Enter food #2: tacos
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson44/basic/Lesson44.java` (and `extra/Lesson44.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). This half needs `getPose()` from [Lesson 40](./LESSON40.md).
 
-**Basic (1 pt)**: which tags are near me right now?  
+**Basic (3 pts)**: which tags are near me right now?  
 
 [Lesson 22](./LESSON22.md) gave you an array of CAN IDs. An array is the right shape when you know the count and it never changes: this robot has eight motors, forever.
 
@@ -126,7 +126,7 @@ The list grows, shrinks and swaps members, and **you never once said how big it 
 
 > 🧮 **Two shapes, and why picking wrong costs you an evening.** `field.getTags()` is 32 tags, fixed, known before the match — array-shaped. `inRange` changes every loop — list-shaped. An array here would mean guessing a maximum *and* separately tracking how many slots are really filled, which is precisely the bug you'd spend a night hunting.
 
-**Extra (1 pt)**: the rest of the list, and one question about nothing  
+**Extra (2 pts)**: the rest of the list, and one question about nothing  
 
 - Use the methods an array doesn't have: `isEmpty()`, `size()`, `contains(...)`, `get(0)`.  
 - `contains()` compares with `equals()`, and `AprilTag` has one — but `inRange.contains(new AprilTag(18, field.getTagPose(18).get()))` is a mouthful. Write a small helper that loops and checks `tag.ID` instead, and note in a comment which you'd rather read at 1am.  
@@ -158,9 +158,9 @@ The list grows, shrinks and swaps members, and **you never once said how big it 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

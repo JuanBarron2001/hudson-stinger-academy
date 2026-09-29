@@ -34,9 +34,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `String[] fruits = {"Apple", "Orange", "Banana", "Coconut"};`  
 - Print each element by accessing its index (`fruits[0]`, `fruits[1]`, etc.).  
 - Print `fruits` itself, with no index. Why do you get a strange code instead of fruit names? *(Hint: lesson 02's reference types.)*  
@@ -52,19 +52,19 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson22/basic/Lesson22.java` (and `extra/Lesson22.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: every motor in one array  
+**Basic (3 pts)**: every motor in one array  
 - An `int[]` field holding every TalonFX CAN ID on the robot: `{1, 2, 3, 4, 5, 6, 7, 29}`.
 - A `TalonFX[]` field of the same length, filled in `setup()` with a `for` loop.
 - On the first loop, put `"CAN <id> Connected"` for every motor. This is lesson 16's pit check, and now CAN 29 is easy.
 - Every loop, put each motor's rotations on SmartDashboard.
 - Read `motors[8]`, see what error you get, and then remove it.
 
-**Extra (1 pt)**: drive with arrays  
+**Extra (2 pts)**: drive with arrays  
 - Make `leftMotors` (CAN 1, 3) and `rightMotors` (CAN 2, 4) arrays, and set each side with an **enhanced for loop** in your lesson 04 arcade drive.
 - Average the left side's rotations with a loop and `leftMotors.length`, turn the result into meters (lesson 04), and put it on SmartDashboard.
 - Why divide by `.length` instead of writing `2`? Answer in a comment.
@@ -84,9 +84,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

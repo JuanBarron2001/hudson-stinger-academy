@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson40.basic;`, and `package lesson40.extra;` for the extra's copy).
 
-**Basic (1 pt)**: lock the data, then open it on purpose  
+**Basic (2 pts)**: lock the data, then open it on purpose  
 - Create a `Car` class whose three attributes are **private**: `private String model;`, `private String color;` and `private int price;`. Give it a constructor, `Car(String model, String color, int price)`, that sets all three.  
 - In `main()`, create `new Car("Charger", "Yellow", 10000)` and try to print `car.color`. Read the error, `color has private access in Car`: `private` means only code inside `Car` can touch it. Delete the line.  
 - Add a **getter** for each attribute, so they can be read: `public String getModel()`, `public String getColor()` and `public int getPrice()`, each returning its attribute. Print all three with the getters.  
@@ -66,14 +66,14 @@ $10000
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson40/basic/Lesson40.java` (and `extra/Lesson40.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
 > 🧱 First lesson of the last unit. Your robot can drive, intake, shoot and climb. Now it finds out **where it is**.
 
-**Basic (1 pt)**: close the doors, then open windows  
+**Basic (3 pts)**: close the doors, then open windows  
 
 Since [Lesson 27](./LESSON27.md) every field on your subsystems has been `public`, and your lessons have reached straight through them: `drivetrain.leftLeader.getPosition().getValueAsDouble()`. That one line is a lesson file knowing the robot has a motor called `leftLeader`, that it's a `TalonFX`, and that positions arrive in motor rotations. Change any one of those and every lesson breaks.
 
@@ -99,7 +99,7 @@ public Rotation2d getHeading() {
 
 > 🚪 **What the getters bought you:** your lesson now asks *"where am I?"* instead of *"what does motor 1 say?"*. Swap every `TalonFX` for a different motor tomorrow and nothing outside `Drivetrain` notices.
 
-**Extra (1 pt)**: a setter that checks, and a minus sign worth arguing about  
+**Extra (2 pts)**: a setter that checks, and a minus sign worth arguing about  
 
 A getter answers a question. A setter is the one place a value must get past you before it reaches a motor — so it is the natural place to check it.
 
@@ -139,9 +139,9 @@ return Rotation2d.fromDegrees(-pigeon2.getYaw().getValueAsDouble());
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

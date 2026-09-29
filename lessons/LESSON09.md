@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Build the video's **movie ticket discount calculator**:
   - Create `double price = 15.00;` and two booleans, `isStudent` and `isSenior`
   - Write an `if` inside an `if`, **and** an `if` inside the `else`:
@@ -71,12 +71,12 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson09/basic/Lesson09.java` (and `extra/Lesson09.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: a shot that waits until it's ready  
+**Basic (3 pts)**: a shot that waits until it's ready  
 - Create the **operator controller**, both **rollers** and the **conveyor**.
 - Build this with an `if` **inside** an `if`:
   - If **A** is held: run the rollers at your lesson 07 power, then
@@ -86,7 +86,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 - Put the status and the roller speed on SmartDashboard.
 - Tap **A** and let go quickly. Does the conveyor ever feed? Why or why not?
 
-**Extra (1 pt)**: don't shoot blind  
+**Extra (2 pts)**: don't shoot blind  
 - Inside "A is held", nest two more checks, in this order: **target seen?** → **aimed?** → **at speed?** Only `"FEEDING"` runs the conveyor. The other statuses, `"NO TARGET"`, `"AIMING"` and `"SPINNING UP"`, hold it back.
 - **At home** there's no camera, so pretend: operator **X** held (**7** key) means "the Limelight sees the hub", and **Y** held (**8** key) means "we're aimed".
 - **At a meeting**, swap in the real camera: `LimelightHelpers.getTV("limelight")` for target seen, and `Math.abs(LimelightHelpers.getTX("limelight")) < 1.5` for aimed.
@@ -107,9 +107,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

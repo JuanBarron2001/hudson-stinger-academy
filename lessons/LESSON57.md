@@ -23,7 +23,7 @@ This lesson doesn't teach a new Java idea. It uses all of them at once:
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 Every lesson you've turned in was a **log file**: one line per value that changed, each line ending in a hash. In this part you write the program that reads one.
 
@@ -42,7 +42,7 @@ List<String> lines = Files.readAllLines(Path.of("resources/lesson57-robot-log.tx
 
 It needs `import java.nio.file.Files;`, `java.nio.file.Path` and `java.util.List`. It **throws `IOException`** if the file isn't there, so the compiler makes you deal with that: [Lesson 45](./LESSON45.md).
 
-**Basic (1 pt)**: what did the robot do?  
+**Basic (2 pts)**: what did the robot do?  
 
 - Read the file inside a `try`. If it throws, print `Couldn't read the log: ` and the exception's message, and stop. Then print how many lines there are.  
 - Split each line on `|`. Careful: `split` takes a pattern, where `|` means "or", so you have to write it `"\\|"`. The key is the second piece.  
@@ -98,7 +98,7 @@ After editing line 3: BROKEN at line 4
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 This time there's no lesson file to write. Your robot **is** the exercise.
 
@@ -106,7 +106,7 @@ This time there's no lesson file to write. Your robot **is** the exercise.
 
 The task list is also at the top of `frc/lesson/lesson57/basic/Lesson57.java` (and `extra/`). Those files stay empty.
 
-**Basic (1 pt)**: the whole robot, in one container  
+**Basic (3 pts)**: the whole robot, in one container  
 
 Your `RobotContainer` from [Lesson 42](./LESSON42.md) owns the drivetrain, the fuel mechanism and the climber. Finish it:
 
@@ -125,7 +125,7 @@ Then, in the simulator:
 
 **At a meeting, with a mentor:** deploy it to the real robot (`MY_ROBOT = true` still). Before anything moves, check with the mentor that the robot is on blocks or has room, and that someone has a hand on the disable button. Then go through every button again. If anything behaves differently from the simulator, that's worth writing down, not just fixing: the simulator was built from guesses, and the difference tells you which guess was wrong.
 
-**Extra (1 pt)**: last season's autonomous, on your code  
+**Extra (2 pts)**: last season's autonomous, on your code  
 
 Last season's code has two autos drawn in the PathPlanner app, and **neither one ever worked on the real robot**. The team couldn't get PathPlanner to drive a tank drivetrain, so the only auto that worked all season was `Shoot And Climb`, which is timed and has no paths. You're going to run `PP Depot And Climb` on the robot you wrote.
 
@@ -185,7 +185,7 @@ Last season's code is [`OG-Code-2026`](https://github.com/Hudson-Robotics/OG-Cod
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  

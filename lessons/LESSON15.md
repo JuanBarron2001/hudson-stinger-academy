@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `Scanner`.  
 - Prompt the user to enter their name.  
 - Use a `while` loop with `.isEmpty()` to keep asking until they type something.  
@@ -52,12 +52,12 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson15/basic/Lesson15.java` (and `extra/Lesson15.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: why robot code never waits  
+**Basic (3 pts)**: why robot code never waits  
 > ⚠️ **Simulator only.** Never deploy the `while` version to the real robot.
 
 - Create the **operator controller** and both **rollers**.
@@ -66,7 +66,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 - **Why did everything freeze?** Answer in a comment. *Hint: `execute()` has to finish before the robot does anything else, including updating how fast the rollers are spinning.*
 - **The right way:** replace the `while` with an `if` that checks once per loop. The robot stays alive, because `execute()` runs again fifty times a second anyway.
 
-**Extra (1 pt)**: a while loop that's fine  
+**Extra (2 pts)**: a while loop that's fine  
 - Create the driver controller, all four drive motors and the **Pigeon** gyro (`new Pigeon2(11)`), and drive with your lesson 04 arcade drive.
 - The gyro's yaw keeps counting past 360, so two spins read 720. Wrap it into -180…180 with two `while` loops: subtract 360 while it's above 180, and add 360 while it's below -180.
 - Put the raw yaw and the wrapped heading on SmartDashboard, then spin in circles (**J** / **L**).
@@ -87,9 +87,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

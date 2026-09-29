@@ -33,11 +33,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > The `import` line goes at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Import `java.util.HashMap`, and create a `HashMap<String, Double>` called `map`: the keys are `String`s and the values are `Double`s.  
 - `put` three prices, `"Apple"` at `0.50`, `"Orange"` at `0.75` and `"Banana"` at `0.25`, and print the map.  
 - Keys must be unique. `put` `"Orange"` again at `1000000.0` and print the map again. **Predict it first:** is there a second orange?  
@@ -76,12 +76,12 @@ Banana: $0.25
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson52/basic/Lesson52.java` (and `extra/Lesson52.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
-**Basic (1 pt)**: calling a command by its name  
+**Basic (3 pts)**: calling a command by its name  
 
 [Lesson 38](./LESSON38.md) put commands in a dropdown. This one puts them in a phone book.
 
@@ -103,7 +103,7 @@ actions.put("Shoot",  new FuelFor(fuel, "Shoot",  -0.72, -0.7));
 
 > 📖 **Why a map and not an if-chain?** You could write `if (wanted.equals("Intake"))` three times. Then the fourth action means editing that chain, and the tenth means reading twenty lines to find out what even exists. A map's `keySet()` **is** the list of what exists, and adding one is one line.
 
-**Extra (1 pt)**: hand your map to PathPlanner, then check it before the match  
+**Extra (2 pts)**: hand your map to PathPlanner, then check it before the match  
 
 Your map and PathPlanner's are the same idea, and PathPlanner will take yours **whole**:
 
@@ -151,9 +151,9 @@ ClimbUp  FALSE   <- the auto needs it, and nobody ever registered it
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

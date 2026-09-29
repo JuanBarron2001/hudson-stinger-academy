@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Put `int result = 1 / 0;` inside a `try` block. After it, `catch (ArithmeticException e)` and print `You can't divide by zero!`. Run it once **without** the `try` first, and read the exception it crashes with.  
 - Add `import java.util.Scanner;` and `import java.util.InputMismatchException;` at the **top** of the file.  
 - Create a `Scanner`. Inside a `try`: ask `Enter a number: `, read it with `nextInt()`, and print `You entered: ` and the number. Then `catch (InputMismatchException e)` and print `That wasn't a number!`.  
@@ -72,12 +72,12 @@ This always executes.
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson45/basic/Lesson45.java` (and `extra/Lesson45.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
-**Basic (1 pt)**: the file that might not be there  
+**Basic (3 pts)**: the file that might not be there  
 
 Every exception you've written so far was about bad input — somebody typed `pizza` where a number belonged. On a robot the classic one is different: **a file that was supposed to be deployed, and wasn't.**
 
@@ -109,7 +109,7 @@ Rename it back.
 
 > 🎯 **The rule this lesson exists for:** a `catch` block is not for making an error go away. It is for deciding **who finds out, and when**. Here the robot can still drive — so let it drive, and make sure the one person who can fix it knows *before* the match instead of during it.
 
-**Extra (1 pt)**: three ways to "handle" it, and only one is honest  
+**Extra (2 pts)**: three ways to "handle" it, and only one is honest  
 
 Write all three, run each with `settings.json` renamed away, and write down what a drive team would actually experience.
 
@@ -174,9 +174,9 @@ AutoBuilder.configure( ... );
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

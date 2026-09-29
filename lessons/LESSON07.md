@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Print `Math.PI` and `Math.E`.  
 - Demonstrate `Math.pow`, `Math.abs`, and `Math.sqrt`.  
 - Show rounding with `Math.round`, `Math.ceil`, and `Math.floor`.  
@@ -52,19 +52,19 @@ The video's two exercises. Use a `Scanner` for the inputs.
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson07/basic/Lesson07.java` (and `extra/Lesson07.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: is the flywheel at speed?  
+**Basic (3 pts)**: is the flywheel at speed?  
 - Create the **operator controller** and both **rollers**. While **A** is held (the **5** key at home), run the rollers at a power you pick. Negative launches, and **both rollers get the same number**: the two motors turn the same rollers, so they have to agree or they fight.
 - `target = -70` (the short shot, in rotations per second), `actual = leftRoller.getVelocity().getValueAsDouble()`, and `error = target - actual`.
 - `atSpeed = Math.abs(error) < 3`. `Math.abs` throws away the minus sign, because being 5 away is 5 away whether you're above or below.
 - Put `target`, `actual`, `error` and `atSpeed` on SmartDashboard.
 - **Find a power that makes `atSpeed` true**, and list every power you tried in a comment. On the real robot the right power is different, and it changes as the battery drains. Keep that in mind for Part 3.
 
-**Extra (1 pt)**: drive math that behaves  
+**Extra (2 pts)**: drive math that behaves  
 - Start from your lesson 04 arcade drive.
 - **Square the sticks** for gentler low-speed control: `Math.signum(stick) * Math.pow(stick, 2)`, then scale. Squaring a negative makes it positive, so `Math.signum` puts the sign back.
 - **Fix numbers bigger than 1 without changing the turn:** `biggest = Math.max(Math.abs(left), Math.abs(right))`, and if `biggest > 1`, divide **both** sides by it.
@@ -86,9 +86,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

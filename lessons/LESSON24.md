@@ -32,9 +32,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**: search an array of numbers  
+**Basic (2 pts)**: search an array of numbers  
 - Create an array of numbers, like `int[] numbers = {1, 9, 2, 8, 3, 7, 4};`, and an `int target = 2;`.  
 - Loop through the array with a `for` loop that stops at `numbers.length`.  
 - Inside the loop, `if (numbers[i] == target)`, print `"Element found at index " + i` and then `break`. Once you've found it, there's no reason to keep looking.  
@@ -50,19 +50,19 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson24/basic/Lesson24.java` (and `extra/Lesson24.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: is that CAN ID on the robot?  
+**Basic (3 pts)**: is that CAN ID on the robot?  
 - Start from lesson 22's array: `int[] canIds = {1, 2, 3, 4, 5, 6, 7, 29};`.  
 - Pick an `int target = 29;` and search the array with this lesson's loop: when `canIds[i] == target`, remember the index and `break`. The array never changes, so do the search **once in `setup()`** and store the answer in a field.  
 - In `execute()`, put the answer on SmartDashboard: `"CAN 29 found at index 7"`.  
 - Add the `boolean isFound` flag. After the loop, `if (!isFound)`, put `"CAN <target> is not on this robot"` instead.  
 - Now set `target = 8` and run it again. There is no CAN 8 on this robot, which is exactly the case the flag is for. Without it, the dashboard just says nothing, and you can't tell "not found" from "my code never ran".  
 
-**Extra (1 pt)**: search by mechanism name  
+**Extra (2 pts)**: search by mechanism name  
 - Add a `String[] mechanisms` in the **same order** as `canIds`:  
   `{"left drive", "right drive", "left drive follower", "right drive follower", "left roller", "right roller", "climber", "conveyor"}`.  
 - Search it with `mechanisms[i].equals(target)`, **not** `==`, for a name like `"conveyor"`.  
@@ -90,9 +90,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

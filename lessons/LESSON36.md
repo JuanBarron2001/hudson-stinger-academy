@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson36.basic;`, and `package lesson36.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create an abstract parent class, `public abstract class Shape`, with two methods:  
   - `abstract double area();`, an **abstract** method: no body, just a semicolon. Every child has to write its own.  
   - `void display()`, an ordinary method that prints `This is a shape`. Children inherit it.  
@@ -70,12 +70,12 @@ Expected output:
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson36/basic/Lesson36.java` (and `extra/Lesson36.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). The ball paths are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: the thing you have been doing since lesson 01  
+**Basic (3 pts)**: the thing you have been doing since lesson 01  
 
 Open `frc/lesson/LessonBase.java` and find this line:
 
@@ -112,7 +112,7 @@ public void execute() {
 
 > ❓ **Why `abstract` and not just a normal parent?** Because `new FuelAction(fuel)` is meaningless — there is no such thing as a generic fuel action, it would have no numbers. Marking the class `abstract` makes the compiler agree with you. The extra half makes you prove it.
 
-**Extra (1 pt)**: collect on it  
+**Extra (2 pts)**: collect on it  
 
 An abstraction is only worth something if the **next** one is cheap. So add a third action and count the lines.
 
@@ -153,9 +153,9 @@ FuelAction whatever = new FuelAction(fuel);
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

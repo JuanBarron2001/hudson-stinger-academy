@@ -31,11 +31,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson39.basic;`, and `package lesson39.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create an abstract parent class, `Animal`, with one abstract method, `abstract void speak();`.  
 - Create `Dog` and `Cat`, which extend `Animal` and override `speak()`, printing `The dog goes woof` and `The cat goes meow`.  
 - In `main()`, create a `Dog` and a `Cat` and call `speak()` on each. Then try `new Animal()` and read the error, `Animal is abstract; cannot be instantiated`. Delete it.  
@@ -59,7 +59,7 @@ Expected output:
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 39 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -74,8 +74,8 @@ Expected output:
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson35.basic;`, and `package lesson35.extra;` for the extra's copy).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `Car` class with `String make`, `String model`, `int year` and `String color`, and a constructor, `Car(String make, String model, int year, String color)`, that sets all four.  
 - In `main()`, create `new Car("Ford", "Mustang", 2025, "Red")` and print it directly with `System.out.println(car);`. You’ll see something like  
   `lesson35.basic.Car@6d06d69c`: the class's full name and a hash code. That's `Object`'s default `toString()`, which every class inherits.  
@@ -69,7 +69,7 @@ Blue 2026 Chevrolet Corvette
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 35 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -84,8 +84,8 @@ Blue 2026 Chevrolet Corvette
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

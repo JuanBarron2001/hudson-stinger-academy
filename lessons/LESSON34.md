@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson34.basic;`, and `package lesson34.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a parent class, `Animal`, with `void move()`, which prints `This animal is running`.  
 - Create `Dog`, `Cat` and `Fish`, which each extend `Animal` and are otherwise empty. They all inherit `move()`.  
 - In `main()`, create a `Dog`, a `Cat` and a `Fish`, and call `move()` on each. All three are "running", which is wrong for a fish.  
@@ -64,14 +64,14 @@ This animal is swimming
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson34/basic/Lesson34.java` (and `extra/Lesson34.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
 > 🧱 This is the first lesson of the **commands** unit, and it needs the subsystems from [Lesson 32](./LESSON32.md). A subsystem is a **thing the robot has**. A command is **something the robot does**.
 
-**Basic (1 pt)**: your first real command  
+**Basic (3 pts)**: your first real command  
 
 WPILib's `Command` is four empty methods and a promise about when each one runs. You fill them in by **overriding** them — this lesson's Java idea, pointed at a robot.
 
@@ -104,7 +104,7 @@ if (!operator.getBButton() && intake.isScheduled()) { intake.cancel(); }
 
 > 👀 **Notice what isn't there.** Your lesson's `execute()` doesn't touch a motor. The robot is doing a thing you described somewhere else, and the lesson only says *when*.
 
-**Extra (1 pt)**: a command that knows when it's done, and one that gets shoved aside  
+**Extra (2 pts)**: a command that knows when it's done, and one that gets shoved aside  
 
 `Intake` returns `false` from `isFinished()` forever. Most commands aren't like that. A command that spins the flywheel up is finished the moment the flywheel is at speed — and it's the only thing that can know that.
 
@@ -163,9 +163,9 @@ fuelSubsystem.setFeederRoller(
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

@@ -31,11 +31,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Each class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson42.basic;`, and `package lesson42.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create an `Engine` class with a `String type`, a constructor, `Engine(String type)`, and `void start()`, which prints `You start the `, the type, and ` engine`.  
 - Create a `Car` class that **contains** an engine: `String model`, `int year` and `Engine engine`. Its constructor is  
 
@@ -73,14 +73,14 @@ Mustang is running
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson42/basic/Lesson42.java` (and `extra/Lesson42.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md).
 
 > 🤖 **This is the lesson where the robot becomes a robot.** Everything you've built since [Lesson 27](./LESSON27.md) gets owned by one object.
 
-**Basic (1 pt)**: the robot becomes one object  
+**Basic (3 pts)**: the robot becomes one object  
 
 Inheritance is **IS-A**: a `Drivetrain` *is a* `SubsystemBase`. Composition is **HAS-A**, and it's what actually holds a robot together: the robot *has* a drivetrain, *has* a fuel mechanism, *has* a climber. None of those is a kind of robot. The robot **owns** them.
 
@@ -111,7 +111,7 @@ That is the method [Lesson 32](./LESSON32.md) told you that you'd inherited and 
 
 > 🚦 **Why the default command matters.** Before this, your lesson called `drivetrain.arcade()` straight from `execute()`. It worked — but it went *around* the scheduler, so `addRequirements()` could not protect the drivetrain from **you**. Now every single thing that moves the drivetrain is a command, and the scheduler can referee all of them.
 
-**Extra (1 pt)**: a command made of commands, and the drivetrain changing hands  
+**Extra (2 pts)**: a command made of commands, and the drivetrain changing hands  
 
 Composition again, one level up. `ShootAndClimb` is not a new behaviour — it is three behaviours you already wrote, in order.
 
@@ -169,9 +169,9 @@ new LaunchSequence(fuelSubsystem)
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

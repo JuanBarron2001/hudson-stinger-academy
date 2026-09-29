@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > Every interface and class gets its own file next to `Main.java`, starting with the same `package` line, like lesson 27: `Prey.java`, `Predator.java`, `Rabbit.java` and so on all start with `package lesson37.basic;` (and `package lesson37.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create two interfaces, each with one method and no body:  
   - `public interface Prey`, with `void flee();`  
   - `public interface Predator`, with `void hunt();`  
@@ -68,7 +68,7 @@ The fish is hunting smaller fish!
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson37/basic/Lesson37.java` (and `extra/Lesson37.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). Climber numbers are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
@@ -77,7 +77,7 @@ An abstract class says *"you **are** a kind of me."* An interface says something
 
 Java already ships the one you need. `DoubleSupplier` is an interface with a single method — `double getAsDouble()` — and it means *"ask me for a number, whenever you like."*
 
-**Basic (1 pt)**: the climber, at whatever speed the driver wants  
+**Basic (3 pts)**: the climber, at whatever speed the driver wants  
 
 - Make `frc/robot/subsystems/Climber.java`, a `SubsystemBase` on **CAN 7**: brake mode, **80 A** limit, and `motor.setPosition(0)` in the constructor so you start from a known place. Give it `setSpeed(double)`, `getPosition()`, `stop()` and a `periodic()` that publishes the position.  
 - Make `frc/robot/commands/DynamicClimb.java`, whose constructor takes a `Climber` **and** a `DoubleSupplier`:  
@@ -108,7 +108,7 @@ public class TriggerAxis implements DoubleSupplier {
 
 > 🔌 **`DynamicClimb` never mentions `XboxController`, triggers, or the driver.** It asks an interface for a number. Anything that can produce a `double` can drive your climber — and the extra half proves it.
 
-**Extra (1 pt)**: prove the command doesn't care, then give it a limit  
+**Extra (2 pts)**: prove the command doesn't care, then give it a limit  
 
 - Make `frc/robot/FixedSpeed.java`, also `implements DoubleSupplier`. It holds one number and returns it. That is the entire class.  
 - Build a **second** `DynamicClimb` with it:  
@@ -163,9 +163,9 @@ driverController.rightTrigger(0.1).whileTrue(
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Write a simple method called `happyBirthday()` that prints the Happy Birthday song. Write it **outside** `main`, but inside the class.  
 - Java will want `static void happyBirthday()`, because `main` is `static` too. Lesson 31 explains `static`.  
 - Call it three times from `main()` to demonstrate code reuse.  
@@ -55,12 +55,12 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson19/basic/Lesson19.java` (and `extra/Lesson19.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: methods clean up the drive code  
+**Basic (3 pts)**: methods clean up the drive code  
 - Create the driver controller and all four drive motors.
 - Write `double deadband(double value)`, which **returns** the value with lesson 05's deadband applied.
 - Write `void setDrive(double left, double right)`, which sets all four motors and handles the right side's opposite sign.
@@ -68,7 +68,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 - Put `left` and `right` on SmartDashboard.
 - Methods inside a lesson don't need the word `static`.
 
-**Extra (1 pt)**: methods for the shooter  
+**Extra (2 pts)**: methods for the shooter  
 - Create the operator controller, both rollers and the conveyor.
 - Write `double rollerSpeed()`, `boolean atSpeed(double target)` (within 3, like lesson 07) and `void setFuel(double rollerPower, double conveyorPower)`.
 - Rebuild lesson 14's shoot logic using only those methods. It should read almost like English: `if (shooting && atSpeed(-70)) setFuel(...)`.
@@ -89,9 +89,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

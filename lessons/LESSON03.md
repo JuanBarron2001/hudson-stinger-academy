@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Write a program that:
   - Imports `java.util.Scanner`
   - Prompts the user for **two doubles**: `width` and `height`
@@ -59,19 +59,19 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson03/basic/Lesson03.java` (and `extra/Lesson03.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**  
+**Basic (3 pts)**  
 - Create the **driver controller** (`new XboxController(0)`) and both **left side** drive motors.
 - Read the left stick's up/down with `driver.getLeftY()`, put it on SmartDashboard, and set both left motors to it.
 - Run it and hold **W**, which pushes the stick forward. Answer in comments:
   - Is the number **positive or negative**?
   - Which way does the robot move on **Sim Field**, and why does it turn instead of driving?
 
-**Extra (1 pt)**: tank drive  
+**Extra (2 pts)**: tank drive  
 - Create the driver controller and **all four** drive motors.
 - Left stick drives the left side, right stick drives the right side. Flip each stick's sign with a minus so pushing forward gives a positive number: `double left = -driver.getLeftY();`
 - Hold **W** and **I** together (both sticks forward) and write down what the robot does.
@@ -93,9 +93,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

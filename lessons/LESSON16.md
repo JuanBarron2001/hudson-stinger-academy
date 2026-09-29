@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Write a `for` loop that prints `"Pizza"` 10 times.  
 - Print the loop index `i` to show iteration counts.  
 
@@ -50,17 +50,17 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson16/basic/Lesson16.java` (and `extra/Lesson16.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: pit check  
+**Basic (3 pts)**: pit check  
 - On the **first** loop only (use the `checked` field), a `for` loop goes through CAN IDs **1 to 8**, creates `new TalonFX(id)`, and puts `"CAN " + id + " Connected"` = `motor.isConnected()` on SmartDashboard.
 - Look up every ID in ROBOT.md. Which one comes back `false`, and why?
 - The conveyor is CAN **29**. How would you check it without looping all the way to 29? Lesson 22's arrays make this clean.
 
-**Extra (1 pt)**: a speed bar  
+**Extra (2 pts)**: a speed bar  
 - Create the **operator controller** and both **rollers**, and run them while **A** is held.
 - `blocks = (int) (Math.abs(velocity) / 10)`. Start with `bar = ""`, and use a `for` loop to add `"#"` to it `blocks` times.
 - Put the bar on SmartDashboard, then press and release **A** and watch it grow and shrink.
@@ -81,9 +81,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

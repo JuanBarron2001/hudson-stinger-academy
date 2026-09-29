@@ -32,9 +32,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Write a `for` loop that prints the numbers `1–9` on the same line, with a space after each (`print`, not `println`).  
 - Now put that loop **inside** another `for` loop that runs 3 times, and print an empty `println()` after the inner loop, so you get 3 rows of `1–9`.  
 - Follow the naming convention: the outer loop uses `i`, the inner loop uses `j`. Try naming both `i`. What does Java say?  
@@ -48,7 +48,7 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 18 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -63,8 +63,8 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

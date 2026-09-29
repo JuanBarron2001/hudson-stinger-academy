@@ -21,18 +21,22 @@ The robot half of every lesson programs a piece of **last season's robot**: its 
 - **Points count toward the prize at kickoff.** Ask a mentor for the details.
 - Everything about the robot (CAN IDs, inversions, buttons, speeds) is on one page: [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-Each lesson is worth **6 points**:
+Each lesson is worth **10 points**:
 
-| Part | What you do | Points |
-|---|---|---|
-| 💻 Java-only | Write a small program in `java-lessons/` | 2 |
-| 🤖 Robot code | Write the same idea in real robot code | 2 |
-| 📜 Code Archaeology *(optional)* | Read last season's robot code and explain a piece of it | 2 |
+| Part | What you do | Basic | Extra | Points |
+|---|---|---|---|---|
+| 🤖 Robot code | Write the same idea in real robot code | 3 | 2 | 5 |
+| 💻 Java-only | Write a small program in `java-lessons/` | 2 | 1 | 3 |
+| 📜 Code Archaeology *(optional)* | Read last season's robot code and explain a piece of it | 1 | 1 | 2 |
 
 Each part splits in half:
 
-- **Basic (1 pt)** — everyone does this. If you're new, doing every basic and no extra is a completely respectable way through the course.
-- **Extra (1 pt)** — the stretch half. If the basic felt easy, this is where the actual learning is.
+- **Basic** — everyone does this. If you're new, doing every basic and no extra is a completely respectable way through the course.
+- **Extra** — the stretch half. If the basic felt easy, this is where the actual learning is.
+
+**Aim for 5 points a lesson:** the Java and robot basics. That's the pace that gets you to kickoff. Robot code is worth the most because it's the point of the course.
+
+Optional lessons have no robot half yet, so they're worth the 3 Java points.
 
 Nobody is expected to max every lesson. Do the basics, pick the extras that look interesting, and keep moving. Code Archaeology is optional: skip it when you're short on time.
 

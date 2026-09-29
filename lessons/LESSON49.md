@@ -31,11 +31,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson49.basic;`, and `package lesson49.extra;` for the extra's copy).
 
-**Basic (1 pt)**: one unusual dog  
+**Basic (2 pts)**: one unusual dog  
 - Create a `Dog` class with one method, `void speak()`, that prints `The dog goes woof`. In `main()`, create a dog and make it speak.  
 - Scooby‑Doo is a dog who talks. **The long way** first: a new file, `TalkingDog.java`, where `TalkingDog extends Dog` and overrides `speak()` to print `Scooby-Doo says ruh-roh`. Create one and make it speak.  
 - That's a whole class for a single dog. **The short way:** delete `TalkingDog.java`, and give a second, ordinary `Dog` its own `speak()` right where you create it. The shape is:  
@@ -71,12 +71,12 @@ Running a one-time task
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson49/basic/Lesson49.java` (and `extra/Lesson49.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: one robot action, in a class with no name  
+**Basic (3 pts)**: one robot action, in a class with no name  
 - Create the operator controller, both rollers (CAN 5, 6) and the conveyor (CAN 29), the way lesson 13 did.  
 - In `setup()`, **after** the motors exist, build the intake action as an anonymous `Runnable` and keep it in a field:  
 
@@ -96,7 +96,7 @@ intakeAction = new Runnable() {
 - Put the name of the action you ran on SmartDashboard, and next to it the roller speed you read in lesson 07, `leftRoller.getVelocity().getValueAsDouble()`. Intake should turn the rollers the opposite way from eject, and the sign tells you which.  
 - **Nothing runs on its own here.** A `Runnable` is just an object with a `run()` method, and *you* call it, from the robot's own loop. That matters: lesson 50 shows what goes wrong when something else calls it, on its own thread.  
 
-**Extra (1 pt)**: no name, no reuse, and the short way  
+**Extra (2 pts)**: no name, no reuse, and the short way  
 - Put `intakeAction.getClass().getName()` on SmartDashboard. Java made up something like `frc.lesson.lesson49.extra.Lesson49$1`, for the same reason it did in the Java half: you never named the class.  
 - Hold both actions in a `Runnable[]` and pick one with the operator's buttons, so the array decides what the robot does. Each slot is a different anonymous class, and neither one can be reused anywhere else.  
 - Write the same intake action a second way, as a **lambda**, and leave it in a comment:  
@@ -126,9 +126,9 @@ intakeAction = new Runnable() {
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

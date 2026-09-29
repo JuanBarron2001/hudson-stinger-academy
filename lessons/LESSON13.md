@@ -34,9 +34,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `String day = "Friday";`  
 - Write an enhanced `switch` that prints:  
   - `"It is a weekday"` for Monday–Friday  
@@ -50,18 +50,18 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson13/basic/Lesson13.java` (and `extra/Lesson13.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: a switch picks the ball path  
+**Basic (3 pts)**: a switch picks the ball path  
 - Create the **operator controller**, both **rollers** and the **conveyor**.
 - Turn buttons into a mode word with `if` / `else if`: **B** → `"INTAKE"`, **left bumper** → `"EJECT"`, **A** → `"SHOOT"`, otherwise `"STOP"`. At home those are the **6**, **3** and **5** keys.
 - An enhanced `switch` on the mode sets `rollerPower` and `conveyorPower`, using the ball paths in ROBOT.md. `"SHOOT"` uses your lesson 07 power with the conveyor at `-0.7`, and `default` stops both.
 - Set the motors and put the mode and both powers on SmartDashboard.
 
-**Extra (1 pt)**: shuttle, and switches that hand back a value  
+**Extra (2 pts)**: shuttle, and switches that hand back a value  
 - Add `"SHUTTLE"` on the **right bumper** (the **4** key): rollers `-0.93`, conveyor `-0.7`.
 - Replace the one switch with **two switch expressions**, `double conveyorPower = switch (mode) { ... };`, and combine cases with commas (`case "INTAKE", "EJECT" -> 0.8;`).
 - Delete the `default` case, read the error, and put it back. Explain in a comment why Java insists.
@@ -81,9 +81,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

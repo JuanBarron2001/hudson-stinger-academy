@@ -33,11 +33,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > **Where a new class goes.** Make a new file next to your `Main.java`: `java-lessons/src/lesson27/basic/Car.java`. Its first line must be `package lesson27.basic;`, the same as `Main.java`, or `Main` can't find it. The extra half lives in a different folder, so it needs its own `Car.java` that starts with `package lesson27.extra;`. Copy your basic one over and change that line.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `Car` class with five attributes, each with a starting value: `String make` (`"Ford"`), `String model` (`"Mustang"`), `int year` (`2025`), `double price` (`58000.99`) and `boolean isRunning` (`false`).  
 - In `main()`, create a car with `Car car = new Car();` and print each attribute with the dot operator: `car.make`, `car.model`, and so on.  
 
@@ -76,7 +76,7 @@ Ford Mustang
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson27/basic/Lesson27.java` (and `extra/Lesson27.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
@@ -87,7 +87,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 > - **You create the files.** Nothing is waiting there for you to fill in. Because a file you haven't written yet can't be imported, the lesson stub's `import frc.robot...` line starts **commented out**. Uncomment it once the file exists.
 > - **Don't skip a lesson.** Lesson 28 expects the `Fuel` you write today. If you fall behind, ask a mentor for the reference copy rather than jumping ahead.
 
-**Basic (1 pt)**: the fuel mechanism becomes a class  
+**Basic (3 pts)**: the fuel mechanism becomes a class  
 - Make a new file, `frc/robot/subsystems/Fuel.java`, starting with `package frc.robot.subsystems;`. (It isn't a WPILib *subsystem* yet — that's lesson 32 — but this is the folder mechanisms live in, and it's where last season's code keeps them too.)  
 - Three attributes, created right where you declare them, because constructors are next lesson:  
 
@@ -106,7 +106,7 @@ public TalonFX conveyor = new TalonFX(29);
 
 **Look at what happened to `execute()`.** It no longer mentions motors, CAN IDs or power levels. It says *intake*, *eject*, *stop*. That is the whole reason classes exist: the lesson says what to do, and `Fuel` knows how.  
 
-**Extra (1 pt)**: two objects, one set of rollers  
+**Extra (2 pts)**: two objects, one set of rollers  
 - Add `public String lastAction = "none";` to `Fuel`, and set it at the end of each method.  
 - Make **two** of them in `setup()`, then change only the second one with the dot operator, the way the Java half did: `fuelB.lastAction = "I am the second one";`. Put both on SmartDashboard — two objects, two answers, one class.  
 - Now the interesting part. While the operator holds **B**, call `fuelA.intake();` and then `fuelB.stop();` in the same loop, and publish the real roller speed.  
@@ -133,9 +133,9 @@ Last season's fuel mechanism is `src/main/java/frc/robot/subsystems/CANFuelSubsy
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

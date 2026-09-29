@@ -33,11 +33,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `java-lessons/src/lesson28/basic/Student.java` starts with `package lesson28.basic;`, and the extra folder gets its own copy with `package lesson28.extra;`.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `Student` class with four attributes, and no starting values this time: `String name`, `int age`, `double gpa` and `boolean isEnrolled`.  
 - Add a **constructor** that takes three of them:  
 
@@ -77,14 +77,14 @@ Sandy is studying
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson28/basic/Lesson28.java` (and `extra/Lesson28.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and current limits are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 > 🧱 You keep building the same robot. This lesson edits the `Fuel` class you wrote in [Lesson 27](./LESSON27.md) and adds a `Drivetrain` next to it. If you skipped 27, do it first or ask a mentor for the reference copy.
 
-**Basic (1 pt)**: a constructor is where a motor gets set up  
+**Basic (3 pts)**: a constructor is where a motor gets set up  
 
 Your `Fuel` works, but every motor on it is running on factory defaults. A real motor has settings — which way it spins, how hard it may pull, what it does when you stop asking — and they only need setting **once**. That is what a constructor is for.
 
@@ -108,7 +108,7 @@ leftRoller.getConfigurator().apply(rollerConfig);
 
 > 🏠 **Honest note about home vs. the robot.** The inversions you just set change *nothing you can see in the simulator* — it already models the motors as mounted on the real robot, so the rollers read the same before and after. Coast vs. brake and the current limits are real on hardware, and the inversions matter the moment the code runs on the actual robot. Set them right anyway; the next lesson's drivetrain is where an inversion becomes visible.
 
-**Extra (1 pt)**: the drivetrain gets a constructor, and you delete a minus sign  
+**Extra (2 pts)**: the drivetrain gets a constructor, and you delete a minus sign  
 
 Back in [Lesson 19](./LESSON19.md) you wrote `setDrive(left, right)`, and it had to flip the sign on the right side by hand because the two sides face opposite directions. A constructor tells the motors that **once**.
 
@@ -146,9 +146,9 @@ Both constructors you just wrote already exist in [`OG-Code-2026`](https://githu
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New classes go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27: `User.java` starts with `package lesson29.basic;` in the basic folder, and the extra folder gets its own copy with `package lesson29.extra;`.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create a `User` class with three attributes: `String username`, `String email` and `int age`.  
 - Add a constructor that takes **only** a username, `User(String username)`, and fills in defaults for the other two: `"Not Provided"` for the email and `0` for the age.  
 - In `main()`, create `new User("SpongeBob")` and print its username, email and age.  
@@ -67,14 +67,14 @@ Guest Not Provided 0
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson29/basic/Lesson29.java` (and `extra/Lesson29.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). Shot speeds and stick scaling are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 > 🧱 Still the same robot. This lesson adds a `Shot` class and a `shoot()` method to the `Fuel` from [Lesson 27](./LESSON27.md), and gives the `Drivetrain` from [Lesson 28](./LESSON28.md) a second constructor.
 
-**Basic (1 pt)**: three shots, one class, three constructors  
+**Basic (3 pts)**: three shots, one class, three constructors  
 
 The robot takes three shots — short, medium and far. They differ only in numbers. That is exactly a class with overloaded constructors: one easy way to build the usual one, and other ways to build the ones you have to describe.
 
@@ -107,7 +107,7 @@ public Shot(double rollerPower, double targetRps, double conveyorPower) {
 
 **Read your two lines out loud.** `new Shot()` says *the usual shot*. `new Shot(-0.93, -90, -0.9)` says *this specific one*. Either way you never wrote three loose `double`s sitting next to each other where two could quietly get swapped.
 
-**Extra (1 pt)**: a rookie driver's drivetrain  
+**Extra (2 pts)**: a rookie driver's drivetrain  
 
 - Add `public double forwardScale;` and `public double turnScale;` to `Drivetrain`.  
 - Give it two constructors. `Drivetrain()` becomes a single line, `this(0.7, 0.8)` — the robot's own numbers from ROBOT.md. Everything you wrote in lesson 28 (motors, configs, followers) moves into `Drivetrain(double forwardScale, double turnScale)`.  
@@ -137,9 +137,9 @@ public Shot(double rollerPower, double targetRps, double conveyorPower) {
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---

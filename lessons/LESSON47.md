@@ -34,11 +34,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > The `import` lines go at the **top** of your `Main.java`, and the rest goes **inside** `main`. Keep the `public class Main extends BaseLesson` line your file already has: without `extends BaseLesson`, the lesson runner can't run it.
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Read the `test.txt` you wrote in lesson 46, line by line. It's in `java-lessons/`, the folder you run lessons from, so `String filePath = "test.txt";` is enough.  
 - Import `BufferedReader`, `FileReader`, `FileNotFoundException` and `IOException`, all from `java.io`.  
 - Open it with try-with-resources (lesson 45): `try (BufferedReader reader = new BufferedReader(new FileReader(filePath)))`. The `FileReader` does the actual reading. The `BufferedReader` wraps it, like a middleman, so it can read a whole line at a time.  
@@ -74,7 +74,7 @@ Lines: 3
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 47 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -89,8 +89,8 @@ Lines: 3
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

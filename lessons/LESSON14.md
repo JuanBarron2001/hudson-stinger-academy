@@ -33,9 +33,9 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create an integer `temp = 20;`  
 - Use `&&` to check if `temp` is between 0 and 30.  
 - Print `"The weather is good 🙂"` if true.  
@@ -53,12 +53,12 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson14/basic/Lesson14.java` (and `extra/Lesson14.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, inversions and buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: flatten the nested ifs  
+**Basic (3 pts)**: flatten the nested ifs  
 - Create the **operator controller**, both **rollers** and the **conveyor**.
 - Store two booleans: `shooting` (**A** held, the **5** key) and `atSpeed` (lesson 07's check against `-70`).
 - The rollers run at your lesson 07 power whenever `shooting`.
@@ -69,7 +69,7 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 - Put `shooting`, `atSpeed` and the status on SmartDashboard.
 - Compare with your lesson 09 version. Which is easier to read? Answer in a comment.
 
-**Extra (1 pt)**: climber soft limits  
+**Extra (2 pts)**: climber soft limits  
 - Create the **driver controller** and the **climber**.
 - Power is `0.95` when the D-pad is up, `-0.4` when it's down (`getPOV() == 180`), otherwise `0`.
 - **In one `if`**, using `&&` and `||`: if (going up **and** past `365`) **or** (going down **and** below `-70`), set power to `0`. Those are the competition code's limits.
@@ -91,9 +91,9 @@ Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). CAN IDs, 
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*
 
 ---

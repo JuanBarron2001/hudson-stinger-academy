@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > `import` lines go at the **top** of your `Main.java`, and statements go **inside** `main`. New classes like `Box` get their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson51.basic;`, and `package lesson51.extra;` for the extra's copies).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - You've used generics already. Make an `ArrayList<String>` of `Apple`, `Orange` and `Banana` and print it, then an `ArrayList<Integer>` of `1`, `2` and `3` and print that. The type in the angle brackets decides what the list may hold.  
 - Now write your own: a **generic class**, `public class Box<T>`. `T` is a **type parameter**, a placeholder for whatever type a particular box will hold. Give it:  
   - `private T item;`  
@@ -70,7 +70,7 @@ Ticket
 
 ---
 
-## 🤖 Part 2 – Robot Code (2 pts)
+## 🤖 Part 2 – Robot Code (5 pts)
 
 > **Not written yet.** Lesson 51 is **optional** this offseason, so its robot half was never rewritten for the 2026 robot. What used to be here was a 2025 draft describing hardware this robot doesn't have, so it has been taken out rather than left to send you down a dead end. **Skip Parts 2 and 3 for now.**
 >
@@ -85,8 +85,8 @@ Ticket
 ---
 
 ## 🏆 Total Points
-- **Max right now:** 2 pts  
-  - Java‑Only: 2 pts  
+- **Max right now:** 3 pts  
+  - Java‑Only: 3 pts  
   - Robot Code and Code Archaeology: they come back if this lesson gets a 2026 robot half
 
 ---

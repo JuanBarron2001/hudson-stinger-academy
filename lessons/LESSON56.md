@@ -23,7 +23,7 @@ Learn to:
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > New interfaces go in their own file next to `Main.java`, starting with the same `package` line, like lesson 27 (`package lesson56.basic;`).
 
@@ -55,7 +55,7 @@ Most of that is words the compiler could have worked out on its own. Java alread
 
 **The rule that makes all of it work:** a lambda can only become an interface with **exactly one** method to fill in. That kind of interface is called a **functional interface**. `Runnable` is one. So is `DoubleSupplier` from [Lesson 37](./LESSON37.md), and so is a `Comparator`.
 
-**Basic (1 pt)**: the anonymous class, shortened  
+**Basic (2 pts)**: the anonymous class, shortened  
 
 - Write lesson 49's anonymous `Runnable` that prints `Running a one-time task` again, in `main()`. Then write a **second** `Runnable` that prints the same thing, as a lambda. Run both.  
 - Make your own functional interface, `Greeting.java`, with one method:  
@@ -123,12 +123,12 @@ Shaggy
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson56/basic/Lesson56.java` (and `extra/Lesson56.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). Buttons are in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
-**Basic (1 pt)**: `TriggerAxis`, in one line  
+**Basic (3 pts)**: `TriggerAxis`, in one line  
 
 In [Lesson 37](./LESSON37.md) you wrote `TriggerAxis`: a whole file with a field, a constructor and an `@Override`, all to hand `DynamicClimb` one expression, `controller.getRightTriggerAxis()`. `DoubleSupplier` has exactly one method, so it's a functional interface, which means a lambda can take `TriggerAxis`'s place.
 
@@ -144,7 +144,7 @@ new DynamicClimb(climber, () -> driver.getRightTriggerAxis())
 - Publish the class name of your lambda, the way the Java half did. Java made up something like `Lesson56$$Lambda...`: it wrote `TriggerAxis` for you, with no name, the same way lesson 49's anonymous class became `Lesson49$1`.  
 - **Don't delete `TriggerAxis.java`.** Your `Lesson37.java` still uses it, and deleting a class that another file uses breaks the whole build, not just that one lesson. From now on, just don't write any new ones.  
 
-**Extra (1 pt)**: `::`, and buttons that bind themselves  
+**Extra (2 pts)**: `::`, and buttons that bind themselves  
 
 - **The `::` from [Lesson 32](./LESSON32.md), explained at last.** Your `Drivetrain` has `new DifferentialDrive(leftLeader::set, rightLeader::set)`. `DifferentialDrive` asks for two things that can *take* a `double`, and `leftLeader::set` means *"the `set` method of `leftLeader`"*. Write the same thing the long way, as a lambda in a comment, so you can see the two match:  
 
@@ -207,7 +207,7 @@ this::getRobotRelativeSpeeds,
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  

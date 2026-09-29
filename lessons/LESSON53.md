@@ -32,11 +32,11 @@ If you just want **this lesson only** and to be done with it — no scrubbing th
 
 ---
 
-## 💻 Part 1 – Java‑Only (2 pts)
+## 💻 Part 1 – Java‑Only (3 pts)
 
 > An enum is a special kind of class, so `Day` gets its own file next to `Main.java`, `Day.java`, starting with the same `package` line, like lesson 27 (`package lesson53.basic;`, and `package lesson53.extra;` for the extra's copy).
 
-**Basic (1 pt)**  
+**Basic (2 pts)**  
 - Create an enum for the days of the week, `public enum Day`, whose seven constants each carry their number: `SUNDAY(1)`, `MONDAY(2)`, and so on to `SATURDAY(7)`. The list of constants ends with a `;`.  
 - An enum can have fields and a constructor like any class. Give it `private final int dayNumber;`, a constructor `Day(int dayNumber)` that sets it, and `public int getDayNumber()`.  
 - In `main()`, make `Day day = Day.SUNDAY;`, then print `day` and `day.getDayNumber()`.  
@@ -70,14 +70,14 @@ It is the weekend
 
 ---
 
-## 🤖 Part 2 – Robot Code: the 2026 Robot (2 pts)
+## 🤖 Part 2 – Robot Code: the 2026 Robot (5 pts)
 
 Your code goes in `robot-code/command-based-bot-2026/src/main/java/frc/lesson/lesson53/basic/Lesson53.java` (and `extra/Lesson53.java`). The task list is at the top of each file.  
 Run it in the simulator the way you did in [Lesson 00](./LESSON00.md). The ball paths table is in [ROBOT.md](../robot-code/command-based-bot-2026/ROBOT.md).
 
 > 🏁 **This is the last core robot half of the offseason.** Everything after it is [the lambdas lesson](./LESSON56.md) and the capstone.
 
-**Basic (1 pt)**: the four ball paths, named at last  
+**Basic (3 pts)**: the four ball paths, named at last  
 
 Back in [Lesson 13](./LESSON13.md) you learned the 2026 robot can do exactly **four** things with a ball, and each is a pair of numbers. Since then those numbers have been scattered across if-chains, `Constants`, and command classes.
 
@@ -129,7 +129,7 @@ Four behaviours, one method, because the enum carries the difference.
 
 > 👀 **You have been using enums since [Lesson 28](./LESSON28.md).** `NeutralModeValue.Brake` and `InvertedValue.Clockwise_Positive` are both enum constants. Go and look at one now that you know what you're seeing.
 
-**Extra (1 pt)**: `switch` on it, then type pizza at it  
+**Extra (2 pts)**: `switch` on it, then type pizza at it  
 
 - Switch on the path to say where the ball actually **goes**. The numbers live in the enum; the meaning doesn't:  
 
@@ -180,9 +180,9 @@ return false;
 ---
 
 ## 🏆 Total Points
-- **Max:** 6 pts  
-  - Java‑Only: 2 pts  
-  - Robot Code: 2 pts  
+- **Max:** 10 pts  
+  - Java‑Only: 3 pts  
+  - Robot Code: 5 pts  
   - Code Archaeology: 2 pts *(optional)*  
 
 ---
