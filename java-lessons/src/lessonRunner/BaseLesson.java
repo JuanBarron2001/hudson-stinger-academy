@@ -13,7 +13,7 @@ public abstract class BaseLesson {
     private final String logFileName;
     private final PrintStream originalOut;
     private FileOutputStream fileOutStream;
-    private PrintStream loggerStream;
+    private LessonLogger loggerStream;
     private final int HYPHEN_SEPARATOR_LENGTH = 80;
 
     protected BaseLesson() {
@@ -53,6 +53,20 @@ public abstract class BaseLesson {
         if (loggerStream != null)
         {
             System.setOut(loggerStream);
+        }
+    }
+
+    public String getLogFileName()
+    {
+        return logFileName;
+    }
+
+    /** Puts a crash's stack trace in this lesson's log, where a mentor will find it. */
+    public void logCrash(Throwable crash)
+    {
+        if (loggerStream != null)
+        {
+            loggerStream.logCrash(crash);
         }
     }
 

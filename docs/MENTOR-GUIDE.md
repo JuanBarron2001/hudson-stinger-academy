@@ -183,7 +183,7 @@ Worth understanding before you change any of it, because the design is deliberat
   ```
 
 - **`LessonInput`** — an `InputStream` that feeds scripted answers to `Scanner`, echoing each character with a delay so the transcript looks typed.
-- **`LessonRunner`** — prompts for a two-digit lesson, reflectively runs `basic` then `extra`.
+- **`LessonRunner`** — prompts for a two-digit lesson, reflectively runs `basic` then `extra`. If a half throws, its stack trace goes to the end of that half's log as `crash` lines, still on the chain, and the student sees a friendly message naming the file.
 
 ### The robot side
 
@@ -255,8 +255,8 @@ Things that will waste your time if you don't know them. Verified in the code on
 | `LessonRunner` | Closed `System.in` after reading the lesson number, so a lesson with no scripted answers couldn't read the keyboard at all. *Fixed 2026-09-25* |
 | `RobotContainer.teleopPeriodic()` | Throws `NullPointerException` when no lesson loaded, right after printing a friendly "skipping" message. *Fixed in 2026: `LessonLoader` explains and nothing runs* |
 | `LessonBase.logSmartDashboardChanges()` | Stops logging permanently after 137 cycles — `modResetCount` never resets. *Fixed in 2026: samples 10×/s, caps at 10,000 lines and says so in the log* |
-| `LessonRunner` | Never calls `closeLogger()` |
-| `LessonRunner` catch-all | Swallows the stack trace, leaving you nothing to debug |
+| `LessonRunner` | Never called `closeLogger()`. *Fixed 2026-09-29: the log is turned off and closed even when the lesson crashes* |
+| `LessonRunner` catch-all | Swallowed the stack trace, leaving you nothing to debug. *Fixed 2026-09-29: when the student's code throws, the trace goes into that half's log as chained `crash` lines, and the console names the file to send you. A crash in the runner itself prints its trace to the console* |
 | `Robot.java` | Lesson selection is hardcoded; students edit source to switch lessons. *In 2026 it's `PickYourLesson.java`, still source, but isolated* |
 | `.gitignore` | Ignored `*.log` since the first commit, so `git add .` silently skipped every submission log. *Fixed: `!*-output.log`* |
 | Phoenix 6 in simulation | A motor with no physics feeding it looks stalled at ~3 V. Use `RobotSim`; see section 3 |
@@ -264,7 +264,7 @@ Things that will waste your time if you don't know them. Verified in the code on
 | `lessons/LESSON49.md` | Zero bytes, and the index skips 48 → 50 |
 | Lesson 24 | Duplicates lesson 23 — the index says so itself |
 | `robot-code/educational-bot-2025/` | Untracked, empty but for a stale `build/` tree |
-| `java-lessons/` | No build file at all |
+| `java-lessons/` | No build file at all. On purpose: the Student Guide's one `javac` line compiles every lesson |
 
 ---
 
