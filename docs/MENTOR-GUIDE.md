@@ -264,7 +264,7 @@ Things that will waste your time if you don't know them. Verified in the code on
 | `lessons/LESSON49.md` | Zero bytes, and the index skips 48 → 50 |
 | Lesson 24 | Duplicates lesson 23 — the index says so itself |
 | `robot-code/educational-bot-2025/` | Untracked, empty but for a stale `build/` tree |
-| `java-lessons/` | No build file at all |
+| `java-lessons/` | No build file at all. On purpose: the Student Guide's one `javac` line compiles every lesson |
 
 ---
 
