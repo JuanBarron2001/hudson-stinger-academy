@@ -2,6 +2,8 @@ package lessonRunner;
 
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -34,6 +36,25 @@ public class LessonLogger extends PrintStream
             this.consoleOut.print(value);
         }
 
+        this.writeLine(function, type, value);
+    }
+
+    /**
+     * Writes a crash's stack trace into the log file only, one chained line per line of the trace.
+     * The student gets the runner's friendly message; the mentor reading the log gets the details.
+     */
+    public void logCrash(Throwable crash)
+    {
+        StringWriter trace = new StringWriter();
+        crash.printStackTrace(new PrintWriter(trace));
+        for (String line : trace.toString().split("\\R"))
+        {
+            this.writeLine("crash", crash.getClass().getSimpleName(), line);
+        }
+    }
+
+    private void writeLine(String function, String type, String value)
+    {
         String prevHash = this.hash(this.lastLogLine);
         String logLine = String.join("|",LocalDateTime.now().format(this.TS_FORMAT),function,type,value,prevHash);
         lastLogLine = logLine;

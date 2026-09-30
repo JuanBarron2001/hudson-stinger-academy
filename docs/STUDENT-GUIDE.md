@@ -239,6 +239,8 @@ That's the runner's catch-all. It means your code threw an exception. Most commo
 
 Read your code from the top of `main` and trace what actually happens, line by line. If you're stuck for more than fifteen minutes, ask — that's not failure, that's efficiency.
 
+The message names a log file, like `lesson07.basic-output.log`. The lines at the bottom marked `crash` say exactly what went wrong and on which line of your code: look for `Main.java` followed by a line number. When you ask for help, send that file.
+
 ### The program just sits there doing nothing
 
 It's probably waiting for input you're not giving it. Lessons that use `Scanner` get their answers fed in automatically by the runner, but that scripting is set up per-lesson and a few lessons don't have it yet. Tell a mentor which lesson number and they'll add it.

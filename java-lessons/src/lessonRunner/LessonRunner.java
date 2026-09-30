@@ -51,10 +51,25 @@ public class LessonRunner {
         } catch (ClassNotFoundException e) {
             System.err.println("❌ No such class found. Check the lesson number or program name.");
         } catch (NoSuchMethodException e) {
-            System.err.println("❌ Missing required method (main/turnOnLogging/turnOffLogging).");
+            System.err.println("❌ Missing required method: public static void main(String[] args).");
+        } catch (ClassCastException e) {
+            System.err.println("❌ Your Main class has to say \"extends BaseLesson\", or nothing gets logged.");
+        } catch (LessonCrashed e) {
+            System.out.println("❌ Something happened — it might be this program or your program.\n"
+                             + "   Reach out to your Programming Mentor or Head Programmer Student,\n"
+                             + "   and send them " + e.getMessage() + ". The details are at the bottom.");
         } catch (Exception e) {
             System.out.println("❌ Something happened — it might be this program or your program.\n"
                              + "   Reach out to your Programming Mentor or Head Programmer Student.");
+            // Not the lesson's fault, so there's no lesson log to put this in. The mentor needs it.
+            e.printStackTrace();
+        }
+    }
+
+    /** The lesson's own code threw. Its stack trace is already in the log file this names. */
+    private static class LessonCrashed extends Exception {
+        LessonCrashed(String logFileName) {
+            super(logFileName);
         }
     }
 
@@ -96,22 +111,25 @@ public class LessonRunner {
         System.out.println("**************************************************\n");
     }
 
-    private static void runProgram(String lessonNum, String className) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException
+    private static void runProgram(String lessonNum, String className) throws ReflectiveOperationException, LessonCrashed
     {
         String lessonClassName = "lesson" + lessonNum + "." + className;
         System.out.println("\n🚀 Launching lesson: " + lessonClassName);
 
         Class<?> lessonClass = Class.forName(lessonClassName);
-        Object lessonInstance = lessonClass.getDeclaredConstructor().newInstance();
-
-        Method turnOnLoggingMethod = lessonClass.getMethod("turnOnLogging");
-        turnOnLoggingMethod.invoke(lessonInstance);
-
+        BaseLesson lesson = (BaseLesson) lessonClass.getDeclaredConstructor().newInstance();
         Method mainMethod = lessonClass.getMethod("main", String[].class);
-        mainMethod.invoke(null, (Object) new String[0]);
 
-        Method turnOffLoggingMethod = lessonClass.getMethod("turnOffLogging");
-        turnOffLoggingMethod.invoke(lessonInstance);
+        lesson.turnOnLogging();
+        try {
+            mainMethod.invoke(null, (Object) new String[0]);
+        } catch (InvocationTargetException e) {
+            lesson.logCrash(e.getCause());
+            throw new LessonCrashed(lesson.getLogFileName());
+        } finally {
+            lesson.turnOffLogging();
+            lesson.closeLogger();
+        }
 
         System.out.println("\n✅ Lesson finished running.");
         System.out.println("📄 A file has been generated — commit it for review!");
