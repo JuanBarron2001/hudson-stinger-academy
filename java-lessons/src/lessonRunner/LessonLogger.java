@@ -11,6 +11,14 @@ import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Deliberately a separate copy of robot-code's frc.lesson.LessonLogger, not a shared class.
+ * java-lessons has no build file, so it can't depend on the Gradle robot project, and the two do
+ * different jobs: this one captures a student's prints and echoes them to the console, the robot
+ * one records SmartDashboard changes and prints nothing. What they must share is the line format
+ * and the seed, so one checker (MENTOR-GUIDE section 5) verifies both logs. Change either of
+ * those here and change them there too.
+ */
 public class LessonLogger extends PrintStream
 {
     private final PrintStream consoleOut;

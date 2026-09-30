@@ -9,6 +9,14 @@ import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Deliberately a separate copy of java-lessons' lessonRunner.LessonLogger, not a shared class.
+ * java-lessons has no build file, so this Gradle project can't depend on it, and the two do
+ * different jobs: this one records SmartDashboard changes and prints nothing, that one captures a
+ * student's prints and echoes them to the console. What they must share is the line format and
+ * the seed, so one checker (MENTOR-GUIDE section 5) verifies both logs. Change either of those
+ * here and change them there too.
+ */
 public class LessonLogger extends PrintStream {
 
     private String lastLogLine = "4X#f9qdkEkzHEGGK";
